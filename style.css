@@ -5,3 +5,16 @@ html {
     font-size: 16px;
     font-family: sans-serif;
 }
+
+h3{
+  text-align: center;
+}
+.best_recipe, .last_recipe{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.competition{
+  display: flex;
+  flex-direction: row;
+}

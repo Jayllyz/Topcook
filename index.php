@@ -186,6 +186,6 @@
       </div>
     </main>
 
-    <footer class="bg-light">Ceci est un footer</footer>
+    <footer class="pt-5 pb-5 text-center">TopCook</footer>
 </body>
 </html>

@@ -34,14 +34,13 @@
   font-display: swap;
 }
 
-
-
 * {
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
 }
+
 html {
     font-size: 16px;
-    font-family: 'Raleway', sans-serif;
     scroll-behavior: smooth;
 }
 

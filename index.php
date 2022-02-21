@@ -162,7 +162,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>Mark</td>
+              <td>Dan</td>
               <td>Otto</td>
               <td>@mdo</td>
             </tr>

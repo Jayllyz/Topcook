@@ -45,11 +45,24 @@
   </div>
   </header>
     <main>
-      <h3 class="pb-4">Top recettes du mois</h3>
+    <div class="card mb-3 me-5 ms-5"> <!-- Recette du moment -->
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h1 class="card-title" style="text-align: center;">Sushi bizarre</h1>
+            <p class="card-text fs-3 ms-5 me-5">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <h3 class="pb-4 pt-5">Top recettes du mois</h3>
       <div class="best_recipe row row-cols-md-4 me-5 ms-5">
           <div class="col">
             <div class="card" style="width: 100%;">
-              <img src="..." class="card-img-top" alt="">
+              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -60,7 +73,7 @@
           </div>
           <div class="col">
             <div class="card" style="width: 100%;">
-              <img src="..." class="card-img-top" alt="">
+              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -71,7 +84,7 @@
           </div>
           <div class="col">
             <div class="card" style="width: 100%;">
-              <img src="..." class="card-img-top" alt="">
+              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -82,7 +95,7 @@
           </div>
           <div class="col">
             <div class="card" style="width: 100%;">
-              <img src="..." class="card-img-top" alt="">
+              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -102,7 +115,7 @@
       <div class="last_recipe row row-cols-md-4 me-5 ms-5">
           <div class="col">
             <div class="card" style="width: 100%;">
-              <img src="..." class="card-img-top" alt="">
+              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -113,7 +126,7 @@
           </div>
           <div class="col">
             <div class="card" style="width: 100%;">
-              <img src="..." class="card-img-top" alt="">
+              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -124,7 +137,7 @@
           </div>
           <div class="col">
             <div class="card" style="width: 100%;">
-              <img src="..." class="card-img-top" alt="">
+              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -135,7 +148,7 @@
           </div>
           <div class="col">
             <div class="card" style="width: 100%;">
-              <img src="..." class="card-img-top" alt="">
+              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>

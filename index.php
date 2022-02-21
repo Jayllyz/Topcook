@@ -19,13 +19,13 @@
         <a class="navbar-brand" href="#"><img src="images/topcook_logo.svg" alt="Logo" width="50" height="50"></a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Recettes</a>
+            <a class="nav-link" href="index.php">Recettes</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Forums</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Concours</a>
+            <a class="nav-link" href="#">Concours</a> 
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Connexion</a>
@@ -155,28 +155,25 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Date</th>
+              <th scope="col">Créateur</th>
+              <th scope="col">Sujet</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
               <td>Mark</td>
               <td>Otto</td>
               <td>@mdo</td>
             </tr>
             <tr>
-              <th scope="row">2</th>
               <td>Jacob</td>
               <td>Thornton</td>
               <td>@fat</td>
             </tr>
             <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
+              <td>Larry the Bird</td>
+              <td>Dan le boss</td>
               <td>@twitter</td>
             </tr>
           </tbody>

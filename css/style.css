@@ -77,6 +77,10 @@ h3{
 .btn{
   background-color: orange !important;
 }
+.btn-search{
+  background-color: green !important;
+  color: white !important;
+}
 .see_more:hover, .recipe:hover{
   transition: 0.5s !important;
   transform: scale(1.1) !important;

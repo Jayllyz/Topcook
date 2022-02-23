@@ -47,10 +47,33 @@ html {
 h3{
   text-align: center;
 }
+.recipe{
+  box-shadow: 10px -10px 4px lightgrey;
+}
+.card, .card img{
+  border-top-left-radius: 30px !important;
+  border-top-right-radius: 30px !important;
+  
+}
+.recipe_moment, .recipe_moment img{
+  border-radius: 30px !important;
+}
+.recipe_moment img{
+  border-bottom-right-radius: 0% !important;
+  border-top-right-radius: 0% !important;
+}
 .best_recipe, .last_recipe{
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+.see_more{
+  border-radius: 30px !important;
+}
+.see_more:hover, .recipe:hover{
+  transition: 0.5s !important;
+  transform: scale(1.1) !important;
+  z-index: 1 !important;
 }
 .competition{
   display: flex;

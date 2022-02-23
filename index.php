@@ -12,7 +12,7 @@
 <body>
     <?php include('includes/header.php'); ?>
     <main>
-    <div class="card mb-3 me-5 ms-5"> <!-- Recette du moment -->
+    <div class="card mb-3 me-5 ms-5 recipe_moment"> <!-- Recette du moment -->
       <div class="row g-0">
         <div class="col-md-4">
           <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="img-fluid rounded-start" alt="...">
@@ -28,46 +28,46 @@
       <h3 class="pb-4 pt-5">Top recettes du mois</h3>
       <div class="best_recipe row row-cols-md-4 me-5 ms-5">
           <div class="col">
-            <div class="card" style="width: 100%;">
+            <div class="card recipe" style="width: 100%;">
               <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 100%;">
+            <div class="card recipe" style="width: 100%;">
               <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 100%;">
+            <div class="card recipe" style="width: 100%;">
               <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 100%;">
+            <div class="card recipe" style="width: 100%;">
               <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
@@ -81,46 +81,46 @@
       <h3 class="pt-5 pb-3">Dernières recettes publiées</h3>
       <div class="last_recipe row row-cols-md-4 me-5 ms-5">
           <div class="col">
-            <div class="card" style="width: 100%;">
+            <div class="card recipe" style="width: 100%;">
               <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 100%;">
+            <div class="card recipe" style="width: 100%;">
               <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 100%;">
+            <div class="card recipe" style="width: 100%;">
               <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 100%;">
+            <div class="card recipe" style="width: 100%;">
               <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
 
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>

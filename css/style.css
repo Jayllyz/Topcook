@@ -84,6 +84,7 @@ h3{
 }
 .see_more, .recipe{
   transition: 0.5s !important;
+  z-index: 1 !important;
 }
 #see_more_btn{
   color: white !important;

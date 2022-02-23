@@ -48,7 +48,8 @@ h3{
   text-align: center;
 }
 .recipe{
-  box-shadow: 10px -10px 15px lightgrey;
+  filter: drop-shadow(0 0 0.75rem grey) !important;
+  
 }
 .card, .card img{
   border-top-left-radius: 30px !important;

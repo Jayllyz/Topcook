@@ -34,7 +34,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
+                <a href="#" class="btn see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
@@ -45,7 +45,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
+                <a href="#" class="btn see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
@@ -56,7 +56,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
+                <a href="#" class="btn see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
@@ -67,14 +67,14 @@
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
+                <a href="#" class="btn see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
         </div>
         <div class="container pt-4">
           <div class="d-grid gap-2 col-2 mx-auto">
-            <button class="btn btn-secondary" type="button">Voir plus...</button>
+            <button class="btn" type="button" id="see_more_btn"><div>Voir plus...</div></button>
           </div>
         </div>
       
@@ -87,7 +87,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
+                <a href="#" class="btn see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
@@ -98,7 +98,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
+                <a href="#" class="btn see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
@@ -109,7 +109,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
+                <a href="#" class="btn see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
@@ -120,14 +120,14 @@
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary see_more">Voir d'avantage</a>
+                <a href="#" class="btn see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
         </div>
         <div class="container pt-4">
           <div class="d-grid gap-2 col-2 mx-auto">
-            <button class="btn btn-secondary" type="button">Voir plus...</button>
+            <button class="btn" type="button" id="see_more_btn"><div>Voir plus...</div></button>
           </div>
         </div>
 

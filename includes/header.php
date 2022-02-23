@@ -23,7 +23,7 @@
             <a class="nav-link" href="#">Inscription</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><img src="../images/settings.svg" alt="Settings" width="20" height="20"></a>
+            <a class="nav-link" href="#"><img src="../images/settings.svg" alt="Settings" width="20" height="20""></a>
           </li>
         </ul>
       </div>

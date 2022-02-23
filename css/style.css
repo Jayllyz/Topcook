@@ -43,7 +43,6 @@ html {
     font-size: 16px;
     scroll-behavior: smooth;
 }
-
 h3{
   text-align: center;
 }
@@ -70,11 +69,36 @@ h3{
 }
 .see_more{
   border-radius: 30px !important;
+  color: white !important;
+}
+.see_more:hover{
+  color: white !important;
+}
+.btn{
+  background-color: orange !important;
 }
 .see_more:hover, .recipe:hover{
   transition: 0.5s !important;
   transform: scale(1.1) !important;
   z-index: 1 !important;
+}
+.see_more, .recipe{
+  transition: 0.5s !important;
+}
+#see_more_btn{
+  color: white !important;
+  border-radius: 30px !important;
+  font-size: 1.3rem !important;
+}
+#see_more_btn div{
+  transition: 0.5s !important;
+  transform: translateX(0%) !important;
+}
+#see_more_btn:hover div{
+  transition: 0.5s !important;
+  transform: translateX(35%) !important;
+  margin-right: 10% !important;
+  
 }
 .competition{
   display: flex;

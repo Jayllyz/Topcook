@@ -12,6 +12,7 @@
 <body>
     <?php include('includes/header.php'); ?>
     <main>
+      <h1 class="pb-3 text-center"><strong>La recette du moment</strong></h1>
     <div class="card mb-3 me-5 ms-5 recipe_moment"> <!-- Recette du moment -->
       <div class="row g-0">
         <div class="col-md-4">
@@ -19,13 +20,13 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h1 class="card-title" style="text-align: center;">Sushi bizarre</h1>
+            <h2 class="card-title text-center"><strong>Sushi</strong></h2>
             <p class="card-text fs-3 ms-5 me-5">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           </div>
         </div>
       </div>
     </div>
-      <h3 class="pb-4 pt-5">Top recettes du mois</h3>
+      <h3 class="pb-4 pt-5"><strong>Top recettes du mois</strong></h3>
       <div class="best_recipe row row-cols-md-4 me-5 ms-5">
           <div class="col">
             <div class="card recipe" style="width: 100%;">
@@ -78,7 +79,7 @@
           </div>
         </div>
       
-      <h3 class="pt-5 pb-3">Dernières recettes publiées</h3>
+      <h3 class="pt-5 pb-3"><strong>Dernières recettes publiées</strong></h3>
       <div class="last_recipe row row-cols-md-4 me-5 ms-5">
           <div class="col">
             <div class="card recipe" style="width: 100%;">
@@ -131,7 +132,7 @@
           </div>
         </div>
 
-      <h3 class="pt-5 pb-3">Derniers Topics publiées</h3>
+      <h3 class="pt-5 pb-3"><strong>Derniers Topics publiées</strong></h3>
       <div class="container pb-5">
         <table class="table table-bordered">
           <thead>
@@ -162,7 +163,7 @@
       </div>
 
       <div class="d-flex justify-content-center competition pb-5">
-        <h1 class="align-self-center pe-5">Concours en cours</h1>
+        <h1 class="align-self-center pe-5"><strong>Concours en cours</strong></h1>
         <a href=""><img src="https://braindegeek.com/wp-content/uploads/2016/11/concours.png"  class="" width="100%" height="250"></a>
       </div>
     </main>

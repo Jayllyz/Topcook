@@ -43,9 +43,11 @@ html {
     font-size: 16px;
     scroll-behavior: smooth;
 }
-h3{
+h1,h3{
+  color: #FD891C;
   text-align: center;
 }
+
 .recipe{
   filter: drop-shadow(0 0 0.75rem grey) !important;
   

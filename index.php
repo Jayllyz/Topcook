@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h2 class="card-title text-center">Sushi bizarre</h2>
+            <h2 class="card-title text-center"><strong>Sushi</strong></h2>
             <p class="card-text fs-3 ms-5 me-5">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           </div>
         </div>
@@ -163,7 +163,7 @@
       </div>
 
       <div class="d-flex justify-content-center competition pb-5">
-        <h1 class="align-self-center pe-5">Concours en cours</h1>
+        <h1 class="align-self-center pe-5"><strong>Concours en cours</strong></h1>
         <a href=""><img src="https://braindegeek.com/wp-content/uploads/2016/11/concours.png"  class="" width="100%" height="250"></a>
       </div>
     </main>

@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse">
-        <a class="navbar-brand" href="#"><img src="images/topcook_logo.svg" alt="Logo" width="50" height="50"></a>
+        <a class="navbar-brand" href="http://164.132.229.157/"><img src="images/topcook_logo.svg" alt="Logo" width="50" height="50"></a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" href="index.php">Recettes</a>

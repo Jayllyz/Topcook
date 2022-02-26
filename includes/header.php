@@ -14,16 +14,18 @@
                 <a class="nav-link" href="#">Forum</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Concours</a>
+                <a class="nav-link" aria-current="page" href="#">Concours</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Connexion</a>
+                <a class="nav-link" aria-current="page" href="#">Connexion</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Inscription</a>
+                <a class="nav-link" aria-current="page" href="#">Inscription</a>
               </li>
+              
             </ul>
           </div>
+          
         </div>
       </nav>
   <div class="container">

@@ -1,34 +1,31 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse">
-        <a class="navbar-brand" href="http://164.132.229.157/"><img src="images/topcook_logo.svg" alt="Logo" width="50" height="50"></a>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">Recettes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Forums</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Concours</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Connexion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Inscription</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><img src="../images/settings.svg" alt="Settings" width="20" height="20""></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="../images/topcook_logo.svg" width="50" height="50"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Recettes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Forum</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Concours</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Connexion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Inscription</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
   <div class="container">
     <form class="d-flex searchbar pt-3 pb-5">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

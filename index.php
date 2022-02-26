@@ -11,6 +11,7 @@
 </head>
 <body>
     <?php include('includes/header.php'); ?>
+    
     <main>
       <h1 class="pb-3 text-center"><strong>La recette du moment</strong></h1>
     <div class="card mb-3 me-5 ms-5 recipe_moment"> <!-- Recette du moment -->
@@ -169,5 +170,9 @@
     </main>
 
     <?php include('includes/footer.php'); ?>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   </body>
 </html>

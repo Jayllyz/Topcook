@@ -2,45 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" sizes="16x16" href="images/topcook_logo.svg">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>TopCook</title>
-    <style>
-      @media screen and (max-width:800px) {
-        .card{
-          margin-top: 25px !important;
-        }
-        #see_more_btn{
-          min-width: 200px !important;
-        }
-        .recipe_moment div{
-          max-height: 400px !important;
-          overflow-y: hidden;
-          padding: 0 !important;
-
-        }
-        .recipe_moment img{
-          border-radius: 10% !important;
-          border-bottom-left-radius: 0% !important;
-          border-bottom-right-radius: 0% !important;
-        }
-        .competition{
-          padding-right: 5% !important;
-        }
-        .competition h1{
-          padding-left: 5% !important;
-        }
-        .competition img{
-          width: 150px !important;
-          height: 120px !important;
-          border-radius: 10% !important;
-        }
-
-      }
-    </style>
 </head>
 <body>
     <?php include('includes/header.php'); ?>

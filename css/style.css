@@ -117,3 +117,34 @@ footer {
 }
 
 
+@media screen and (max-width:800px) {
+  .card{
+    margin-top: 25px !important;
+  }
+  #see_more_btn{
+    min-width: 200px !important;
+  }
+  .recipe_moment div{
+    max-height: 400px !important;
+    overflow-y: hidden;
+    padding: 0 !important;
+
+  }
+  .recipe_moment img{
+    border-radius: 10% !important;
+    border-bottom-left-radius: 0% !important;
+    border-bottom-right-radius: 0% !important;
+  }
+  .competition{
+    padding-right: 5% !important;
+  }
+  .competition h1{
+    padding-left: 5% !important;
+  }
+  .competition img{
+    width: 150px !important;
+    height: 120px !important;
+    border-radius: 10% !important;
+  }
+
+}

@@ -4,10 +4,11 @@
 $title = "Inscription";
 include "includes/head.php";
 ?>
+
 <body>
     <?php include "includes/header.php"; ?>
     <main>
-            <form class="container col-4" action="verifications/verification_inscription.php" method="post" enctype="multipart/form-data">
+            <form class="container col-4" action="verification_inscription.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label">Pseudo</label>
                     <input type="text" name="pseudo" class="form-control" required>

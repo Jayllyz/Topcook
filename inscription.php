@@ -31,7 +31,7 @@ include "includes/head.php";
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Votre date de naissance</label>
-                    <input type="date" name="birth" class="form-control" accept="image/png, image/jpeg">
+                    <input type="date" name="birth" class="form-control" required>
                 </div>
                 <div class="mb-3 form-check">
                     
@@ -39,7 +39,7 @@ include "includes/head.php";
                         <input type="checkbox" class="form-check-input">
                     </label>
                 </div>
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" name="submit" class="btn">Submit</button>
         </form>
     </main>
     <?php include "includes/footer.php"; ?>

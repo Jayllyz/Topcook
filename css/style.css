@@ -1,150 +1,161 @@
 @font-face {
-  font-family: 'Raleway';
-  src: url('../fonts/Raleway-Black.woff2') format('woff2'),
-      url('../fonts/Raleway-Black.woff') format('woff');
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Black.woff2") format("woff2"),
+    url("../fonts/Raleway-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Raleway';
-  src: url('../fonts/Raleway-Bold.woff2') format('woff2'),
-      url('../fonts/Raleway-Bold.woff') format('woff');
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Bold.woff2") format("woff2"),
+    url("../fonts/Raleway-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Raleway';
-  src: url('../fonts/Raleway-Regular.woff2') format('woff2'),
-      url('../fonts/Raleway-Regular.woff') format('woff');
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Regular.woff2") format("woff2"),
+    url("../fonts/Raleway-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Raleway';
-  src: url('../fonts/Raleway-Italic.woff2') format('woff2'),
-      url('../fonts/Raleway-Italic.woff') format('woff');
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Italic.woff2") format("woff2"),
+    url("../fonts/Raleway-Italic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 
 * {
-    box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
 
 html {
-    font-size: 16px;
-    scroll-behavior: smooth;
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
-h1,h3{
-  color: #FD891C;
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1,
+h3 {
+  color: #fd891c;
   text-align: center;
 }
 
-.recipe{
+.recipe {
   filter: drop-shadow(0 0 0.75rem grey) !important;
-  
 }
-.card, .card img{
+.card,
+.card img {
   border-top-left-radius: 30px !important;
   border-top-right-radius: 30px !important;
-  
 }
-.recipe_moment, .recipe_moment img{
+.recipe_moment,
+.recipe_moment img {
   border-radius: 30px !important;
 }
-.recipe_moment img{
+.recipe_moment img {
   border-bottom-right-radius: 0% !important;
   border-top-right-radius: 0% !important;
 }
-.best_recipe, .last_recipe{
+.best_recipe,
+.last_recipe {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.see_more{
+.see_more {
   border-radius: 30px !important;
   color: white !important;
 }
-.see_more:hover{
+.see_more:hover {
   color: white !important;
 }
-.btn{
+.btn {
   background-color: orange !important;
 }
-.btn-search{
+.btn-search {
   background-color: green !important;
   color: white !important;
 }
-.see_more:hover, .recipe:hover{
+.see_more:hover,
+.recipe:hover {
   transition: 0.5s !important;
   transform: scale(1.1) !important;
   z-index: 1 !important;
 }
-.see_more, .recipe{
+.see_more,
+.recipe {
   transition: 0.5s !important;
   z-index: 1 !important;
 }
-#see_more_btn{
+#see_more_btn {
   color: white !important;
   border-radius: 30px !important;
   font-size: 1.3rem !important;
 }
-#see_more_btn div{
+#see_more_btn div {
   transition: 0.5s !important;
   transform: translateX(0%) !important;
 }
-#see_more_btn:hover div{
+#see_more_btn:hover div {
   transition: 0.5s !important;
   transform: translateX(35%) !important;
   margin-right: 10% !important;
-  
 }
-.competition{
+.competition {
   display: flex;
   flex-direction: row;
 }
 
 footer {
-  background-color: #FD891C; /* Yellow #ffbe0b Orange #fb5607 */
+  background-color: #fd891c; /* Yellow #ffbe0b Orange #fb5607 */
 }
 
+#footer {
+  margin-top: auto;
+}
 
-@media screen and (max-width:800px) {
-  .card{
+@media screen and (max-width: 800px) {
+  .card {
     margin-top: 25px !important;
   }
-  #see_more_btn{
+  #see_more_btn {
     min-width: 200px !important;
   }
-  .recipe_moment div{
+  .recipe_moment div {
     max-height: 400px !important;
     overflow-y: hidden;
     padding: 0 !important;
-
   }
-  .recipe_moment img{
+  .recipe_moment img {
     border-radius: 10% !important;
     border-bottom-left-radius: 0% !important;
     border-bottom-right-radius: 0% !important;
   }
-  .competition{
+  .competition {
     padding-right: 5% !important;
   }
-  .competition h1{
+  .competition h1 {
     padding-left: 5% !important;
   }
-  .competition img{
+  .competition img {
     width: 150px !important;
     height: 120px !important;
     border-radius: 10% !important;
   }
-
 }

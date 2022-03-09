@@ -9,7 +9,7 @@ include "includes/head.php";
     <main>
         
         <form>
-            <div class="container col-4">
+            <div class="container col-md-4">
                 <div class="mb-3">
                     <label for="login" class="form-label">Pseudo ou Email</label>
                     <input type="text" class="form-control" name="login">

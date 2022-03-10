@@ -3,15 +3,15 @@ session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-    include 'includes/db.php';
+    include '../includes/db.php';
 
     if(isset($_POST['submit'])){
         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-            header('location: inscription.php?message=Email invalide !');
+            header('location: ../inscription.php?message=Email invalide !');
             exit;
         }
         if(strlen($_POST['password']) < 6 || strlen($_POST['password']) > 15){
-            header('location: inscription.php?message=Password invalide ! Il doit etre compris entre 6 et 15 caractères !');
+            header('location: ../inscription.php?message=Password invalide ! Il doit etre compris entre 6 et 15 caractères !');
             exit;
         }
 
@@ -26,7 +26,7 @@ error_reporting(E_ALL);
     
             if(!in_array($_FILES['image']['type'], $acceptable)){
                 // Rediriger vers inscription.php avec un message d'erreur
-                header('location: inscription.php?message=Type de fichier incorrect.');
+                header('location: ../inscription.php?message=Type de fichier incorrect.');
                 exit;
             }
     
@@ -36,7 +36,7 @@ error_reporting(E_ALL);
     
             if($_FILES['image']['size'] > $maxSize){
                 // Rediriger vers inscription.php avec un message d'erreur
-                header('location: inscription.php?message=Ce fichier est trop lourd.');
+                header('location: ../inscription.php?message=Ce fichier est trop lourd.');
                 exit;
             }
     
@@ -45,7 +45,7 @@ error_reporting(E_ALL);
     
     
             // Chemin d'enregistrement
-            $path = 'uploads';
+            $path = '../uploads';
     
             // Vérifier que le dossier uploads existe, sinon le créer
             if(!file_exists($path)){
@@ -81,7 +81,7 @@ error_reporting(E_ALL);
             $reponse = $req->fetch();  // Renvoie la première ligne sous forme de tableau ou une valeur booléenne FALSE
             // Si la ligne existe : erreur, le pseudo est déja utilisé
             if ($reponse) {
-                header('location: inscription.php?message=Ce pseudo est déja utilisé !');
+                header('location: ../inscription.php?message=Ce pseudo est déja utilisé !');
                 exit;
             }
             // Fin vérif pseudo
@@ -97,7 +97,7 @@ error_reporting(E_ALL);
             $reponse = $req->fetch();  // Renvoie la première ligne sous forme de tableau ou une valeur booléenne FALSE
             // Si la ligne existe : erreur, l'email est déja utilisé
             if ($reponse) {
-                header('location: inscription.php?message=Cet email est déja utilisé !');
+                header('location: ../inscription.php?message=Cet email est déja utilisé !');
                 exit;
             }
             // Fin vérif email
@@ -120,14 +120,14 @@ error_reporting(E_ALL);
                         'image' => isset($filename) ? $filename : ''
                     ]);
                 }else{
-                    header('location: inscription.php?message=Les mots de passes ne sont pas identiques !');
+                    header('location: ../inscription.php?message=Les mots de passes ne sont pas identiques !');
                     exit;
                 }
-                header('location: index.php?message=Inscription réussi !');
+                header('location: ../index.php?message=Inscription réussi !');
                 exit;
             }
         }else{
-            header('location:inscription.php?message=Les champs ne sont pas tous remplis !');
+            header('location: ../inscription.php?message=Les champs ne sont pas tous remplis !');
             exit;
         }
 

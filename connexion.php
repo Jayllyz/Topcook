@@ -18,7 +18,7 @@ include "includes/head.php";
                     <input type="password" class="form-control" name="password">
                 <div class="mb-3">
                     <input type="checkbox" class="form-check-input" name="checkbox">
-                    <label for="stay-connected"><strong>Rester connecté</strong></label>
+                    <label for="stay-connected">Rester connecté</label>
                 </div>
                 <button type="submit" name="submit" class="btn">Envoyer</button>
             </div>

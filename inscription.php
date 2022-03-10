@@ -8,7 +8,7 @@ include "includes/head.php";
 <body>
     <?php include "includes/header.php"; ?>
     <main>
-            <form class="container col-md-4" action="verification_inscription.php" method="post" enctype="multipart/form-data">
+            <form class="container col-md-4" action="verifications/verification_inscription.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label"><strong>Pseudo</strong></label>
                     <input type="text" name="pseudo" class="form-control" required>
@@ -35,9 +35,9 @@ include "includes/head.php";
                 </div>
 
             <button type="submit" name="submit" class="btn">Envoyer</button>
-            
+            <?php include "includes/message.php"; ?>
         </form>
-        <?php include "includes/message.php"; ?>
+        
     </main>
     <?php include "includes/footer.php"; ?>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

@@ -130,5 +130,5 @@ error_reporting(E_ALL);
             header('location: ../inscription.php?message=Les champs ne sont pas tous remplis !&type=danger');
             exit;
         }
-
+        
 ?>

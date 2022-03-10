@@ -43,13 +43,11 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
 }
-
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-
 h1,
 h3 {
   color: #fd891c;

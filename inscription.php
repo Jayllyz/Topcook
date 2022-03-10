@@ -30,14 +30,11 @@ include "includes/head.php";
                     <input type="file" name="image" class="form-control" accept="image/png, image/jpeg">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label"><strong>Votre date de naissance</strong></label>
+                    <label class="form-label"><strong>Date de naissance</strong></label>
                     <input type="date" name="birth" class="form-control" required>
                 </div>
                 <div class="mb-3 form-check">
                     
-                    <label class="form-check-label">Se souvenir de moi
-                        <input type="checkbox" class="form-check-input">
-                    </label>
                 </div>
             <button type="submit" name="submit" class="btn">Envoyer</button>
         </form>

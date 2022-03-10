@@ -40,7 +40,9 @@ include "includes/head.php";
                     </label>
                 </div>
             <button type="submit" name="submit" class="btn">Submit</button>
+            
         </form>
+        <?php include('includes/message.php'); ?>
     </main>
     <?php include "includes/footer.php"; ?>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

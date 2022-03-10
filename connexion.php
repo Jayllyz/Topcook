@@ -20,7 +20,7 @@ include "includes/head.php";
                     <input type="checkbox" class="form-check-input" name="checkbox">
                     <label for="stay-connected">Rester connecter</label>
                 </div>
-                <button type="submit" class="btn">Envoyé</button>
+                <button type="submit" name="submit" class="btn">Envoyé</button>
             </div>
         </form>
           

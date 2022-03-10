@@ -10,27 +10,27 @@ include "includes/head.php";
     <main>
             <form class="container col-md-4" action="verification_inscription.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label class="form-label">Pseudo</label>
+                    <label class="form-label"><strong>Pseudo</strong></label>
                     <input type="text" name="pseudo" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Adresse mail</label>
+                    <label class="form-label"><strong>Adresse mail</strong></label>
                     <input type="email" name="email" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Mot de passe</label>
+                    <label class="form-label"><strong>Mot de passe</strong></label>
                     <input type="password" name="password" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Confirmation du mot de passe</label>
+                    <label class="form-label"><strong>Confirmation du mot de passe</strong></label>
                     <input type="password" name="conf_password" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Photos de profil</label>
+                    <label class="form-label"><strong>Photo de profil</strong></label>
                     <input type="file" name="image" class="form-control" accept="image/png, image/jpeg">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Votre date de naissance</label>
+                    <label class="form-label"><strong>Votre date de naissance</strong></label>
                     <input type="date" name="birth" class="form-control" required>
                 </div>
                 <div class="mb-3 form-check">
@@ -39,7 +39,7 @@ include "includes/head.php";
                         <input type="checkbox" class="form-check-input">
                     </label>
                 </div>
-            <button type="submit" name="submit" class="btn">Submit</button>
+            <button type="submit" name="submit" class="btn">Envoyer</button>
         </form>
     </main>
     <?php include "includes/footer.php"; ?>

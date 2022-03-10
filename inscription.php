@@ -14,7 +14,7 @@ include "includes/head.php";
                     <input type="text" name="pseudo" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label"><strong> Adresse mail</strong></label
+                    <label class="form-label"><strong> Adresse mail</strong></label>
                     <input type="email" name="email" class="form-control" required>
                 </div>
                 <div class="mb-3">

@@ -131,6 +131,9 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
+  #svg-footer {
+    display: none;
+  }
   .card {
     margin-top: 25px !important;
   }

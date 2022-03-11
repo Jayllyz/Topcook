@@ -9,7 +9,25 @@ error_reporting(E_ALL);
         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
             header('location: ../inscription.php?message=Email invalide !&type=danger');
             exit;
+        }else{
+            setcookie('email',$_POST['email'],time() + 3600,"/");
         }
+            // Verifier si le pseudo n'est pas déja utiliser
+
+            $req = $db->prepare('SELECT id FROM USER WHERE pseudo = :pseudo');
+            $req->execute([
+                'pseudo' => $_POST['pseudo']
+            ]);
+            // Recupérer la première ligne de résultat
+            $reponse = $req->fetch();  // Renvoie la première ligne sous forme de tableau ou une valeur booléenne FALSE
+            // Si la ligne existe : erreur, le pseudo est déja utilisé
+            if ($reponse) {
+                header('location: ../inscription.php?message=Ce pseudo est déja utilisé !&type=danger');
+                exit;
+            }else{
+                setcookie('pseudo',$_POST['pseudo'],time() + 3600,"/");
+            }
+            // Fin vérif pseudo
         if(strlen($_POST['password']) < 6 || strlen($_POST['password']) > 15){
             header('location: ../inscription.php?message=Password invalide. Il doit etre compris entre 6 et 15 caractères !&type=danger');
             exit;
@@ -71,20 +89,7 @@ error_reporting(E_ALL);
     
         }
 
-              // Verifier si le pseudo n'est pas déja utiliser
-
-            $req = $db->prepare('SELECT id FROM USER WHERE pseudo = :pseudo');
-            $req->execute([
-                'pseudo' => $_POST['pseudo']
-            ]);
-            // Recupérer la première ligne de résultat
-            $reponse = $req->fetch();  // Renvoie la première ligne sous forme de tableau ou une valeur booléenne FALSE
-            // Si la ligne existe : erreur, le pseudo est déja utilisé
-            if ($reponse) {
-                header('location: ../inscription.php?message=Ce pseudo est déja utilisé !&type=danger');
-                exit;
-            }
-            // Fin vérif pseudo
+          
 
             // Verifier si l'email n'est pas déja utiliser
 

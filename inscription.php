@@ -8,19 +8,17 @@ include "includes/head.php";
 <body>
     <?php include "includes/header.php"; ?>
     <main>
-
         <h1>Inscription</h1>
         <div class="formulaire">
-
             <form id="form" class="container col-md-4" action="verifications/verification_inscription.php" method="post" enctype="multipart/form-data">
                 <?php include('includes/message.php'); ?>
                 <div class="mb-3">
                     <label class="form-label"><strong>Pseudo</strong></label>
-                    <input type="text" name="pseudo" class="form-control" required>
+                    <input type="text" name="pseudo" class="form-control" value="<?= isset($_COOKIE['pseudo'])? $_COOKIE['pseudo']: ""; ?>" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"><strong> Adresse mail</strong></label>
-                    <input type="email" name="email" class="form-control" required>
+                    <input type="email" name="email" class="form-control" value="<?= isset($_COOKIE['email'])? $_COOKIE['email']: ""; ?>" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"><strong>Mot de passe</strong></label>

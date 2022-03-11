@@ -128,6 +128,11 @@ footer {
   margin-top: auto;
 }
 
+#form {
+  background-color: rgba(253, 137, 28, 0.212);
+  padding: 1rem;
+}
+
 @media screen and (max-width: 800px) {
   #svg-footer {
     display: none;

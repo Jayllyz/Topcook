@@ -8,8 +8,8 @@ include "includes/head.php";
     <?php include "includes/header.php"; ?>
     <main>
         <h1>Connexion</h1>
-        <form>
-            <div class="container col-md-4">
+        <form >
+            <div class="container col-md-4" id="form" >
                 <div class="mb-3">
                     <label for="login" class="form-label"><strong>Pseudo ou Email</strong></label>
                     <input type="text" class="form-control" name="login">

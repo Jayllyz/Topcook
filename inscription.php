@@ -8,10 +8,12 @@ include "includes/head.php";
 <body>
     <?php include "includes/header.php"; ?>
     <main>
+
         <h1>Inscription</h1>
         <div class="formulaire">
 
             <form id="form" class="container col-md-4" action="verifications/verification_inscription.php" method="post" enctype="multipart/form-data">
+
                 <div class="mb-3">
                     <label class="form-label"><strong>Pseudo</strong></label>
                     <input type="text" name="pseudo" class="form-control" required>
@@ -38,7 +40,7 @@ include "includes/head.php";
                 </div>
 
             <button type="submit" name="submit" class="btn">Envoyer</button>
-            <?php include "includes/message.php"; ?>
+            
         </form>
         </div>
     </main>

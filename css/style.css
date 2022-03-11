@@ -38,16 +38,19 @@
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
 }
-
 html {
   font-size: 16px;
   scroll-behavior: smooth;
 }
-
+nav {
+  background-color: #f8f9fa;
+  transition: 0.5s;
+}
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
   transition: 0.5s;
 }
 h1,

@@ -34,7 +34,7 @@ include "includes/head.php";
                 </div>
                 <div class="mb-3">
                     <label class="form-label"><strong>Date de naissance</strong></label>
-                    <input type="date" name="birth" class="form-control" required>
+                    <input type="date" name="birth" class="form-control" value="<?= isset($_COOKIE['birth'])? $_COOKIE['birth']: ""; ?>" required>
                 </div>
 
             <button type="submit" name="submit" class="btn">Envoyer</button>

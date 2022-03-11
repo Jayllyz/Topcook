@@ -28,12 +28,18 @@ error_reporting(E_ALL);
                 setcookie('pseudo',$_POST['pseudo'],time() + 3600,"/");
             }
             // Fin vérif pseudo
+
+            // Verif si la date de naissance est saisi
+
+            if(isset($_POST['birth'])){
+                setcookie('birth',$_POST['birth'],time() + 3600,"/");
+            }
         if(strlen($_POST['password']) < 6 || strlen($_POST['password']) > 15){
-            header('location: ../inscription.php?message=Password invalide. Il doit etre compris entre 6 et 15 caractères !&type=danger');
+            header('location: ../inscription.php?message=Mot de passe invalide. Il doit etre compris entre 6 et 15 caractères !&type=danger');
             exit;
         }
 
-        
+        $image_exist = 1;
         if(isset($_FILES['image']) && !empty($_FILES['image']['name'])){
 
             // Vérifier le type de fichier
@@ -87,6 +93,8 @@ error_reporting(E_ALL);
             $destination = $path . '/' . $filename;
             move_uploaded_file($_FILES['image']['tmp_name'], $destination);
     
+        }else{
+            $image_exist = 0;
         }
 
           
@@ -124,14 +132,30 @@ error_reporting(E_ALL);
                         'date_birth' => $birth,
                         'image' => isset($filename) ? $filename : ''
                     ]);
+
                 }else{
                     header('location: ../inscription.php?message=Les mots de passes ne sont pas identiques !&type=danger');
                     exit;
                 }
-                header('location: ../index.php?message=Inscription réussi !&type=success');
-                exit;
+                   
+                    
             }
-        }else{
+                if($image_exist == 1){
+                    header('location: ../connexion.php?message=Inscription réussi !&type=success');
+                    exit;
+                }else{
+                    $req = $db->prepare("SELECT id FROM USER WHERE pseudo = :pseudo");
+                    $req->execute([
+                        'pseudo' => $_POST['pseudo']
+                    ]);
+                    $result = $req->fetch(PDO::FETCH_ASSOC);
+                    foreach($result as $id){
+                        header('location: ../avatar/avatar.php?id='.$id."");
+                        exit;
+                    }
+                }
+
+            }else{
             header('location: ../inscription.php?message=Les champs ne sont pas tous remplis !&type=danger');
             exit;
         }

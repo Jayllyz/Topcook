@@ -133,6 +133,14 @@ footer {
   padding: 1rem;
 }
 
+.moon {
+  background-color: transparent !important;
+}
+
+.sun {
+  display: none !important;
+}
+
 @media screen and (max-width: 800px) {
   #svg-footer {
     display: none;

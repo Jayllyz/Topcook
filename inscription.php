@@ -8,6 +8,7 @@ include "includes/head.php";
 <body>
     <?php include "includes/header.php"; ?>
     <main>
+        <h1>Inscription</h1>
             <form class="container col-md-4" action="verifications/verification_inscription.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label"><strong>Pseudo</strong></label>

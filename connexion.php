@@ -7,7 +7,7 @@ include "includes/head.php";
 <body>
     <?php include "includes/header.php"; ?>
     <main>
-        
+        <h1>Connexion</h1>
         <form>
             <div class="container col-md-4">
                 <div class="mb-3">

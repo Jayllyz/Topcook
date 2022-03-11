@@ -138,6 +138,8 @@ footer {
 }
 
 .sun {
+  color: white !important;
+  background-color: transparent !important;
   display: none !important;
 }
 

@@ -13,7 +13,7 @@ include "includes/head.php";
         <div class="formulaire">
 
             <form id="form" class="container col-md-4" action="verifications/verification_inscription.php" method="post" enctype="multipart/form-data">
-
+                <?php include('includes/message.php'); ?>
                 <div class="mb-3">
                     <label class="form-label"><strong>Pseudo</strong></label>
                     <input type="text" name="pseudo" class="form-control" required>

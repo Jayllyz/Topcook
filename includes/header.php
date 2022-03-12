@@ -1,7 +1,7 @@
 <header id="header">
       <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.php"><img src="../images/topcook_logo.svg" width="50" height="50"></a>
+          <a class="navbar-brand" href="http://164.132.229.157/index.php"><img src="../images/topcook_logo.svg" width="50" height="50"></a>
           <button class="navbar-toggler" id="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -18,18 +18,21 @@
               </li>
               <?php if (!isset($_SESSION["id"])) { ?>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="connexion.php">Connexion</a>
+                <a class="nav-link" aria-current="page" href="http://164.132.229.157/connexion.php">Connexion</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="inscription.php">Inscription</a>
+                <a class="nav-link" aria-current="page" href="http://164.132.229.157/inscription.php">Inscription</a>
               </li>
                 <?php } else { ?>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="deconnexion.php">Deconnexion</a>
+                    <a class="nav-link" aria-current="page" href="http://164.132.229.157/deconnexion.php">Deconnexion</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="profile/profile.php">Mon profil</a>
+                    <a class="nav-link" aria-current="page" href="http://164.132.229.157/profile/profile.php">Mon profil</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="http://164.132.229.157/profile/mesRecettes.php">Mes recettes</a>
                   </li>
                   <?php } ?>
 

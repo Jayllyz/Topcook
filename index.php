@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <?php
+$linkLogoOnglet = "images/topcook_logo.svg";
+$linkCss = "css/style.css";
 $title = "TopCook - Accueil";
 include "includes/head.php";
 ?>

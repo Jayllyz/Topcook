@@ -130,7 +130,7 @@ if (isset($_POST["submit"])) {
   ) {
     if ($_POST["password"] == $_POST["conf_password"]) {
       $req = $db->prepare(
-        "INSERT INTO USER (pseudo,email,password,date_birth,image) VALUES (:pseudo,:email,:password,:date_birth,:image)"
+        "INSERT INTO USER (pseudo,email,password,date_birth,image,token) VALUES (:pseudo,:email,:password,:date_birth,:image, :token)"
       );
       $lengthToken = 15;
       $token = "";
@@ -150,6 +150,7 @@ if (isset($_POST["submit"])) {
         "password" => hash("sha512", $password),
         "date_birth" => $birth,
         "image" => isset($filename) ? $filename : "",
+        "token" => $token,
       ]);
     } else {
       header(

@@ -46,6 +46,7 @@ nav {
   background-color: #f8f9fa;
   transition: 0.5s;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -57,6 +58,10 @@ h1,
 h3 {
   color: #fd891c;
   text-align: center;
+}
+.nav-link {
+  color: #fd891c !important;
+  font-weight: bold;
 }
 
 .recipe {
@@ -148,6 +153,22 @@ footer {
 #sun {
   display: none;
 }
+#moon {
+  animation: rotationMoon 1s;
+}
+#sun {
+  animation: rotationSun 1s;
+}
+#sun button:active,
+#moon button:active {
+  outline: none;
+  border: none;
+}
+#sun button:focus,
+#moon button:focus {
+  outline: none !important;
+  box-shadow: none;
+}
 
 @media screen and (max-width: 800px) {
   #svg-footer {
@@ -179,5 +200,28 @@ footer {
     width: 150px !important;
     height: 120px !important;
     border-radius: 10% !important;
+  }
+  #moon,
+  #sun {
+    animation: none;
+  }
+  #sun {
+    animation: rotationSun 1s;
+  }
+}
+@keyframes rotationMoon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotationSun {
+  from {
+    transform: rotate(359deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }

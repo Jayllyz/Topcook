@@ -20,12 +20,12 @@ if (isset($_GET["token"])) {
   echo "
   <div class='text-center'>
   <div class='alert alert-success' role='alert'>
-    <img src='https://dna-esgi.fr/images/LogoProjet.svg' class='logo float-left m-2 h-75 me-4' width='95' alt='Logo'>
+    <img src='http://164.132.229.157/images/topcook_logo.svg' class='logo float-left m-2 h-75 me-4' width='95' alt='Logo'>
     <h4 class='alert-heading'><strong>Congratulations !</strong></h4>
-    <p>Your account has been confirmed! You can return to our site by clicking on this link:
-    <a href='https://dna-esgi.fr/index.php' class='text-decoration-none'><em>Home</em></a> to login and close
-    this page.
-    On behalf of the entire DNA team, we welcome you!</p>
+    <p>Votre compte a été confirmé ! Vous pouvez retourner sur notre site en cliquant sur ce lien :
+    <a href='http://164.132.229.157/index.php' class='text-decoration-none'><em>Home</em></a> pour vous connecter et fermer
+    cette page.
+    TopCook, vous souhaite la bienvenue !</p>
   </div>
   </div>
   ";

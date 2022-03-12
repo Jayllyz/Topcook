@@ -13,10 +13,12 @@ $mail->addAddress($email);
 $mail->Subject = "Confirmation de votre inscription";
 $mail->Message = "Validé votre inscription!";
 $mail->msgHTML(
-  '<a href="http://164.132.229.157/includes/conf_registration.php?' .
+  '<img src="http://164.132.229.157/images/topcook_logo.svg" class="logo float-left m-2 h-75 me-4" width="95" alt="Logo">
+            <p class="display-2">Bienvenue sur TopCook. Veuillez cliquer sur le lien ci-dessous pour confirmer votre inscription :<br></p>
+  <a href="http://164.132.229.157/includes/conf_registration.php?' .
     "token=" .
     $token .
-    "&email=" .
+    "&email" .
     $email .
     '">Confirm your account !</a>'
 );
@@ -27,15 +29,16 @@ if (!$mail->send()) {
     <div class='mx-auto text-center'>
     <div class='alert alert-success' role='alert'>
       <h4 class='alert-heading display-5'>Well done !</h4>
-      <p class='display-5'>Look at your mailbox you must
-      have received a confirmation email. <br>Check your spam if we are not in your inbox.</p>
+      <p class='display-5'Regardez votre messagerie, vous devez avoir reçu un courriel de confirmation. Vérifiez votre spam si nous ne sommes pas dans votre boîte de réception.</p>
       <hr>
-      <p class='mb-0 fs-3'>Click the link in the email to start enjoying our site fully.</p>
-      <p class='mb-0 fs-3'>You can close this page. If you did not receive the email, click <a href='https://dna-esgi.fr/includes/email_resend.php?email=" .
-    $email .
-    "&token=" .
+      <p class='mb-0 fs-3'>Cliquez sur le lien dans l'e-mail pour commencer à profiter pleinement de notre site.</p>
+      <p class='mb-0 fs-3'>Vous pouvez fermer cette page. Si vous n'avez pas reçu l'e-mail, cliquez sur <a href='http://164.132.229.157/includes/conf_registration.php?" .
+    "token=" .
     $token .
-    "'>here</a> to resend it.
+    "&email" .
+    $email .
+    "'>here</a> pour le renvoyer.
+      </p>
       </div>
       </div>
     </div>

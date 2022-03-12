@@ -16,14 +16,15 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#">Concours</a>
               </li>
+              <?php if (!isset($_SESSION["id"])) { ?>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="connexion.php">Connexion</a>
               </li>
-              <?php if (!isset($_SESSION["id"])) { ?>
+
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="inscription.php">Inscription</a>
               </li>
-              <?php } ?>
+                <?php } ?>
             </ul>
             <div id="moon">
               <button type="button" class="btn moon" onClick="darkMode()">

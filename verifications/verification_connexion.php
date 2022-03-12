@@ -35,7 +35,15 @@ if (isset($_POST["submit"])) {
   ]);
   $reponse = $req->fetchAll(PDO::FETCH_ASSOC);
   if (count($reponse) == 0) {
-    $_SESSION["id"] = $reponse["id"];
+    $selectID = $db->prepare("SELECT id FROM USER WHERE email = :email");
+    $selectID->execute([
+      "email" => $_POST["login"],
+    ]);
+    $result = $selectID->fetchAll();
+
+    foreach ($result as $id) {
+      $_SESSION["id"] = $id["id"];
+    }
     header("location: ../index.php?message=Vous êtes connecté&type=success");
     exit();
   } else {

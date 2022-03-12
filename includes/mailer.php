@@ -20,7 +20,7 @@ $mail->msgHTML(
     $token .
     "&email" .
     $email .
-    '">Confirm your account !</a>'
+    '">Confirmation !</a>'
 );
 if (!$mail->send()) {
   echo "Mailer Error: " . $mail->ErrorInfo;

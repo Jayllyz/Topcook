@@ -34,9 +34,9 @@ if (isset($_POST["submit"])) {
     "password" => hash("sha512", $_POST["password"]),
   ]);
   $reponse = $req->fetchAll(PDO::FETCH_ASSOC);
-  if ($count($reponse) == 0) {
+  if (count($reponse) == 0) {
     $_SESSION["id"] = $reponse["id"];
-    header("location: ../index.php?type=success");
+    header("location: ../index.php?message=Vous êtes connecté&type=success");
     exit();
   } else {
     header(

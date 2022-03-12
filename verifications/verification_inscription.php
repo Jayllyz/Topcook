@@ -147,16 +147,16 @@ if (isset($_POST["submit"])) {
         "image" => isset($filename) ? $filename : "",
       ]);
     } else {
-      header(
-        "location: ../inscription.php?message=Les mots de passes ne sont pas identiques !&type=danger"
-      );
+      // header(
+      //   "location: ../inscription.php?message=Les mots de passes ne sont pas identiques !&type=danger"
+      // );
       exit();
     }
   }
   if ($image_exist == 1) {
-    header(
-      "location: ../connexion.php?message=Inscription réussi !&type=success"
-    );
+    // header(
+    //   "location: ../connexion.php?message=Inscription réussi !&type=success"
+    // );
     exit();
   } else {
     $req = $db->prepare("SELECT id FROM USER WHERE pseudo = :pseudo");
@@ -165,14 +165,14 @@ if (isset($_POST["submit"])) {
     ]);
     $result = $req->fetch(PDO::FETCH_ASSOC);
     foreach ($result as $id) {
-      header("location: ../avatar/avatar.php?id=" . $id . "");
+      // header("location: ../avatar/avatar.php?id=" . $id . "");
       exit();
     }
   }
 } else {
-  header(
-    "location: ../inscription.php?message=Les champs ne sont pas tous remplis !&type=danger"
-  );
+  // header(
+  //   "location: ../inscription.php?message=Les champs ne sont pas tous remplis !&type=danger"
+  // );
   exit();
 }
 

@@ -137,7 +137,7 @@ if (isset($_POST["submit"])) {
       $conf_password = $_POST["conf_password"];
       $birth = $_POST["birth"];
 
-      include "includes/mailer.php";
+      include "../includes/mailer.php";
 
       $req->execute([
         "pseudo" => $pseudo,

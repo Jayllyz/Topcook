@@ -16,7 +16,7 @@ $mail->msgHTML(
   '<a href="http://164.132.229.157/includes/conf_registration.php?' .
     "token=" .
     $token .
-    "&email" .
+    "&email=" .
     $email .
     '">Confirm your account !</a>'
 );

@@ -4,7 +4,7 @@ $mail = new PHPMailer\PHPMailer\PHPMailer();
 $mail->isSMTP();
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 587;
-$mail->SMTPSecure = "ssl";
+$mail->SMTPSecure = "tls";
 $mail->SMTPAuth = true;
 $mail->Username = "topcook2022@gmail.com";
 $mail->Password = "TopCook.2022#ESGI";

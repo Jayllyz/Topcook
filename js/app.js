@@ -16,3 +16,32 @@ function lightMode() {
   element_sun.style.color = "black";
   document.getElementById("navbar").style.background = "#f8f9fa";
 }
+function viewPassword() {
+  var passConnexion = document.getElementById("password");
+
+  if (passConnexion.type === "password") {
+    passConnexion.type = "text";
+  } else {
+    passConnexion.type = "password";
+  }
+}
+
+function viewPasswordInscription() {
+  var passInscription = document.getElementById("password_inscription");
+  if (passInscription.type === "password") {
+    passInscription.type = "text";
+  } else {
+    passInscription.type = "password";
+  }
+}
+
+function viewConfPasswordInscription() {
+  var confPassInscription = document.getElementById(
+    "conf_Password_inscription"
+  );
+  if (confPassInscription.type === "password") {
+    confPassInscription.type = "text";
+  } else {
+    confPassInscription.type = "password";
+  }
+}

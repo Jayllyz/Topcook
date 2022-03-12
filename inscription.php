@@ -32,11 +32,15 @@ include "includes/head.php";
                 </div>
                 <div class="mb-3">
                     <label class="form-label"><strong>Mot de passe</strong></label>
-                    <input type="password" name="password" class="form-control" required>
+                    <input type="password" name="password" class="form-control" id="password_inscription" required>
+                    <label class="form-label">Voir mon mot de passe</label>
+                    <input type="checkbox" class="form-check-input" onClick="viewPasswordInscription()">
                 </div>
                 <div class="mb-3">
                     <label class="form-label"><strong>Confirmation du mot de passe</strong></label>
-                    <input type="password" name="conf_password" class="form-control" required>
+                    <input type="password" name="conf_password" class="form-control" id="conf_Password_inscription" required>
+                    <label class="form-label">Voir mon mot de passe</label>
+                    <input type="checkbox" class="form-check-input" onClick="viewConfPasswordInscription()">
                 </div>
                 <div class="mb-3">
                     <label class="form-label"><strong>Photo de profil</strong></label>
@@ -57,7 +61,7 @@ include "includes/head.php";
         </div>
     </main>
     <?php include "includes/footer.php"; ?>
-    <script src="js/darkMode.js"></script>
+    <script src="js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>

@@ -18,7 +18,7 @@ $mail->msgHTML(
   <a href="http://164.132.229.157/includes/conf_registration.php?' .
     "token=" .
     $token .
-    "&email" .
+    "&email=" .
     $email .
     '">Confirmation !</a>'
 );
@@ -35,7 +35,7 @@ if (!$mail->send()) {
       <p class='mb-0 fs-3'>Vous pouvez fermer cette page. Si vous n'avez pas reçu l'e-mail, cliquez sur <a href='http://164.132.229.157/includes/conf_registration.php?" .
     "token=" .
     $token .
-    "&email" .
+    "&email=" .
     $email .
     "'>here</a> pour le renvoyer.
       </p>

@@ -9,6 +9,7 @@ include "includes/head.php";
     <?php include "includes/header.php"; ?>
     
     <main>
+      <?php include "includes/message.php"; ?>
       <h1 class="pb-3 text-center"><strong>La recette du moment</strong></h1>
     <div class="card mb-3 me-5 ms-5 recipe_moment"> <!-- Recette du moment -->
       <div class="row g-0">

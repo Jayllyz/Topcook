@@ -19,7 +19,7 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="connexion.php">Connexion</a>
               </li>
-              <?php if (!isset($_SESSION["pseudo"])) { ?>
+              <?php if (!isset($_SESSION["id"])) { ?>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="inscription.php">Inscription</a>
               </li>

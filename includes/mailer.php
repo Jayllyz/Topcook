@@ -8,11 +8,18 @@ $mail->SMTPSecure = "tls";
 $mail->SMTPAuth = true;
 $mail->Username = "topcook2022@gmail.com";
 $mail->Password = "TopCook.2022#ESGI";
-$mail->setFrom("dsebagpro@gmail.com", "No-Reply");
+$mail->setFrom("topcook2022@gmail.com", "No-Reply");
 $mail->addAddress($email);
-$mail->Subject = "Confirm your registration";
-$mail->Message = "Valid your registration !";
-$mail->msgHTML("<h1>SOMBIE LE BOSS</h1>");
+$mail->Subject = "Confirmation de votre inscription";
+$mail->Message = "Validé votre inscription!";
+$mail->msgHTML(
+  '<a href="http://164.132.229.157/includes/conf_registration.php?' .
+    "token=" .
+    $token .
+    "&email" .
+    $email .
+    '">Confirm your account !</a>'
+);
 if (!$mail->send()) {
   echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
@@ -28,8 +35,6 @@ if (!$mail->send()) {
     $email .
     "&token=" .
     $token .
-    "&id_account=" .
-    $id_account .
     "'>here</a> to resend it.
       </div>
       </div>

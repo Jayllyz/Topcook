@@ -176,6 +176,9 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
+  .nav-link:hover {
+    transform: none;
+  }
   #svg-footer {
     display: none;
   }

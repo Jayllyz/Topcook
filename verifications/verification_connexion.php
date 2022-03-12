@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
     "password" => hash("sha512", $_POST["password"]),
   ]);
   $reponse = $req->fetchAll(PDO::FETCH_ASSOC);
-  if (count($reponse) == 0) {
+  if ($reponse) {
     foreach ($reponse as $id) {
       $_SESSION["id"] = $id["id"];
     }

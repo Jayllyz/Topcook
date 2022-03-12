@@ -33,7 +33,7 @@ if (isset($_POST["submit"])) {
     "email" => $_POST["login"],
     "password" => hash("sha512", $_POST["password"]),
   ]);
-  $reponse = $req->fetch();
+  $reponse = $req->fetchAll(PDO::FETCH_ASSOC);
   if ($reponse) {
     $_SESSION["id"] = $reponse["id"];
     header("location: ../index.php?type=success");

@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
   }
 
   if (
-    empty($_POST["email"]) ||
+    empty($_POST["login"]) ||
     !filter_var($_POST["login"], FILTER_VALIDATE_EMAIL)
   ) {
     header("location: ../connexion.php?message=Email invalide !&type=danger");

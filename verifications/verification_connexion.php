@@ -35,7 +35,7 @@ if (isset($_POST["submit"])) {
   ]);
   $reponse = $req->fetchAll(PDO::FETCH_ASSOC);
   if (count($reponse) == 0) {
-    foreach ($result as $id) {
+    foreach ($reponse as $id) {
       $_SESSION["id"] = $id["id"];
     }
     header("location: ../index.php?message=Vous êtes connecté&type=success");

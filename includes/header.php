@@ -24,7 +24,12 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="inscription.php">Inscription</a>
               </li>
-                <?php } ?>
+                <?php } else { ?>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="deconnexion.php">Deconnexion</a>
+                  </li>
+                  <?php } ?>
+
             </ul>
             <div id="moon">
               <button type="button" class="btn moon" onClick="darkMode()">

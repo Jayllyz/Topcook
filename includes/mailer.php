@@ -1,6 +1,6 @@
 <?php
 
-$mail = new PHPMailer();
+$mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 587;

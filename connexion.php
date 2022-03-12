@@ -11,7 +11,7 @@ include "includes/head.php";
         <div class="container col-md-6">
             <?php include "includes/message.php"; ?>
         </div>
-        <form>
+        <form action="verifications/verification_connexion.php" method="post">
             <div class="container col-md-4" id="form" >
                 <div class="mb-3">
                     <label for="login" class="form-label"><strong>Email</strong></label>

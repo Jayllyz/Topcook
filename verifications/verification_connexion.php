@@ -7,11 +7,16 @@ error_reporting(E_ALL);
 include "../includes/db.php";
 
 if (isset($_POST["submit"])) {
-  if (!filter_var($_POST["login"], FILTER_VALIDATE_EMAIL)) {
+  if (isset($_POST["login"]) && !empty($_POST["login"])) {
+    setCookie("login", $_POST["login"], time() + 24 * 3600);
+  }
+
+  if (
+    empty($_POST["email"]) ||
+    !filter_var($_POST["login"], FILTER_VALIDATE_EMAIL)
+  ) {
     header("location: ../connexion.php?message=Email invalide !&type=danger");
     exit();
-  } else {
-    setcookie("email", $_POST["login"], time() + 3600, "/");
   }
 
   if (!isset($_POST["password"]) || empty($_POST["password"])) {

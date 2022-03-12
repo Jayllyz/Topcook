@@ -9,7 +9,7 @@ include "includes/head.php";
     <?php include "includes/header.php"; ?>
     
     <main>
-      <div class="col-4">
+      <div class="container col-md-6">
       <?php include "includes/message.php"; ?>
       </div>
       <h1 class="pb-3 text-center"><strong>La recette du moment</strong></h1>

@@ -3,6 +3,12 @@ session_start();
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require "../PHPMailer/src/Exception.php";
+require "../PHPMailer/src/PHPMailer.php";
+require "../PHPMailer/src/SMTP.php";
 include "../includes/db.php";
 
 if (isset($_POST["submit"])) {
@@ -130,6 +136,8 @@ if (isset($_POST["submit"])) {
       $password = $_POST["password"];
       $conf_password = $_POST["conf_password"];
       $birth = $_POST["birth"];
+
+      include "includes/mailer.php";
 
       $req->execute([
         "pseudo" => $pseudo,

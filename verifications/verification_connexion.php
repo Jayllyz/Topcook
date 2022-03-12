@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
     "password" => hash("sha512", $_POST["password"]),
   ]);
   $reponse = $req->fetchAll(PDO::FETCH_ASSOC);
-  if ($reponse) {
+  if ($count($reponse) == 0) {
     $_SESSION["id"] = $reponse["id"];
     header("location: ../index.php?type=success");
     exit();

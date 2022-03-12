@@ -205,9 +205,6 @@ footer {
   #sun {
     animation: none;
   }
-  #sun {
-    animation: rotationSun 1s;
-  }
 }
 @keyframes rotationMoon {
   from {

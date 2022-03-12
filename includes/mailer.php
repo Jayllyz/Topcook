@@ -28,7 +28,7 @@ if (!$mail->send()) {
   echo "
     <div class='mx-auto text-center'>
     <div class='alert alert-success' role='alert'>
-      <h4 class='alert-heading display-5'>Well done !</h4>
+      <h4 class='alert-heading display-5'>Félicitation !</h4>
       <p class='display-5'Regardez votre messagerie, vous devez avoir reçu un courriel de confirmation. Vérifiez votre spam si nous ne sommes pas dans votre boîte de réception.</p>
       <hr>
       <p class='mb-0 fs-3'>Cliquez sur le lien dans l'e-mail pour commencer à profiter pleinement de notre site.</p>

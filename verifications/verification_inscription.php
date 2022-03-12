@@ -142,8 +142,6 @@ if (isset($_POST["submit"])) {
       $conf_password = $_POST["conf_password"];
       $birth = $_POST["birth"];
 
-      include "../includes/mailer.php";
-
       $req->execute([
         "pseudo" => $pseudo,
         "email" => $email,
@@ -152,6 +150,7 @@ if (isset($_POST["submit"])) {
         "image" => isset($filename) ? $filename : "",
         "token" => $token,
       ]);
+      include "../includes/mailer.php";
     } else {
       header(
         "location: ../inscription.php?message=Les mots de passes ne sont pas identiques !&type=danger"

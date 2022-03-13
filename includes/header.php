@@ -25,14 +25,15 @@
                 <a class="nav-link" aria-current="page" href="http://164.132.229.157/inscription.php">Inscription</a>
               </li>
                 <?php } else { ?>
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="http://164.132.229.157/deconnexion.php">Deconnexion</a>
-                  </li>
+
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="http://164.132.229.157/profile/profile.php">Mon profil</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="http://164.132.229.157/profile/mesRecettes.php">Mes recettes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="http://164.132.229.157/deconnexion.php">Deconnexion</a>
                   </li>
                   <?php } ?>
 

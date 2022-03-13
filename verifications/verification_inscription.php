@@ -150,6 +150,18 @@ if (isset($_POST["submit"])) {
         "image" => isset($filename) ? $filename : "",
         "token" => $token,
       ]);
+      $subject = "Confirmation de votre inscription";
+      $mailMsg = "Validé votre inscription!";
+      $msgHTML =
+        '<img src="http://164.132.229.157/images/topcook_logo.svg" class="logo float-left m-2 h-75 me-4" width="95" alt="Logo">
+                  <p class="display-2">Bienvenue sur TopCook. Veuillez cliquer sur le lien ci-dessous pour confirmer votre inscription :<br></p>
+        <a href="http://164.132.229.157/includes/conf_registration.php?' .
+        "token=" .
+        $token .
+        "&email=" .
+        $email .
+        '">Confirmation !</a>';
+
       include "../includes/mailer.php";
     } else {
       header(

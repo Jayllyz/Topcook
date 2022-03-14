@@ -10,6 +10,9 @@ include "includes/head.php";
     <?php include "includes/header.php"; ?>
 
     <form action="verifications/update_password.php" method="post">
+    <div class="container col-md-6">
+            <?php include "includes/message.php"; ?>
+        </div>
             <div class="container col-md-4" id="form" >
                 <div class="mb-3">
                     <label for="login" class="form-label"><strong>Email</strong></label>

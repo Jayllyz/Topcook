@@ -28,7 +28,10 @@ if ($result) {
     '">cliquez ici</a></p>';
   include "../includes/mailer.php";
 } else {
-  echo "No email existe";
+  header(
+    'location: ../lost_password.php?message=Cet email n\'existe pas !&type=danger'
+  );
+  exit();
 }
 
 ?>

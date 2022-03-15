@@ -132,10 +132,7 @@ if (isset($_POST["submit"])) {
       $req = $db->prepare(
         "INSERT INTO USER (pseudo,email,password,date_birth,image,token) VALUES (:pseudo,:email,:password,:date_birth,:image, :token)"
       );
-      $lengthToken = 15;
-      $token = "";
-      $token = rand(0, 999999999999999);
-      $token = strval($token);
+      $token = uniqid();
       $email = $_POST["email"];
       $pseudo = $_POST["pseudo"];
       $password = $_POST["password"];

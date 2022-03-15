@@ -12,6 +12,12 @@ require "../PHPMailer/src/PHPMailer.php";
 require "../PHPMailer/src/SMTP.php";
 include "../includes/db.php";
 $email = $_POST["email"];
+$token = uniqid();
+$req = $db->prepare("UPDATE USER SET token = :token WHERE email = :email");
+$req->execute([
+  "token" => $token,
+  "email" => $email,
+]);
 $req = $db->prepare("SELECT email FROM USER WHERE email = :email");
 $req->execute([
   "email" => $email,
@@ -25,6 +31,8 @@ if ($result) {
     '<img src="http://164.132.229.157/images/topcook_logo.svg" class="logo float-left m-2 h-75 me-4" width="95" alt="Logo">
     <p class="display-2">Pour réinitialiser votre mot de passe, veuillez <a href="http://164.132.229.157/includes/change_password.php?email=' .
     $email .
+    "&token=" .
+    $token .
     '">cliquez ici</a></p>';
   include "../includes/mailer.php";
 } else {

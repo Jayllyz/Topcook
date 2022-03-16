@@ -17,76 +17,76 @@ include "includes/head.php";
     <div class="container g-1">
         <div class="pb-4 row justify-content-md-center">
             <div class=" col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+            <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
         </div>
 
         <div class="pb-4 row justify-content-md-center">
             <div class=" col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
         </div>
 
         <div class="pb-4 row justify-content-md-center">
             <div class=" col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >  
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
         </div>
 
         <div class="pb-4 row justify-content-md-center">
             <div class=" col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
             <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-responsive" alt="..." height="200">
+                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
         </div>

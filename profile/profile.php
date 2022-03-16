@@ -1,7 +1,8 @@
 <?php
 session_start();
 include "../includes/db.php";
-if (isset($_SESSION["id"])) {
+$id = $_SESSION["id"];
+if (isset($id)) {
 
   $req = $db->query("SELECT pseudo FROM USER WHERE id = " . $_SESSION["id"]);
   $result = $req->fetch();
@@ -17,14 +18,51 @@ if (isset($_SESSION["id"])) {
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Profil de <?= $pseudo ?></title>
-<?php }
+    <?php }
   ?>
 </head>
 <body>
     <?php include "../includes/header.php"; ?>
 
+    <h2 class="text-center text-uppercase">Bienvenue sur votre profil <?= $pseudo ?> !</h2>
+    <?php
+    $req = $db->query(
+      "SELECT pseudo,email,image, date_birth,rights FROM USER WHERE id = " .
+        $_SESSION["id"]
+    );
+    $req->execute([
+      "id" => $id,
+    ]);
+    $result = $req->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($result as $select) { ?>
+<div class="mt-3 container card_profil">
+      <div class="card w-75">
+        <?php echo '<img src="../uploads/' .
+          $select["image"] .
+          '" class="card-img-top" alt="...">'; ?>
+        <div class="card-body">
+          <h5 class="card-title text-uppercase text-center"><?= $pseudo ?></h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Votre email: </strong><?= $select[
+            "email"
+          ] ?></li>
+          <li class="list-group-item"><strong>Votre aniverssaire: </strong><br><?= $select[
+            "date_birth"
+          ] ?></li>
+        </ul>
+        <div class="card-body button_profil">
+        <button type="button" class="btn"><a href="update/form_update.php?id=<?= $_SESSION[
+          "id"
+        ] ?>" class="card-link text-decoration-none text-dark">Modifier votre profil</a></button>
+        <button type="button" class="btn mt-3"><a href="#" class="card-link text-decoration-none text-dark">Créé votre avatar</a></button>
+    </div>
+  </div>
 
 
+</div>
+<?php }
+    ?>
 
 
     <?php include "../includes/footer.php"; ?>

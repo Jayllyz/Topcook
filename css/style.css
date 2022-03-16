@@ -174,7 +174,19 @@ footer {
   outline: none !important;
   box-shadow: none;
 }
-
+.card_profil {
+  margin: auto;
+  display: flex;
+  width: 690px !important;
+  justify-content: center;
+}
+.button_profil {
+  display: flex;
+  flex-direction: column;
+}
+.btn-success {
+  background-color: green !important;
+}
 @media screen and (max-width: 800px) {
   .nav-link:hover {
     transform: none;

@@ -35,8 +35,8 @@ if (isset($id)) {
     ]);
     $result = $req->fetchAll(PDO::FETCH_ASSOC);
     foreach ($result as $select) { ?>
-<div class="mt-3 container card_profil">
-      <div class="card w-75">
+<div class="mt-3 mb-3 container col-md-4">
+      <div class="card w-75 card_profil">
         <?php echo '<img src="../uploads/' .
           $select["image"] .
           '" class="card-img-top" alt="...">'; ?>

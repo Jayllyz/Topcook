@@ -8,7 +8,7 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Recettes</a>
+                <a class="nav-link" aria-current="page" href="http://164.132.229.157/recettes.php">Recettes</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Forum</a>

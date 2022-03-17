@@ -14,7 +14,7 @@
                 <a class="nav-link" href="#">Forum</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Concours</a>
+                <a class="nav-link" aria-current="page" href="http://164.132.229.157/concours.php">Concours</a>
               </li>
               <?php if (!isset($_SESSION["id"])) { ?>
               <li class="nav-item">

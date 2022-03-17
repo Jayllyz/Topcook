@@ -182,8 +182,9 @@ foreach ($result as $information) {
         include "../../includes/mailer.php";
       }
     }
+    session_destroy();
     header(
-      "Location: ../profile.php?id=$id&message=Vos informations ont bien été enregistré !&type=success"
+      "location: http://164.132.229.157/index.php?message=Vos informations ont bien été enregistré !&type=success"
     );
     exit();
   }

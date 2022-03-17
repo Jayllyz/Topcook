@@ -158,7 +158,7 @@ if (isset($_POST["submit"])) {
         "&email=" .
         $email .
         '">Confirmation !</a>';
-
+      $destination = "http://164.132.229.157/index.php";
       include "../includes/mailer.php";
     } else {
       header(

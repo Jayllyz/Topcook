@@ -35,6 +35,9 @@ if (isset($id)) {
     ]);
     $result = $req->fetchAll(PDO::FETCH_ASSOC);
     foreach ($result as $select) { ?>
+        <div class="container col-md-6">
+            <?php include "../includes/message.php"; ?>
+        </div>
 <div class="mt-3 mb-3 container col-md-4">
       <div class="card w-75 card_profil">
         <?php if (!empty($select["image"])) {

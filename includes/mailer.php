@@ -17,7 +17,7 @@ if (!$mail->send()) {
   echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
   header(
-    "location: http://164.132.229.157/index.php?message=Un mail viens de vous etre envoyé !&type=success"
+    "location: $destination?message=Un mail viens de vous etre envoyé !&type=success"
   );
   exit();
 }

@@ -34,6 +34,7 @@ if ($result) {
     "&token=" .
     $token .
     '">cliquez ici</a></p>';
+  $destination = "http://164.132.229.157/index.php";
   include "../includes/mailer.php";
 } else {
   header(

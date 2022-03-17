@@ -27,7 +27,7 @@ if (isset($id)) {
     <h2 class="text-center text-uppercase">Bienvenue sur votre profil <?= $pseudo ?> !</h2>
     <?php
     $req = $db->query(
-      "SELECT pseudo,email,image, date_birth,rights FROM USER WHERE id = " .
+      "SELECT email,image, date_birth,rights FROM USER WHERE id = " .
         $_SESSION["id"]
     );
     $req->execute([

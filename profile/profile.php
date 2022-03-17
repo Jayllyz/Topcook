@@ -37,9 +37,11 @@ if (isset($id)) {
     foreach ($result as $select) { ?>
 <div class="mt-3 mb-3 container col-md-4">
       <div class="card w-75 card_profil">
-        <?php echo '<img src="../uploads/' .
-          $select["image"] .
-          '" class="card-img-top" alt="...">'; ?>
+        <?php if (!empty($select["image"])) {
+          echo '<img src="../uploads/' .
+            $select["image"] .
+            '" class="card-img-top" alt="...">';
+        } ?>
         <div class="card-body">
           <h5 class="card-title text-uppercase text-center"><?= $pseudo ?></h5>
         </div>

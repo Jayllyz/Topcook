@@ -179,6 +179,23 @@ footer {
   display: flex;
   flex-direction: column;
 }
+.button_profil a {
+  text-decoration: none;
+  color: white;
+}
+.btn-read {
+  background-color: #089f58 !important;
+}
+.btn-update {
+  background-color: #011170 !important;
+}
+.btn-delete {
+  background-color: #9f0f08 !important;
+}
+.image-users {
+  border-radius: 50%;
+  filter: drop-shadow(0 0 0.75rem grey);
+}
 .btn-success {
   background-color: green !important;
 }
@@ -197,6 +214,9 @@ footer {
 #msg {
   width: 100%;
   text-align: left;
+}
+.logo_admin:hover {
+  animation: test 2s infinite ease-in-out;
 }
 
 @media screen and (max-width: 800px) {
@@ -255,5 +275,10 @@ footer {
   }
   to {
     transform: rotate(0deg);
+  }
+}
+@keyframes test {
+  to {
+    transform: rotate3d(0, 1, 0, 359deg);
   }
 }

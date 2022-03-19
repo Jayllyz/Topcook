@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
   }
 
   $req = $db->prepare(
-    "SELECT id FROM USER WHERE email = :email AND password = :password"
+    "SELECT id, rights FROM USER WHERE email = :email AND password = :password"
   );
   $req->execute([
     "email" => $_POST["login"],
@@ -45,14 +45,15 @@ if (isset($_POST["submit"])) {
   $reponse = $req->fetchAll(PDO::FETCH_ASSOC);
   if ($reponse) {
     foreach ($resultConf as $conf) {
-      foreach ($reponse as $id) {
+      foreach ($reponse as $select) {
         if ($conf == 0) {
           header(
             "location: ../connexion.php?message=Vous n'avez pas confirmer votre email, veuillez vérifier votre boite mail et vos spam !&type=danger"
           );
           exit();
         } else {
-          $_SESSION["id"] = $id["id"];
+          $_SESSION["id"] = $select["id"];
+          $_SESSION["rights"] = $select["rights"];
           setcookie("email", $_POST["login"], time() + 3600);
           $log_succes = fopen("../log/log_succes.txt", "a+");
           fputs($log_succes, "Connexion reussi le ");

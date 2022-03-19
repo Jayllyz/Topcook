@@ -21,12 +21,9 @@ include "includes/head.php";
                     <input type="email" class="form-control" name="login" required>
                 </div>
                     <label for="password" class="form-label"><strong>Mot de passe</strong></label>
-                    <input type="password" class="form-control" name="password" id="password" oninput="strengthChecker()" required>
-                    <div id="strength-bar"></div>
-                    <p id="msg"></p>
+                    <input type="password" class="form-control" name="password" id="password" required>
                     <label class="form-label">Voir mon mot de passe</label>
                     <input type="checkbox" class="form-check-input" onClick="viewPassword()">
-
                     
                     
                 <div class="mb-3">

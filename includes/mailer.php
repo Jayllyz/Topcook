@@ -13,6 +13,7 @@ $mail->addAddress($email);
 $mail->Subject = $subject;
 $mail->Message = $mailMsg;
 $mail->msgHTML($msgHTML);
+$mail->CharSet = "UTF-8";
 if (!$mail->send()) {
   echo "Mailer Error: " . $mail->ErrorInfo;
 } else {

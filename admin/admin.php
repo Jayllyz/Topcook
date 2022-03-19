@@ -13,6 +13,10 @@ include "../includes/head.php";
 <body>
     <?php include "../includes/header.php"; ?>
 
+    <div class="container col-md-6">
+      <?php include "../includes/message.php"; ?>
+    </div>
+
     <h1>Liste des Utilisateurs</h1>
     <div class="container">
         <table class="table text-center table-bordered">

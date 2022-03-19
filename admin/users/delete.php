@@ -5,6 +5,8 @@ $del = $db->prepare("DELETE FROM USER WHERE id = :id");
 $del->execute([
   "id" => $id,
 ]);
-header("location: ../admin.php");
+header(
+  "location: ../admin.php?message=Utilisateur supprimé avec succès&type=success"
+);
 exit();
 ?>

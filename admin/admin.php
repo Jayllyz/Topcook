@@ -44,20 +44,20 @@ include "../includes/head.php";
                 <td><?= $select["rights"] ?></td>
                 <td>
                     <div class="button_profil">
-                    <button type="button" class="btn-read btn">
+                    <button type="button" class="btn-read btn ms-2 me-2">
                         <a href="users/read.php?id=<?= $select[
                           "id"
                         ] ?>" target="_blank">Consulter</a>
                     </button><br>
-                    <button type="button" class="btn-update btn">
+                    <button type="button" class="btn-update btn ms-2 me-2">
                         <a href="users/update.php?id=<?= $select[
                           "id"
                         ] ?>" target="_blank">Modifier</a>
                     </button><br>
-                    <button type="button" class="btn-delete btn">
+                    <button type="button" class="btn-delete btn ms-2 me-2">
                         <a href="users/delete.php?id=<?= $select[
                           "id"
-                        ] ?>" target="_blank">Supprimer</a>
+                        ] ?>">Supprimer</a>
                     </button>
                     </div>
                 </td>

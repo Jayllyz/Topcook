@@ -183,6 +183,10 @@ footer {
   text-decoration: none;
   color: white;
 }
+.button_profil a:hover {
+  text-decoration: none;
+  color: white;
+}
 .btn-read {
   background-color: #089f58 !important;
 }
@@ -191,6 +195,16 @@ footer {
 }
 .btn-delete {
   background-color: #9f0f08 !important;
+}
+.btn-read,
+.btn-update,
+.btn-delete {
+  transition: 0.5s !important;
+}
+.btn-read:hover {
+  background-color: #014927 !important;
+  transform: scale(1.1);
+  transition: 0.5s !important;
 }
 .image-users {
   border-radius: 50%;

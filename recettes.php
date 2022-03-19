@@ -14,7 +14,7 @@ include "includes/head.php";
          <?php include "includes/message.php"; ?>
         </div>
         <h1 class="pb-3 text-center"><strong>Toutes nos recettes</strong></h1>
-    <div class="container g-1">
+    <div class="container g-1" id="recettes">
         <div class="pb-4 row justify-content-md-center">
             <div class=" col col-md-3">
                 <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >

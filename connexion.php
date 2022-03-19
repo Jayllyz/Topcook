@@ -18,12 +18,15 @@ include "includes/head.php";
             <div class="container col-md-4" id="form" >
                 <div class="mb-3">
                     <label for="login" class="form-label"><strong>Email</strong></label>
-                    <input type="email" class="form-control" name="login">
+                    <input type="email" class="form-control" name="login" required>
                 </div>
                     <label for="password" class="form-label"><strong>Mot de passe</strong></label>
-                    <input type="password" class="form-control" name="password" id="password">
+                    <input type="password" class="form-control" name="password" id="password" oninput="strengthChecker()" required>
+                    <div id="strength-bar"></div>
+                    <p id="msg"></p>
                     <label class="form-label">Voir mon mot de passe</label>
                     <input type="checkbox" class="form-check-input" onClick="viewPassword()">
+
                     
                     
                 <div class="mb-3">

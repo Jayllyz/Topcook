@@ -32,7 +32,9 @@ include "includes/head.php";
                 </div>
                 <div class="mb-3">
                     <label class="form-label"><strong>Mot de passe</strong></label>
-                    <input type="password" name="password" class="form-control" id="password_inscription" required>
+                    <input type="password" name="password" class="form-control" id="password" oninput="strengthChecker()" required>
+                    <div id="strength-bar"></div>
+                    <p id="msg"></p>
                     <label class="form-label">Voir mon mot de passe</label>
                     <input type="checkbox" class="form-check-input" onClick="viewPasswordInscription()">
                 </div>

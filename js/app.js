@@ -1,3 +1,12 @@
+let parameters = {
+  count: false,
+  letters: false,
+  numbers: false,
+  special: false,
+};
+let strengthBar = document.getElementById("strength-bar");
+let msg = document.getElementById("msg");
+
 function darkMode() {
   var element = document.body;
   document.getElementById("sun").style.display = "block";
@@ -27,7 +36,7 @@ function viewPassword() {
 }
 
 function viewPasswordInscription() {
-  var passInscription = document.getElementById("password_inscription");
+  var passInscription = document.getElementById("password");
   if (passInscription.type === "password") {
     passInscription.type = "text";
   } else {
@@ -43,5 +52,55 @@ function viewConfPasswordInscription() {
     confPassInscription.type = "text";
   } else {
     confPassInscription.type = "password";
+  }
+}
+function strengthChecker() {
+  let password = document.getElementById("password").value;
+
+  parameters.letters = /[A-Za-z]+/.test(password) ? true : false;
+  parameters.numbers = /[0-9]+/.test(password) ? true : false;
+  parameters.special = /[!\"$%&/()=?@~`\\.\';:+=^*_-]+/.test(password)
+    ? true
+    : false;
+  parameters.count = password.length > 6 ? true : false;
+
+  let barLength = Object.values(parameters).filter((value) => value);
+
+  console.log(Object.values(parameters), barLength);
+
+  strengthBar.innerHTML = "";
+  for (let i in barLength) {
+    let span = document.createElement("span");
+    span.classList.add("strength");
+    strengthBar.appendChild(span);
+  }
+
+  let spanRef = document.getElementsByClassName("strength");
+  for (let i = 0; i < spanRef.length; i++) {
+    switch (spanRef.length - 1) {
+      case 0:
+        spanRef[i].style.background = "#ff3e36";
+        msg.style.color = "#DA0900";
+        msg.textContent = "Votre mot de passe est très faible";
+        break;
+      case 1:
+        spanRef[i].style.background = "#ff691f";
+        msg.style.color = "#DE4A01";
+        msg.textContent = "Votre mot de passe est faible";
+        break;
+      case 2:
+        spanRef[i].style.background = "#ffda36";
+        msg.style.color = "#E2B800";
+        msg.textContent = "Votre mot de passe est bon";
+        break;
+      case 3:
+        spanRef[i].style.background = "#0be881";
+        msg.style.color = "#00BB64";
+        msg.textContent = "Votre mot de passe est fort";
+        break;
+    }
+  }
+  if (password.length == 0) {
+    msg.textContent = "";
   }
 }

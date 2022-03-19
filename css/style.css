@@ -182,6 +182,23 @@ footer {
 .btn-success {
   background-color: green !important;
 }
+.strength {
+  width: 25%;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  bottom: 7px;
+}
+#strength-bar {
+  background-color: #dcdcdc;
+  height: 10px;
+  position: relative;
+}
+#msg {
+  width: 100%;
+  text-align: left;
+}
+
 @media screen and (max-width: 800px) {
   .nav-link:hover {
     transform: none;

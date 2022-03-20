@@ -18,7 +18,11 @@ include "includes/head.php";
             <div class="container col-md-4" id="form" >
                 <div class="mb-3">
                     <label for="login" class="form-label"><strong>Email</strong></label>
-                    <input type="email" class="form-control" name="login" required>
+                    <input type="email" class="form-control" name="login" value="<?= isset(
+                      $_COOKIE["email"]
+                    )
+                      ? $_COOKIE["email"]
+                      : "" ?>" required>
                 </div>
                     <label for="password" class="form-label"><strong>Mot de passe</strong></label>
                     <input type="password" class="form-control" name="password" id="password" required>

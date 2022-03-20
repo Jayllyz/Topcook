@@ -195,6 +195,7 @@ footer {
 }
 .btn-delete {
   background-color: #9f0f08 !important;
+  color: white !important;
 }
 .btn-read,
 .btn-update,

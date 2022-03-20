@@ -58,11 +58,38 @@ include "../includes/head.php";
                           "id"
                         ] ?>" target="_blank">Modifier</a>
                     </button><br>
-                    <button type="button" class="btn-delete btn ms-2 me-2">
-                        <a href="users/delete.php?id=<?= $select[
-                          "id"
-                        ] ?>">Supprimer</a>
+
+                    <button type="button" class="btn-delete btn ms-2 me-2" data-bs-toggle="modal" data-bs-target="#pop-up-del">
+                    Supprimer
                     </button>
+
+                    <div class="modal fade" id="pop-up-del">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Confirmation de supression de <span class="text-uppercase"><?= $select[
+                              "pseudo"
+                            ] ?></span></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Saisir le pseudo pour confirmation
+                            <form action="users/delete.php?id=<?= $select[
+                              "id"
+                            ] ?>&pseudo=<?= $select["pseudo"] ?>" method="post">
+                                <div class="container col-md-8">
+                                  <input type="text" class="form-control" name="pseudo" placeholder="<?= $select[
+                                    "pseudo"
+                                  ] ?>" required>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <input type="submit" name="submit" value="Valider" class="btn btn-success">
+                              </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
                     </div>
                 </td>
             </tr>

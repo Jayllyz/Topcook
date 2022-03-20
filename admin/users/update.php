@@ -23,7 +23,7 @@ include "../../includes/head.php";
                 <label class="form-label mt-3"><strong>Pseudo</strong></label>
                 <input type="text" class="form-control" name="pseudo">
                 <label class="form-label mt-3"><strong>Droits</strong></label>
-                <input type="tel" class="form-control" name="rights">
+                <input type="number" class="form-control" name="rights">
                 <button type="submit" name="submit" class="btn mt-3">Envoyer</button>
             </div>
         </div>

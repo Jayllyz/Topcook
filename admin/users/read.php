@@ -2,6 +2,7 @@
 session_start();
 include "../../includes/db.php";
 $id = $_GET["id"];
+if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -58,3 +59,5 @@ include "../../includes/head.php";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
 </html>
+<?php } else {header("location: http://164.132.229.157/");
+  exit();} ?>

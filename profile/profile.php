@@ -39,7 +39,7 @@ if (isset($id)) {
             <?php include "../includes/message.php"; ?>
         </div>
 <div class="mt-3 mb-3 container col-md-4">
-      <div class="card w-75 card_profil">
+      <div class="card card_profil">
         <?php if (!empty($select["image"])) {
           echo '<img src="../uploads/' .
             $select["image"] .
@@ -52,7 +52,7 @@ if (isset($id)) {
           <li class="list-group-item"><strong>Votre email: </strong><?= $select[
             "email"
           ] ?></li>
-          <li class="list-group-item"><strong>Votre aniverssaire: </strong><br><?= $select[
+          <li class="list-group-item"><strong>Votre aniverssaire: </strong><?= $select[
             "date_birth"
           ] ?></li>
         </ul>

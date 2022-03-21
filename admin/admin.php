@@ -28,10 +28,9 @@ include "../includes/head.php";
                 <th>Actions</th>
             </tr>
             <?php
-            $query = $db->prepare(
+            $query = $db->query(
               "SELECT id, pseudo, email, rights, image FROM USER WHERE rights != 1 ORDER BY id DESC"
             );
-            $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $select) { ?>
             <tr>
@@ -60,12 +59,15 @@ include "../includes/head.php";
   "pseudo"
 ] ?>" target="_blank">Modifier</a>
                     </button><br>
-
-                    <button type="button" class="btn-delete btn ms-2 me-2" data-bs-toggle="modal" data-bs-target="#pop-up-del">
+                          
+                    <button type="button" class="btn-delete btn ms-2 me-2" data-bs-toggle="modal" data-bs-target="#pop-up-del-<?= $select[
+                      "id"
+                    ] ?>">
                     Supprimer
                     </button>
-
-                    <div class="modal fade" id="pop-up-del">
+                    <div class="modal fade" id="pop-up-del-<?= $select[
+                      "id"
+                    ] ?>">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -76,15 +78,15 @@ include "../includes/head.php";
                           </div>
                           <div class="modal-body">
                             Saisir le pseudo pour confirmation
-                            <form action="users/delete.php?id=<?= $select[
-                              "id"
-                            ] ?>&pseudo=<?= $select["pseudo"] ?>" method="post">
+                        <form action="users/delete.php?id=<?= $select[
+                          "id"
+                        ] ?>&pseudo=<?= $select["pseudo"] ?>" method="post">
                                 <div class="container col-md-8">
                                   <input type="text" class="form-control" name="pseudo" placeholder="<?= $select[
                                     "pseudo"
                                   ] ?>" required>
                                 </div>
-                              </div>
+                                </div>
                               <div class="modal-footer">
                                 <input type="submit" name="submit" value="Valider" class="btn btn-success">
                               </div>
@@ -92,7 +94,8 @@ include "../includes/head.php";
                         </div>
                       </div>
                     </div>
-                    </div>
+                  </div>
+                  
                 </td>
             </tr>
             <?php }

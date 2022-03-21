@@ -44,7 +44,19 @@ include "../includes/head.php";
                 echo $select["pseudo"];
                 ?></td>
                 <td><?= $select["email"] ?></td>
-                <td><?= $select["rights"] ?></td>
+                <td><?php
+                echo $select["rights"];
+                echo "<br>";
+                if ($select["rights"] == 0) {
+                  echo "Utilisateur";
+                } elseif ($select["rights"] == 1) {
+                  echo "Administrateur";
+                } elseif ($select["rights"] == -1) {
+                  echo "Banni";
+                } elseif ($select["rights"] == 2) {
+                  echo "Certifié";
+                }
+                ?></td>
                 <td>
                     <div class="button_profil">
                     <button type="button" class="btn-read btn ms-2 me-2">

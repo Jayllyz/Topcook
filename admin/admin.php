@@ -29,7 +29,7 @@ include "../includes/head.php";
             </tr>
             <?php
             $query = $db->prepare(
-              'SELECT * FROM USER WHERE pseudo != "admin" AND rights != 1 ORDER BY id DESC'
+              "SELECT id, pseudo, email, rights, image FROM USER WHERE rights != 1 ORDER BY id DESC"
             );
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);

@@ -52,20 +52,25 @@ if (isset($_POST["submit"])) {
           );
           exit();
         } else {
-          $_SESSION["id"] = $select["id"];
-          $_SESSION["rights"] = $select["rights"];
-          setcookie("email", $_POST["login"], time() + 3600);
-          $log_succes = fopen("../log/log_succes.txt", "a+");
-          fputs($log_succes, "Connexion reussi le ");
-          fputs($log_succes, $date);
-          fputs($log_succes, " par ");
-          fputs($log_succes, $_POST["login"]);
-          fputs($log_succes, "\n");
-          fclose($log_succes);
-          header(
-            "location: ../index.php?message=Vous êtes connecté&type=success"
-          );
-          exit();
+          if ($select["rights"] != -1) {
+            $_SESSION["id"] = $select["id"];
+            $_SESSION["rights"] = $select["rights"];
+            setcookie("email", $_POST["login"], time() + 3600);
+            $log_succes = fopen("../log/log_succes.txt", "a+");
+            fputs($log_succes, "Connexion reussi le ");
+            fputs($log_succes, $date);
+            fputs($log_succes, " par ");
+            fputs($log_succes, $_POST["login"]);
+            fputs($log_succes, "\n");
+            fclose($log_succes);
+            header(
+              "location: ../index.php?message=Vous êtes connecté&type=success"
+            );
+            exit();
+          } else {
+            header("location: ../profile/banned.php");
+            exit();
+          }
         }
       }
     }

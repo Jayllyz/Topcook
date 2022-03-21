@@ -4,6 +4,7 @@ include "../../includes/db.php";
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
+$date = date("d/m/Y H:i:s");
 $id = $_GET["id"];
 $pseudo = $_POST["pseudo"];
 $pseudoUser = $_GET["pseudo"];
@@ -15,6 +16,12 @@ if ($pseudo == $pseudoUser) {
     $del->execute([
       "id" => $id,
     ]);
+    $log_ban = fopen("../../log/log_ban.txt", "a+");
+    fputs($log_ban, $pseudo);
+    fputs($log_ban, " banni le ");
+    fputs($log_ban, $date);
+    fputs($log_ban, "\n");
+    fclose($log_ban);
 
     header(
       "location: ../admin.php?message=Utilisateur banni avec succès&type=success"
@@ -25,6 +32,12 @@ if ($pseudo == $pseudoUser) {
     $del->execute([
       "id" => $id,
     ]);
+    $log_deban = fopen("../../log/log_deban.txt", "a+");
+    fputs($log_deban, $pseudo);
+    fputs($log_deban, " débani le ");
+    fputs($log_deban, $date);
+    fputs($log_deban, "\n");
+    fclose($log_deban);
 
     header(
       "location: ../admin.php?message=Utilisateur débanni avec succès&type=success"

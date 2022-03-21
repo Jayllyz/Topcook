@@ -59,18 +59,16 @@ include "../includes/head.php";
                 ?></td>
                 <td>
                     <div class="button_profil">
-                    <button type="button" class="btn-read btn ms-2 me-2">
                         <a href="users/read.php?id=<?= $select[
                           "id"
-                        ] ?>" target="_blank">Consulter</a>
-                    </button><br>
-                    <button type="button" class="btn-update btn ms-2 me-2">
+                        ] ?>" class="btn-read btn ms-2 me-2" target="_blank">Consulter</a>
+                    <br>
                         <a href="users/update.php?id=<?= $select[
                           "id"
                         ] ?>&pseudo=<?= $select[
   "pseudo"
-] ?>" target="_blank">Modifier</a>
-                    </button><br>
+] ?>" class="btn-update btn ms-2 me-2" target="_blank">Modifier</a>
+                    <br>
                           
                     <button type="button" class="btn-ban btn ms-2 me-2" data-bs-toggle="modal" data-bs-target="#pop-up-del-<?= $select[
                       "id"

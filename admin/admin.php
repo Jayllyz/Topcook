@@ -74,8 +74,9 @@ include "../includes/head.php";
                           
                     <button type="button" class="btn-ban btn ms-2 me-2" data-bs-toggle="modal" data-bs-target="#pop-up-del-<?= $select[
                       "id"
-                    ] ?>">
-                    Bannir
+                    ] ?>"><?= $select["rights"] != -1
+  ? "Bannir"
+  : "Debannir" ?></button>
                     </button>
                     <div class="modal fade" id="pop-up-del-<?= $select[
                       "id"
@@ -83,16 +84,22 @@ include "../includes/head.php";
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title">Confirmation du bannissement de <span class="text-uppercase"><?= $select[
-                              "pseudo"
-                            ] ?></span></h5>
+                            <h5 class="modal-title">Confirmation du <?= $select[
+                              "rights"
+                            ] != -1
+                              ? "Bannissement"
+                              : "Debannissement" ?> de <span class="text-uppercase"><?= $select[
+   "pseudo"
+ ] ?></span></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
                             Saisir le pseudo pour confirmation
                         <form action="users/ban.php?id=<?= $select[
                           "id"
-                        ] ?>&pseudo=<?= $select["pseudo"] ?>" method="post">
+                        ] ?>&pseudo=<?= $select["pseudo"] ?>&rights=<?= $select[
+  "rights"
+] ?>" method="post">
                                 <div class="container col-md-8">
                                   <input type="text" class="form-control" name="pseudo" placeholder="<?= $select[
                                     "pseudo"

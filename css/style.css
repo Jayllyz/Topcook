@@ -193,13 +193,13 @@ footer {
 .btn-update {
   background-color: #011170 !important;
 }
-.btn-delete {
+.btn-ban {
   background-color: #9f0f08 !important;
   color: white !important;
 }
 .btn-read,
 .btn-update,
-.btn-delete {
+.btn-ban {
   transition: 0.5s !important;
 }
 .btn-read:hover {
@@ -207,7 +207,7 @@ footer {
   transform: scale(1.1);
   transition: 0.5s !important;
 }
-.btn-delete:hover {
+.btn-ban:hover {
   background-color: #620803 !important;
   transform: scale(1.1);
   transition: 0.5s !important;

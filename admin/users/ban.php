@@ -8,12 +8,12 @@ $pseudo = $_POST["pseudo"];
 $pseudoUser = $_GET["pseudo"];
 
 if ($pseudo == $pseudoUser) {
-  $del = $db->prepare("DELETE FROM USER WHERE id = :id");
+  $del = $db->prepare("UPDATE USER SET rights = -1 WHERE id = :id");
   $del->execute([
     "id" => $id,
   ]);
   header(
-    "location: ../admin.php?message=Utilisateur supprimé avec succès&type=success"
+    "location: ../admin.php?message=Utilisateur banni avec succès&type=success"
   );
   exit();
 } else {

@@ -76,7 +76,7 @@ include "../includes/head.php";
                       "id"
                     ] ?>"><?= $select["rights"] != -1
   ? "Bannir"
-  : "Debannir" ?></button>
+  : "Débannir" ?></button>
                     </button>
                     <div class="modal fade" id="pop-up-del-<?= $select[
                       "id"
@@ -87,8 +87,8 @@ include "../includes/head.php";
                             <h5 class="modal-title">Confirmation du <?= $select[
                               "rights"
                             ] != -1
-                              ? "Bannissement"
-                              : "Debannissement" ?> de <span class="text-uppercase"><?= $select[
+                              ? "bannissement"
+                              : "débannissement" ?> de <span class="text-uppercase"><?= $select[
    "pseudo"
  ] ?></span></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

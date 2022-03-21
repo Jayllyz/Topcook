@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../../includes/db.php";
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
@@ -14,6 +15,7 @@ if ($pseudo == $pseudoUser) {
     $del->execute([
       "id" => $id,
     ]);
+
     header(
       "location: ../admin.php?message=Utilisateur banni avec succès&type=success"
     );
@@ -23,6 +25,7 @@ if ($pseudo == $pseudoUser) {
     $del->execute([
       "id" => $id,
     ]);
+
     header(
       "location: ../admin.php?message=Utilisateur débanni avec succès&type=success"
     );

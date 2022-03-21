@@ -2,25 +2,15 @@
 session_start();
 include "../includes/db.php";
 $id = $_SESSION["id"];
-if (isset($id)) {
-
-  $req = $db->query("SELECT pseudo FROM USER WHERE id = " . $_SESSION["id"]);
-  $result = $req->fetch();
-  foreach ($result as $pseudo) { ?>
-
+if (isset($id)) { ?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" sizes="16x16" href="../images/topcook_logo.svg">
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Profil de <?= $pseudo ?></title>
-    <?php }
-  ?>
-</head>
+<?php
+$linkLogoOnglet = "../images/topcook_logo.svg";
+$linkCss = "../css/style.css";
+$title = "Mon profil";
+include "../includes/head.php";
+?>
 <body>
     <?php include "../includes/header.php"; ?>
 
@@ -77,8 +67,5 @@ if (isset($id)) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
 </html>
-<?php
-} else {
-  header("location: ../index.php");
-  exit();
-} ?>
+<?php } else {header("location: ../index.php");
+  exit();} ?>

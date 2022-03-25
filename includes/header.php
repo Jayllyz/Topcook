@@ -3,7 +3,7 @@
 <header id="header">
       <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="http://164.132.229.157/index.php"><img src="http://164.132.229.157/images/topcook_logo.svg" width="50" height="50"></a>
+          <a class="navbar-brand" href="http://164.132.229.157/"><img src="http://164.132.229.157/images/topcook_logo.svg" width="50" height="50"></a>
           <button class="navbar-toggler" id="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -12,7 +12,7 @@
               <li class="nav-item">
                 <a class="nav-link<?= $title == "Recettes"
                   ? $active
-                  : " " ?> aria-current="page" href="http://164.132.229.157/recettes.php">Recettes</a>
+                  : " " ?> aria-current="page" href="http://164.132.229.157/recettes">Recettes</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link<?= $title == "Forum"

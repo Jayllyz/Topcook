@@ -80,9 +80,7 @@ if (isset($_POST["submit"])) {
     fputs($log_errors, $date);
     fputs($log_errors, "\n");
     fclose($log_errors);
-    header(
-      "location: ../connexion.php?message=Email ou mot de passe incorrect !&type=danger"
-    );
+    header("location: ../connexion.php?valid=is-invalid");
     exit();
   }
 }

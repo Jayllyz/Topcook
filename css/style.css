@@ -248,6 +248,9 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
+  .active {
+    border: none !important;
+  }
   .nav-link:hover {
     transform: none;
   }

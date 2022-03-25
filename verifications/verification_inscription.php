@@ -14,7 +14,9 @@ include "../includes/db.php";
 
 if (isset($_POST["submit"])) {
   if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-    header("location: ../inscription.php?message=Email invalide !&type=danger");
+    header(
+      "location: ../inscription.php?message=Email invalide !&valid=invalid&input=email"
+    );
     exit();
   } else {
     setcookie("email", $_POST["email"], time() + 3600, "/");
@@ -30,7 +32,7 @@ if (isset($_POST["submit"])) {
   // Si la ligne existe : erreur, le pseudo est déja utilisé
   if ($reponse) {
     header(
-      "location: ../inscription.php?message=Ce pseudo est déja utilisé !&type=danger"
+      "location: ../inscription.php?message=Ce pseudo est déja utilisé !&valid=invalid&input=pseudo"
     );
     exit();
   } else {
@@ -45,7 +47,7 @@ if (isset($_POST["submit"])) {
   }
   if (strlen($_POST["password"]) < 6 || strlen($_POST["password"]) > 15) {
     header(
-      "location: ../inscription.php?message=Mot de passe invalide. Il doit etre compris entre 6 et 15 caractères !&type=danger"
+      "location: ../inscription.php?message=Mot de passe invalide. Il doit etre compris entre 6 et 15 caractères !&valid=invalid&input=mdp"
     );
     exit();
   }
@@ -58,7 +60,7 @@ if (isset($_POST["submit"])) {
     if (!in_array($_FILES["image"]["type"], $acceptable)) {
       // Rediriger vers inscription.php avec un message d'erreur
       header(
-        "location: ../inscription.php?message=Type de fichier incorrect.&type=danger"
+        "location: ../inscription.php?message=Type de fichier incorrect.&valid=invalid&input=fichier"
       );
       exit();
     }
@@ -69,7 +71,7 @@ if (isset($_POST["submit"])) {
     if ($_FILES["image"]["size"] > $maxSize) {
       // Rediriger vers inscription.php avec un message d'erreur
       header(
-        "location: ../inscription.php?message=Ce fichier est trop lourd.&type=danger"
+        "location: ../inscription.php?message=Ce fichier est trop lourd.&valid=invalid&input=fichier"
       );
       exit();
     }
@@ -115,7 +117,7 @@ if (isset($_POST["submit"])) {
   // Si la ligne existe : erreur, l'email est déja utilisé
   if ($reponse) {
     header(
-      "location: ../inscription.php?message=Cet email est déja utilisé !&type=danger"
+      "location: ../inscription.php?message=Cet email est déja utilisé !&valid=invalid&input=email"
     );
     exit();
   }

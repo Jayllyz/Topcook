@@ -16,23 +16,38 @@ include "includes/head.php";
                 <?php include "includes/message.php"; ?>
                 <div class="mb-3">
                     <label class="form-label"><strong>Pseudo</strong></label>
-                    <input type="text" name="pseudo" class="form-control" value="<?= isset(
-                      $_COOKIE["pseudo"]
-                    )
-                      ? $_COOKIE["pseudo"]
-                      : "" ?>" required>
+                    <input type="text" name="pseudo" class="form-control is-<?= isset(
+                      $_GET["valid"]
+                    ) && $_GET["input"] == "pseudo"
+                      ? $_GET["valid"]
+                      : "" ?>" value="<?= isset($_COOKIE["pseudo"])
+  ? $_COOKIE["pseudo"]
+  : "" ?>" required>
+                  <div class="<?= $_GET["valid"] ?>-feedback">
+                    <?= $_GET["message"] ?>
+                  </div>
                 </div>
+
                 <div class="mb-3">
-                    <label class="form-label"><strong> Adresse mail</strong></label>
-                    <input type="email" name="email" class="form-control" value="<?= isset(
-                      $_COOKIE["email"]
-                    )
-                      ? $_COOKIE["email"]
-                      : "" ?>" required>
+                    <label class="form-label"><strong>Adresse mail</strong></label>
+                    <input type="email" name="email" class="form-control is-<?= isset(
+                      $_GET["valid"]
+                    ) && $_GET["input"] == "email"
+                      ? $_GET["valid"]
+                      : "" ?>" value="<?= isset($_COOKIE["email"])
+  ? $_COOKIE["email"]
+  : "" ?>" required>
+                    <div class="<?= $_GET["valid"] ?>-feedback">
+                    <?= $_GET["message"] ?>
+                  </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"><strong>Mot de passe</strong></label>
-                    <input type="password" name="password" class="form-control" id="password" oninput="strengthChecker()" required>
+                    <input type="password" name="password" class="form-control is-<?= isset(
+                      $_GET["valid"]
+                    ) && $_GET["input"] == "mdp"
+                      ? $_GET["valid"]
+                      : "" ?>" id="password" oninput="strengthChecker()" required>
                     <div id="strength-bar"></div>
                     <p id="msg"></p>
                     <label class="form-label">Voir mon mot de passe</label>
@@ -41,12 +56,22 @@ include "includes/head.php";
                 <div class="mb-3">
                     <label class="form-label"><strong>Confirmation du mot de passe</strong></label>
                     <input type="password" name="conf_password" class="form-control" id="conf_Password_inscription" required>
+                      <div class="<?= $_GET["valid"] ?>-feedback">
+                        <?= $_GET["message"] ?>
+                      </div>
                     <label class="form-label">Voir mon mot de passe</label>
                     <input type="checkbox" class="form-check-input" onClick="viewConfPasswordInscription()">
                 </div>
                 <div class="mb-3">
                     <label class="form-label"><strong>Photo de profil</strong></label>
-                    <input type="file" name="image" class="form-control" accept="image/png, image/jpeg">
+                    <input type="file" name="image" class="form-control is-<?= isset(
+                      $_GET["valid"]
+                    ) && $_GET["input"] == "fichier"
+                      ? $_GET["valid"]
+                      : "" ?>" accept="image/png, image/jpeg">
+                    <div class="<?= $_GET["valid"] ?>-feedback">
+                      <?= $_GET["message"] ?>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"><strong>Date de naissance</strong></label>

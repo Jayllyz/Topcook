@@ -12,7 +12,7 @@
               <li class="nav-item">
                 <a class="nav-link<?= $title == "Recettes"
                   ? $active
-                  : " " ?> aria-current="page" href="http://164.132.229.157/recettes">Recettes</a>
+                  : " " ?> aria-current="page" href="http://164.132.229.157/toutes-nos-recettes">Recettes</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link<?= $title == "Forum"
@@ -22,31 +22,31 @@
               <li class="nav-item">
                 <a class="nav-link<?= $title == "TopCook - Concours"
                   ? $active
-                  : " " ?>" aria-current="page" href="http://164.132.229.157/concours.php">Concours</a>
+                  : " " ?>" aria-current="page" href="http://164.132.229.157/concours">Concours</a>
               </li>
               <?php if (!isset($_SESSION["id"])) { ?>
               <li class="nav-item">
                 <a class="nav-link<?= $title == "Connexion"
                   ? $active
-                  : " " ?>" aria-current="page" href="http://164.132.229.157/connexion.php">Connexion</a>
+                  : " " ?>" aria-current="page" href="http://164.132.229.157/connexion">Connexion</a>
               </li>
 
               <li class="nav-item">
                 <a class="nav-link<?= $title == "Inscription"
                   ? $active
-                  : " " ?>" aria-current="page" href="http://164.132.229.157/inscription.php">Inscription</a>
+                  : " " ?>" aria-current="page" href="http://164.132.229.157/inscription">Inscription</a>
               </li>
                 <?php } else { ?>
 
                   <li class="nav-item">
                     <a class="nav-link<?= $title == "Mon profil"
                       ? $active
-                      : " " ?>" aria-current="page" href="http://164.132.229.157/profile/profile.php">Mon profil</a>
+                      : " " ?>" aria-current="page" href="http://164.132.229.157/mon-profile">Mon profil</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link<?= $title == "TopCook - Mes recettes"
                       ? $active
-                      : " " ?>" aria-current="page" href="http://164.132.229.157/profile/mesRecettes.php">Mes recettes</a>
+                      : " " ?>" aria-current="page" href="http://164.132.229.157/mes-recettes">Mes recettes</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="http://164.132.229.157/deconnexion.php">Deconnexion</a>

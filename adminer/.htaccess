@@ -1,0 +1,4 @@
+AuthName "test"
+AuthType Basic
+AuthUserFile "/var/www/html/adminer/.htpasswd" 
+Require valid-user

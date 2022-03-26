@@ -4,7 +4,7 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
 <!DOCTYPE html>
 <html lang="fr">
 <?php
-$pseudo = $_GET["pseudo"];
+$pseudo = htmlspecialchars($_GET["pseudo"]);
 $linkLogoOnglet = "../../images/topcook_logo.svg";
 $linkCss = "../../css/style.css";
 $title = "Modification de $pseudo";

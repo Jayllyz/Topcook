@@ -17,13 +17,13 @@ if (isset($_POST["submit"])) {
     empty($_POST["login"]) ||
     !filter_var($_POST["login"], FILTER_VALIDATE_EMAIL)
   ) {
-    header("location: ../connexion.php?message=Email invalide !&type=danger");
+    header("location: ../connexion?message=Email invalide !&type=danger");
     exit();
   }
 
   if (!isset($_POST["password"]) || empty($_POST["password"])) {
     header(
-      "location: ../connexion.php?message=Mot de passe manquant !&type=danger"
+      "location: ../connexion?message=Mot de passe manquant !&type=danger"
     );
     exit();
   }
@@ -48,7 +48,7 @@ if (isset($_POST["submit"])) {
       foreach ($reponse as $select) {
         if ($conf == 0) {
           header(
-            "location: ../connexion.php?message=Vous n'avez pas confirmer votre email, veuillez vérifier votre boite mail et vos spam !&type=danger"
+            "location: ../connexion?message=Vous n'avez pas confirmer votre email, veuillez vérifier votre boite mail et vos spam !&type=danger"
           );
           exit();
         } else {
@@ -64,11 +64,11 @@ if (isset($_POST["submit"])) {
             fputs($log_succes, "\n");
             fclose($log_succes);
             header(
-              "location: ../index.php?message=Vous êtes connecté&type=success"
+              "location: http://164.132.229.157/?message=Vous êtes connecté&type=success"
             );
             exit();
           } else {
-            header("location: ../profile/banned.php");
+            header("location: http://164.132.229.157/profile/banned.php");
             exit();
           }
         }
@@ -80,7 +80,9 @@ if (isset($_POST["submit"])) {
     fputs($log_errors, $date);
     fputs($log_errors, "\n");
     fclose($log_errors);
-    header("location: ../connexion.php?valid=is-invalid");
+    header(
+      "location: ../connexion?message=Cet email n'existe pas !&type=danger"
+    );
     exit();
   }
 }

@@ -6,13 +6,13 @@ error_reporting(E_ALL);
 include "../../includes/db.php";
 $req = $db->prepare("SELECT token FROM USER WHERE email = :email");
 $req->execute([
-  "email" => $_GET["email"],
+  "email" => htmlspecialchars($_GET["email"]),
 ]);
 $result = $req->fetch(PDO::FETCH_ASSOC);
 if (!$result) {
-  $token = $_GET["token"];
-  $email = $_GET["email"];
-  $id = $_GET["id"];
+  $token = htmlspecialchars($_GET["token"]);
+  $email = htmlspecialchars($_GET["email"]);
+  $id = htmlspecialchars($_GET["id"]);
   $updateEmail = $db->prepare(
     "UPDATE USER SET email = :email, token = '', confirm_signup = 1 WHERE id = :id"
   );

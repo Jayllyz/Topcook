@@ -2,7 +2,7 @@
 include "db.php";
 $req = $db->prepare("SELECT token FROM USER WHERE email = :email");
 $req->execute([
-  "email" => $_GET["email"],
+  "email" => htmlspecialchars($_GET["email"]),
 ]);
 $result = $req->fetch(PDO::FETCH_ASSOC);
 foreach ($result as $existToken) {

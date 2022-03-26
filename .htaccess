@@ -1,13 +1,8 @@
 RewriteEngine On
+
 RewriteRule ^toutes-nos-recettes$ recettes.php
 RewriteRule ^concours$ concours.php
 RewriteRule ^connexion$ connexion.php
 RewriteRule ^inscription$ inscription.php
 RewriteRule ^mon-profile$ profile/profile.php
 RewriteRule ^mes-recettes$ profile/mesRecettes.php
-
-# A fix demain
-# AuthName "test"
-# AuthType Basic
-# AuthUserFile "/var/www/html/adminer/.htpasswd" 
-# Require valid-user

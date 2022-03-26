@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../../includes/db.php";
-$id = $_GET["id"];
+$id = htmlspecialchars($_GET["id"]);
 if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -5,10 +5,10 @@ ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 $date = date("d/m/Y H:i:s");
-$id = $_GET["id"];
+$id = htmlspecialchars($_GET["id"]);
 $pseudo = $_POST["pseudo"];
-$pseudoUser = $_GET["pseudo"];
-$rights = $_GET["rights"];
+$pseudoUser = htmlspecialchars($_GET["pseudo"]);
+$rights = htmlspecialchars($_GET["rights"]);
 
 if ($pseudo == $pseudoUser) {
   if ($rights != -1) {

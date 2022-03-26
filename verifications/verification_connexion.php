@@ -60,7 +60,7 @@ if (isset($_POST["submit"])) {
             fputs($log_succes, "Connexion reussi le ");
             fputs($log_succes, $date);
             fputs($log_succes, " par ");
-            fputs($log_succes, $_POST["login"]);
+            fputs($log_succes, $_SESSION["id"]);
             fputs($log_succes, "\n");
             fclose($log_succes);
             header(

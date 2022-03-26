@@ -17,7 +17,7 @@ if ($pseudo == $pseudoUser) {
       "id" => $id,
     ]);
     $log_ban = fopen("../../log/log_ban.txt", "a+");
-    fputs($log_ban, $pseudo);
+    fputs($log_ban, $id);
     fputs($log_ban, " banni le ");
     fputs($log_ban, $date);
     fputs($log_ban, "\n");
@@ -33,7 +33,7 @@ if ($pseudo == $pseudoUser) {
       "id" => $id,
     ]);
     $log_deban = fopen("../../log/log_deban.txt", "a+");
-    fputs($log_deban, $pseudo);
+    fputs($log_deban, $id);
     fputs($log_deban, " débani le ");
     fputs($log_deban, $date);
     fputs($log_deban, "\n");

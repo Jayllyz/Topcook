@@ -3,6 +3,7 @@ session_start();
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
+date_default_timezone_set("Europe/Paris");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -132,7 +133,7 @@ if (isset($_POST["submit"])) {
   ) {
     if ($_POST["password"] == $_POST["conf_password"]) {
       $req = $db->prepare(
-        "INSERT INTO USER (pseudo,email,password,date_birth,image,token) VALUES (:pseudo,:email,:password,:date_birth,:image, :token)"
+        "INSERT INTO USER (pseudo,email,password,date_birth,image,token,creation) VALUES (:pseudo,:email,:password,:date_birth,:image, :token,:creation)"
       );
       $token = uniqid();
       $email = $_POST["email"];
@@ -140,6 +141,7 @@ if (isset($_POST["submit"])) {
       $password = $_POST["password"];
       $conf_password = $_POST["conf_password"];
       $birth = $_POST["birth"];
+      $creation = date("d-m-Y H:i:s");
 
       $req->execute([
         "pseudo" => $pseudo,
@@ -148,6 +150,7 @@ if (isset($_POST["submit"])) {
         "date_birth" => $birth,
         "image" => isset($filename) ? $filename : "",
         "token" => $token,
+        "creation" => $creation,
       ]);
       $subject = "Confirmation de votre inscription";
       $mailMsg = "Validé votre inscription!";

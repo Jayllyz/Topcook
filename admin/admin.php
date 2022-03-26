@@ -25,11 +25,12 @@ include "../includes/head.php";
                 <th>Pseudo</th>
                 <th>Email</th>
                 <th>Droits</th>
+                <th>Date de création de compte</th>
                 <th>Actions</th>
             </tr>
             <?php
             $query = $db->query(
-              "SELECT id, pseudo, email, rights, image FROM USER WHERE rights != 1 ORDER BY id DESC"
+              "SELECT id, pseudo, email, rights, image,creation FROM USER WHERE rights != 1 ORDER BY id DESC"
             );
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $select) { ?>
@@ -57,6 +58,7 @@ include "../includes/head.php";
                   echo "Certifié";
                 }
                 ?></td>
+                <td><?= $select["creation"] ?></td>
                 <td>
                     <div class="button_profil">
                         <a href="users/read.php?id=<?= $select[

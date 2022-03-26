@@ -70,7 +70,7 @@
               </button>
             </div>
 
-            
+
           <?php if (isset($_SESSION["id"]) && $_SESSION["rights"] == 1) { ?>
 
             <a href="http://164.132.229.157/admin/admin.php" class="logo_admin">

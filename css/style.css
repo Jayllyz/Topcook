@@ -88,6 +88,9 @@ h3 {
   border-bottom-right-radius: 0% !important;
   border-top-right-radius: 0% !important;
 }
+.pp {
+  width: auto !important;
+}
 .best_recipe,
 .last_recipe {
   display: flex;

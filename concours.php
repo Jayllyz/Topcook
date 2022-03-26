@@ -6,6 +6,16 @@ $linkLogoOnglet = "images/topcook_logo.svg";
 $linkCss = "css/style.css";
 $title = "TopCook - Concours";
 include "includes/head.php";
+if(isset($_SESSION["id"])) {
+  $date = date("d/m/Y H:i:s");
+  $log_visit = fopen("log/log_concours.txt", "a+");
+  fputs($log_visit, "Visite de concours le :");
+  fputs($log_visit, $date);
+  fputs($log_visit, " par ");
+  fputs($log_visit, $_SESSION["id"]);
+  fputs($log_visit, "\n");
+  fclose($log_visit);
+}
 ?>
 <body>
     <?php include "includes/header.php"; ?>

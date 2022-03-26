@@ -15,7 +15,7 @@ include "../../includes/head.php";
     <?php include "../../includes/header.php"; ?>
     <?php
     $req = $db->prepare(
-      "SELECT pseudo, email, date_birth,rights,image FROM USER WHERE id = :id"
+      "SELECT pseudo, email, date_birth,rights,image,creation FROM USER WHERE id = :id"
     );
     $req->execute([
       "id" => $id,
@@ -32,6 +32,7 @@ include "../../includes/head.php";
                 <th>Email</th>
                 <th>Date de naissance</th>
                 <th>Droits</th>
+                <th>Date de création de compte</th>
             </tr>
             <tr>
                 <td><?php if (!empty($select["image"])) {
@@ -43,6 +44,8 @@ include "../../includes/head.php";
                 <td><?= $select["email"] ?></td>
                 <td><?= $select["date_birth"] ?></td>
                 <td><?= $select["rights"] ?></td>
+                <td><?= $select["creation"] ?></td>
+                
             </tr>
         </table>
     </div>

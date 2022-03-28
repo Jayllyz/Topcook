@@ -64,14 +64,33 @@ h3 {
   font-weight: bold;
   transition: 0.5s !important;
 }
-.nav-link:hover {
-  transform: scale(1.2);
-  transition: 0.5s;
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .5s;
 }
-.active {
-  border-bottom: #c5500e solid 4px !important;
-  border-radius: 8% !important;
+.navbar ul li a{
+  position: relative;
 }
+.navbar ul li a:hover:after{
+  width: 90%;
+}
+.navbar ul li a:after, .active:after {
+  position: absolute !important;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0;
+  content: '.';
+  color: transparent;
+  background: #c5500e;
+  height: 4px;
+}
+.active:after{
+  width: 90% !important;
+}
+
 .recipe {
   filter: drop-shadow(0 0 0.75rem grey) !important;
 }

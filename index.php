@@ -6,7 +6,7 @@ $linkLogoOnglet = "images/topcook_logo.svg";
 $linkCss = "css/style.css";
 $title = "TopCook - Accueil";
 include "includes/head.php";
-if(isset($_SESSION["id"])) {
+if (isset($_SESSION["id"])) {
   $date = date("d/m/Y H:i:s");
   $log_visit = fopen("log/log_index.txt", "a+");
   fputs($log_visit, "Visite de index le :");
@@ -16,7 +16,6 @@ if(isset($_SESSION["id"])) {
   fputs($log_visit, "\n");
   fclose($log_visit);
 }
-
 ?>
 <body>
     <?php include "includes/header.php"; ?>

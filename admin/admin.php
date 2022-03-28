@@ -120,6 +120,7 @@ include "../includes/head.php";
             <?php }
             ?>
         </table>
+        
     </div>
 
 

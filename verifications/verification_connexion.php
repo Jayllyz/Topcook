@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
   }
 
   $req = $db->prepare(
-    "SELECT id, rights FROM USER WHERE email = :email AND password = :password"
+    "SELECT id, rights,email FROM USER WHERE email = :email AND password = :password"
   );
   $req->execute([
     "email" => $_POST["login"],
@@ -55,14 +55,17 @@ if (isset($_POST["submit"])) {
           if ($select["rights"] != -1) {
             $_SESSION["id"] = $select["id"];
             $_SESSION["rights"] = $select["rights"];
+            $_SESSION["email"] = $select["email"];
             setcookie("email", $_POST["login"], time() + 3600);
-            $log_succes = fopen("../log/log_succes.txt", "a+");
-            fputs($log_succes, "Connexion reussi le ");
+            $login = $_POST["login"];
+            $log_success = fopen("../log/log_success.txt", "a+");
+            fputs($log_success, "Connexion reussi le ");
             fputs($log_succes, $date);
-            fputs($log_succes, " par ");
-            fputs($log_succes, $_SESSION["id"]);
+            fputs($log_success, " par ");
+            fputs($log_success, $_SESSION["id"]);
+            fputs($log_success, " ($login)");
             fputs($log_succes, "\n");
-            fclose($log_succes);
+            fclose($log_success);
             header(
               "location: http://164.132.229.157/?message=Vous êtes connecté&type=success"
             );

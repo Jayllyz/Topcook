@@ -1,7 +1,5 @@
 RewriteEngine On
 
-
-
 RewriteRule ^toutes-nos-recettes$ recettes.php
 RewriteRule ^concours$ concours.php
 RewriteRule ^connexion$ connexion.php

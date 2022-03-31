@@ -32,7 +32,7 @@ include "../includes/head.php";
             </thead>
             <?php
             $query = $db->query(
-              "aSELECT id, pseudo, email, rights, image,creation FROM USER WHERE rights != 1 ORDER BY id DESC"
+              "SELECT id, pseudo, email, rights, image,creation FROM USER WHERE rights != 1 ORDER BY id DESC"
             );
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $select) { ?>

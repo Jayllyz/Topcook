@@ -85,7 +85,7 @@ nav ul li a:before {
   content: '.';
   color: transparent;
   background: #c5500e;
-  height: 4px;
+  height: 2px;
 }
 .active:after{
   width: 90% !important;
@@ -266,7 +266,8 @@ footer {
   text-align: left;
 }
 .logo_admin:hover {
-  animation: test 2s infinite ease-in-out;
+  animation: rotate 2s infinite ease-in-out;
+  line-height: 0;
 }
 
 @media screen and (max-width: 800px) {
@@ -330,7 +331,7 @@ footer {
     transform: rotate(0deg);
   }
 }
-@keyframes test {
+@keyframes rotate {
   to {
     transform: rotate3d(0, 1, 0, 359deg);
   }

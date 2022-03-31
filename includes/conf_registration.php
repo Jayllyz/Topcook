@@ -31,10 +31,10 @@ foreach ($result as $existToken) {
       echo "
   <div class='text-center'>
   <div class='alert alert-success' role='alert'>
-    <img src='http://164.132.229.157/images/topcook_logo.svg' class='logo float-left m-2 h-75 me-4' width='95' alt='Logo'>
+    <img src='https://topcook.site/images/topcook_logo.svg' class='logo float-left m-2 h-75 me-4' width='95' alt='Logo'>
     <h4 class='alert-heading'><strong>Congratulations !</strong></h4>
     <p>Votre compte a été confirmé ! Vous pouvez retourner sur notre site en cliquant sur ce lien :
-    <a href='http://164.132.229.157/index.php' class='text-decoration-none'><em>Home</em></a> pour vous connecter et fermer
+    <a href='https://topcook.site/index.php' class='text-decoration-none'><em>Home</em></a> pour vous connecter et fermer
     cette page.
     TopCook, vous souhaite la bienvenue !</p>
   </div>
@@ -45,7 +45,7 @@ foreach ($result as $existToken) {
       echo "Email doesn't confirmed !";
     }
   } else {
-    header("location: ../index.php?message=Le liens à expiré !&type=danger");
+    header("location: https://topcook.site/?message=Le liens à expiré !&type=danger");
     exit();
   }
 }

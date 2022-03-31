@@ -3,7 +3,7 @@
 <header id="header">
       <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="http://164.132.229.157/"><img src="http://164.132.229.157/images/topcook_logo.svg" width="50" height="50"></a>
+          <a class="navbar-brand" href="https://topcook.site/"><img src="https://topcook.site/images/topcook_logo.svg" width="50" height="50"></a>
           <button class="navbar-toggler" id="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -12,7 +12,7 @@
               <li class="nav-item">
                 <a class="nav-link<?= $title == "Recettes"
                   ? $active
-                  : " " ?> aria-current="page" href="http://164.132.229.157/toutes-nos-recettes">Recettes</a>
+                  : " " ?> aria-current="page" href="https://topcook.site/toutes-nos-recettes">Recettes</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link<?= $title == "Forum"
@@ -22,34 +22,34 @@
               <li class="nav-item">
                 <a class="nav-link<?= $title == "TopCook - Concours"
                   ? $active
-                  : " " ?>" aria-current="page" href="http://164.132.229.157/concours">Concours</a>
+                  : " " ?>" aria-current="page" href="https://topcook.site/concours">Concours</a>
               </li>
               <?php if (!isset($_SESSION["id"])) { ?>
               <li class="nav-item">
                 <a class="nav-link<?= $title == "Connexion"
                   ? $active
-                  : " " ?>" aria-current="page" href="http://164.132.229.157/connexion">Connexion</a>
+                  : " " ?>" aria-current="page" href="https://topcook.site/connexion">Connexion</a>
               </li>
 
               <li class="nav-item">
                 <a class="nav-link<?= $title == "Inscription"
                   ? $active
-                  : " " ?>" aria-current="page" href="http://164.132.229.157/inscription">Inscription</a>
+                  : " " ?>" aria-current="page" href="https://topcook.site/inscription">Inscription</a>
               </li>
                 <?php } else { ?>
 
                   <li class="nav-item">
                     <a class="nav-link<?= $title == "Mon profil"
                       ? $active
-                      : " " ?>" aria-current="page" href="http://164.132.229.157/mon-profile">Mon profil</a>
+                      : " " ?>" aria-current="page" href="https://topcook.site/mon-profile">Mon profil</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link<?= $title == "TopCook - Mes recettes"
                       ? $active
-                      : " " ?>" aria-current="page" href="http://164.132.229.157/mes-recettes">Mes recettes</a>
+                      : " " ?>" aria-current="page" href="https://topcook.site/mes-recettes">Mes recettes</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="http://164.132.229.157/deconnexion.php">Deconnexion</a>
+                    <a class="nav-link" aria-current="page" href="https://topcook.site/deconnexion.php">Deconnexion</a>
                   </li>
                   <?php } ?>
 
@@ -73,7 +73,7 @@
 
           <?php if (isset($_SESSION["id"]) && $_SESSION["rights"] == 1) { ?>
 
-            <a href="http://164.132.229.157/admin/admin.php" class="logo_admin">
+            <a href="https://topcook.site/admin/admin.php" class="logo_admin">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="black" id="logo_admin">
                   <path d="M0 0 H24 V24 H0 V0 z" style="fill:none;"></path>
                   <path d="M17,11c0.34,0,0.67,0.04,1,0.09V6.27L10.5,3L3,6.27v4.91c0,4.54,3.2,8.79,7.5,9.82c0.55-0.13,1.08-0.32,1.6-0.55 C11.41,19.47,11,18.28,11,17C11,13.69,13.69,11,17,11z"></path>
@@ -89,7 +89,7 @@
   <div class="container">
     <form class="d-flex searchbar pt-3 pb-5">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn" type="submit"><img src="http://164.132.229.157/images/search.svg" alt="search"></button>
+          <button class="btn" type="submit"><img src="https://topcook.site/images/search.svg" alt="search"></button>
     </form>
   </div>
   </header>

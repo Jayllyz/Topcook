@@ -16,6 +16,7 @@ if(isset($_SESSION["id"])) {
   fputs($log_visit, "\n");
   fclose($log_visit);
 }
+
 ?>
 <body>
     <?php include "includes/header.php"; ?>

@@ -28,13 +28,13 @@ if ($result) {
   $subject = "Réinitialisation du mot de passe";
   $mailMsg = "Modifier votre mot de passe";
   $msgHTML =
-    '<img src="http://164.132.229.157/images/topcook_logo.svg" class="logo float-left m-2 h-75 me-4" width="95" alt="Logo">
-    <p class="display-2">Pour réinitialiser votre mot de passe, veuillez <a href="http://164.132.229.157/includes/change_password.php?email=' .
+    '<img src="https://topcook.site/images/topcook_logo.svg" class="logo float-left m-2 h-75 me-4" width="95" alt="Logo">
+    <p class="display-2">Pour réinitialiser votre mot de passe, veuillez <a href="https://topcook.site/includes/change_password.php?email=' .
     $email .
     "&token=" .
     $token .
     '">cliquez ici</a></p>';
-  $destination = "http://164.132.229.157/index.php";
+  $destination = "https://topcook.site/";
   include "../includes/mailer.php";
 } else {
   header(

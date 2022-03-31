@@ -60,18 +60,18 @@ if (isset($_POST["submit"])) {
             $login = $_POST["login"];
             $log_success = fopen("../log/log_success.txt", "a+");
             fputs($log_success, "Connexion reussi le ");
-            fputs($log_succes, $date);
+            fputs($log_success, $date);
             fputs($log_success, " par ");
             fputs($log_success, $_SESSION["id"]);
             fputs($log_success, " ($login)");
-            fputs($log_succes, "\n");
+            fputs($log_success, "\n");
             fclose($log_success);
             header(
-              "location: http://164.132.229.157/?message=Vous êtes connecté&type=success"
+              "location: https://topcook.site/?message=Vous êtes connecté&type=success"
             );
             exit();
           } else {
-            header("location: http://164.132.229.157/profile/banned.php");
+            header("location: https://topcook.site/profile/banned.php");
             exit();
           }
         }

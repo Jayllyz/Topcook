@@ -106,3 +106,4 @@ function strengthChecker() {
     msg.textContent = "";
   }
 }
+

@@ -26,7 +26,7 @@ if (!$result) {
   exit();
 } else {
   header(
-    "location: http://164.132.229.157/index.php?message=Le liens à expiré !&type=danger"
+    "location: https://topcook.site/?message=Le liens à expiré !&type=danger"
   );
   exit();
 }

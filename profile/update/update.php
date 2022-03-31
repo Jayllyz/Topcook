@@ -168,9 +168,9 @@ foreach ($result as $information) {
         $subject = "Confirmation de votre email";
         $mailMsg = "Valider votre email !";
         $msgHTML =
-          '<img src="http://164.132.229.157/images/topcook_logo.svg" class="logo float-left m-2 h-75 me-4" width="95" alt="Logo">
+          '<img src="https://topcook.site/images/topcook_logo.svg" class="logo float-left m-2 h-75 me-4" width="95" alt="Logo">
                   <p class="display-2">Bonjour,<br>Vous avez demander à modifier votre email, nous avons bien pris en compte votre demande. Merci de cliquer sur le liens ci-dessous afin de valider votre email:<br></p>
-        <a href="http://164.132.229.157/profile/update/verif_new_email.php?' .
+        <a href="https://topcook.site/profile/update/verif_new_email.php?' .
           "token=" .
           $token .
           "&email=" .
@@ -178,13 +178,13 @@ foreach ($result as $information) {
           "&id=" .
           $id .
           '">Confirmation !</a><br>Cordialement,<br>L\'équipe TopCook';
-        $destination = "http://164.132.229.157/profile/update/form_update.php";
+        $destination = "https://topcook.site/profile/update/form_update.php";
         include "../../includes/mailer.php";
       }
     }
     session_destroy();
     header(
-      "location: http://164.132.229.157/index.php?message=Vos informations ont bien été enregistré !&type=success"
+      "location: https://topcook.site/?message=Vos informations ont bien été enregistré !&type=success"
     );
     exit();
   }

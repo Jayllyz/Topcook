@@ -160,7 +160,7 @@ if(isset($_SESSION["id"])) {
                     <label class="form-label">Type de recette</label>
                     <input type="text" name="type" class="form-control" required>
                 
-                    <button type="submit" name="submit" class="btn" data-bs-dismiss="modal">Envoyer</button>
+                    <button type="submit" name="submit" class="btn mt-3" data-bs-dismiss="modal">Envoyer</button>
 
                     </div>
                 </form>

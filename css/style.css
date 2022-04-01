@@ -285,9 +285,8 @@ footer {
 }
 .logo-add-remove-recipe{
   display: flex;
-  justify-content: space-between;
   height: 20px;
-  align-items: end;
+  align-items: center;
 }
 .logo-add-remove-recipe img{
   margin-right: 15px;
@@ -297,7 +296,12 @@ footer {
   justify-content: space-between;
   max-width: 80%;
 }
-
+.plus, .dash{
+  background: none !important;
+}
+.steps-input, #new-steps input{
+  margin-bottom: 15px;
+}
 @media screen and (max-width: 800px) {
   .active {
     border: none !important;

@@ -137,8 +137,18 @@ if(isset($_SESSION["id"])) {
                     <label class="form-label">Nombre de personne</label>
                     <input type="number" name="number" class="form-control"  required>
 
-                    <div class="steps"><div><label class="form-label">Etapes </div><div class="logo-add-remove-recipe"><img src="images/plus-lg.svg"><img src="images/dash-lg.svg"></div></label></div>
-                    <input type="text" name="steps" class="form-control"  required>
+                    <div class="steps">
+                        <div>
+                            <label class="form-label">Etapes
+                        </div>
+                        <div class="logo-add-remove-recipe">
+                            <button class="btn plus" onclick="addRecipe()"><img src="images/plus-lg.svg"></button>
+                            <button class="btn dash" onclick="removeRecipe()"> <img src="images/dash-lg.svg"></button>
+                        </div>
+                        </label>
+                    </div>
+                    <input type="text" name="steps" class="form-control steps-input" placeholder="Etape 1"  required>
+                    <div id="new-steps"></div>
 
                     <label class="form-label">Photo de la recette</label>
                     <input type="file" name="image" class="form-control is-<?= isset(

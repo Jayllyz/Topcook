@@ -27,6 +27,12 @@ if(isset($_SESSION["id"])) {
          <?php include "includes/message.php"; ?>
         </div>
         <h1 class="pb-3 text-center"><strong>Toutes nos recettes</strong></h1>
+      <?php if(isset($_SESSION["id"])) { ?>
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Ajouter une recette
+        </button>
+      <?php }; ?>
+
     <div class="container g-1" id="recettes">
         <div class="pb-4 row justify-content-md-center">
             <div class=" col col-md-3">
@@ -47,7 +53,7 @@ if(isset($_SESSION["id"])) {
             </div>
         </div>
 
-        <div class="pb-4 row justify-content-md-center">
+        <div class="pb-4 row justify-content-md-center">    
             <div class=" col col-md-3">
                 <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
@@ -104,6 +110,51 @@ if(isset($_SESSION["id"])) {
             </div>
         </div>
     </div>
+
+    <div class="modal" id="exampleModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ajouter une recette</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form action="verifications/add_recette.php" method="post" enctype="multipart/form-data">
+                <div class="container col-md-10">
+                    <label class="form-label">Nom de la recette</label>
+                    <input type="text" name="nom" class="form-control"  required>
+
+                    <label class="form-label">Temps de préparation</label>
+                    <input type="text" name="time_prep" class="form-control"  required>
+
+                    <label class="form-label">Temps de cuisson</label>
+                    <input type="text" name="time_cook" class="form-control"  required>
+
+                    <label class="form-label">Nombre de personne</label>
+                    <input type="text" name="number" class="form-control"  required>
+
+                    <label class="form-label">Etapes</label>
+                    <input type="text" name="steps" class="form-control"  required>
+
+                    <label class="form-label"><strong>Photo de la recette</strong></label>
+                    <input type="file" name="image" class="form-control is-<?= isset(
+                      $_GET["valid"]
+                    ) && $_GET["input"] == "fichier"
+                      ? $_GET["valid"]
+                      : "" ?>" accept="image/png, image/jpeg">
+
+                    <label class="form-label">Type de recette</label>
+                    <input type="text" name="type" class="form-control"  required>
+                
+                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Envoyer</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     </main>
     <?php include "includes/footer.php"; ?>
 

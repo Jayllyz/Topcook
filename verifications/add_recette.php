@@ -92,7 +92,7 @@ if (isset($_POST["submit"])) {
         "id_user" => $id_user,
       ]);
       if($image_exist == 1) {
-        header("location: ../recettes.php?message=Recette ajoutée avec succès !&valid=valid");
+        header("location: ../recettes.php?message=Recette ajoutée avec succès !&type=success");
         exit();
       }
       

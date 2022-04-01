@@ -34,14 +34,26 @@ if(isset($_SESSION["id"])) {
                   </button>
               </div>
 
-      <?php }; ?>
+      <?php } ?>
 
-    <div class="container g-1" id="recettes">
+    <?php 
+        $query = $db->query(
+            "SELECT name, images FROM RECIPE ORDER BY id DESC"
+        );
+        $select = $query->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($select);
+    foreach ($result as $select) { ?>
+        <? echo '<img src="../uploads/recipe/' . $select["images"] .'" width="50">';?>
+        <?= $select['name'] ?>
+    <?php } ?>
+
+    <!-- <div class="container g-1" id="recettes">
         <div class="pb-4 row justify-content-md-center">
             <div class=" col col-md-3">
                 <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
             </div>
+    
             <div class="col col-md-3">
                 <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
                 <h4 class="text-center">Sushi</h4>
@@ -112,7 +124,7 @@ if(isset($_SESSION["id"])) {
                 <h4 class="text-center">Sushi</h4>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="modal fade" id="exampleModal" tabindex="-1">
         <div class="modal-dialog">

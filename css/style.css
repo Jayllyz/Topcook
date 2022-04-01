@@ -269,13 +269,41 @@ footer {
   animation: rotate 2s infinite ease-in-out;
   line-height: 0;
 }
+.add-recipe{
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+.add-recipe button{
+  color: white;
+  transition: 0.5s;
+}
+.add-recipe button:hover{
+  transform: scale(1.1);
+  transition: 0.5s;
+  color: white;
+}
+.logo-add-remove-recipe{
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+  align-items: end;
+}
+.logo-add-remove-recipe img{
+  margin-right: 15px;
+}
+.steps{
+  display: flex;
+  justify-content: space-between;
+  max-width: 80%;
+}
 
 @media screen and (max-width: 800px) {
   .active {
     border: none !important;
   }
   .nav-link:hover {
-    transform: none;
+    text-decoration: none;
   }
   #svg-footer {
     display: none;

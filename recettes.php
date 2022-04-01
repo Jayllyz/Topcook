@@ -28,9 +28,12 @@ if(isset($_SESSION["id"])) {
         </div>
         <h1 class="pb-3 text-center"><strong>Toutes nos recettes</strong></h1>
       <?php if(isset($_SESSION["id"])) { ?>
-        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Ajouter une recette
-        </button>
+              <div class="add-recipe">
+                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Ajouter une recette
+                  </button>
+              </div>
+
       <?php }; ?>
 
     <div class="container g-1" id="recettes">
@@ -111,7 +114,7 @@ if(isset($_SESSION["id"])) {
         </div>
     </div>
 
-    <div class="modal" id="exampleModal" tabindex="-1">
+    <div class="modal fade" id="exampleModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
@@ -125,17 +128,30 @@ if(isset($_SESSION["id"])) {
                     <label class="form-label">Nom de la recette</label>
                     <input type="text" name="nom" class="form-control"  required>
 
+<<<<<<< Updated upstream
                     <label class="form-label">Temps de préparation (minutes)</label>
                     <input type="text" name="time_prep" class="form-control"  required>
 
                     <label class="form-label">Temps de cuisson (minutes)</label>
                     <input type="text" name="time_cook" class="form-control"  required>
+=======
+                    <label class="form-label">Temps de préparation</label>
+                    <input type="number" name="time_prep" class="form-control"  required>
+
+                    <label class="form-label">Temps de cuisson</label>
+                    <input type="number" name="time_cook" class="form-control"  required>
+>>>>>>> Stashed changes
 
                     <label class="form-label">Nombre de personne</label>
                     <input type="number" name="number" class="form-control"  required>
 
+<<<<<<< Updated upstream
                     <label class="form-label">Etapes</label>
                     <input type="number" name="steps" class="form-control"  required>
+=======
+                    <div class="steps"><div><label class="form-label">Etapes </div><div class="logo-add-remove-recipe"><img src="images/plus-lg.svg"><img src="images/dash-lg.svg"></div></label></div>
+                    <input type="text" name="steps" class="form-control"  required>
+>>>>>>> Stashed changes
 
                     <label class="form-label">Photo de la recette</label>
                     <input type="file" name="image" class="form-control is-<?= isset(

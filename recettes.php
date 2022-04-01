@@ -125,19 +125,19 @@ if(isset($_SESSION["id"])) {
                     <label class="form-label">Nom de la recette</label>
                     <input type="text" name="nom" class="form-control"  required>
 
-                    <label class="form-label">Temps de préparation</label>
+                    <label class="form-label">Temps de préparation (minutes)</label>
                     <input type="text" name="time_prep" class="form-control"  required>
 
-                    <label class="form-label">Temps de cuisson</label>
+                    <label class="form-label">Temps de cuisson (minutes)</label>
                     <input type="text" name="time_cook" class="form-control"  required>
 
                     <label class="form-label">Nombre de personne</label>
-                    <input type="text" name="number" class="form-control"  required>
+                    <input type="number" name="number" class="form-control"  required>
 
                     <label class="form-label">Etapes</label>
-                    <input type="text" name="steps" class="form-control"  required>
+                    <input type="number" name="steps" class="form-control"  required>
 
-                    <label class="form-label"><strong>Photo de la recette</strong></label>
+                    <label class="form-label">Photo de la recette</label>
                     <input type="file" name="image" class="form-control is-<?= isset(
                       $_GET["valid"]
                     ) && $_GET["input"] == "fichier"
@@ -145,7 +145,7 @@ if(isset($_SESSION["id"])) {
                       : "" ?>" accept="image/png, image/jpeg">
 
                     <label class="form-label">Type de recette</label>
-                    <input type="text" name="type" class="form-control"  required>
+                    <input type="text" name="type" class="form-control" required>
                 
                     <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Envoyer</button>
 

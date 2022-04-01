@@ -62,12 +62,14 @@ if (isset($_POST["submit"])) {
       $array = explode(".", $filename);
       $ext = end($array); // extension du fichier
   
-      $filename = "image-recipe-" . time() . "." . $ext;
+      $filename = "recipe-" . time() . "." . $ext;
 
       $destination = $path . "/" . $filename;
       move_uploaded_file($_FILES["image"]["tmp_name"], $destination);
     } else {
       $image_exist = 0;
+      header("location: ../recettes.php?message=Veuillez ajouter une image !&valid=invalid&input=image");
+      exit();
     }
 
     $req = $db->prepare(
@@ -89,7 +91,11 @@ if (isset($_POST["submit"])) {
         "type" => $type,
         "id_user" => $id_user,
       ]);
-
+      if($image_exist == 1) {
+        header("location: ../recettes.php?message=Recette ajoutée avec succès !&valid=valid");
+        exit();
+      }
+      
 } else {
     header(
       "location: ../recettes.php?message=Les champs ne sont pas tous remplis !&type=danger"

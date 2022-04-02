@@ -104,7 +104,12 @@ if(isset($_SESSION["id"])) {
                       : "" ?>" accept="image/png, image/jpeg">
 
                     <label class="form-label">Type de recette</label>
-                    <input type="text" name="type" class="form-control" required>
+                    <!-- <input type="text" name="type" class="form-control" required> -->
+                    <select name"type" class="form-select">
+                        <option value="entrée">Entrée</option>
+                        <option value="plat">Plat</option>
+                        <option value="dessert">Dessert</option>
+                    </select>
                 
                     <button type="submit" name="submit" class="btn mt-3" data-bs-dismiss="modal">Envoyer</button>
 

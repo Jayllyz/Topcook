@@ -26,7 +26,7 @@ if (isset($_POST["submit"])) {
         header("location: ../recettes.php?message=Nombre de personne invalide!&valid=invalid&input=number");
         exit();
     }
-    if(empty($_POST["type"]) || strlen($_POST["type"]) < 2 || strlen($_POST["type"]) > 15) {
+    if(empty($_POST["type"]) || ( $_POST["type"] != "entrée" && $_POST["type"] != "plat" && $_POST["type"] != "dessert" )) {
         header("location: ../recettes.php?message=Type de recette invalide !&valid=invalid&input=type");
         exit();
     }

@@ -106,19 +106,33 @@ function strengthChecker() {
     msg.textContent = "";
   }
 }
-function addRecipe(){
-
+function addRecipe() {
   let input = document.createElement("input");
   input.setAttribute("type", "text");
   input.setAttribute("name", "steps");
   input.setAttribute("placeholder", "Etape");
   input.setAttribute("class", "form-control");
   document.getElementById("new-steps").appendChild(input);
-
 }
-function removeRecipe(){
+function removeRecipe() {
   // remove last input
   let lastInput = document.getElementById("new-steps").lastChild;
   document.getElementById("new-steps").removeChild(lastInput);
+}
 
+function checkInputLength(obj) {
+  let maxLength = 50;
+  let strLength = obj.value.length;
+
+  if (strLength > maxLength) {
+    document.getElementById("charNum").innerHTML =
+      '<span style="color: red;">' +
+      strLength +
+      " sur " +
+      maxLength +
+      " caractères</span>";
+  } else {
+    document.getElementById("charNum").innerHTML =
+      strLength + " sur " + maxLength + " caractères";
+  }
 }

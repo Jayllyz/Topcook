@@ -10,6 +10,10 @@ if (isset($_POST["submit"])) {
         header("location: ../recettes.php?message=Nom de recette invalide !&valid=invalid&input=nom");
         exit();
     }
+    if(empty($_POST["description"]) ) {
+      header("location: ../recettes.php?message=Description trop longue !&valid=invalid&input=description");
+      exit();
+  }
     if(empty($_POST["time_prep"]) ) {
         header("location: ../recettes.php?message=Temps de préparation invalide !&valid=invalid&input=time_prep");
         exit();
@@ -73,9 +77,10 @@ if (isset($_POST["submit"])) {
     }
 
     $req = $db->prepare(
-        "INSERT INTO RECIPE (name,time_prep,time_cooking,nb_persons,images,type,id_user) VALUES (:name,:time_prep,:time_cooking,:nb_persons,:image, :type,:id_user)"
+        "INSERT INTO RECIPE (name,description,time_prep,time_cooking,nb_persons,images,type,id_user) VALUES (:name,:description,:time_prep,:time_cooking,:nb_persons,:image, :type,:id_user)"
       );
       $name = $_POST["nom"];
+      $description = $_POST["description"];
       $time_prep = $_POST["time_prep"];
       $time_cooking = $_POST["time_cook"];
       $nb_persons = $_POST["number"];
@@ -85,6 +90,7 @@ if (isset($_POST["submit"])) {
       $req->execute([
         "name" => $name,
         "time_prep" => $time_prep,
+        "description" => $description,
         "time_cooking" => $time_cooking,
         "nb_persons" => $nb_persons,
         "image" => isset($filename) ? $filename : "",

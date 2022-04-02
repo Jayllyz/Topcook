@@ -70,6 +70,9 @@ if(isset($_SESSION["id"])) {
                     <label class="form-label">Nom de la recette</label>
                     <input type="text" name="nom" class="form-control"  required>
 
+                    <label class="form-label">Petite description</label>
+                    <input type="text" name="description" class="form-control"  required>
+
                     <label class="form-label">Temps de préparation (minutes)</label>
                     <input type="number" name="time_prep" class="form-control"  required>
 

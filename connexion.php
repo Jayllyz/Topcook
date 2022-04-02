@@ -38,12 +38,9 @@ if(isset($_SESSION["id"])) {
                     <input type="password" class="form-control" name="password" id="password" required>
                     <label class="form-label">Voir mon mot de passe</label>
                     <input type="checkbox" class="form-check-input" onClick="viewPassword()">
-                    
-                    
                 <div class="mb-3">
-                    <input type="checkbox" class="form-check-input" name="checkbox">
                     <label for="stay-connected">Rester connecté</label>
-                    
+                    <input type="checkbox" class="form-check-input" name="checkbox">
                 </div>
                 <div class="mb-3">
                 <a href="lost_password.php">Mot de passe oublié ?</a>

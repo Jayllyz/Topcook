@@ -40,10 +40,9 @@ if(isset($_SESSION["id"])) {
         $query = $db->query(
             "SELECT name, images FROM RECIPE ORDER BY id DESC"
         );
-        $select = $query->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($select);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
     foreach ($result as $select) { ?>
-        <? echo '<img src="../uploads/recipe/' . $select["images"] .'" width="50">';?>
+        <?php echo '<img src="uploads/recipe/' . $select["images"] .'" width="300">';?>
         <?= $select['name'] ?>
     <?php } ?>
 

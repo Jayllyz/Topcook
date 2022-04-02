@@ -42,88 +42,19 @@ if(isset($_SESSION["id"])) {
         );
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
     foreach ($result as $select) { ?>
-        <?php echo '<img src="uploads/recipe/' . $select["images"] .'" width="300">';?>
-        <?= $select['name'] ?>
+
+    <div class="container g-1" id="recettes">
+        <div class="pb-4 row justify-content-md-center">
+            <div class=" col col-md-3">
+               <?=  '<img src="uploads/recipe/' . $select["images"] . '" class="rounded img-fluid">'; ?>
+                <h4 class="text-center"><?= $select['name'] ?></h4>
+            </div>
+    </div>
+
+    
     <?php } ?>
 
-    <!-- <div class="container g-1" id="recettes">
-        <div class="pb-4 row justify-content-md-center">
-            <div class=" col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-    
-            <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-            <div class="col col-md-3">
-            <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-            <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-        </div>
-
-        <div class="pb-4 row justify-content-md-center">    
-            <div class=" col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-            <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-            <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-            <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-        </div>
-
-        <div class="pb-4 row justify-content-md-center">
-            <div class=" col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-            <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-            <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >  
-                <h4 class="text-center">Sushi</h4>
-            </div>
-            <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-        </div>
-
-        <div class="pb-4 row justify-content-md-center">
-            <div class=" col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-            <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-            <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-            <div class="col col-md-3">
-                <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="rounded img-fluid" alt="..." >
-                <h4 class="text-center">Sushi</h4>
-            </div>
-        </div>
-    </div> -->
+   
 
     <div class="modal fade" id="exampleModal" tabindex="-1">
         <div class="modal-dialog">

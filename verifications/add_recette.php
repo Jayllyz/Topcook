@@ -10,10 +10,10 @@ if (isset($_POST["submit"])) {
         header("location: ../recettes.php?message=Nom de recette invalide !&valid=invalid&input=nom");
         exit();
     }
-    if(empty($_POST["description"]) ) {
-      header("location: ../recettes.php?message=Description trop longue !&valid=invalid&input=description");
+    if(empty($_POST["description"]) || strlen($_POST["description"]) < 2 || strlen($_POST["description"]) > 50) {
+      header("location: ../recettes.php?message=Description invalide!&valid=invalid&input=description");
       exit();
-  }
+  } 
     if(empty($_POST["time_prep"]) ) {
         header("location: ../recettes.php?message=Temps de préparation invalide !&valid=invalid&input=time_prep");
         exit();

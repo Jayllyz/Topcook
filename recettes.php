@@ -46,7 +46,7 @@ if(isset($_SESSION["id"])) {
     <div class="container g-1" id="recettes">
         <div class="pb-4 row justify-content-md-center">
             <div class=" col col-md-3">
-               <?=  '<img src="uploads/recipe/' . $select["images"] . '" class="rounded img-fluid">'; ?>
+                <?= '<img src="uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="' . $select['images'] . '">'; ?>
                 <h4 class="text-center"><?= $select['name'] ?></h4>
             </div>
     </div>

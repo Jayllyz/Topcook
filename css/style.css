@@ -302,6 +302,9 @@ footer {
 .steps-input, #new-steps input{
   margin-bottom: 15px;
 }
+#add-recipe{
+  color: white;
+}
 @media screen and (max-width: 800px) {
   .active {
     border: none !important;

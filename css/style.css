@@ -305,6 +305,10 @@ footer {
 #add-recipe{
   color: white;
 }
+.nb_pers{
+  display: flex;
+  align-items: baseline;
+}
 @media screen and (max-width: 800px) {
   .active {
     border: none !important;

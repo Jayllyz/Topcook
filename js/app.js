@@ -136,3 +136,10 @@ function checkInputLength(obj) {
       strLength + " sur " + maxLength + " caractères";
   }
 }
+function addPers(){
+  let test = document.getElementsByClassName("pers").textContent;
+  console.log(test);
+}
+function removePers(){
+
+}

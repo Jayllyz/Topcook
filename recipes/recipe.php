@@ -25,7 +25,17 @@ include "../includes/head.php";
             foreach ($result as $select) { ?>
             <div class="container col-md-6">
                 <?= '<img src="../uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '"></a>'; ?>
-                <p><?= 'Nom :' . $_GET['name'] ?></p>
+                <p><?= 'Nom :' . $_GET['name'] ?>
+                <div class="nb_pers">
+                    <div>
+                        <label class="form-label">Nombres de personnes: <span class="pers"><?=$select['nb_persons']?></span>
+                    </div>
+                    <div class="logo-add-remove-persons">
+                        <button class="btn plus" onclick="addPers()"><img src="../images/plus-lg.svg"></button>
+                        <button class="btn dash" onclick="removePers()"> <img src="../images/dash-lg.svg"></button>
+                    </div>
+                    </label>
+                </div></p>
                 <p><?= 'Description :' . $select['description'] ?></p>
                 <p><?= 'Preparation :' .$select['time_prep'] ?></p>
                 <p><?= 'Cuisine :' .$select['time_cooking'] ?></p>
@@ -36,5 +46,9 @@ include "../includes/head.php";
             <?php } ?>
         </main>
     <?php include "../includes/footer.php"; ?>
+
+    <script src="../js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
 </html>  

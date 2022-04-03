@@ -23,23 +23,29 @@ include "../includes/head.php";
                 ]);
                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $select) { ?>
-            <div class="container col-md-6">
+            <div class="container col-md-6 recipe-page">
                 <?= '<img src="../uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '"></a>'; ?>
-                <p><?= 'Nom :' . $_GET['name'] ?>
-                <div class="nb_pers">
-                    <div>
-                        <label class="form-label">Nombres de personnes: <span class="pers"><?=$select['nb_persons']?></span>
+                <div class="test">
+                    <div class="head-recipe">
+                        <p><?= 'Nom : ' . $_GET['name'] ?>
+                        <div class="nb_pers">
+                            <div>
+                                <label class="form-label">Nombres de personnes: <span id="pers"><?=$select['nb_persons']?></span>
+                            </div>
+                            <div class="logo-add-remove-persons">
+                                <button class="btn plus" onclick="addPers()"><img src="../images/plus-lg.svg"></button>
+                                <button class="btn dash" onclick="removePers()"> <img src="../images/dash-lg.svg"></button>
+                            </div>
+                            </label>
+                        </div>
+                        </p>
                     </div>
-                    <div class="logo-add-remove-persons">
-                        <button class="btn plus" onclick="addPers()"><img src="../images/plus-lg.svg"></button>
-                        <button class="btn dash" onclick="removePers()"> <img src="../images/dash-lg.svg"></button>
-                    </div>
-                    </label>
-                </div></p>
+                </div>
+
+
                 <p><?= 'Description :' . $select['description'] ?></p>
                 <p><?= 'Preparation :' .$select['time_prep'] ?></p>
                 <p><?= 'Cuisine :' .$select['time_cooking'] ?></p>
-                <p><?= 'Pour :' . $select['nb_persons'] . 'personnes' ?></p>
                 <p><?= 'Type :' .$select['type'] ?></p>
                 <p><?= 'Votes :' .$select['votes'] ?></p>
             </div>

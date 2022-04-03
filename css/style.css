@@ -291,6 +291,10 @@ footer {
 .logo-add-remove-recipe img{
   margin-right: 15px;
 }
+.logo-add-remove-persons{
+  display: flex;
+  margin-left: 15px;
+}
 .steps{
   display: flex;
   justify-content: space-between;
@@ -305,10 +309,31 @@ footer {
 #add-recipe{
   color: white;
 }
+.test{
+  margin: 0 auto;
+}
+.head-recipe{
+  display: flex;
+  align-items: baseline;
+  margin: 15px;
+  background-color: lightgray;
+  border-radius: 15px;
+  padding-left: 15px;
+
+}
+.head-recipe p{
+  margin-right: 15px;
+}
 .nb_pers{
   display: flex;
   align-items: baseline;
 }
+.recipe-page{
+  display: flex;
+  flex-direction: column;
+
+}
+
 @media screen and (max-width: 800px) {
   .active {
     border: none !important;

@@ -137,9 +137,20 @@ function checkInputLength(obj) {
   }
 }
 function addPers(){
-  let test = document.getElementsByClassName("pers").textContent;
-  console.log(test);
+  // recuperer le text du span
+  let text = parseInt(document.getElementById("pers").textContent);
+  // ajouter 1 à chaque click
+  text++;
+  // sauvegarder le nouveau nombre dans le span
+  let text2 = document.getElementById("pers").textContent = text;
 }
 function removePers(){
-
+  // recuperer le text du span
+  let text = parseInt(document.getElementById("pers").textContent);
+  if(text > 1) {
+    // ajouter 1 à chaque click
+    text--;
+    // sauvegarder le nouveau nombre dans le span
+    let text2 = document.getElementById("pers").textContent = text;
+  }
 }

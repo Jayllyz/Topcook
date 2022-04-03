@@ -292,8 +292,10 @@ footer {
   margin-right: 15px;
 }
 .logo-add-remove-persons{
-  display: flex;
-  margin-left: 15px;
+  margin: 15px;
+}
+.logo-add-remove-persons img:hover{
+  cursor: pointer;
 }
 .steps{
   display: flex;
@@ -311,14 +313,17 @@ footer {
 }
 .test{
   margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .head-recipe{
   display: flex;
   align-items: baseline;
-  margin: 15px;
-  background-color: lightgray;
+  background-color: #EFEEEC;
   border-radius: 15px;
   padding-left: 15px;
+  margin: 0 auto;
+  justify-content: center;
 
 }
 .head-recipe p{
@@ -377,6 +382,9 @@ footer {
   }
   .card_profil {
     margin-left: 12%;
+  }
+  .head-recipe{
+    font-size: 0.7em;
   }
 }
 @keyframes rotationMoon {

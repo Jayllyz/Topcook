@@ -27,14 +27,14 @@ include "../includes/head.php";
                 <?= '<img src="../uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '"></a>'; ?>
                 <div class="test">
                     <div class="head-recipe">
-                        <p><?= 'Nom : ' . $_GET['name'] ?>
+                        <p>Nom : <span><?= '<strong>' . $_GET['name'] .'</strong></span>'?>
                         <div class="nb_pers">
                             <div>
                                 <label class="form-label">Nombres de personnes: <span id="pers"><?=$select['nb_persons']?></span>
                             </div>
                             <div class="logo-add-remove-persons">
-                                <button class="btn plus" onclick="addPers()"><img src="../images/plus-lg.svg"></button>
-                                <button class="btn dash" onclick="removePers()"> <img src="../images/dash-lg.svg"></button>
+                                <img src="../images/plus-lg.svg" onclick="addPers()">
+                                <img src="../images/dash-lg.svg" onclick="removePers()">
                             </div>
                             </label>
                         </div>

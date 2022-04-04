@@ -112,16 +112,17 @@ if (isset($_POST["submit"])) {
         $steps[$i] = $_POST['steps'][$i];
 
         $req = $db->prepare(
-            "INSERT INTO STEPS (id_recipe,details) VALUES (:id_recipe,:details)"
+            "INSERT INTO STEPS (id_recipe,details,orders) VALUES (:id_recipe,:details,:orders)"
           );
           $req->execute([
             "id_recipe" => $id_recipe,
-            "details" => $steps[$i]
+            "details" => $steps[$i],
+            "orders" => $i,
           ]);
     }
 
-      if($image_exist == 1) {
-        header("location: ../allrecipe.php?message=Recette ajoutée avec succès !&type=success&nbSteps=$nbSteps");
+     if($image_exist == 1) {
+        header("location: ../allrecipe.php?message=Recette ajoutée avec succès !&type=success");
         exit();
       }
       

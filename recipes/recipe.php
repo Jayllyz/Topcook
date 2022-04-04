@@ -54,17 +54,18 @@ include "../includes/head.php";
                     <h2>Etapes</h2>
                     <?php
                         $query = $db->prepare(
-                            "SELECT details FROM STEPS WHERE id_recipe = :id_recipe"
+                            "SELECT details,orders FROM STEPS WHERE id_recipe = :id_recipe"
                         );
                         $query->execute([
                             "id_recipe" => htmlspecialchars($_GET["id"]),
                         ]);
                         $selectSteps = $query->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($selectSteps as $steps) {
+                        $steps['orders']+=1;
                         ?>
-                        <p><?= 'Etape ' . $nbSteps . ' : ' . $steps['details'] ?></p>
+                        <p><?= 'Etape ' . $steps['orders'] . ' : ' . $steps['details'] ?></p>
 
-                        <?php $nbSteps--; }?>
+                        <?php  }?>
                 </div>
             <?php } ?>
         </main>

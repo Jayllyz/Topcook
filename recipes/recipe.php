@@ -61,12 +61,10 @@ include "../includes/head.php";
                         ]);
                         $selectSteps = $query->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($selectSteps as $steps) {
-
                         ?>
-                            <?php while($nbSteps != 0){?>
                         <p><?= 'Etape ' . $nbSteps . ' : ' . $steps['details'] ?></p>
 
-                        <?php $nbSteps--; }}?>
+                        <?php $nbSteps--; }?>
                 </div>
             <?php } ?>
         </main>

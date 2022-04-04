@@ -41,14 +41,22 @@ if(isset($_SESSION["id"])) {
         $query = $db->query(
             "SELECT id, name, images FROM RECIPE ORDER BY id DESC"
         );
+
         $result = $query->fetchAll(PDO::FETCH_ASSOC);?>
     <div class="container g-1" id="recettes">
         <div class="pb-4 row justify-content-md-center">
     <?php foreach ($result as $select) { ?>
-
+            <?php
+        $countSteps = $db->prepare("SELECT COUNT(id) FROM STEPS WHERE id_recipe = :id_recipe");
+        $countSteps->execute([
+            'id_recipe' => $select['id']
+        ]);
+        $countSteps = $countSteps->fetch(PDO::FETCH_ASSOC);
+        $countSteps = $countSteps['COUNT(id)'];
+        ?>
 
             <div class="col col-md-3">
-                <?= '<a href="recipes/recipe.php?name=' . $select['name'] . '&id='. $select['id'] .'&nbSteps='. $nbSteps .'"><img src="uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '"></a>'; ?>
+                <?= '<a href="recipes/recipe.php?name=' . $select['name'] . '&id='. $select['id'] .'&nbSteps='. $countSteps .'"><img src="uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '"></a>'; ?>
                 <h4 class="text-center"><?= $select['name'] ?></h4>
             </div>
 

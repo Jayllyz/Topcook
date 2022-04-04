@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "includes/db.php";
+$nbSteps = htmlspecialchars($_GET['nbSteps']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -38,7 +39,7 @@ if(isset($_SESSION["id"])) {
 
     <?php 
         $query = $db->query(
-            "SELECT name, images FROM RECIPE ORDER BY id DESC"
+            "SELECT id, name, images FROM RECIPE ORDER BY id DESC"
         );
         $result = $query->fetchAll(PDO::FETCH_ASSOC);?>
     <div class="container g-1" id="recettes">
@@ -47,7 +48,7 @@ if(isset($_SESSION["id"])) {
 
 
             <div class="col col-md-3">
-                <?= '<a href="recipes/recipe.php?name=' . $select['name'] . '"><img src="uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '"></a>'; ?>
+                <?= '<a href="recipes/recipe.php?name=' . $select['name'] . '&id='. $select['id'] .'&nbSteps='. $nbSteps .'"><img src="uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '"></a>'; ?>
                 <h4 class="text-center"><?= $select['name'] ?></h4>
             </div>
 
@@ -75,7 +76,6 @@ if(isset($_SESSION["id"])) {
                     <label class="form-label">Petite description</label>
                     <label for="description"></label><textarea id="description" onkeyup="checkInputLength(this);" name="description" class="form-control" required></textarea>
                     <p id="charNum"></p>
-
                     <label class="form-label">Temps de préparation (minutes)</label>
                     <input type="number" name="time_prep" class="form-control"  required>
 
@@ -95,9 +95,8 @@ if(isset($_SESSION["id"])) {
                         </div>
                         </label>
                     </div>
-                    <input type="text" name="steps" class="form-control steps-input" placeholder="Etape 1" required>
+                    <input type="text" name="steps[]" class="form-control steps-input" placeholder="Etape 1" required>
                     <div id="new-steps" class="1"></div>
-
 
                     <label class="form-label">Photo de la recette</label>
                     <input type="file" name="image" class="form-control is-<?= isset(

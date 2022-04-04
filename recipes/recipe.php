@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../includes/db.php";
+$nbSteps = htmlspecialchars($_GET['nbSteps']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -49,6 +50,24 @@ include "../includes/head.php";
                 <p><?= 'Type :' .$select['type'] ?></p>
                 <p><?= 'Votes :' .$select['votes'] ?></p>
             </div>
+                <div class="list_steps">
+                    <h2>Etapes</h2>
+                    <?php
+                        $query = $db->prepare(
+                            "SELECT details FROM STEPS WHERE id_recipe = :id_recipe"
+                        );
+                        $query->execute([
+                            "id_recipe" => htmlspecialchars($_GET["id"]),
+                        ]);
+                        $selectSteps = $query->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($selectSteps as $steps) {
+
+                        ?>
+                            <?php while($nbSteps != 0){?>
+                        <p><?= 'Etape ' . $nbSteps . ' : ' . $steps['details'] ?></p>
+
+                        <?php $nbSteps--; }}?>
+                </div>
             <?php } ?>
         </main>
     <?php include "../includes/footer.php"; ?>

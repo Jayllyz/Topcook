@@ -98,8 +98,30 @@ if (isset($_POST["submit"])) {
         "type" => $type,
         "id_user" => $id_user,
       ]);
+
+        $selectRecipe = $db->prepare("SELECT id FROM RECIPE WHERE name = :name");
+        $selectRecipe->execute([
+            "name" => $name
+        ]);
+        $selectIdRecipe = $selectRecipe->fetch(PDO::FETCH_ASSOC);
+        foreach ($selectIdRecipe as $idRecipe) {
+            $id_recipe = $idRecipe;
+        }
+        $nbSteps = count($_POST['steps']);
+    for($i = 0; $i < $nbSteps; $i++){
+        $steps[$i] = $_POST['steps'][$i];
+
+        $req = $db->prepare(
+            "INSERT INTO STEPS (id_recipe,details) VALUES (:id_recipe,:details)"
+          );
+          $req->execute([
+            "id_recipe" => $id_recipe,
+            "details" => $steps[$i]
+          ]);
+    }
+
       if($image_exist == 1) {
-        header("location: ../allrecipe.php?message=Recette ajoutée avec succès !&type=success");
+        header("location: ../allrecipe.php?message=Recette ajoutée avec succès !&type=success&nbSteps=$nbSteps");
         exit();
       }
       

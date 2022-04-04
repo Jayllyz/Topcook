@@ -118,6 +118,7 @@ function addRecipe() {
     document.getElementById("new-steps").appendChild(input);
 
 
+
 }
 function removeRecipe() {
   steps2--;

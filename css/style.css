@@ -340,8 +340,8 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-  .active {
-    border: none !important;
+  .navbar ul li a:after, .active:after{
+    display: none;
   }
   .nav-link:hover {
     text-decoration: none;

@@ -5,7 +5,6 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 include "../includes/db.php";
 
-
 if (isset($_POST["submit"])) {
     if(empty($_POST["nom"]) || strlen($_POST["nom"]) < 2 || strlen($_POST["nom"]) > 25) {
         header("location: ../recettes.php?message=Nom de recette invalide !&valid=invalid&input=nom");

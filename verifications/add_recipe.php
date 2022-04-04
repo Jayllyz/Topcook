@@ -98,13 +98,13 @@ if (isset($_POST["submit"])) {
         "id_user" => $id_user,
       ]);
       if($image_exist == 1) {
-        header("location: ../recettes.php?message=Recette ajoutée avec succès !&type=success");
+        header("location: ../allrecipe.php?message=Recette ajoutée avec succès !&type=success");
         exit();
       }
       
 } else {
     header(
-      "location: ../recettes.php?message=Les champs ne sont pas tous remplis !&type=danger"
+      "location: ../recipes/recipe.php?message=Les champs ne sont pas tous remplis !&type=danger"
     );
     exit();
 }

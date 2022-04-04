@@ -40,21 +40,23 @@ if(isset($_SESSION["id"])) {
         $query = $db->query(
             "SELECT name, images FROM RECIPE ORDER BY id DESC"
         );
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($result as $select) { ?>
-
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);?>
     <div class="container g-1" id="recettes">
         <div class="pb-4 row justify-content-md-center">
-            <div class=" col col-md-3">
+    <?php foreach ($result as $select) { ?>
+
+
+            <div class="col col-md-3">
                 <?= '<a href="recipes/recipe.php?name=' . $select['name'] . '"><img src="uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '"></a>'; ?>
                 <h4 class="text-center"><?= $select['name'] ?></h4>
             </div>
-    </div>
+
 
     
     <?php } ?>
 
-   
+        </div>
+    </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1">
         <div class="modal-dialog">
@@ -71,7 +73,7 @@ if(isset($_SESSION["id"])) {
                     <input type="text" name="nom" class="form-control"  required>
 
                     <label class="form-label">Petite description</label>
-                    <input type="text" id="description" onkeyup="checkInputLength(this);" name="description" class="form-control"  required>
+                    <label for="description"></label><textarea id="description" onkeyup="checkInputLength(this);" name="description" class="form-control" required></textarea>
                     <p id="charNum"></p>
 
                     <label class="form-label">Temps de préparation (minutes)</label>
@@ -105,7 +107,7 @@ if(isset($_SESSION["id"])) {
 
                     <label class="form-label">Type de recette</label>
                     <!-- <input type="text" name="type" class="form-control" required> -->
-                    <select name"type" class="form-select">
+                    <select name="type" class="form-select">
                         <option value="entrée">Entrée</option>
                         <option value="plat">Plat</option>
                         <option value="dessert">Dessert</option>

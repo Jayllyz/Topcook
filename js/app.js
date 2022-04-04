@@ -106,15 +106,21 @@ function strengthChecker() {
     msg.textContent = "";
   }
 }
+let steps2 = 1;
 function addRecipe() {
+
   let input = document.createElement("input");
-  input.setAttribute("type", "text");
-  input.setAttribute("name", "steps");
-  input.setAttribute("placeholder", "Etape");
-  input.setAttribute("class", "form-control");
-  document.getElementById("new-steps").appendChild(input);
+    steps2++;
+    input.setAttribute("type", "text");
+    input.setAttribute("name", "steps"+steps2);
+    input.setAttribute("placeholder", "Etape " + steps2);
+    input.setAttribute("class", "form-control");
+    document.getElementById("new-steps").appendChild(input);
+
+
 }
 function removeRecipe() {
+  steps2--;
   // remove last input
   let lastInput = document.getElementById("new-steps").lastChild;
   document.getElementById("new-steps").removeChild(lastInput);

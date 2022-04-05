@@ -36,7 +36,7 @@ include "includes/head.php";?>
     </div>
     <button type="submit" class="btn" name="bouton">Publier</button>
     <br><br>
-    <a href="publication.php"><p>Voir les publications</p></a>
+    <a href="https://topcook.site/publication.php">Voir les publications</a>
   </form>
 
   <?php include "includes/footer.php"; ?>

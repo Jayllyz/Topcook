@@ -17,7 +17,7 @@
               <li class="nav-item">
                 <a class="nav-link<?= $title == "Forum"
                   ? $active
-                  : " " ?>" href="#">Forum</a>
+                  : " " ?>" href="https://topcook.site/thread">Forum</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link<?= $title == "TopCook - Concours"

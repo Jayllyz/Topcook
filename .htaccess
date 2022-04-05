@@ -6,4 +6,4 @@ RewriteRule ^connexion$ connexion.php
 RewriteRule ^inscription$ inscription.php
 RewriteRule ^mon-profile$ profile/profile.php
 RewriteRule ^mes-recettes$ profile/mesRecettes.php
-
+RewriteRule ^thread$ thread.php

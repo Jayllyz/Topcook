@@ -107,6 +107,7 @@ function strengthChecker() {
   }
 }
 let steps2 = 1;
+let ingredient = 1;
 function addRecipe() {
     let input = document.createElement("input");
     steps2++;
@@ -124,6 +125,23 @@ function removeRecipe() {
     document.getElementById("new-steps").removeChild(lastInput);
   }
 
+}
+function addIngredients() {
+  let input = document.createElement("input");
+  ingredient++;
+  input.setAttribute("type", "text");
+  input.setAttribute("name", "ingredients[]");
+  input.setAttribute("placeholder", "Ingrédient " + ingredient);
+  input.setAttribute("class", "form-control");
+  document.getElementById("new-ingredients").appendChild(input);
+}
+function removeIngredients() {
+  if(ingredient > 1){
+    ingredient--;
+    // remove last input
+    let lastInput = document.getElementById("new-ingredients").lastChild;
+    document.getElementById("new-ingredients").removeChild(lastInput);
+  }
 }
 
 function checkInputLength(obj) {

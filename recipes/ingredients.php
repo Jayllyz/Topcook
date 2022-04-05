@@ -16,8 +16,8 @@ include "../includes/head.php";
                     <label class="form-label">Ingredients :</label>
                 </div>
                 <div class="logo-add-remove-ingredients">
-                            <img src="../images/plus-lg.svg" id="plus" onclick="addRecipe()">
-                            <img src="../images/dash-lg.svg" id="minus" onclick="removeRecipe()">
+                            <img src="../images/plus-lg.svg" id="plus" onclick="addIngredients()">
+                            <img src="../images/dash-lg.svg" id="minus" onclick="removeIngredients()">
                         </div>
                         </label>
                     </div>

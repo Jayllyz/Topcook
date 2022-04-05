@@ -1,5 +1,5 @@
 <?php
-  require('actions/questions/creerthread.php');
+  require('questions/creerthread.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -305,7 +305,7 @@ footer {
 .plus, .dash{
   background: none !important;
 }
-.steps-input, #new-steps input{
+.steps-input, #new-steps input, #new-ingredients input{
   margin-bottom: 15px;
 }
 #add-recipe{

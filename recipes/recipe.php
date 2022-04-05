@@ -63,13 +63,14 @@ include "../includes/head.php";
                 <div class="list_ingredient">
                     <h3>Ingrédients</h3> 
                     <?php if (
-                      $_SESSION["id"] == $select["id_user"] &&
+                      $_SESSION["id"] == $select["id_user"] ||
                       $_SESSION["rights"] == 1
                     ) { ?>
                         <div >
-                            <button type="button" class="btn">
+                            <a href="ingredients.php?name=<?=
+                  $select["name"]?>&id=<?=$select['id']?>" class="btn">
                                 Modifier les ingrédients
-                            </button>
+                            </a>
                         </div>
                     <?php } ?>
                     <p>A venir...</p>

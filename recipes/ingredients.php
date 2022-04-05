@@ -10,7 +10,7 @@ include "../includes/head.php";
 ?>
 <?php include "../includes/header.php"; ?>
 <main>
-    <form method="post" action="../verifications/add_ingredients.php">
+    <form method="post" action="../verifications/add_ingredients.php" id="ingredients">
             <div class="ingredients">
                 <div>
                     <label class="form-label">Ingredients :</label>

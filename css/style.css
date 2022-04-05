@@ -302,6 +302,23 @@ footer {
   justify-content: space-between;
   max-width: 80%;
 }
+#ingredients{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#ingredients input{
+  width: 50%;
+}
+.ingredients{
+  display: flex;
+}
+#new-ingredients{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .plus, .dash{
   background: none !important;
 }

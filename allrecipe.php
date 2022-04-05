@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "includes/db.php";
-$nbSteps = htmlspecialchars($_GET['nbSteps']);
+$nbSteps = htmlspecialchars($_GET["nbSteps"]);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,16 +10,16 @@ $linkLogoOnglet = "images/topcook_logo.svg";
 $linkCss = "css/style.css";
 $title = "Recettes";
 include "includes/head.php";
-if(isset($_SESSION["id"])) {
-    $date = date("d/m/Y H:i:s");
-    $log_visit = fopen("log/log_recettes.txt", "a+");
-    fputs($log_visit, "Visite de recettes le :");
-    fputs($log_visit, $date);
-    fputs($log_visit, " par ");
-    fputs($log_visit, $_SESSION["id"]);
-    fputs($log_visit, "\n");
-    fclose($log_visit);
-  }
+if (isset($_SESSION["id"])) {
+  $date = date("d/m/Y H:i:s");
+  $log_visit = fopen("log/log_recettes.txt", "a+");
+  fputs($log_visit, "Visite de recettes le :");
+  fputs($log_visit, $date);
+  fputs($log_visit, " par ");
+  fputs($log_visit, $_SESSION["id"]);
+  fputs($log_visit, "\n");
+  fclose($log_visit);
+}
 ?>
 <body>  
     <?php include "includes/header.php"; ?>
@@ -28,7 +28,7 @@ if(isset($_SESSION["id"])) {
          <?php include "includes/message.php"; ?>
         </div>
         <h1 class="pb-3 text-center"><strong>Toutes nos recettes</strong></h1>
-      <?php if(isset($_SESSION["id"])) { ?>
+      <?php if (isset($_SESSION["id"])) { ?>
               <div class="add-recipe">
                   <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                       Ajouter une recette
@@ -37,27 +37,38 @@ if(isset($_SESSION["id"])) {
 
       <?php } ?>
 
-    <?php 
-        $query = $db->query(
-            "SELECT id, name, images FROM RECIPE ORDER BY id DESC"
-        );
+    <?php
+    $query = $db->query("SELECT id, name, images FROM RECIPE ORDER BY id DESC");
 
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);?>
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    ?>
     <div class="container g-1" id="recettes">
         <div class="pb-4 row justify-content-md-center">
     <?php foreach ($result as $select) { ?>
             <?php
-        $countSteps = $db->prepare("SELECT COUNT(id) FROM STEPS WHERE id_recipe = :id_recipe");
-        $countSteps->execute([
-            'id_recipe' => $select['id']
-        ]);
-        $countSteps = $countSteps->fetch(PDO::FETCH_ASSOC);
-        $countSteps = $countSteps['COUNT(id)'];
-        ?>
+            $countSteps = $db->prepare(
+              "SELECT COUNT(id) FROM STEPS WHERE id_recipe = :id_recipe"
+            );
+            $countSteps->execute([
+              "id_recipe" => $select["id"],
+            ]);
+            $countSteps = $countSteps->fetch(PDO::FETCH_ASSOC);
+            $countSteps = $countSteps["COUNT(id)"];
+            ?>
 
             <div class="col col-md-3">
-                <?= '<a href="recipes/recipe.php?name=' . $select['name'] . '&id='. $select['id'] .'&nbSteps='. $countSteps .'"><img src="uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '"></a>'; ?>
-                <h4 class="text-center"><?= $select['name'] ?></h4>
+                <?= '<a href="recipes/recipe.php?name=' .
+                  $select["name"] .
+                  "&id=" .
+                  $select["id"] .
+                  "&nbSteps=" .
+                  $countSteps .
+                  '"><img src="uploads/recipe/' .
+                  $select["images"] .
+                  '" class="rounded img-fluid" alt="image -' .
+                  $select["names"] .
+                  '"></a>' ?>
+                <h4 class="text-center"><?= $select["name"] ?></h4>
             </div>
 
 

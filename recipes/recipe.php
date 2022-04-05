@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../includes/db.php";
-$nbSteps = htmlspecialchars($_GET['nbSteps']);
+$nbSteps = htmlspecialchars($_GET["nbSteps"]);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,23 +15,34 @@ include "../includes/head.php";
 
     <?php include "../includes/header.php"; ?>
         <main>
-            <?php 
-                $query = $db->prepare(
-                    "SELECT images, description, time_prep, time_cooking, nb_persons, type, votes FROM RECIPE WHERE name = :name"
-                );
-                $query->execute([
-                    "name" => $_GET["name"],
-                ]);
-                $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        <div class="container col-md-6">
+            <?php include "../includes/message.php"; ?>
+        </div>
+            <?php
+            $query = $db->prepare(
+              "SELECT images, description, time_prep, time_cooking, nb_persons, type, votes, id_user FROM RECIPE WHERE id = :id"
+            );
+            $query->execute([
+              "id" => htmlspecialchars($_GET["id"]),
+            ]);
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $select) { ?>
             <div class="container col-md-6 shadow-lg recipe-page">
-                <?= '<img src="../uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '"></a>'; ?>
+                <?= '<img src="../uploads/recipe/' .
+                  $select["images"] .
+                  '" class="rounded img-fluid" alt="image -' .
+                  $select["names"] .
+                  '"></a>' ?>
                 <div class="test">
                     <div class="head-recipe">
-                        <p>Nom : <span><?= '<strong>' . $_GET['name'] .'</strong></span>'?>
+                        <p>Nom : <span><?= "<strong>" .
+                          $_GET["name"] .
+                          "</strong></span>" ?>
                         <div class="nb_pers">
                             <div>
-                                <label class="form-label">Nombres de personnes: <span id="pers"><?=$select['nb_persons']?></span>
+                                <label class="form-label">Nombres de personnes: <span id="pers"><?= $select[
+                                  "nb_persons"
+                                ] ?></span>
                             </div>
                             <div class="logo-add-remove-persons">
                                 <img src="../images/plus-lg.svg" onclick="addPers()">
@@ -44,35 +55,44 @@ include "../includes/head.php";
                 </div>
 
 
-                <p><?= 'Description :' . $select['description'] ?></p>
-                <p><?= 'Preparation :' .$select['time_prep'] ?></p>
-                <p><?= 'Cuisine :' .$select['time_cooking'] ?></p>
-                <p><?= 'Type :' .$select['type'] ?></p>
-                <p><?= 'Votes :' .$select['votes'] ?></p>
+                <p><?= "Description :" . $select["description"] ?></p>
+                <p><?= "Preparation :" . $select["time_prep"] ?></p>
+                <p><?= "Cuisine :" . $select["time_cooking"] ?></p>
+                <p><?= "Type :" . $select["type"] ?></p>
+                <p><?= "Votes :" . $select["votes"] ?></p>
                 <div class="list_ingredient">
-                    <h3>Ingrédients</h3>
+                    <h3>Ingrédients</h3> 
+                    <?php if ($_SESSION["id"] == $select["id_user"]) { ?>
+                        <div >
+                            <button type="button" class="btn">
+                                Modifier les ingrédients
+                            </button>
+                        </div>
+                    <?php } ?>
                     <p>A venir...</p>
                 </div>
                 <div class="list_steps">
                     <h3>Préparation</h3>
                     <?php
-                        $query = $db->prepare(
-                            "SELECT details,orders FROM STEPS WHERE id_recipe = :id_recipe"
-                        );
-                        $query->execute([
-                            "id_recipe" => htmlspecialchars($_GET["id"]),
-                        ]);
-                        $selectSteps = $query->fetchAll(PDO::FETCH_ASSOC);
+                    $query = $db->prepare(
+                      "SELECT details,orders FROM STEPS WHERE id_recipe = :id_recipe"
+                    );
+                    $query->execute([
+                      "id_recipe" => htmlspecialchars($_GET["id"]),
+                    ]);
+                    $selectSteps = $query->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($selectSteps as $steps) {
-                        $steps['orders']+=1;
-                        ?>
-                        <h4><?= 'Etape ' . $steps['orders']?></h4>
-                        <p><?=  $steps['details'] ?></p>
+                      $steps["orders"] += 1; ?>
+                        <h4><?= "Etape " . $steps["orders"] ?></h4>
+                        <p><?= $steps["details"] ?></p>
 
-                        <?php  }?>
+                        <?php
+                    }
+                    ?>
                 </div>
                 </div>
-            <?php } ?>
+            <?php }
+            ?>
         </main>
     <?php include "../includes/footer.php"; ?>
 

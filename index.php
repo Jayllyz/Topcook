@@ -102,7 +102,7 @@ if (isset($_SESSION["id"])) {
       <?php foreach (array_slice($result, 0 , 3) as $select) { ?>
           <div class="col-md-3">
             <div class="card recipe" style="width: 100%;">
-            <?= '<img src="uploads/recipe/' . $select["images"] . '" class="card-img-top" alt=image -' . $select['names'] . '">'; ?>
+            <?= '<img src="uploads/recipe/' . $select["images"] . '"height="430" class="card-img-top" alt=image -' . $select['names'] . '">'; ?>
               <div class="card-body">
                 <h5 class="card-title"><?= $select['name']?></h5>
                 <p class="card-text"><?= $select['description'] ?></p>
@@ -110,8 +110,9 @@ if (isset($_SESSION["id"])) {
               </div>
             </div>
           </div>
+      <?php }  ?>
         </div>
-        <?php }  ?>
+
         <div class="container pt-4">
             <div class="d-grid gap-2 col-2 mx-auto">
                 <button class="btn" type="button" id="see_more_btn"><div>Voir plus...</div></button>

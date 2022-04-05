@@ -62,7 +62,10 @@ include "../includes/head.php";
                 <p><?= "Votes :" . $select["votes"] ?></p>
                 <div class="list_ingredient">
                     <h3>Ingrédients</h3> 
-                    <?php if ($_SESSION["id"] == $select["id_user"]) { ?>
+                    <?php if (
+                      $_SESSION["id"] == $select["id_user"] &&
+                      $_SESSION["rights"] == 1
+                    ) { ?>
                         <div >
                             <button type="button" class="btn">
                                 Modifier les ingrédients

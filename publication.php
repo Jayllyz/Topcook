@@ -1,5 +1,5 @@
 <?php
-require('actions/questions/publicationaction.php');
+require('questions/publicationaction.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -98,8 +98,8 @@ if(isset($_SESSION["id"])) {
                             <label class="form-label">Etapes
                         </div>
                         <div class="logo-add-remove-recipe">
-                            <button class="btn plus" id="plus" onclick="addRecipe()"><img src="images/plus-lg.svg"></button>
-                            <button class="btn dash" onclick="removeRecipe()"> <img src="images/dash-lg.svg"></button>
+                            <img src="images/plus-lg.svg" id="plus" onclick="addRecipe()">
+                            <img src="images/dash-lg.svg" id="minus" onclick="removeRecipe()">
                         </div>
                         </label>
                     </div>

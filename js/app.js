@@ -117,10 +117,13 @@ function addRecipe() {
     document.getElementById("new-steps").appendChild(input);
 }
 function removeRecipe() {
-  steps2--;
-  // remove last input
-  let lastInput = document.getElementById("new-steps").lastChild;
-  document.getElementById("new-steps").removeChild(lastInput);
+  if(steps2 > 1){
+    steps2--;
+    // remove last input
+    let lastInput = document.getElementById("new-steps").lastChild;
+    document.getElementById("new-steps").removeChild(lastInput);
+  }
+
 }
 
 function checkInputLength(obj) {

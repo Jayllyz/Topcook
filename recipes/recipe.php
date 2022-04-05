@@ -24,7 +24,7 @@ include "../includes/head.php";
                 ]);
                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $select) { ?>
-            <div class="container col-md-6 recipe-page">
+            <div class="container col-md-6 shadow-lg recipe-page">
                 <?= '<img src="../uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '"></a>'; ?>
                 <div class="test">
                     <div class="head-recipe">
@@ -49,9 +49,12 @@ include "../includes/head.php";
                 <p><?= 'Cuisine :' .$select['time_cooking'] ?></p>
                 <p><?= 'Type :' .$select['type'] ?></p>
                 <p><?= 'Votes :' .$select['votes'] ?></p>
-            </div>
+                <div class="list_ingredient">
+                    <h3>Ingrédients</h3>
+                    <p>A venir...</p>
+                </div>
                 <div class="list_steps">
-                    <h2>Etapes</h2>
+                    <h3>Préparation</h3>
                     <?php
                         $query = $db->prepare(
                             "SELECT details,orders FROM STEPS WHERE id_recipe = :id_recipe"
@@ -63,9 +66,11 @@ include "../includes/head.php";
                     foreach ($selectSteps as $steps) {
                         $steps['orders']+=1;
                         ?>
-                        <p><?= 'Etape ' . $steps['orders'] . ' : ' . $steps['details'] ?></p>
+                        <h4><?= 'Etape ' . $steps['orders']?></h4>
+                        <p><?=  $steps['details'] ?></p>
 
                         <?php  }?>
+                </div>
                 </div>
             <?php } ?>
         </main>

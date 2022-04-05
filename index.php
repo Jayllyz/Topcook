@@ -39,7 +39,7 @@ if (isset($_SESSION["id"])) {
       </div>
     </div>
       <h3 class="pb-4 pt-5"><strong>Top recettes du mois</strong></h3>
-      <div class="best_recipe row row-cols-md-4 me-5 ms-5">
+      <div class="best_recipe row row-col-md-4 me-5 ms-5">
           <div class="col">
             <div class="card recipe" style="width: 100%;">
               <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
@@ -93,29 +93,29 @@ if (isset($_SESSION["id"])) {
       
         <?php 
         $query = $db->query(
-            "SELECT name, images, description FROM RECIPE ORDER BY id DESC"
+            "SELECT id, name, images, description FROM RECIPE ORDER BY id DESC"
         );
         $result = $query->fetchAll(PDO::FETCH_ASSOC);?>
    
       <h3 class="pt-5 pb-3"><strong>Dernières recettes publiées</strong></h3>
-      <div class="last_recipe row row-cols-md-4 me-5 ms-5">
+      <div class="last_recipe row row-col-md-4 me-5 ms-5 mt-3 mb-3">
       <?php foreach (array_slice($result, 0 , 3) as $select) { ?>
-          <div class="col">
+          <div class="col-md-3">
             <div class="card recipe" style="width: 100%;">
             <?= '<img src="uploads/recipe/' . $select["images"] . '" class="card-img-top" alt=image -' . $select['names'] . '">'; ?>
               <div class="card-body">
                 <h5 class="card-title"><?= $select['name']?></h5>
                 <p class="card-text"><?= $select['description'] ?></p>
-                <a href="#" class="btn see_more">Voir d'avantage</a>
+                <a href="recipes/recipe.php?id=<?=$select['id']?>&name=<?=$select['name']?>" class="btn see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
         </div>
         <?php }  ?>
         <div class="container pt-4">
-          <div class="d-grid gap-2 col-2 mx-auto">
-            <button class="btn" type="button" id="see_more_btn"><div>Voir plus...</div></button>
-          </div>
+            <div class="d-grid gap-2 col-2 mx-auto">
+                <button class="btn" type="button" id="see_more_btn"><div>Voir plus...</div></button>
+            </div>
         </div>
 
 

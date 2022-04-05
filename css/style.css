@@ -336,6 +336,7 @@ footer {
 .recipe-page{
   display: flex;
   flex-direction: column;
+  border: #EFEEEC solid 1px;
 
 }
 

@@ -26,7 +26,7 @@ include "../includes/head.php";
                     <th>Pseudo</th>
                     <th>Email</th>
                     <th>Droits</th>
-                    <th>Date de création de compte</th>
+                    <th>Date de création du compte</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -71,15 +71,15 @@ include "../includes/head.php";
                             <a href="users/update.php?id=<?= $select[
                               "id"
                             ] ?>&pseudo=<?= $select[
-      "pseudo"
-    ] ?>" class="btn-update btn ms-2 me-2" target="_blank">Modifier</a>
+  "pseudo"
+] ?>" class="btn-update btn ms-2 me-2" target="_blank">Modifier</a>
                         <br>
 
                         <button type="button" class="btn-ban btn ms-2 me-2" data-bs-toggle="modal" data-bs-target="#pop-up-del-<?= $select[
                           "id"
                         ] ?>"><?= $select["rights"] != -1
-      ? "Bannir"
-      : "Débannir" ?></button>
+  ? "Bannir"
+  : "Débannir" ?></button>
                         </button>
                         <div class="modal fade" id="pop-up-del-<?= $select[
                           "id"
@@ -92,17 +92,17 @@ include "../includes/head.php";
                                 ] != -1
                                   ? "bannissement"
                                   : "débannissement" ?> de <span class="text-uppercase"><?= $select[
-       "pseudo"
-     ] ?></span></h5>
+   "pseudo"
+ ] ?></span></h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
                                 Saisir le pseudo pour confirmation
                             <form action="users/ban.php?id=<?= $select[
                               "id"
-                            ] ?>&pseudo=<?= $select["pseudo"] ?>&rights=<?= $select[
-      "rights"
-    ] ?>" method="post">
+                            ] ?>&pseudo=<?= $select[
+  "pseudo"
+] ?>&rights=<?= $select["rights"] ?>" method="post">
                                     <div class="container col-md-8">
                                       <input type="text" class="form-control" name="pseudo" placeholder="<?= $select[
                                         "pseudo"

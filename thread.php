@@ -3,7 +3,11 @@
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-<?php include "includes/head.php";?>
+<?php
+$linkLogoOnglet = "../images/topcook_logo.svg";
+$linkCss = "../css/style.css";
+$title = "Topcook - Forum";
+include "includes/head.php";?>
 <body>
   <?php include 'includes/header.php';?>
   <br><br>
@@ -30,10 +34,12 @@
       <label for="exampleInputEmail1" class="form-label">Contenu</label>
       <textarea class="form-control" name="contenu"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary" name="bouton">Publier</button>
+    <button type="submit" class="btn" name="bouton">Publier</button>
     <br><br>
     <a href="publication.php"><p>Voir les publications</p></a>
   </form>
+
+  <?php include "includes/footer.php"; ?>
 </body>
-<?php include "includes/footer.php"; ?>
+
 </html>

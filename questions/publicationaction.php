@@ -1,7 +1,7 @@
 <?php
   include "includes/db.php";
 
-  $getAllMyQuestions = $db->prepare('SELECT id, titre, description FROM questions WHERE id_auteur = ?');
+  $getAllMyQuestions = $db->prepare('SELECT id, titre, description FROM questions);
   $getAllMyQuestions->execute(array($_SESSION['id']));
 
 ?>

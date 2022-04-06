@@ -111,9 +111,36 @@ include "../includes/head.php";
                     }
                     ?>
                 </div>
+                <div class="messages mt-5 mb-5">
+                    <?php
+                    $query = $db->prepare(
+                      "SELECT message, id_recipe, id_user FROM COMMENTAIRE WHERE id_recipe = :id_recipe"
+                    );
+                    $query->execute([
+                      "id_recipe" => htmlspecialchars($_GET["id"]),
+                    ]);
+                    $selectMessages = $query->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($selectMessages as $message) {
+                      ?>
+                        <div class="message">
+                            <p><?= $message["message"] ?></p>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <div class="commentaires">
+                    <h3>Commentaires</h3>
+                    <form action="commentaires.php?id_recipe=<?=htmlspecialchars($_GET['id'])?>" method="post">
+                        <label class="form-label" >Saisir un commentaire</label>
+                        <textarea name="comment" class="form-control mb-3" id="comment"></textarea>
+                        <input type="submit" class="form-control btn btn-success mb-3"  name="submit" value="Commenter">
+                    </form>
+                </div>
                 </div>
             <?php }
             ?>
+
         </main>
     <?php include "../includes/footer.php"; ?>
 

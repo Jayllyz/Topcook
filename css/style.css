@@ -382,6 +382,18 @@ footer {
   justify-content: space-between;
   max-width: 25%;
 }
+.commentaires{
+  margin: 0 auto;
+  width: 100%;
+}
+.commentaires form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.commentaires form input{
+  width: 160px;
+}
 
 @media screen and (max-width: 800px) {
   .navbar ul li a:after, .active:after{

@@ -19,6 +19,9 @@ include "../includes/head.php";
 
     <h1>Liste des Utilisateurs</h1>
     <div class="container">
+        <div id="logs">
+        <a href="logsRead.php" class="btn mb-4">Consulter les logs</a>
+        </div>
         <table class="table text-center table-bordered table-hover">
             <thead>
                 <tr>
@@ -124,7 +127,6 @@ include "../includes/head.php";
             <?php }
             ?>
         </table>
-        
     </div>
 
 

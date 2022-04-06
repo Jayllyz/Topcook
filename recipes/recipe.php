@@ -73,7 +73,6 @@ include "../includes/head.php";
                             </a>
                         </div>
                     <?php } ?>
-                    <p>A venir...</p>
                 </div>
                 <div class="list_steps">
                     <h3>Préparation</h3>

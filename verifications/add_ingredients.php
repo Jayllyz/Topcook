@@ -19,7 +19,7 @@ for ($i = 0; $i < count($_POST['ingredients']); $i++) {
     ));
 
 }
-header("location: ../recipes/recipe.php?name=$name_recipe&id_recipe=$id_recipe&nbSteps=$nbSteps&message=Les ingrédients ont bien été ajoutés !&type=success");
+header("location: https://topcook.site/allrecipe.php?message=Les ingrédients ont bien été ajoutés !&type=success");
 exit();
 
 ?>

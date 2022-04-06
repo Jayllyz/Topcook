@@ -373,6 +373,10 @@ footer {
 #plus, #minus{
   cursor: pointer;
 }
+#logs{
+  display: flex;
+  justify-content: center;
+}
 
 @media screen and (max-width: 800px) {
   .navbar ul li a:after, .active:after{

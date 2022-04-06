@@ -313,10 +313,24 @@ footer {
 .ingredients{
   display: flex;
 }
+.quantity{
+  width: 25% !important;
+}
+.ingredient{
+  margin-right: 15%;
+}
 #new-ingredients{
-  width: 100%;
+  flex-wrap: wrap;
+
+}
+#new-ingredients input{
+  width: 50%;
+
+
+}
+#new-ingredients, .new-ingredients{
+  width: 50%;
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 .plus, .dash{

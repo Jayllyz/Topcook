@@ -108,6 +108,7 @@ function strengthChecker() {
 }
 let steps2 = 1;
 let ingredient = 1;
+let quantity = 1;
 function addRecipe() {
     let input = document.createElement("input");
     steps2++;
@@ -127,20 +128,41 @@ function removeRecipe() {
 
 }
 function addIngredients() {
-  let input = document.createElement("input");
+  let inputIngredients = document.createElement("input");
+  let inputQuantity = document.createElement("input");
+
   ingredient++;
-  input.setAttribute("type", "text");
-  input.setAttribute("name", "ingredients[]");
-  input.setAttribute("placeholder", "Ingrédient " + ingredient);
-  input.setAttribute("class", "form-control");
-  document.getElementById("new-ingredients").appendChild(input);
+  quantity++;
+  inputIngredients.setAttribute("type", "text");
+  inputQuantity.setAttribute("type", "number");
+
+  inputIngredients.setAttribute("name", "ingredients[]");
+  inputQuantity.setAttribute("name", "quantity[]");
+
+  inputIngredients.setAttribute("placeholder", "Ingrédient " + ingredient);
+  inputQuantity.setAttribute("placeholder", "Quantitée");
+
+  inputIngredients.setAttribute("class", "form-control ingredient");
+  inputQuantity.setAttribute("class", "form-control quantity");
+
+  document.getElementById("new-ingredients").appendChild(inputIngredients);
+  document.getElementById("new-ingredients").appendChild(inputQuantity);
+
 }
 function removeIngredients() {
   if(ingredient > 1){
     ingredient--;
     // remove last input
-    let lastInput = document.getElementById("new-ingredients").lastChild;
-    document.getElementById("new-ingredients").removeChild(lastInput);
+    let lastInputIngredients = document.getElementById("new-ingredients").lastChild;
+
+
+    document.getElementById("new-ingredients").removeChild(lastInputIngredients);
+
+  }
+  if(quantity > 1){
+    quantity--;
+    let lastInputQuantity = document.getElementById("new-ingredients").lastChild;
+    document.getElementById("new-ingredients").removeChild(lastInputQuantity);
   }
 }
 

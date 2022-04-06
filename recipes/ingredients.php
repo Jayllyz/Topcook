@@ -21,8 +21,12 @@ include "../includes/head.php";
                         </div>
                         </label>
                     </div>
-                <input type="text" name="ingredients[]" class="form-control steps-input" placeholder="Ingredients 1" required>
-            <div id="new-ingredients" class="1"></div>
+        <div class="new-ingredients">
+        <input type="text" name="ingredients[]" class="form-control steps-input ingredient" placeholder="Ingredients 1" required>
+        <input type="number" name="quantity[]" class="form-control steps-input quantity" placeholder="Quantitée" required>
+        </div>
+            <div id="new-ingredients" class="1">
+            </div>
             <button type="submit" name="submit" class="btn mt-3" data-bs-dismiss="modal">Envoyer</button>
     </form>
 

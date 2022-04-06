@@ -20,7 +20,7 @@ include "../includes/head.php";
         </div>
             <?php
             $query = $db->prepare(
-              "SELECT images, description, time_prep, time_cooking, nb_persons, type, votes, id_user FROM RECIPE WHERE id = :id"
+              "SELECT id, name, images, description, time_prep, time_cooking, nb_persons, type, votes, id_user FROM RECIPE WHERE id = :id"
             );
             $query->execute([
               "id" => htmlspecialchars($_GET["id"]),

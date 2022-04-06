@@ -12,29 +12,33 @@ $title = "TopCook - Mes recettes";
 include "../includes/head.php";
 ?>
 <body>
-    <?php include "../includes/header.php"; ?>    
+    <?php include "../includes/header.php"; ?>
     <main>
-    <h1 class="pb-3 text-center"><strong>Mes recettes<strong></h1>
+        <h1 class="pb-3 text-center">Mes recettes</h1>
 
-      <?php
-          $query = $db->prepare(
-              "SELECT name, images FROM RECIPE WHERE id_user = :id_user ORDER BY id DESC"
-          );
-          $query->execute([
-              "id_user" => $_SESSION["id"]
-          ]);
-          $result = $query->fetchAll(PDO::FETCH_ASSOC);
-      foreach ($result as $select) { ?>
+        <?php
+        $query = $db->prepare(
+            "SELECT name, images FROM RECIPE WHERE id_user = :id_user ORDER BY id DESC"
+        );
+        $query->execute([
+            "id_user" => $_SESSION["id"]
+        ]);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        ?>
 
-      <div class="container g-1" id="recettes">
-          <div class="pb-4 row justify-content-md-center">
-              <div class=" col col-md-3">
-                  <?= '<img src="../uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '">'; ?>
-                  <h4 class="text-center"><?= $select['name'] ?></h4>
-              </div>
-      </div>
-      
-      <?php } ?>
+        <div class="container g-1" id="recettes">
+            <div class="pb-4 row justify-content-md-center">
+                <?php foreach ($result as $select) { ?>
+
+                    <div class=" col col-md-3">
+                        <?= '<img src="../uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '">'; ?>
+                        <h4 class="text-center"><?= $select['name'] ?></h4>
+                    </div>
+
+
+                <?php } ?>
+            </div>
+        </div>
     </main>
     <?php include "../includes/footer.php"; ?>
     <script src="../js/app.js"></script>

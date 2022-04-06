@@ -373,9 +373,14 @@ footer {
 #plus, #minus{
   cursor: pointer;
 }
-#logs{
+#logs, .btn_ingredients{
   display: flex;
   justify-content: center;
+}
+.info_ingredients{
+  display: flex;
+  justify-content: space-between;
+  max-width: 25%;
 }
 
 @media screen and (max-width: 800px) {

@@ -66,13 +66,31 @@ include "../includes/head.php";
                       $_SESSION["id"] == $select["id_user"] ||
                       $_SESSION["rights"] == 1
                     ) { ?>
-                        <div >
+                        <div class="btn_ingredients mb-4">
                             <a href="ingredients.php?name=<?=
                   $select["name"]?>&id=<?=$select['id']?>&nbSteps=<?=$nbSteps?>" class="btn">
                                 Modifier les ingrédients
                             </a>
                         </div>
                     <?php } ?>
+                    <?php
+                    $selectIngredients = $db->prepare(
+                      "SELECT name, quantity FROM INGREDIENT WHERE id_recipe = :id_recipe"
+                    );
+                    $selectIngredients->execute([
+                      "id_recipe" => $select["id"],
+                    ]);
+                    $resultIngredients = $selectIngredients->fetchAll(PDO::FETCH_ASSOC);?>
+
+                        <?php foreach ($resultIngredients as $ingredient) {
+                        ?>
+                            <div class="info_ingredients">
+
+                        <p><?= $ingredient['name']?></p>
+                        <p><?= $ingredient['quantity']?></p>
+                    </div>
+                        <?php  } ?>
+
                 </div>
                 <div class="list_steps">
                     <h3>Préparation</h3>

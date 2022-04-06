@@ -86,8 +86,8 @@ include "../includes/head.php";
                         ?>
                             <div class="info_ingredients">
 
-                        <p><?= $ingredient['name']?></p>
-                        <p><?= $ingredient['quantity']?></p>
+                        <p class="name_ingredient"><?= $ingredient['name']?></p>
+                        <p class="quantity"><?= $ingredient['quantity']?></p>
                     </div>
                         <?php  } ?>
 

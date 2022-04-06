@@ -185,18 +185,58 @@ function checkInputLength(obj) {
       strLength + " sur " + maxLength + " caractères";
   }
 }
+let compteur = 0;
 function addPers(){
-  // recuperer le text du span
+
   let text = parseInt(document.getElementById("pers").textContent);
   // ajouter 1 à chaque click
   text++;
+
+  let nameIngredient = document.querySelectorAll(".name_ingredient");
+
+  let quantitys = document.querySelectorAll(".quantity");
+  compteur++;
+  for(let i = 0; i < quantitys.length; i++){
+
+    let quantityNumber = parseInt(quantitys[i].textContent);
+    if(nameIngredient[i].textContent.toLowerCase() === ("pates")){
+      quantitys[i].innerHTML = quantityNumber + 100;
+    }else if(nameIngredient[i].textContent.toLowerCase() === ("crème fraiche")){
+      quantitys[i].innerHTML = quantityNumber + 15;
+    }else if(nameIngredient[i].textContent.toLowerCase() === ("saumon") && compteur % 2 === 0){
+      quantitys[i].innerHTML = quantityNumber + 1;
+    }
+
+
+  }
+
+
+
+
   // sauvegarder le nouveau nombre dans le span
   let text2 = document.getElementById("pers").textContent = text;
 }
 function removePers(){
-  // recuperer le text du span
+  compteur--;
   let text = parseInt(document.getElementById("pers").textContent);
+  let nameIngredient = document.querySelectorAll(".name_ingredient");
+
+  let quantitys = document.querySelectorAll(".quantity");
+
   if(text > 1) {
+    for(let i = 0; i < quantitys.length; i++){
+      let quantityNumber = parseInt(quantitys[i].textContent);
+      if(quantityNumber > 0){
+        if (nameIngredient[i].textContent.toLowerCase() === ("pates")) {
+          quantitys[i].innerHTML = quantityNumber - 100;
+        } else if (nameIngredient[i].textContent.toLowerCase() === ("crème fraiche")) {
+          quantitys[i].innerHTML = quantityNumber - 15;
+        } else if (nameIngredient[i].textContent.toLowerCase() === ("saumon") && compteur % 2 === 0) {
+          quantitys[i].innerHTML = quantityNumber - 1;
+        }
+      }
+
+    }
     // ajouter 1 à chaque click
     text--;
     // sauvegarder le nouveau nombre dans le span

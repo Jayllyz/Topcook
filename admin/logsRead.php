@@ -1,16 +1,6 @@
 <?php
 session_start();
-// count lines in file
-function readLogs($file) {
-    $lines = 0;
-    $handle = fopen($file, "r");
-    while (!feof($handle)) {
-        $line = fgets($handle);
-        $lines++;
-    }
-    fclose($handle);
-    return $lines;
-}
+include ('../includes/functions.php');
 ?>
 <!doctype html>
 <html lang="fr">

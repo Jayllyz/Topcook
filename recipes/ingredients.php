@@ -1,16 +1,20 @@
 <?php
-session_start(); ?>
+session_start();
+$id_recipe = htmlspecialchars($_GET['id']);
+$name_recipe = htmlspecialchars($_GET['name']);
+$nbSteps = htmlspecialchars($_GET['nbSteps']);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <?php
 $linkLogoOnglet = "../images/topcook_logo.svg";
 $linkCss = "../css/style.css";
-$title = "$_GET[name]";
+$title = "$name_recipe";
 include "../includes/head.php";
 ?>
 <?php include "../includes/header.php"; ?>
 <main>
-    <form method="post" action="../verifications/add_ingredients.php" id="ingredients">
+    <form method="post" action="../verifications/add_ingredients.php?name=<?=$name_recipe?>&id_recipe=<?=$id_recipe?>&nbSteps=<?=$nbSteps?>" id="ingredients">
             <div class="ingredients">
                 <div>
                     <label class="form-label">Ingredients :</label>

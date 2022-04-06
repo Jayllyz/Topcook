@@ -144,6 +144,9 @@ function addIngredients() {
 
   inputIngredients.setAttribute("class", "form-control ingredient");
   inputQuantity.setAttribute("class", "form-control quantity");
+  inputIngredients.setAttribute("required", "required");
+  inputQuantity.setAttribute("required", "required");
+
 
   document.getElementById("new-ingredients").appendChild(inputIngredients);
   document.getElementById("new-ingredients").appendChild(inputQuantity);

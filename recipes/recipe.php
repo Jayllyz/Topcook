@@ -68,7 +68,7 @@ include "../includes/head.php";
                     ) { ?>
                         <div >
                             <a href="ingredients.php?name=<?=
-                  $select["name"]?>&id=<?=$select['id']?>" class="btn">
+                  $select["name"]?>&id=<?=$select['id']?>&nbSteps=<?=$nbSteps?>" class="btn">
                                 Modifier les ingrédients
                             </a>
                         </div>

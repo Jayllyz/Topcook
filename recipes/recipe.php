@@ -20,7 +20,7 @@ include "../includes/head.php";
         </div>
             <?php
             $query = $db->prepare(
-              "SELECT id, name, images, description, time_prep, time_cooking, nb_persons, type, votes, id_user FROM RECIPE WHERE id = :id"
+              "SELECT id, name, images, description, time_prep, time_cooking, nb_persons, type, id_user FROM RECIPE WHERE id = :id"
             );
             $query->execute([
               "id" => htmlspecialchars($_GET["id"]),
@@ -110,26 +110,42 @@ include "../includes/head.php";
                         <h4><?= "Etape " . $steps["orders"] ?></h4>
                         <p><?= $steps["details"] ?></p>
 
-                        <?php
+                   <?php
                     }
                     ?>
                 </div>
                 
                      <?php
                      $selectLike = $db->prepare(
-                       "SELECT votes FROM RECIPE WHERE id = :id"
+                       "SELECT votes FROM LIKES WHERE id_recipe = :id_recipe"
                      );
                      $selectLike->execute([
-                       "id" => $select["id"],
+                       "id_recipe" => $select["id"],
                      ]);
                      $resultLike = $selectLike->fetch(PDO::FETCH_ASSOC);
                      $like = $resultLike["votes"];
                      ?>
                      <div class="d-flex flex-row">
                         <p class="pe-3"><?= $like ?></p> 
+
+                     <?php
+                     $selectCount = $db->prepare(
+                       "SELECT count(id) FROM LIKES WHERE id_user = :id_user AND id_recipe = :id_recipe"
+                     );
+                     $selectCount->execute([
+                       "id_user" => $_SESSION["id"],
+                       "id_recipe" => $select["id"],
+                     ]);
+                     $count = $selectCount->fetch(PDO::FETCH_NUM);
+                     ?>
+
+                      <?php if (isset($_SESSION["id"]) && $count[0] == 0) { ?>
                         <a href="like.php?id=<?= $select[
                           "id"
                         ] ?>"> <img src="../images/like.svg" width="16"></a>
+                       <?php } else { ?>
+                          <img src="../images/like.svg" width="16"></a>
+                       <?php } ?>
                       </div>
                 <div class="commentaires">
                     <h3>Commentaires</h3>

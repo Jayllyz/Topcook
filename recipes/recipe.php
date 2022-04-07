@@ -111,10 +111,18 @@ include "../includes/head.php";
                     }
                     ?>
                 </div>
+                <div class="commentaires">
+                    <h3>Commentaires</h3>
+                    <form action="commentaires.php?id_recipe=<?=htmlspecialchars($_GET['id'])?>&name=<?=$select['name']?>" method="post">
+                        <label class="form-label" >Saisir un commentaire</label>
+                        <textarea name="comment" class="form-control mb-3" id="comment"></textarea>
+                        <input type="submit" class="form-control btn btn-success mb-3"  name="submit" value="Commenter">
+                    </form>
+                </div>
                 <div class="messages mt-5 mb-5">
                     <?php
                     $query = $db->prepare(
-                      "SELECT message, id_recipe, id_user FROM COMMENTAIRE WHERE id_recipe = :id_recipe"
+                      "SELECT message, id_recipe, id_user, date_send FROM COMMENTAIRE WHERE id_recipe = :id_recipe ORDER BY date_send DESC"
                     );
                     $query->execute([
                       "id_recipe" => htmlspecialchars($_GET["id"]),
@@ -122,20 +130,38 @@ include "../includes/head.php";
                     $selectMessages = $query->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($selectMessages as $message) {
                       ?>
+                    <div class="sending">
                         <div class="message">
                             <p><?= $message["message"] ?></p>
                         </div>
+                        <div class="users">
+                            <?php
+                            $query = $db->prepare(
+                              "SELECT pseudo FROM USER WHERE id = :id_user"
+                            );
+                            $query->execute([
+                              "id_user" => $message["id_user"],
+                            ]);
+                            $selectUser = $query->fetch(PDO::FETCH_ASSOC);
+                            ?>
+
+                            <p id="date_send"><?= $message["date_send"] ?></p>
+                            <?php
+                            if($_SESSION['id'] == $message['id_user']){
+                                ?>
+                                <p><strong>Vous</strong></p>
+                            <?php }else{ ?>
+
+                            <p><strong><?= $selectUser["pseudo"] ?></strong></p>
+                            <?php } ?>
+
+                        </div>
+
+                    </div>
+
                         <?php
                     }
                     ?>
-                </div>
-                <div class="commentaires">
-                    <h3>Commentaires</h3>
-                    <form action="commentaires.php?id_recipe=<?=htmlspecialchars($_GET['id'])?>" method="post">
-                        <label class="form-label" >Saisir un commentaire</label>
-                        <textarea name="comment" class="form-control mb-3" id="comment"></textarea>
-                        <input type="submit" class="form-control btn btn-success mb-3"  name="submit" value="Commenter">
-                    </form>
                 </div>
                 </div>
             <?php }

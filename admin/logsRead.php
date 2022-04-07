@@ -20,7 +20,7 @@ include "../includes/head.php";
                 <th>Nombre de connexion</th>
                 <th>Nombre de bannis</th>
                 <th>Nombre d'erreurs de connexion</th>
-                <th>A venir...</th>
+                <th>Page la plus visitée</th>
             </tr>
         </thead>
         <tbody>

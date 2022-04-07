@@ -48,7 +48,6 @@ include "../includes/head.php";
                                 <img src="../images/plus-lg.svg" onclick="addPers()">
                                 <img src="../images/dash-lg.svg" onclick="removePers()">
                             </div>
-                            </label>
                         </div>
                         </p>
                     </div>
@@ -64,8 +63,11 @@ include "../includes/head.php";
                     <h3>Ingrédients</h3> 
                     <?php if ($_SESSION["rights"] == 1) { ?>
                         <div class="btn_ingredients mb-4">
-                            <a href="ingredients.php?name=<?=
-                  $select["name"]?>&id=<?=$select['id']?>&nbSteps=<?=$nbSteps?>" class="btn">
+                            <a href="ingredients.php?name=<?= $select[
+                              "name"
+                            ] ?>&id=<?= $select[
+  "id"
+] ?>&nbSteps=<?= $nbSteps ?>" class="btn">
                                 Modifier les ingrédients
                             </a>
                         </div>
@@ -77,16 +79,20 @@ include "../includes/head.php";
                     $selectIngredients->execute([
                       "id_recipe" => $select["id"],
                     ]);
-                    $resultIngredients = $selectIngredients->fetchAll(PDO::FETCH_ASSOC);?>
+                    $resultIngredients = $selectIngredients->fetchAll(
+                      PDO::FETCH_ASSOC
+                    );
+                    ?>
 
-                        <?php foreach ($resultIngredients as $ingredient) {
-                        ?>
+                        <?php foreach ($resultIngredients as $ingredient) { ?>
                             <div class="info_ingredients">
 
-                        <p class="name_ingredient"><?= $ingredient['name']?></p>
-                        <p class="quantity"><?= $ingredient['quantity']?></p>
+                        <p class="name_ingredient"><?= $ingredient[
+                          "name"
+                        ] ?></p>
+                        <p class="quantity"><?= $ingredient["quantity"] ?></p>
                     </div>
-                        <?php  } ?>
+                        <?php } ?>
 
                 </div>
                 <div class="list_steps">
@@ -108,9 +114,28 @@ include "../includes/head.php";
                     }
                     ?>
                 </div>
+                
+                     <?php
+                     $selectLike = $db->prepare(
+                       "SELECT votes FROM RECIPE WHERE id = :id"
+                     );
+                     $selectLike->execute([
+                       "id" => $select["id"],
+                     ]);
+                     $resultLike = $selectLike->fetch(PDO::FETCH_ASSOC);
+                     $like = $resultLike["votes"];
+                     ?>
+                     <div>
+                      <p><?= $like ?></p> 
+                      <a href="like.php?id=<?= $select[
+                        "id"
+                      ] ?>"> <img src="../images/like.svg" width="16"></a>
+                      </div>
                 <div class="commentaires">
                     <h3>Commentaires</h3>
-                    <form action="commentaires.php?id_recipe=<?=htmlspecialchars($_GET['id'])?>&name=<?=$select['name']?>" method="post">
+                    <form action="commentaires.php?id_recipe=<?= htmlspecialchars(
+                      $_GET["id"]
+                    ) ?>&name=<?= $select["name"] ?>" method="post">
                         <label class="form-label" >Saisir un commentaire</label>
                         <textarea name="comment" class="form-control mb-3" id="comment"></textarea>
                         <input type="submit" class="form-control btn btn-success mb-3"  name="submit" value="Commenter">
@@ -126,21 +151,22 @@ include "../includes/head.php";
                 $selectUserCreateRecipe->execute([
                   "id" => htmlspecialchars($_GET["id"]),
                 ]);
-                $resultUserCreateRecipe = $selectUserCreateRecipe->fetch(PDO::FETCH_ASSOC);
-
+                $resultUserCreateRecipe = $selectUserCreateRecipe->fetch(
+                  PDO::FETCH_ASSOC
+                );
                 ?>
                 <tr>
                     <th>Pseudo</th>
                     <th>Message</th>
                     <th>Date</th>
-                    <?php
-                    if($_SESSION["rights"] == 1 || $resultUserCreateRecipe["id_user"] == $_SESSION["id"]){
-
-                  ?>
+                    <?php if (
+                      $_SESSION["rights"] == 1 ||
+                      $resultUserCreateRecipe["id_user"] == $_SESSION["id"]
+                    ) { ?>
                     <th>Supprimer</th>
                           <?php } ?>
-                    <?php
-                    }?>
+                    <?php }
+            ?>
                 </tr>
                 </thead>
                     <?php
@@ -151,37 +177,45 @@ include "../includes/head.php";
                       "id_recipe" => htmlspecialchars($_GET["id"]),
                     ]);
                     $selectMessages = $query->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($selectMessages as $message) {
-                      ?>
+                    foreach ($selectMessages as $message) { ?>
                     <div class="sending">
                         <div class="users">
                             <?php
                             $query = $db->prepare(
-                                "SELECT pseudo FROM USER WHERE id = :id_user"
+                              "SELECT pseudo FROM USER WHERE id = :id_user"
                             );
                             $query->execute([
-                                "id_user" => $message["id_user"],
+                              "id_user" => $message["id_user"],
                             ]);
                             $selectUser = $query->fetch(PDO::FETCH_ASSOC);
                             ?>
 
                                 <tbody>
                                     <tr>
-                                        <?php
-                                        if($_SESSION['id'] == $message['id_user']){
-                                            ?>
+                                        <?php if (
+                                          $_SESSION["id"] == $message["id_user"]
+                                        ) { ?>
                                             <td>Vous</td>
-                                        <?php }else{ ?>
+                                        <?php } else { ?>
                                         <td><?= $selectUser["pseudo"] ?></td>
                                         <?php } ?>
                                         <td><?= $message["message"] ?></td>
-                                        <td id="date_send"><?= $message["date_send"] ?></td>
-                                        <?php
-                                        if($_SESSION["rights"] == 1 || $resultUserCreateRecipe["id_user"] == $_SESSION["id"]){
-                                        ?>
-                                        <td><a href="../admin/comment/delete_comment.php?name_recipe=<?=$select["name"]?>&id_comment=<?= $message["id"] ?>&id_user=<?= $message["id_user"] ?>&id_recipe=<?= htmlspecialchars($_GET["id"]) ?>" class="btn btn-ban">Supprimer</a></td>
-                                        <?php
-                                        }?>
+                                        <td id="date_send"><?= $message[
+                                          "date_send"
+                                        ] ?></td>
+                                        <?php if (
+                                          $_SESSION["rights"] == 1 ||
+                                          $resultUserCreateRecipe["id_user"] ==
+                                            $_SESSION["id"]
+                                        ) { ?>
+                                        <td><a href="../admin/comment/delete_comment.php?name_recipe=<?= $select[
+                                          "name"
+                                        ] ?>&id_comment=<?= $message[
+  "id"
+] ?>&id_user=<?= $message["id_user"] ?>&id_recipe=<?= htmlspecialchars(
+  $_GET["id"]
+) ?>" class="btn btn-ban">Supprimer</a></td>
+                                        <?php } ?>
                                     </tr>
                                 </tbody>
 
@@ -190,8 +224,7 @@ include "../includes/head.php";
 
                     </div>
 
-                        <?php
-                    }
+                        <?php }
                     ?>
                 </table>
                 </div>

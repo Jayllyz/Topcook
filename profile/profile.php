@@ -28,12 +28,12 @@ include "../includes/head.php";
         <div class="container col-md-6">
             <?php include "../includes/message.php"; ?>
         </div>
-<div class="mt-3 mb-3 container col-md-4">
+<div class="mt-3 mb-3 container col-md-3">
       <div class="card card_profil">
         <?php if (!empty($select["image"])) {
           echo '<img src="../uploads/' .
             $select["image"] .
-            '" class="card-img-top" alt="...">';
+            '" class="card-img-top" id="img_profil" alt="...">';
         } ?>
         <div class="card-body">
           <h5 class="card-title text-uppercase text-center"><?= $pseudo ?></h5>

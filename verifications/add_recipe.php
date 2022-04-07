@@ -95,7 +95,9 @@ if (isset($_POST["submit"])) {
 
     $destination = $path . "/" . $filename;
     move_uploaded_file($_FILES["image"]["tmp_name"], $destination);
-  } else {
+    include "../includes/resolution.php";
+
+  }  else {
     $image_exist = 0;
     header(
       "location: ../recettes.php?message=Veuillez ajouter une image !&valid=invalid&input=image"

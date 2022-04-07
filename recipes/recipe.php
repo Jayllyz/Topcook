@@ -30,7 +30,7 @@ include "../includes/head.php";
             <div class="container col-md-6 shadow-lg recipe-page">
                 <?= '<img src="../uploads/recipe/' .
                   $select["images"] .
-                  '" class="rounded img-fluid" alt="image -' .
+                  '" class="rounded img-fluid" id="img_recipe" alt="image -' .
                   $select["names"] .
                   '"></a>' ?>
                 <div class="test">
@@ -84,17 +84,17 @@ include "../includes/head.php";
                     <?php if (!isset($_SESSION['id']) || $count[0] == 0) { ?>
                         <a href="like.php?id=<?= $select[
                         "id"
-                        ] ?>&name=<?= $select['name'] ?>"><img src="../images/like.svg" width="25"></a>
+                        ] ?>&name=<?= $select['name'] ?>"><img src="../images/like.svg" width="30"></a>
                     <?php }else{?>
                     <a href="unlike.php?id=<?= $select[
                     "id"
                     ] ?>&name=<?= $select['name'] ?>">
-                        <img src="../images/like.svg" class="validate" width="25"></a>
+                        <img src="../images/like.svg" class="validate" width="30"></a>
                     <?php } ?>
                 </div>
                 <div class="list_ingredient">
                     <h3>Ingrédients</h3> 
-                    <?php if ($_SESSION["rights"] == 1) { ?>
+                    <?php if ($_SESSION["rights"] == 1 || $_SESSION['id'] == $select['id_user']) { ?>
                         <div class="btn_ingredients mb-4">
                             <a href="ingredients.php?name=<?= $select[
                               "name"

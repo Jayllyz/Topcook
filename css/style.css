@@ -397,16 +397,6 @@ footer {
 .users{
   display: flex;
 }
-.sending{
-  display: flex;
-  justify-content: space-between;
-  background-color: lightgray;
-  border-radius: 25px;
-  margin-bottom: 5px;
-}
-.sending *{
-  margin: 10px;
-}
 #date_send{
   color: #AF2C10;
   font-weight: bold;

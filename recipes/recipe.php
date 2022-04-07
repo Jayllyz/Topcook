@@ -62,10 +62,7 @@ include "../includes/head.php";
                 <p><?= "Votes :" . $select["votes"] ?></p>
                 <div class="list_ingredient">
                     <h3>Ingrédients</h3> 
-                    <?php if (
-                      $_SESSION["id"] == $select["id_user"] ||
-                      $_SESSION["rights"] == 1
-                    ) { ?>
+                    <?php if ($_SESSION["rights"] == 1) { ?>
                         <div class="btn_ingredients mb-4">
                             <a href="ingredients.php?name=<?=
                   $select["name"]?>&id=<?=$select['id']?>&nbSteps=<?=$nbSteps?>" class="btn">
@@ -120,9 +117,35 @@ include "../includes/head.php";
                     </form>
                 </div>
                 <div class="messages mt-5 mb-5">
+                <table class="table text-center table-bordered table-hover">
+                <thead>
+                <?php
+                $selectUserCreateRecipe = $db->prepare(
+                  "SELECT id_user FROM RECIPE WHERE id = :id"
+                );
+                $selectUserCreateRecipe->execute([
+                  "id" => htmlspecialchars($_GET["id"]),
+                ]);
+                $resultUserCreateRecipe = $selectUserCreateRecipe->fetch(PDO::FETCH_ASSOC);
+
+                ?>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                    <?php
+                    if($_SESSION["rights"] == 1 || $resultUserCreateRecipe["id_user"] == $_SESSION["id"]){
+
+                  ?>
+                    <th>Supprimer</th>
+                          <?php } ?>
+                    <?php
+                    }?>
+                </tr>
+                </thead>
                     <?php
                     $query = $db->prepare(
-                      "SELECT message, id_recipe, id_user, date_send FROM COMMENTAIRE WHERE id_recipe = :id_recipe ORDER BY date_send DESC"
+                      "SELECT id, message, id_recipe, id_user, date_send FROM COMMENTAIRE WHERE id_recipe = :id_recipe ORDER BY date_send DESC"
                     );
                     $query->execute([
                       "id_recipe" => htmlspecialchars($_GET["id"]),
@@ -131,29 +154,37 @@ include "../includes/head.php";
                     foreach ($selectMessages as $message) {
                       ?>
                     <div class="sending">
-                        <div class="message">
-                            <p><?= $message["message"] ?></p>
-                        </div>
                         <div class="users">
                             <?php
                             $query = $db->prepare(
-                              "SELECT pseudo FROM USER WHERE id = :id_user"
+                                "SELECT pseudo FROM USER WHERE id = :id_user"
                             );
                             $query->execute([
-                              "id_user" => $message["id_user"],
+                                "id_user" => $message["id_user"],
                             ]);
                             $selectUser = $query->fetch(PDO::FETCH_ASSOC);
                             ?>
 
-                            <p id="date_send"><?= $message["date_send"] ?></p>
-                            <?php
-                            if($_SESSION['id'] == $message['id_user']){
-                                ?>
-                                <p><strong>Vous</strong></p>
-                            <?php }else{ ?>
+                                <tbody>
+                                    <tr>
+                                        <?php
+                                        if($_SESSION['id'] == $message['id_user']){
+                                            ?>
+                                            <td>Vous</td>
+                                        <?php }else{ ?>
+                                        <td><?= $selectUser["pseudo"] ?></td>
+                                        <?php } ?>
+                                        <td><?= $message["message"] ?></td>
+                                        <td id="date_send"><?= $message["date_send"] ?></td>
+                                        <?php
+                                        if($_SESSION["rights"] == 1 || $resultUserCreateRecipe["id_user"] == $_SESSION["id"]){
+                                        ?>
+                                        <td><a href="../admin/comment/delete_comment.php?name_recipe=<?=$select["name"]?>&id_comment=<?= $message["id"] ?>&id_user=<?= $message["id_user"] ?>&id_recipe=<?= htmlspecialchars($_GET["id"]) ?>" class="btn btn-ban">Supprimer</a></td>
+                                        <?php
+                                        }?>
+                                    </tr>
+                                </tbody>
 
-                            <p><strong><?= $selectUser["pseudo"] ?></strong></p>
-                            <?php } ?>
 
                         </div>
 
@@ -162,10 +193,9 @@ include "../includes/head.php";
                         <?php
                     }
                     ?>
+                </table>
                 </div>
                 </div>
-            <?php }
-            ?>
 
         </main>
     <?php include "../includes/footer.php"; ?>

@@ -12,5 +12,4 @@ function readLogs($file) {
     return $lines;
 }
 
-
 ?>

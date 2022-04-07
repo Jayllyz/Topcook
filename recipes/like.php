@@ -1,6 +1,7 @@
 <?php
 session_start();
 $id_recipe = htmlspecialchars($_GET["id"]);
+$name = htmlspecialchars($_GET["name"]);
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
@@ -17,12 +18,12 @@ if (isset($_SESSION["id"])) {
   ]);
 
   header(
-    "location: ../allrecipe.php?message=Votre vote a bien été pris en compte !&type=success"
+    "location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Votre vote a bien été pris en compte !&type=success"
   );
   exit();
 } else {
   header(
-    "location: ../allrecipe.php?message=Vous devez être connecté pour voter !&type=danger"
+    "location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Vous devez être connecté pour voter !&type=danger"
   );
   exit();
 }

@@ -58,7 +58,40 @@ include "../includes/head.php";
                 <p><?= "Preparation :" . $select["time_prep"] ?></p>
                 <p><?= "Cuisine :" . $select["time_cooking"] ?></p>
                 <p><?= "Type :" . $select["type"] ?></p>
-                <p><?= "Votes :" . $select["votes"] ?></p>
+                <?php
+                $selectLike = $db->prepare(
+                    "SELECT votes FROM LIKES WHERE id_recipe = :id_recipe"
+                );
+                $selectLike->execute([
+                    "id_recipe" => $select["id"],
+                ]);
+                $resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
+                ?>
+                <div class="d-flex flex-row">
+                    <p class="pe-3 fs-4"><?= $resultLike ?></p>
+
+                    <?php
+                    $selectCount = $db->prepare(
+                        "SELECT count(id) FROM LIKES WHERE id_user = :id_user AND id_recipe = :id_recipe"
+                    );
+                    $selectCount->execute([
+                        "id_user" => $_SESSION["id"],
+                        "id_recipe" => $select["id"],
+                    ]);
+                    $count = $selectCount->fetch(PDO::FETCH_NUM);
+                    ?>
+
+                    <?php if (!isset($_SESSION['id']) || $count[0] == 0) { ?>
+                        <a href="like.php?id=<?= $select[
+                        "id"
+                        ] ?>&name=<?= $select['name'] ?>"><img src="../images/like.svg" width="25"></a>
+                    <?php }else{?>
+                    <a href="unlike.php?id=<?= $select[
+                    "id"
+                    ] ?>&name=<?= $select['name'] ?>">
+                        <img src="../images/like.svg" class="validate" width="25"></a>
+                    <?php } ?>
+                </div>
                 <div class="list_ingredient">
                     <h3>Ingrédients</h3> 
                     <?php if ($_SESSION["rights"] == 1) { ?>
@@ -115,38 +148,7 @@ include "../includes/head.php";
                     ?>
                 </div>
                 
-                     <?php
-                     $selectLike = $db->prepare(
-                       "SELECT votes FROM LIKES WHERE id_recipe = :id_recipe"
-                     );
-                     $selectLike->execute([
-                       "id_recipe" => $select["id"],
-                     ]);
-                     $resultLike = $selectLike->fetch(PDO::FETCH_ASSOC);
-                     $like = $resultLike["votes"];
-                     ?>
-                     <div class="d-flex flex-row">
-                        <p class="pe-3"><?= $like ?></p> 
 
-                     <?php
-                     $selectCount = $db->prepare(
-                       "SELECT count(id) FROM LIKES WHERE id_user = :id_user AND id_recipe = :id_recipe"
-                     );
-                     $selectCount->execute([
-                       "id_user" => $_SESSION["id"],
-                       "id_recipe" => $select["id"],
-                     ]);
-                     $count = $selectCount->fetch(PDO::FETCH_NUM);
-                     ?>
-
-                      <?php if (isset($_SESSION["id"]) && $count[0] == 0) { ?>
-                        <a href="like.php?id=<?= $select[
-                          "id"
-                        ] ?>"> <img src="../images/like.svg" width="16"></a>
-                       <?php } else { ?>
-                          <img src="../images/like.svg" width="16"></a>
-                       <?php } ?>
-                      </div>
                 <div class="commentaires">
                     <h3>Commentaires</h3>
                     <form action="commentaires.php?id_recipe=<?= htmlspecialchars(

@@ -125,11 +125,11 @@ include "../includes/head.php";
                      $resultLike = $selectLike->fetch(PDO::FETCH_ASSOC);
                      $like = $resultLike["votes"];
                      ?>
-                     <div>
-                      <p><?= $like ?></p> 
-                      <a href="like.php?id=<?= $select[
-                        "id"
-                      ] ?>"> <img src="../images/like.svg" width="16"></a>
+                     <div class="d-flex flex-row">
+                        <p class="pe-3"><?= $like ?></p> 
+                        <a href="like.php?id=<?= $select[
+                          "id"
+                        ] ?>"> <img src="../images/like.svg" width="16"></a>
                       </div>
                 <div class="commentaires">
                     <h3>Commentaires</h3>

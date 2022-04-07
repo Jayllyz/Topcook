@@ -16,6 +16,10 @@ if (isset($_SESSION["id"])) {
     "location: ../allrecipe.php?message=Votre vote a bien été pris en compte !&type=success"
   );
   exit();
+}else{
+  header(
+    "location: ../allrecipe.php?message=Vous devez être connecté pour voter !&type=danger"
+  );
+  exit();
 }
-exit();
 ?>

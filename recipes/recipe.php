@@ -54,10 +54,10 @@ include "../includes/head.php";
                 </div>
 
 
-                <p><?= "Description :" . $select["description"] ?></p>
-                <p><?= "Preparation :" . $select["time_prep"] ?></p>
-                <p><?= "Cuisine :" . $select["time_cooking"] ?></p>
-                <p><?= "Type :" . $select["type"] ?></p>
+                <p><?= "Description : " . $select["description"] ?></p>
+                <p><?= "Preparation : " . $select["time_prep"] ?> min</p>
+                <p><?= "Cuisson : " . $select["time_cooking"] ?> min</p>
+                <p><?= "Type : " . $select["type"] ?></p>
                 <?php
                 $selectLike = $db->prepare(
                     "SELECT votes FROM LIKES WHERE id_recipe = :id_recipe"

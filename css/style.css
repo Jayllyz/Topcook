@@ -405,14 +405,23 @@ footer {
   filter: invert(21%) sepia(91%) saturate(2428%) hue-rotate(211deg) brightness(89%) contrast(109%);
 }
 #img_profil{
-  display: flex;
-  align-self: center;
+  margin: 0 auto;
   height: 400px;
   width: 400px;
+  padding: 30px;
 }
 #img_recipe{
   margin: 0 auto;
   padding: 30px;
+}
+#my_recipe{
+  margin-bottom: 30px;
+  transition: 0.5s;
+}
+#my_recipe:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 @media screen and (max-width: 800px) {
   .navbar ul li a:after, .active:after{

@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
     strlen($_POST["nom"]) > 25
   ) {
     header(
-      "location: ../recettes.php?message=Nom de recette invalide !&valid=invalid&input=nom"
+      "location: ../recettes.php?message=Nom de recette invalide !&type=danger"
     );
     exit();
   }
@@ -22,25 +22,25 @@ if (isset($_POST["submit"])) {
     strlen($_POST["description"]) > 50
   ) {
     header(
-      "location: ../recettes.php?message=Description invalide!&valid=invalid&input=description"
+      "location: ../recettes.php?message=Description invalide!&type=danger"
     );
     exit();
   }
   if (empty($_POST["time_prep"])) {
     header(
-      "location: ../recettes.php?message=Temps de préparation invalide !&valid=invalid&input=time_prep"
+      "location: ../recettes.php?message=Temps de préparation invalide !&type=danger"
     );
     exit();
   }
-  if (empty($_POST["time_cook"])) {
+  if (empty($_POST["time_cook"]) && $_POST["time_cook"] != 0) {
     header(
-      "location: ../recettes.php?message=Temps de cuisson invalide !&valid=invalid&input=time_cook"
+      "location: ../recettes.php?message=Temps de cuisson invalide !&type=danger"
     );
     exit();
   }
   if (empty($_POST["number"]) || $_POST["number"] == 0) {
     header(
-      "location: ../recettes.php?message=Nombre de personne invalide!&valid=invalid&input=number"
+      "location: ../recettes.php?message=Nombre de personne invalide!&type=danger"
     );
     exit();
   }
@@ -51,7 +51,7 @@ if (isset($_POST["submit"])) {
       $_POST["type"] != "dessert")
   ) {
     header(
-      "location: ../recettes.php?message=Type de recette invalide !&valid=invalid&input=type"
+      "location: ../recettes.php?message=Type de recette invalide !&type=danger"
     );
     exit();
   }
@@ -64,7 +64,7 @@ if (isset($_POST["submit"])) {
     if (!in_array($_FILES["image"]["type"], $acceptable)) {
       // Rediriger vers inscription.php avec un message d'erreur
       header(
-        "location: ../recettes.php?message=Type de fichier incorrect.&valid=invalid&input=image"
+        "location: ../recettes.php?message=Type de fichier incorrect.&type=danger"
       );
       exit();
     }

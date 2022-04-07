@@ -1,4 +1,5 @@
 <?php session_start();
+$id_user = $_GET['id'];
 if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@ include "../../includes/head.php";
 <body>
 
 <?php include "../../includes/header.php"; ?>
-    <form action="verif/verif_update.php" method="post">
+    <form action="verif/verif_update.php?id=<?=$id_user?>" method="post">
         <div class="container col-md-6">
             <?php include "../../includes/message.php"; ?>
         </div>

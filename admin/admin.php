@@ -69,13 +69,13 @@ include "../includes/head.php";
                         <div class="button_profil">
                             <a href="users/read.php?id=<?= $select[
                               "id"
-                            ] ?>" class="btn-read btn ms-2 me-2" target="_blank">Consulter</a>
+                            ] ?>" class="btn-read btn ms-2 me-2">Consulter</a>
                         <br>
                             <a href="users/update.php?id=<?= $select[
                               "id"
                             ] ?>&pseudo=<?= $select[
   "pseudo"
-] ?>" class="btn-update btn ms-2 me-2" target="_blank">Modifier</a>
+] ?>" class="btn-update btn ms-2 me-2">Modifier</a>
                         <br>
 
                         <button type="button" class="btn-ban btn ms-2 me-2" data-bs-toggle="modal" data-bs-target="#pop-up-del-<?= $select[

@@ -444,17 +444,11 @@ footer {
   width: 65%;
 }
 .search_link a{
-  padding: 10px;
   color: black;
-  transition: 0.8s;
 
 }
 .search_link a:hover{
-  border-radius: 40px;
-  background-color: #c17915;
-  transition: 0.8s;
-
-  color: white;
+  color: #F98400;
 }
 @media screen and (max-width: 800px) {
   .navbar ul li a:after, .active:after{

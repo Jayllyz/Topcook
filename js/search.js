@@ -1,8 +1,10 @@
-function search(){
-    const searchbar = document.getElementById('searchbar');
-    const div = document.getElementById("result");
+
+const searchbar = document.getElementById('searchbar');
+const div = document.getElementById("result");
+
+searchbar.addEventListener("keyup", function() {
     div.innerHTML = "";
-    const search = searchbar.value;
+    let search = searchbar.value;
     if(search !== ""){
         const request = new XMLHttpRequest();
         request.open('GET', 'includes/search.php?search='+search);
@@ -20,6 +22,5 @@ function search(){
             }
         };
         request.send();
-
-    }
-}
+    };
+});

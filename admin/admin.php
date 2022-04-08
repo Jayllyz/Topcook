@@ -20,9 +20,9 @@ include "../includes/head.php";
     <h1>Liste des Utilisateurs</h1>
     <div class="container">
         <div id="logs">
-        <a href="logsRead.php" class="btn mb-4">Consulter les logs</a>
+            <a href="logsRead.php" class="btn mb-4">Consulter les logs</a>
         </div>
-        <table class="table text-center table-bordered table-hover">
+        <table class="table text-center table-bordered table-hover" id="active">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -39,7 +39,7 @@ include "../includes/head.php";
             );
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $select) { ?>
-            <tbody>
+            <tbody id="<?= $select['pseudo'] ?>">
                 <tr>
                     <td><?= $select["id"] ?></td>
                     <td><?php
@@ -133,9 +133,11 @@ include "../includes/head.php";
 
     <?php include "../includes/footer.php"; ?>
 
-<script src="../js/app.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <?php
+    $linkJSGeneral = "../js/app.js";
+    $linkJSSearch = "../js/search.js";
+    include "../includes/scripts.php";
+    ?>
 </body>
 </html>
 <?php } else {header("location: http://164.132.229.157/");

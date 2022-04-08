@@ -87,9 +87,10 @@
         </div>
       </nav>
   <div class="container">
-    <form class="d-flex searchbar pt-3 pb-5">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn" type="submit"><img src="https://topcook.site/images/search.svg" alt="search"></button>
+        <form class="d-flex searchbar pt-3 pb-3">
+              <input class="form-control me-2" type="search" id="searchbar" oninput="search()" placeholder="Search" aria-label="Search">
+              <button class="btn" type="submit"><img src="https://topcook.site/images/search.svg" alt="search"></button>
     </form>
+      <div id="result"></div>
   </div>
   </header>

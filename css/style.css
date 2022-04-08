@@ -423,6 +423,39 @@ footer {
   transform: scale(1.1);
   transition: 0.5s;
 }
+.sort{
+  display: flex;
+  justify-content: center;
+  background-color: lightgray;
+  border-radius: 15px;
+}
+.sort form{
+  margin: 15px;
+  display: flex;
+  align-items: center;
+}
+.sort form select{
+  margin-right: 15px;
+}
+.sort form input{
+  background-color: grey !important;
+}
+.sort form label{
+  width: 65%;
+}
+.search_link a{
+  padding: 10px;
+  color: black;
+  transition: 0.8s;
+
+}
+.search_link a:hover{
+  border-radius: 40px;
+  background-color: #c17915;
+  transition: 0.8s;
+
+  color: white;
+}
 @media screen and (max-width: 800px) {
   .navbar ul li a:after, .active:after{
     display: none;

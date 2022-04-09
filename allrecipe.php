@@ -44,19 +44,19 @@ if (isset($_SESSION["id"])) {
 
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     ?>
-    <div class="container g-1" id="recettes">
+    <div class="container g-1">
         <div class="sort mb-4 mt-4">
-            <form action="allrecipe.php" method="get">
-                <label for="nbSteps">Nombre de étapes :</label>
-                <select name="type" id="nbSteps" class="form-control">
-                    <option value="0">----Choisir une option de trie----</option>
-                    <option value="entree">Entrée</option>
-                    <option value="plat">Plat</option>
-                    <option value="dessert">Déssert</option>
-                </select>
-                <input type="submit" value="Trier" class="btn btn-secondary">
-            </form>
+            <label>Selectionner un type de recette: </label>
+            <select name="type" id="selectedType" class="form-control" onchange="changeType()">
+                <option value="0">----Choisir une option de trie----</option>
+                <option value="entree">Entrée</option>
+                <option value="plat">Plat</option>
+                <option value="dessert">Déssert</option>
+            </select>
         </div>
+    </div>
+    <div class="container g-1" id="recettes">
+
         <div class="pb-4 row justify-content-md-center">
     <?php foreach ($result as $select) { ?>
             <?php
@@ -89,8 +89,14 @@ if (isset($_SESSION["id"])) {
     
     <?php } ?>
 
+
         </div>
     </div>
+        <div class="container g-1">
+            <div class="row" id="selectRecipeView">
+
+            </div>
+        </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1">
         <div class="modal-dialog">
@@ -137,7 +143,6 @@ if (isset($_SESSION["id"])) {
                     ) && $_GET["input"] == "fichier"
                       ? $_GET["valid"]
                       : "" ?>" accept="image/png, image/jpeg">
-
                     <label class="form-label">Type de recette</label>
                     <!-- <input type="text" name="type" class="form-control" required> -->
                     <select name="type" class="form-select">
@@ -145,9 +150,8 @@ if (isset($_SESSION["id"])) {
                         <option value="plat">Plat</option>
                         <option value="dessert">Dessert</option>
                     </select>
-                
-                    <button type="submit" name="submit" class="btn mt-3" data-bs-dismiss="modal">Envoyer</button>
 
+                    <button type="submit" name="submit" class="btn mt-3" data-bs-dismiss="modal">Envoyer</button>
                     </div>
                 </form>
             </div>
@@ -164,3 +168,29 @@ if (isset($_SESSION["id"])) {
     ?>
 </body>
 </html>
+<script>
+    function changeType() {
+        let selectedType = document.getElementById("selectedType");
+        let selectedTypeValue = selectedType.options[selectedType.selectedIndex].value;
+
+        if (selectedTypeValue) {
+            const request = new XMLHttpRequest();
+            request.open("GET", "recipes/selectedTypeRecipe.php?typeRecipe=" + selectedTypeValue);
+            request.onreadystatechange = function () {
+                if (request.readyState === 4) {
+                    const resType = request.responseText;
+                    if (resType !== "") {
+                        document.getElementById("recettes").style.display = "none";
+                        document.getElementById("selectRecipeView").innerHTML = resType;
+                    }else{
+                        document.getElementById("recettes").style.display = "block";
+                        document.getElementById("selectRecipeView").innerHTML = "";
+                    }
+                }
+            };
+            request.send();
+        }
+    }
+
+</script>
+

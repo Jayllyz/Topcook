@@ -428,20 +428,16 @@ footer {
   justify-content: center;
   background-color: lightgray;
   border-radius: 15px;
+  align-items: center;
 }
-.sort form{
+.sort select{
   margin: 15px;
   display: flex;
   align-items: center;
+  width: auto;
 }
-.sort form select{
-  margin-right: 15px;
-}
-.sort form input{
-  background-color: grey !important;
-}
-.sort form label{
-  width: 65%;
+.sort label{
+  margin-right: 10px;
 }
 .search_link a{
   color: black;
@@ -496,6 +492,9 @@ footer {
   }
   .head-recipe{
     font-size: 0.7em;
+  }
+  .last_recipe img{
+    height: 238px !important;
   }
 }
 @keyframes rotationMoon {

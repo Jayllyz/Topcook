@@ -40,7 +40,7 @@ if (isset($_SESSION["id"])) {
       <?php } ?>
 
     <?php
-    $query = $db->query("SELECT id, name, images FROM RECIPE ORDER BY id DESC");
+    $query = $db->query("SELECT id, name, images FROM RECIPE ORDER BY id ASC");
 
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     ?>
@@ -57,7 +57,7 @@ if (isset($_SESSION["id"])) {
     </div>
     <div class="container g-1" id="recettes">
 
-        <div class="pb-4 row justify-content-md-center">
+        <div class="pb-4 row">
     <?php foreach ($result as $select) { ?>
             <?php
             $countSteps = $db->prepare(

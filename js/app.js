@@ -170,7 +170,7 @@ function removeIngredients() {
 }
 
 function checkInputLength(obj) {
-  let maxLength = 50;
+  let maxLength = 70;
   let strLength = obj.value.length;
 
   if (strLength > maxLength) {

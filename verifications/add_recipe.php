@@ -19,7 +19,7 @@ if (isset($_POST["submit"])) {
   if (
     empty($_POST["description"]) ||
     strlen($_POST["description"]) < 2 ||
-    strlen($_POST["description"]) > 50
+    strlen($_POST["description"]) > 70
   ) {
     header(
       "location: ../recettes.php?message=Description invalide!&type=danger"

@@ -27,7 +27,7 @@ include "../includes/head.php";
         ?>
 
         <div class="container g-1" id="recettes">
-            <div class="pb-4 row justify-content-md-center">
+            <div class="pb-4 row">
                 <?php foreach ($result as $select) {
                         $name_recipe = $select["name"];
                         $id_recipe = $select["id"];

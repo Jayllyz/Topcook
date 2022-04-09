@@ -107,7 +107,7 @@ include "../includes/head.php";
                     <?php } ?>
                     <?php
                     $selectIngredients = $db->prepare(
-                      "SELECT name, quantity FROM INGREDIENT WHERE id_recipe = :id_recipe"
+                      "SELECT name, quantity, unit FROM INGREDIENT WHERE id_recipe = :id_recipe"
                     );
                     $selectIngredients->execute([
                       "id_recipe" => $select["id"],
@@ -123,7 +123,7 @@ include "../includes/head.php";
                         <p class="name_ingredient"><?= $ingredient[
                           "name"
                         ] ?></p>
-                        <p class="quantity"><?= $ingredient["quantity"] ?></p>
+                                <span><p class="quantity"><?= $ingredient["quantity"] ?></p><strong><?= $ingredient['unit'] ?></strong></span>
                     </div>
                         <?php } ?>
 

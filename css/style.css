@@ -314,7 +314,7 @@ footer {
   display: flex;
 }
 .quantity{
-  width: 25% !important;
+  margin-right: 15px;
 }
 .ingredient{
   margin-right: 15%;
@@ -328,10 +328,14 @@ footer {
 
 
 }
+.unit{
+  width: 50px !important;
+  margin-left: 15px;
+}
 #new-ingredients, .new-ingredients{
   width: 50%;
   display: flex;
-  align-items: center;
+  align-items: baseline;
 }
 .plus, .dash{
   background: none !important;
@@ -381,6 +385,9 @@ footer {
   display: flex;
   justify-content: space-between;
   max-width: 25%;
+}
+.info_ingredients span{
+  display: flex;
 }
 .commentaires{
   margin: 0 auto;

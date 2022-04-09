@@ -26,8 +26,12 @@ include "../includes/head.php";
                         </label>
                     </div>
         <div class="new-ingredients">
-        <input type="text" name="ingredients[]" class="form-control steps-input ingredient" placeholder="Ingredients 1" required>
-        <input type="number" name="quantity[]" class="form-control steps-input quantity" placeholder="Quantitée" required>
+            <input type="text" name="ingredients[]" class="form-control steps-input ingredient" placeholder="Ingredients 1" required>
+            <input type="number" name="quantity[]" class="form-control steps-input quantity" placeholder="Quantitée" required>
+            <select name="unit[]" class="form-control steps-input unit">
+                <option value="g">g</option>
+                <option value="cl">cl</option>
+            </select>
         </div>
             <div id="new-ingredients" class="1">
             </div>

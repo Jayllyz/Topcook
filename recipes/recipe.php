@@ -250,8 +250,6 @@ include "../includes/head.php";
 
         </main>
     <?php include "../includes/footer.php"; ?>
-
-    <script src="../js/app.js"></script>
     <?php
     $linkJSGeneral = "../js/app.js";
     $linkJSSearch = "../js/search.js";

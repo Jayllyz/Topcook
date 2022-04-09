@@ -48,7 +48,7 @@ if (isset($_SESSION["id"])) {
         <div class="sort mb-4 mt-4">
             <label>Selectionner un type de recette: </label>
             <select name="type" id="selectedType" class="form-control" onchange="changeType()">
-                <option value="0">----Choisir une option de trie----</option>
+                <option value="0">----Choisir une option de tri----</option>
                 <option value="entree">Entrée</option>
                 <option value="plat">Plat</option>
                 <option value="dessert">Déssert</option>

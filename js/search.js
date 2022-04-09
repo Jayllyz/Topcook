@@ -7,7 +7,7 @@ searchbar.addEventListener("keyup", function() {
     let search = searchbar.value;
     if(search !== ""){
         const request = new XMLHttpRequest();
-        request.open('GET', 'includes/search.php?search='+search);
+        request.open('GET', 'https://topcook.site/includes/search.php?search='+search);
         request.onreadystatechange = function (){
             if(request.readyState === 4){
                 const res = request.responseText;

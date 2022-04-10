@@ -17,6 +17,7 @@ if (isset($_SESSION["id"])) {
   fputs($log_visit, "\n");
   fclose($log_visit);
 }
+
 ?>
 <body>
     <?php include "includes/header.php"; ?>
@@ -105,7 +106,7 @@ if (isset($_SESSION["id"])) {
             <?= '<img src="uploads/recipe/' . $select["images"] . '"height="430" class="card-img-top" alt=image -' . $select['names'] . '">'; ?>
               <div class="card-body">
                 <h5 class="card-title"><?= $select['name']?></h5>
-                <p class="card-text"><?= $select['description'] ?></p>
+                <p class="card-text col-12 text-truncate"><?= $select['description'] ?></p>
                 <a href="recipes/recipe.php?id=<?=$select['id']?>&name=<?=$select['name']?>" class="btn see_more">Voir d'avantage</a>
               </div>
             </div>

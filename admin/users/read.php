@@ -50,7 +50,43 @@ include "../../includes/head.php";
         </table>
     </div>
     <h1>Historiques des messages</h1>
-    <h3 class="text-center"><em>A venir...</em></h3>
+        <div class="container">
+            <table class="table text-center table-bordered">
+                <tr>
+                    <th>Recette</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                </tr>
+                <?php
+                $selectMessage = $db->prepare(
+                  "SELECT message, id_recipe, date_send FROM COMMENTAIRE WHERE id_user = :id"
+                );
+                $selectMessage->execute([
+                  "id" => $id,
+                ]);
+                $result = $selectMessage->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($result as $selectMessage) { ?>
+                        <?php
+                    $idRecipe = $selectMessage["id_recipe"];
+                        $selectRecipe = $db->prepare(
+                          "SELECT name FROM RECIPE WHERE id = :id"
+                        );
+                        $selectRecipe->execute([
+                          "id" => $selectMessage["id_recipe"],
+                        ]);
+                        $result = $selectRecipe->fetchAll(PDO::FETCH_ASSOC);
+                        foreach ($result as $selectRecipe) {
+                            $nameRecipe = $selectRecipe["name"];
+                            ?>
+                <tr>
+                    <td><a href="https://topcook.site/recipes/recipe.php?name=<?= $nameRecipe ?>&id=<?= $idRecipe ?>"><?= $selectRecipe["name"] ?></a></td>
+                    <td><?= $selectMessage["message"] ?></td>
+                    <td><?= $selectMessage["date_send"] ?></td>
+                </tr>
+                <?php }
+                }?>
+            </table>
+        </div>
 
     <?php }
     ?>

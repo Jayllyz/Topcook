@@ -12,7 +12,6 @@ foreach ($result as $value) {
     $name = $value['name'];
     $id = $value['id'];
     echo "<p class='fs-5 search_link'><a href='https://topcook.site/recipes/recipe.php?id=$id&name=$name' class='text-decoration-none'>$name</a></p><hr>";
-
 }
 
 

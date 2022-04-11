@@ -63,7 +63,7 @@ include "../includes/head.php";
                 <tbody>
                     <tr>
                         <td><?= $pseudo ?></td>
-                        <td><a href="subject.php?id_subject=<?= $id_subject ?>&creator=<?= $pseudo ?>"><?= $subject ?></a></td>
+                        <td><a href="subject.php?id_subject=<?= $id_subject ?>&creator=<?= $pseudo ?>&id_creator=<?=$id_user?>"><?= $subject ?></a></td>
                         <td><?= $message ?></td>
                         <td><?= $date ?></td>
                     </tr>

@@ -1,16 +1,29 @@
 <?php
 session_start();
 include "../includes/db.php";
+$id_subject = htmlspecialchars($_GET["id_subject"]);
+$pseudo = htmlspecialchars($_GET["creator"]);
+$id_creator = htmlspecialchars($_GET["id_creator"]);
+
+$selectTopic = $db->query(
+    "SELECT subject, message, image, date FROM TOPIC WHERE id = " .
+    $id_subject
+);
+$resultTopic = $selectTopic->fetch(PDO::FETCH_ASSOC);
+$subject = $resultTopic["subject"];
+$message = $resultTopic["message"];
+$image = $resultTopic["image"];
+$date = $resultTopic["date"];
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <?php
 $linkLogoOnglet = "../images/topcook_logo.svg";
 $linkCss = "../css/style.css";
-$title = "OUII";
+$title = $subject;
 include "../includes/head.php";
-$id_subject = htmlspecialchars($_GET["id_subject"]);
-$pseudo = htmlspecialchars($_GET["creator"]);
+
 ?>
 <body>
     <?php include "../includes/header.php"; ?>
@@ -22,22 +35,14 @@ $pseudo = htmlspecialchars($_GET["creator"]);
 
 <div class="container col-md-10">
 
-            <?php
-            $selectTopic = $db->query(
-              "SELECT subject, message, image, date FROM TOPIC WHERE id = " .
-                $id_subject
-            );
-            $resultTopic = $selectTopic->fetch(PDO::FETCH_ASSOC);
-            $subject = $resultTopic["subject"];
-            $message = $resultTopic["message"];
-            $image = $resultTopic["image"];
-            $date = $resultTopic["date"];
-            ?>
+    <div class="info_creator text-center">
+        <h2 class="pb-3">Sujet : <strong><?= $subject ?></strong></h2>
+        <p>Créé par : <strong><?= $pseudo ?></strong></p>
+        <p>Date de création : <strong><?= $date ?></strong></p>
+        <p>Description : <strong><?= $message ?></strong></p>
+    </div>
 
-            <h2 class="pb-3 text-center">Sujet : <?= $subject ?></h2>
-            <p>Description : <?= $message ?></p>
-            <p>Créé par : <?= $pseudo ?></p>
-            <p>Date : <?= $date ?></p>
+
             
 
     <div class="commentaires">
@@ -68,7 +73,7 @@ $pseudo = htmlspecialchars($_GET["creator"]);
                     <th>Date</th>
                     <?php if (
                       $_SESSION["rights"] == 1 ||
-                      $resultUserCreateMsg["id_user"] == $_SESSION["id"]
+                      $id_creator == $_SESSION["id"]
                     ) { ?>
                     <th>Supprimer</th>
                           <?php } ?>
@@ -111,16 +116,10 @@ $pseudo = htmlspecialchars($_GET["creator"]);
                                         ] ?></td>
                                         <?php if (
                                           $_SESSION["rights"] == 1 ||
-                                          $resultUserCreateRecipe["id_user"] ==
+                                          $id_creator ==
                                             $_SESSION["id"]
                                         ) { ?>
-                                        <td><a href="../admin/comment/delete_comment.php?name_recipe=<?= $select[
-                                          "name"
-                                        ] ?>&id_comment=<?= $message[
-  "id"
-] ?>&id_user=<?= $message["id_user"] ?>&id_recipe=<?= htmlspecialchars(
-  $_GET["id"]
-) ?>" class="btn btn-ban">Supprimer</a></td>
+                                        <td><a href="../admin/comment/delete_topic_msg.php?id_creator=<?=$id_creator?>&creator=<?=$pseudo?>&id_msg=<?= $message["id"] ?>&id_topic=<?= $id_subject ?>&id_subject=<?=$id_subject?>" class="btn btn-ban">Supprimer</a></td>
                                         <?php } ?>
                                     </tr>
                                 </tbody>

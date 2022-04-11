@@ -1,0 +1,54 @@
+<?php
+session_start();
+include "../includes/db.php";
+if (isset($_SESSION["id"])) { ?>
+<!DOCTYPE html>
+<html lang="fr">
+<?php
+$linkLogoOnglet = "../images/topcook_logo.svg";
+$linkCss = "../css/style.css";
+$title = "Ajouter un topic";
+include "../includes/head.php";
+?>
+<body>
+    <?php include "../includes/header.php"; ?>
+    <main>
+
+        <div class="container col-md-6">
+            <?php include "../includes/message.php"; ?>
+        </div>
+            <h1 class="pb-3 text-center"><strong>Ajouter un topic</strong></h1>
+
+        <form action="../verifications/verifications_forum/verif_topic.php?id=<?= $_SESSION[
+          "id"
+        ] ?>" method="post" enctype="multipart/form-data"">
+        <div class="container col-md-10">
+            <label class="form-label">Sujet</label>
+            <input class="form-control" type="text" name="subject" required>
+
+            <label class="form-label">Message</label>
+            <textarea class="form-control" name="message" required></textarea>
+
+            <label class="form-label">Image</label>
+            <input type="file" class="form-control" name="image" id="image">
+
+            <input type="submit" class="form-control btn-success" value="Envoyer"> 
+        </div>
+        </form>
+    </main>
+    <?php include "../includes/footer.php"; ?>
+    
+    <?php
+    $linkJSGeneral = "../js/app.js";
+    $linkJSSearch = "../js/search.js";
+    include "../includes/scripts.php";
+    ?>
+</body>
+</html>
+
+
+<?php } else {header(
+    "Location: topic.php?message=Vous devez être connecté !&type=danger"
+  );
+  exit();}
+?>

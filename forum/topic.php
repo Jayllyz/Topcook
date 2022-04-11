@@ -25,9 +25,63 @@ include "../includes/head.php";
                   </a>
               </div>
 
-      <?php } ?>
+            <?php } ?>
+
+            <?php
+            $selectTopic = $db->query(
+              "SELECT id, subject, message, image, id_user, date FROM TOPIC ORDER BY id DESC"
+            );
+
+            $resultTopic = $selectTopic->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+            <div class="container col-md-10">
+            <table class="table text-center table-bordered table-hover" id="active">
+            <?php foreach ($resultTopic as $topic) {
+
+              $id_subject = $topic["id"];
+              $subject = $topic["subject"];
+              $message = $topic["message"];
+              $image = $topic["image"];
+              $id_user = $topic["id_user"];
+              $date = $topic["date"];
+
+              $selectUser = $db->query(
+                "SELECT pseudo FROM USER WHERE id = " . $id_user
+              );
+              $resultUser = $selectUser->fetch(PDO::FETCH_ASSOC);
+              $pseudo = $resultUser["pseudo"];
+              ?>
+
+                <thead>
+                    <tr>
+                        <th>Créateur</th>
+                        <th>Sujet</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><?= $pseudo ?></td>
+                        <td><a href="subject.php?id_subject=<?= $id_subject ?>&creator=<?= $pseudo ?>"><?= $subject ?></a></td>
+                        <td><?= $message ?></td>
+                        <td><?= $date ?></td>
+                    </tr>
+                </tbody>
+            <?php
+            } ?>
+            </table>
+            </div>
+            
+
+            
 
     </main>
     <?php include "../includes/footer.php"; ?>
+    <?php
+    $linkJSGeneral = "../js/app.js";
+    $linkJSSearch = "../js/search.js";
+    include "../includes/scripts.php";
+    ?>
 </body>
 </html>

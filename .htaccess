@@ -3,7 +3,8 @@ RewriteEngine On
 RewriteRule ^toutes-nos-recettes$ allrecipe.php
 RewriteRule ^concours$ concours.php
 RewriteRule ^connexion$ connexion.php
+RewriteRule ^forum/$ forum/topic.php
 RewriteRule ^inscription$ inscription.php
 RewriteRule ^mon-profile$ profile/profile.php
 RewriteRule ^mes-recettes$ profile/mesRecettes.php
-RewriteRule ^forum$ forum/topic.php
+

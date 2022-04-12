@@ -36,6 +36,14 @@ include "../includes/head.php";
             ?>
             <div class="container col-md-10">
             <table class="table text-center table-bordered table-hover" id="active">
+                <thead>
+                <tr>
+                    <th>Créateur</th>
+                    <th>Sujet</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
             <?php foreach ($resultTopic as $topic) {
 
               $id_subject = $topic["id"];
@@ -52,14 +60,7 @@ include "../includes/head.php";
               $pseudo = $resultUser["pseudo"];
               ?>
 
-                <thead>
-                    <tr>
-                        <th>Créateur</th>
-                        <th>Sujet</th>
-                        <th>Description</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
+
                 <tbody>
                     <tr>
                         <td><?= $pseudo ?></td>

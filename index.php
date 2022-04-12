@@ -145,31 +145,44 @@ if (isset($_SESSION["id"])) {
 
       <h3 class="pt-5 pb-3"><strong>Derniers Topics publiées</strong></h3>
       <div class="container pb-5">
-        <table class="table table-bordered">
-          <thead>
+          <?php
+
+          $selectLastTopic = $db->query(
+              "SELECT id, subject, date, id_user FROM TOPIC ORDER BY id DESC LIMIT 5"
+          );
+          $resultLastTopic = $selectLastTopic->fetchAll(PDO::FETCH_ASSOC);
+
+          ?>
+        <table class="table table-bordered table-hover">
+            <thead class="text-center">
             <tr>
-              <th scope="col">Date</th>
-              <th scope="col">Créateur</th>
-              <th scope="col">Sujet</th>
+                <th scope="col">Créateur</th>
+                <th scope="col">Date</th>
+                <th scope="col">Sujet</th>
             </tr>
-          </thead>
+            </thead>
+            <?php foreach($resultLastTopic as $lastTopic){
+                $subjectTopic = $lastTopic['subject'];
+                $dateTopic = $lastTopic['date'];
+                $idTopic = $lastTopic['id'];
+                $idUser = $lastTopic['id_user'];
+
+                $selectCreator = $db->query(
+                    "SELECT pseudo FROM USER WHERE id = '$lastTopic[id_user]'"
+                );
+                $resultCreator = $selectCreator->fetch(PDO::FETCH_ASSOC);
+                $creator = $resultCreator['pseudo'];
+
+                ?>
+
           <tbody>
             <tr>
-              <td>Dan</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>Larry the Bird</td>
-              <td>Dan le boss</td>
-              <td>@twitter</td>
+              <td><?= $creator ?></td>
+              <td><?= $dateTopic ?></td>
+              <td><a href="https://topcook.site/forum/subject.php?id_subject=<?= $idTopic ?>&creator=<?= $creator ?>&id_creator=<?=$idUser?>"><?= $subjectTopic ?></a></td>
             </tr>
           </tbody>
+            <?php } ?>
         </table>
       </div>
 

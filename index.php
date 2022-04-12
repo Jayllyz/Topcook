@@ -44,10 +44,10 @@ if (isset($_SESSION["id"])) {
         ?>
 
       <h1 class="pb-3 text-center"><strong>La recette la plus visité</strong></h1>
-
+        <a href="recipes/recipe.php?id=<?=$recipeId?>&name=<?=$recipeName?>" class="text-dark text-decoration-none link_recipe_moment">
     <div class="card mb-3 me-5 ms-5 recipe_moment">
       <div class="row g-0">
-          <a href="recipes/recipe.php?id=<?=$recipeId?>&name=<?=$recipeName?>" class="d-flex text-dark text-decoration-none link_recipe_moment">
+
         <div class="col-md-2">
             <?= '<img src="uploads/recipe/' . $recipeImage . '"class="img-fluid rounded-start" alt=image -' . $recipeName . '">'; ?>
         </div>
@@ -57,9 +57,10 @@ if (isset($_SESSION["id"])) {
             <p class="card-text fs-3 ms-5 me-5"><?= $recipeDescription ?></p>
           </div>
         </div>
-          </a>
+
       </div>
     </div>
+        </a>
 
       <h3 class="pb-4 pt-5"><strong>Top recettes du mois</strong></h3>
       <div class="best_recipe row row-col-md-4 me-5 ms-5">

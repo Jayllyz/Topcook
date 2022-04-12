@@ -458,11 +458,11 @@ footer {
 .search_link a:hover {
   color: #f98400;
 }
-.link_recipe_moment{
+.link_recipe_moment .recipe_moment{
   transition: 0.5s;
 }
-.link_recipe_moment:hover {
-  transform: scale(1.02) !important;
+.link_recipe_moment .recipe_moment:hover {
+  transform: scale(1.03);
   transition: 0.5s;
 }
 .modify:hover {

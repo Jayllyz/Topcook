@@ -38,7 +38,6 @@ include "../includes/head.php";
         </table>
 </div>
 
-
 <?php include "../includes/footer.php"; ?>
 <?php
 $linkJSGeneral = "../js/app.js";

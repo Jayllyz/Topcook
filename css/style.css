@@ -458,6 +458,13 @@ footer {
 .search_link a:hover {
   color: #f98400;
 }
+.link_recipe_moment{
+  transition: 0.5s;
+}
+.link_recipe_moment:hover {
+  transform: scale(1.02) !important;
+  transition: 0.5s;
+}
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {
@@ -480,6 +487,7 @@ footer {
     overflow-y: hidden;
     padding: 0 !important;
   }
+
   .recipe_moment img {
     border-radius: 10% !important;
     border-bottom-left-radius: 0% !important;

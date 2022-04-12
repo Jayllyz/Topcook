@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <?php
@@ -7,6 +8,7 @@ $linkCss = "css/style.css";
 $title = "TopCook - Accueil";
 include "includes/head.php";
 include "includes/db.php";
+include ('includes/functions.php');
 if (isset($_SESSION["id"])) {
   $date = date("d/m/Y H:i:s");
   $log_visit = fopen("log/log_index.txt", "a+");
@@ -25,20 +27,40 @@ if (isset($_SESSION["id"])) {
       <div class="container col-md-6">
       <?php include "includes/message.php"; ?>
       </div>
-      <h1 class="pb-3 text-center"><strong>La recette du moment</strong></h1>
-    <div class="card mb-3 me-5 ms-5 recipe_moment"> <!-- Recette du moment -->
+        <?php
+
+
+        $selectRecipe = $db->prepare("SELECT name, images, id, description FROM RECIPE WHERE name = :name");
+        $selectRecipe->execute([
+          'name' => moreViewsRecipe()
+        ]);
+        $result = $selectRecipe->fetch();
+        $recipeName = $result['name'];
+        $recipeImage = $result['images'];
+        $recipeId = $result['id'];
+        $recipeDescription = $result['description'];
+
+
+        ?>
+
+      <h1 class="pb-3 text-center"><strong>La recette la plus visité</strong></h1>
+
+    <div class="card mb-3 me-5 ms-5 recipe_moment">
       <div class="row g-0">
-        <div class="col-md-4">
-          <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="img-fluid rounded-start" alt="...">
+          <a href="recipes/recipe.php?id=<?=$recipeId?>&name=<?=$recipeName?>" class="d-flex text-dark text-decoration-none link_recipe_moment">
+        <div class="col-md-2">
+            <?= '<img src="uploads/recipe/' . $recipeImage . '"class="img-fluid rounded-start" alt=image -' . $recipeName . '">'; ?>
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h2 class="card-title text-center"><strong>Sushi</strong></h2>
-            <p class="card-text fs-3 ms-5 me-5">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h2 class="card-title text-center mb-4"><strong><?= $recipeName ?></strong></h2>
+            <p class="card-text fs-3 ms-5 me-5"><?= $recipeDescription ?></p>
           </div>
         </div>
+          </a>
       </div>
     </div>
+
       <h3 class="pb-4 pt-5"><strong>Top recettes du mois</strong></h3>
       <div class="best_recipe row row-col-md-4 me-5 ms-5">
           <div class="col">
@@ -103,7 +125,7 @@ if (isset($_SESSION["id"])) {
       <?php foreach (array_slice($result, 0 , 3) as $select) { ?>
           <div class="col-md-3">
             <div class="card recipe" style="width: 100%;">
-            <?= '<img src="uploads/recipe/' . $select["images"] . '"height="430" class="card-img-top" alt=image -' . $select['names'] . '">'; ?>
+            <?= '<img src="uploads/recipe/' . $select["images"] . '"height="380" class="card-img-top" alt=image -' . $select['names'] . '">'; ?>
               <div class="card-body">
                 <h5 class="card-title"><?= $select['name']?></h5>
                 <p class="card-text col-12 text-truncate"><?= $select['description'] ?></p>

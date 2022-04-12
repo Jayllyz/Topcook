@@ -2,13 +2,21 @@
 session_start();
 include "../includes/db.php";
 $nbSteps = htmlspecialchars($_GET["nbSteps"]);
+$name = htmlspecialchars($_GET["name"]);
+$date = date("d/m/Y H:i:s");
+$log_recipe = fopen("../log/recipe_logs/$name.txt", "a+");
+fputs($log_recipe, $name . " ");
+fputs($log_recipe, "visité le ");
+fputs($log_recipe, $date);
+fputs($log_recipe, "\n");
+fclose($log_recipe);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <?php
 $linkLogoOnglet = "../images/topcook_logo.svg";
 $linkCss = "../css/style.css";
-$title = "$_GET[name]";
+$title = "";
 include "../includes/head.php";
 ?>
 <body>

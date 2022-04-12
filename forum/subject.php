@@ -39,7 +39,23 @@ include "../includes/head.php";
         <h2 class="pb-3">Sujet : <strong><?= $subject ?></strong></h2>
         <p>Créé par : <strong><?= $pseudo ?></strong></p>
         <p>Date de création : <strong><?= $date ?></strong></p>
-        <p>Description : <strong><?= $message ?></strong></p>
+        <div class="description d-flex justify-content-center">
+            <span class="d-flex">Description :<p class="ms-3 me-3" id="description"></span>
+
+                <strong id="message"><?= $message ?></strong>
+                <?php
+                if($id_creator == $_SESSION["id"] || $_SESSION['rights'] == 1){
+
+                ?>
+        <div class="modify">
+            <img src="../images/crayon.png" id="crayon" width="30" height="30" alt="modify" class="modify">
+        </div>
+        <?php } ?>
+            </p>
+        </div>
+
+
+
     </div>
 
 

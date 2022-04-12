@@ -250,3 +250,4 @@ function removePers(){
     let text2 = document.getElementById("pers").textContent = text;
   }
 }
+

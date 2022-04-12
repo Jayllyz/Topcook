@@ -465,6 +465,10 @@ footer {
   transform: scale(1.02) !important;
   transition: 0.5s;
 }
+.modify:hover {
+  cursor: pointer;
+
+}
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {

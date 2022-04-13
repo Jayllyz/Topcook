@@ -469,6 +469,9 @@ footer {
   cursor: pointer;
 
 }
+.last_recipe .recipe img{
+  height: auto;
+}
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {

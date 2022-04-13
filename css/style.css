@@ -472,6 +472,12 @@ footer {
 .last_recipe .recipe img{
   height: auto;
 }
+.new-topic .submit{
+  width: 166px;
+}
+.new-topic .image-topic{
+  width: auto;
+}
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {

@@ -22,17 +22,17 @@ include "../includes/head.php";
         <form action="../verifications/verifications_forum/verif_topic.php?id=<?= $_SESSION[
           "id"
         ] ?>" method="post" enctype="multipart/form-data"">
-        <div class="container col-md-10">
+        <div class="container col-md-10 new-topic">
             <label class="form-label">Sujet</label>
-            <input class="form-control" type="text" name="subject" required>
+            <input class="form-control mb-4" type="text" name="subject" required>
 
             <label class="form-label">Message</label>
-            <textarea class="form-control" name="message" required></textarea>
+            <textarea class="form-control mt-4 mb-4" name="message" required></textarea>
 
-            <label class="form-label">Image</label>
-            <input type="file" class="form-control" name="image" id="image">
+            <label class="form-label mb-4">Image</label>
+            <input type="file" class="form-control image-topic mb-4" name="image" id="image">
 
-            <input type="submit" class="form-control btn-success" value="Envoyer"> 
+            <input type="submit" class="form-control btn-success submit mb-4" value="Envoyer">
         </div>
         </form>
     </main>

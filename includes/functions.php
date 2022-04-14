@@ -39,6 +39,30 @@ function moreViewsRecipe(){
     return $newFileMax;
 
 }
+function cutImg($linkImg,$nameFolder) {
+    $img = imagecreatefromjpeg($linkImg);
+    $largeur = imagesx($img);
+    $hauteur = imagesy($img);
+    $largeur_partie = $largeur / 3;
+    $hauteur_partie = $hauteur / 3;
+    for ($i = 0; $i < 3; $i++) {
+        for ($j = 0; $j < 3; $j++) {
+            $partie = imagecreatetruecolor($largeur_partie, $hauteur_partie);
+            imagecopy($partie, $img, 0, 0, $largeur_partie * $i, $hauteur_partie * $j, $largeur_partie, $hauteur_partie);
+
+            $dir = "/var/www/html/images/captcha/$nameFolder/";
+            if (!is_dir($dir)) {
+                mkdir($dir,0777);
+
+            }
+            chmod($dir, 0777);
+            $dir = $dir . $i . "_" . $j . ".jpg";
+            imagejpeg($partie, $dir);
+        }
+    }
+    imagejpeg($img, "image_build.jpg");
+    imagedestroy($img);
+}
 
 
 ?>

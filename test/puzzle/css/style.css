@@ -1,0 +1,38 @@
+#div1,
+#div2,
+#div3,
+#div4,
+#div5,
+#div6,
+#div7,
+#div8,
+#div9,
+#div10,
+#div11,
+#div12 {
+  float: left;
+  width: 150px;
+  height: 150px;
+
+  border: 1px solid black;
+}
+#div1,
+#div2,
+#div3,
+#div4,
+#div5,
+#div6 {
+  border: none;
+}
+.test,
+.test2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 500px;
+}
+.test1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}

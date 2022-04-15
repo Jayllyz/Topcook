@@ -158,8 +158,9 @@ if (isset($_SESSION["id"])) {
             <thead class="text-center">
             <tr>
                 <th scope="col">Créateur</th>
-                <th scope="col">Date</th>
                 <th scope="col">Sujet</th>
+                <th scope="col">Date</th>
+                
             </tr>
             </thead>
             <?php foreach($resultLastTopic as $lastTopic){
@@ -179,8 +180,8 @@ if (isset($_SESSION["id"])) {
           <tbody>
             <tr>
               <td><?= $creator ?></td>
-              <td><?= $dateTopic ?></td>
               <td><a href="https://topcook.site/forum/subject.php?id_subject=<?= $idTopic ?>&creator=<?= $creator ?>&id_creator=<?=$idUser?>"><?= $subjectTopic ?></a></td>
+              <td><?= $dateTopic ?></td>
             </tr>
           </tbody>
             <?php } ?>

@@ -15,7 +15,15 @@ if (isset($_SESSION["id"])) {
         "id_recipe" => $id_recipe,
         "id_user" => $_SESSION["id"],
     ]);
-
+    $date = date("d/m/Y H:i:s");
+    $log_dislike = fopen("../log/recipe_dislikes/$name.txt", "a+");
+    fputs($log_dislike, $name . " ");
+    fputs($log_dislike, "disliké le ");
+    fputs($log_dislike, $date);
+    fputs($log_dislike, "par ");
+    fputs($log_dislike, $_SESSION["id"]);
+    fputs($log_dislike, "\n");
+    fclose($log_dislike);
     header(
         "location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Votre vote a bien été retiré !&type=success"
     );

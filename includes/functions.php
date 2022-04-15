@@ -67,7 +67,7 @@ function cutImg($linkImg,$nameFolder) {
 
 
 function topLikesRecipes($rank) {
-    $sql = $db->query("SELECT id_recipe FROM LIKES ORDER BY votes DESC;");
+    $sql = $db->query("SELECT id_recipe FROM LIKES ORDER BY votes DESC");
     $sql->execute();
     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     var_dump($result);

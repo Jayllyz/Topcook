@@ -41,6 +41,7 @@ function moreViewsRecipe(){
 
 }
 function cutImg($linkImg,$nameFolder) {
+    $compteur = 0;
     $img = imagecreatefromjpeg($linkImg);
     $largeur = imagesx($img);
     $hauteur = imagesy($img);
@@ -56,8 +57,9 @@ function cutImg($linkImg,$nameFolder) {
                 mkdir($dir,0777);
 
             }
+            $compteur++;
             chmod($dir, 0777);
-            $dir = $dir . $i . "_" . $j . ".jpg";
+            $dir = $dir . "image". $compteur . ".jpg";
             imagejpeg($partie, $dir);
         }
     }
@@ -68,9 +70,11 @@ function cutImg($linkImg,$nameFolder) {
 
 function topLikesRecipes($rank) {
     $sql = $db->query("SELECT id_recipe FROM LIKES ORDER BY votes DESC");
+<<<<<<< Updated upstream
     $sql->execute();
+=======
+>>>>>>> Stashed changes
     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($result);
     $result  = array_slice($result, 0, $rank);
     $result = array_map(function ($value) {
         return $value['id_recipe'];
@@ -82,7 +86,7 @@ function topLikesRecipes($rank) {
     ));
     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     var_dump($result);
-    return $result;
+    echo $result;
 
 
 }

@@ -24,10 +24,11 @@ include "../includes/head.php";
         ] ?>" method="post" enctype="multipart/form-data"">
         <div class="container col-md-10 new-topic">
             <label class="form-label">Sujet</label>
-            <input class="form-control mb-4" type="text" name="subject" required>
+            <input class="form-control mb-4" type="text" onkeyup="checkInputLength(this , 20);" name="subject" required>
+            <p id="charNum"></p>
 
             <label class="form-label">Message</label>
-            <textarea class="form-control mt-4 mb-4" name="message" required></textarea>
+            <textarea class="form-control mt-4 mb-4"  name="message" required></textarea>
 
             <label class="form-label mb-4">Image</label>
             <input type="file" class="form-control image-topic mb-4" name="image" id="image">

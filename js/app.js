@@ -110,22 +110,21 @@ let steps2 = 1;
 let ingredient = 1;
 let quantity = 1;
 function addRecipe() {
-    let input = document.createElement("input");
-    steps2++;
-    input.setAttribute("type", "text");
-    input.setAttribute("name", "steps[]");
-    input.setAttribute("placeholder", "Etape " + steps2);
-    input.setAttribute("class", "form-control");
-    document.getElementById("new-steps").appendChild(input);
+  let input = document.createElement("input");
+  steps2++;
+  input.setAttribute("type", "text");
+  input.setAttribute("name", "steps[]");
+  input.setAttribute("placeholder", "Etape " + steps2);
+  input.setAttribute("class", "form-control");
+  document.getElementById("new-steps").appendChild(input);
 }
 function removeRecipe() {
-  if(steps2 > 1){
+  if (steps2 > 1) {
     steps2--;
     // remove last input
     let lastInput = document.getElementById("new-steps").lastChild;
     document.getElementById("new-steps").removeChild(lastInput);
   }
-
 }
 function addIngredients() {
   let inputIngredients = document.createElement("input");
@@ -144,12 +143,8 @@ function addIngredients() {
   select.add(option1);
   select.add(option2);
 
-
-
-
   ingredient++;
   quantity++;
-
 
   inputIngredients.setAttribute("type", "text");
   inputQuantity.setAttribute("type", "number");
@@ -160,39 +155,38 @@ function addIngredients() {
   inputIngredients.setAttribute("placeholder", "Ingrédient " + ingredient);
   inputQuantity.setAttribute("placeholder", "Quantitée");
 
-
   inputIngredients.setAttribute("class", "form-control ingredient");
   inputQuantity.setAttribute("class", "form-control quantity");
   inputIngredients.setAttribute("required", "required");
   inputQuantity.setAttribute("required", "required");
 
-
   document.getElementById("new-ingredients").appendChild(inputIngredients);
   document.getElementById("new-ingredients").appendChild(inputQuantity);
   document.getElementById("new-ingredients").appendChild(select);
-
 }
 function removeIngredients() {
-  if(ingredient > 1){
+  if (ingredient > 1) {
     ingredient--;
     // remove last input
-    let lastInputIngredients = document.getElementById("new-ingredients").lastChild;
+    let lastInputIngredients =
+      document.getElementById("new-ingredients").lastChild;
 
-
-    document.getElementById("new-ingredients").removeChild(lastInputIngredients);
-
+    document
+      .getElementById("new-ingredients")
+      .removeChild(lastInputIngredients);
   }
-  if(quantity > 1){
+  if (quantity > 1) {
     quantity--;
-    let lastInputQuantity = document.getElementById("new-ingredients").lastChild;
+    let lastInputQuantity =
+      document.getElementById("new-ingredients").lastChild;
     document.getElementById("new-ingredients").removeChild(lastInputQuantity);
-    let lastInputSelected = document.getElementById("new-ingredients").lastChild;
+    let lastInputSelected =
+      document.getElementById("new-ingredients").lastChild;
     document.getElementById("new-ingredients").removeChild(lastInputSelected);
   }
 }
 
-function checkInputLength(obj) {
-  let maxLength = 70;
+function checkInputLength(obj, maxLength) {
   let strLength = obj.value.length;
 
   if (strLength > maxLength) {
@@ -207,47 +201,40 @@ function checkInputLength(obj) {
       strLength + " sur " + maxLength + " caractères";
   }
 }
+
 let compteur = 0;
 let quantityForOnePeople = [];
 let quantitys = document.querySelectorAll(".quantity");
-let text = parseInt(document.getElementById("pers").textContent);
+let text = parseInt(document.getElementById("pers").value);
 let nameIngredient = document.querySelectorAll(".name_ingredient");
 
-function addPers(){
-
-  for(let i = 0; i < quantitys.length; i++){
-    quantityForOnePeople.push((parseInt(quantitys[i].textContent) / text));
+function addPers() {
+  for (let i = 0; i < quantitys.length; i++) {
+    quantityForOnePeople.push(parseInt(quantitys[i].textContent) / text);
     let quantityNumber = parseInt(quantitys[i].textContent);
 
     quantityNumber += quantityForOnePeople[i];
     quantitys[i].textContent = parseInt(quantityNumber);
-
   }
   text++;
 
-
-  let text2 = document.getElementById("pers").textContent = text;
+  let text2 = (document.getElementById("pers").textContent = text);
 }
 
-function removePers(){
+function removePers() {
   compteur--;
 
-  if(text > 1) {
-    for(let i = 0; i < quantitys.length; i++){
-      quantityForOnePeople.push((parseInt(quantitys[i].textContent) / text));
+  if (text > 1) {
+    for (let i = 0; i < quantitys.length; i++) {
+      quantityForOnePeople.push(parseInt(quantitys[i].textContent) / text);
       let quantityNumber = parseInt(quantitys[i].textContent);
-      if(quantityNumber > 0) {
-
+      if (quantityNumber > 0) {
         quantityNumber -= quantityForOnePeople[i];
         quantitys[i].textContent = parseInt(quantityNumber);
       }
-
-
-
     }
     text--;
     // sauvegarder le nouveau nombre dans le span
-    let text2 = document.getElementById("pers").textContent = text;
+    let text2 = (document.getElementById("pers").textContent = text);
   }
 }
-

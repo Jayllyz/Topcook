@@ -113,7 +113,7 @@ if (isset($_SESSION["id"])) {
                     <input type="text" name="nom" class="form-control"  required>
 
                     <label class="form-label">Petite description</label>
-                    <label for="description"></label><textarea id="description" onkeyup="checkInputLength(this);" name="description" class="form-control" required></textarea>
+                    <label for="description"></label><textarea id="description" onkeyup="checkInputLength(this, 70)" name="description" class="form-control" required></textarea>
                     <p id="charNum"></p>
                     <label class="form-label">Temps de préparation (minutes)</label>
                     <input type="number" name="time_prep" class="form-control"  required>

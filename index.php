@@ -32,7 +32,7 @@ if (isset($_SESSION["id"])) {
       </div>
         <?php
 
-        echo topLikesRecipes(1);
+
         $selectRecipe = $db->prepare("SELECT name, images, id, description FROM RECIPE WHERE name = :name");
         $selectRecipe->execute([
           'name' => moreViewsRecipe()

@@ -1,4 +1,7 @@
 <?php session_start();
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,7 +32,7 @@ if (isset($_SESSION["id"])) {
       </div>
         <?php
 
-
+        echo topLikesRecipes(1);
         $selectRecipe = $db->prepare("SELECT name, images, id, description FROM RECIPE WHERE name = :name");
         $selectRecipe->execute([
           'name' => moreViewsRecipe()

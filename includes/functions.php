@@ -69,17 +69,13 @@ function cutImg($linkImg,$nameFolder) {
 
 
 function topLikesRecipes($rank) {
-    $sql = $db->query("SELECT id_recipe FROM LIKES ORDER BY votes DESC");
+    $sql = $db->query("SELECT id_recipe FROM LIKES ORDER BY votes DESC LIMIT " . $rank);
     $sql->execute();
     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-    $result  = array_slice($result, 0, $rank);
-    $result = array_map(function ($value) {
-        return $value['id_recipe'];
-    }, $result);
 
     $sql = $db->prepare("SELECT name FROM recipe WHERE id = :id_recipe");
     $sql->execute(array(
-        'id_recipe' => $result
+        'id_recipe' => $result[$rank]['id_recipe']
     ));
     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     var_dump($result);

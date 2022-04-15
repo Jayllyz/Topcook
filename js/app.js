@@ -205,7 +205,7 @@ function checkInputLength(obj, maxLength) {
 let compteur = 0;
 let quantityForOnePeople = [];
 let quantitys = document.querySelectorAll(".quantity");
-let text = parseInt(document.getElementById("pers").value);
+let text = parseInt(document.getElementById("pers").textContent);
 let nameIngredient = document.querySelectorAll(".name_ingredient");
 
 function addPers() {

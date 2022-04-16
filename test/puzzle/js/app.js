@@ -12,6 +12,9 @@ let temp = [];
 let compteur = 0;
 function changeImage() {
     compteur++;
-    temp.push();
+
+    if(compteur === 2){
+
+    }
 
 }

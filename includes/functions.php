@@ -85,6 +85,7 @@ function likesArray($type)
   $nbFile = count($files);
   $nbLikes = 0;
   for ($i = 0; $i < $nbFile; $i++) {
+    $nbLikes = 0;
     $Alllines = file("log/recipe_$type/" . $files[$i]);
     $nbLines = count($Alllines);
     for ($j = 0; $j < $nbLines; $j++) {
@@ -108,14 +109,15 @@ function topLikesRecipesMonth()
   $arrayLikes = likesArray("likes");
 
   $arrayDislikes = likesArray("dislikes");
-
   foreach ($arrayLikes as $key => $value) {
     $arrayLikes[$key] = $value - $arrayDislikes[$key];
   }
 
 
   arsort($arrayLikes);
+
   return array_slice($arrayLikes, 0, 4);
+
 
 }
 

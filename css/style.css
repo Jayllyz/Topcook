@@ -127,6 +127,9 @@ nav ul li a:before {
 .btn {
   background-color: orange !important;
 }
+.btn-danger{
+  background-color: #dc3545 !important;
+}
 .btn-search {
   background-color: green !important;
   color: white !important;

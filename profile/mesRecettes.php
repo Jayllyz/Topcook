@@ -18,29 +18,42 @@ include "../includes/head.php";
 
         <?php
         $query = $db->prepare(
-            "SELECT id, name, images FROM RECIPE WHERE id_user = :id_user ORDER BY id DESC"
+          "SELECT id, name, images FROM RECIPE WHERE id_user = :id_user ORDER BY id DESC"
         );
         $query->execute([
-            "id_user" => $_SESSION["id"]
+          "id_user" => $_SESSION["id"],
         ]);
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
         <div class="container g-1" id="recettes">
             <div class="pb-4 row">
-                <?php foreach ($result as $select) {
-                        $name_recipe = $select["name"];
-                        $id_recipe = $select["id"];
+                
+                <?php if (!empty($result)) {
+                  foreach ($result as $select) {
+
+                    $name_recipe = $select["name"];
+                    $id_recipe = $select["id"];
                     ?>
                     <div class="col col-md-3 shadow-sm" id="my_recipe">
-                        <a href="https://topcook.site/recipes/recipe.php?name=<?=$name_recipe?>&id=<?=$id_recipe?>" class="text-decoration-none">
-                        <?= '<img src="../uploads/recipe/' . $select["images"] . '" class="rounded img-fluid" alt="image -' . $select['names'] . '">'; ?>
-                        <h4 class="text-center mt-3 text-dark"><?= $select['name'] ?></h4>
+                        <a href="https://topcook.site/recipes/recipe.php?name=<?= $name_recipe ?>&id=<?= $id_recipe ?>" class="text-decoration-none">
+                        <?= '<img src="../uploads/recipe/' .
+                          $select["images"] .
+                          '" class="rounded img-fluid" alt="image -' .
+                          $select["names"] .
+                          '">' ?>
+                        <h4 class="text-center mt-3 text-dark"><?= $select[
+                          "name"
+                        ] ?></h4>
                         </a>
                     </div>
 
-
-                <?php } ?>
+                <?php
+                  }
+                } else {
+                  echo '<h3 class="text-center mt-3 text-dark">Vous n\'avez pas encore de recette</h3>';
+                } ?>
+            
             </div>
         </div>
     </main>

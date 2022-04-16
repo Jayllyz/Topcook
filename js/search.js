@@ -11,14 +11,13 @@ searchbar.addEventListener("keyup", function () {
       "https://topcook.site/includes/search.php?search=" + search
     );
     request.onreadystatechange = function () {
-      if (request.readyState === 4) {
+      if (request.readyState === 4 && request.status === 200) {
         const res = request.responseText;
         if (res !== "" && res !== div.innerHTML) {
           div.innerHTML = res;
         } else {
           const div = document.getElementById("result");
-          div.innerHTML =
-            "<p class='text-center fs-3' style='z-index: 100'>Aucun résultat</p>";
+          div.innerHTML = "<p class='text-center fs-3'>Aucun résultat</p>";
         }
       }
     };

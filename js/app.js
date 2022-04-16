@@ -238,3 +238,7 @@ function removePers() {
     let text2 = (document.getElementById("pers").textContent = text);
   }
 }
+
+function checkConfirm() {
+  return confirm("Voulez vous vraiment supprimer cette recette?");
+}

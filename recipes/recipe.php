@@ -68,10 +68,10 @@ include "../includes/head.php";
                 <p><?= "Type : " . $select["type"] ?></p>
                 <?php
                 $selectLike = $db->prepare(
-                    "SELECT votes FROM LIKES WHERE id_recipe = :id_recipe"
+                  "SELECT votes FROM LIKES WHERE id_recipe = :id_recipe"
                 );
                 $selectLike->execute([
-                    "id_recipe" => $select["id"],
+                  "id_recipe" => $select["id"],
                 ]);
                 $resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
                 ?>
@@ -80,29 +80,50 @@ include "../includes/head.php";
 
                     <?php
                     $selectCount = $db->prepare(
-                        "SELECT count(id) FROM LIKES WHERE id_user = :id_user AND id_recipe = :id_recipe"
+                      "SELECT count(id) FROM LIKES WHERE id_user = :id_user AND id_recipe = :id_recipe"
                     );
                     $selectCount->execute([
-                        "id_user" => $_SESSION["id"],
-                        "id_recipe" => $select["id"],
+                      "id_user" => $_SESSION["id"],
+                      "id_recipe" => $select["id"],
                     ]);
                     $count = $selectCount->fetch(PDO::FETCH_NUM);
                     ?>
 
-                    <?php if (!isset($_SESSION['id']) || $count[0] == 0) { ?>
+                    <?php if (!isset($_SESSION["id"]) || $count[0] == 0) { ?>
                         <a href="like.php?id=<?= $select[
-                        "id"
-                        ] ?>&name=<?= $select['name'] ?>"><img src="../images/like.svg" width="30"></a>
-                    <?php }else{?>
+                          "id"
+                        ] ?>&name=<?= $select[
+  "name"
+] ?>"><img src="../images/like.svg" width="30"></a>
+                    <?php } else { ?>
                     <a href="unlike.php?id=<?= $select[
-                    "id"
-                    ] ?>&name=<?= $select['name'] ?>">
+                      "id"
+                    ] ?>&name=<?= $select["name"] ?>">
                         <img src="../images/like.svg" class="validate" width="30"></a>
                     <?php } ?>
                 </div>
+
+                <?php if (
+                  $_SESSION["rights"] == 1 ||
+                  $_SESSION["id"] == $select["id_user"]
+                ) { ?>
+                  <div class="btn_ingredients mb-4">
+                            <a href="deleteRecipe.php?id=<?= $select[
+                              "id"
+                            ] ?>&id_user=<?= $select[
+  "id_user"
+] ?>&name=<?= $select["name"] ?>" onclick="checkConfirm()" class="btn">
+                                Supprimer la recette
+                            </a>
+                        </div>
+                 <?php } ?>
+
                 <div class="list_ingredient">
                     <h3>Ingrédients</h3> 
-                    <?php if ($_SESSION["rights"] == 1 || $_SESSION['id'] == $select['id_user']) { ?>
+                    <?php if (
+                      $_SESSION["rights"] == 1 ||
+                      $_SESSION["id"] == $select["id_user"]
+                    ) { ?>
                         <div class="btn_ingredients mb-4">
                             <a href="ingredients.php?name=<?= $select[
                               "name"
@@ -131,7 +152,11 @@ include "../includes/head.php";
                         <p class="name_ingredient"><?= $ingredient[
                           "name"
                         ] ?></p>
-                                <span><p class="quantity"><?= $ingredient["quantity"] ?></p><strong><?= $ingredient['unit'] ?></strong></span>
+                                <span><p class="quantity"><?= $ingredient[
+                                  "quantity"
+                                ] ?></p><strong><?= $ingredient[
+  "unit"
+] ?></strong></span>
                     </div>
                         <?php } ?>
 

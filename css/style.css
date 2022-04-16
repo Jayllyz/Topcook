@@ -478,6 +478,13 @@ footer {
 .new-topic .image-topic{
   width: auto;
 }
+#result{
+  position: absolute;
+  background-color: lightgray;
+  border-radius: 15px;
+  padding: 15px;
+  z-index: 1;
+}
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {

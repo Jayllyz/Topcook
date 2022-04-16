@@ -86,10 +86,9 @@
           
         </div>
       </nav>
-  <div class="container">
+  <div class="container" id="container-search">
         <form class="d-flex searchbar pt-3 pb-3">
               <input class="form-control me-2" type="search" id="searchbar" placeholder="Search" aria-label="Search">
     </form>
-      <div id="result"></div>
   </div>
   </header>

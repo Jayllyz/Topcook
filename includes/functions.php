@@ -91,6 +91,7 @@ function likesArray($type)
       $line = explode(" ", $Alllines[$j]);
       $date = explode("/", $line[3]);
 
+
       if ($date[1] == date("m") && $date[2] == date("Y")) {
         $nbLikes++;
         $tabLikes[$files[$i]] = $nbLikes;
@@ -111,7 +112,8 @@ function topLikesRecipesMonth()
   foreach ($arrayLikes as $key => $value) {
     $arrayLikes[$key] = $value - $arrayDislikes[$key];
   }
-// filter arrayLikes decreasing
+
+
   arsort($arrayLikes);
   return array_slice($arrayLikes, 0, 4);
 

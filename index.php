@@ -59,58 +59,46 @@ if (isset($_SESSION["id"])) {
 
       </div>
     </div>
-        </a>
+            <h3 class="pb-4 pt-5"><strong>Top recettes du mois</strong></h3>
 
-      
-   <?php var_dump(topLikesRecipesMonth()); ?>
+                <div class="last_recipe row row-col-md-4 me-5 ms-5 mt-3 mb-3">
+   <?php
+   $array = topLikesRecipesMonth();
+   foreach ($array as $key => $value){
+       $nameRecipeMonth = explode(".txt", $key);
+       $nameRecipeMonth = $nameRecipeMonth[0];
+       $recipeMonth = $db->prepare(
+           "SELECT id, name, images, description FROM RECIPE WHERE name = :name"
+       );
+       $recipeMonth->execute([
+           "name" => $nameRecipeMonth,
+       ]);
+       $resultMonth = $recipeMonth->fetchAll(PDO::FETCH_ASSOC);
+       foreach ($resultMonth as $selectMonth){
+           $recipeIdMonth = $selectMonth["id"];
+           $recipeNameMonth = $selectMonth["name"];
+           $recipeImageMonth = $selectMonth["images"];
+           $recipeDescriptionMonth = $selectMonth["description"];
 
+   ?>
 
-      <h3 class="pb-4 pt-5"><strong>Top recettes du mois</strong></h3>
-      <div class="best_recipe row row-col-md-4 me-5 ms-5">
-          <div class="col">
-            <div class="card recipe" style="width: 100%;">
-              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
+                    <div class="col-md-3">
 
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn see_more">Voir d'avantage</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card recipe" style="width: 100%;">
-              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
+                    <div class="card recipe" style="width: 100%;">
+                        <?= '<img src="uploads/recipe/' .
+                        $recipeImageMonth .
+                        '"height="380" class="card-img-top" alt=image -' .
+                        $recipeNameMonth .
+                        '">' ?>
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $recipeNameMonth ?></h5>
+                            <p class="card-text col-12 text-truncate"><?= $recipeDescriptionMonth ?></p>
+                            <a href="recipes/recipe.php?id=<?= $recipeIdMonth ?>&name=<?= $recipeNameMonth ?>" class="btn see_more">Voir d'avantage</a>
+                        </div>
+                    </div>
+                    </div>
+            <?php }} ?>
 
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn see_more">Voir d'avantage</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card recipe" style="width: 100%;">
-              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
-
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn see_more">Voir d'avantage</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card recipe" style="width: 100%;">
-              <img src="https://www.tourisme-rennes.com/uploads/2019/06/Bouffes-rennaises.jpg" class="card-img-top" alt="">
-
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn see_more">Voir d'avantage</a>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="container pt-4">
           <div class="d-grid gap-2 col-2 mx-auto">

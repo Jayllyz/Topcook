@@ -59,6 +59,7 @@ if (isset($_SESSION["id"])) {
 
       </div>
     </div>
+  </a>
             <h3 class="pb-4 pt-5"><strong>Top recettes du mois</strong></h3>
 
                 <div class="last_recipe row row-col-md-4 me-5 ms-5 mt-3 mb-3">
@@ -100,11 +101,11 @@ if (isset($_SESSION["id"])) {
             <?php }} ?>
 
         </div>
-        <div class="container pt-4">
-          <div class="d-grid gap-2 col-2 mx-auto">
-            <button class="btn" type="button" id="see_more_btn"><div>Voir plus...</div></button>
-          </div>
-        </div>
+            <div class="container pt-4">
+                <div class="d-grid gap-2 col-2 mx-auto">
+                    <a href="https://topcook.site/toutes-nos-recettes" class="btn" type="button" id="see_more_btn"><div>Voir plus...</div></a>
+                </div>
+            </div>
       
         <?php
         $query = $db->query(

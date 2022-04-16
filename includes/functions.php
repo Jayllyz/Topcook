@@ -111,8 +111,10 @@ function topLikesRecipesMonth()
   foreach ($arrayLikes as $key => $value) {
     $arrayLikes[$key] = $value - $arrayDislikes[$key];
   }
+// filter arrayLikes decreasing
+  arsort($arrayLikes);
+  return array_slice($arrayLikes, 0, 4);
 
-  return $arrayLikes;
 }
 
 ?>

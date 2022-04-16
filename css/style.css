@@ -483,10 +483,12 @@ footer {
 }
 #result{
   position: absolute;
-  background-color: lightgray;
-  border-radius: 15px;
+  background-color: #E1E1E1;
   padding: 15px;
   z-index: 1;
+  opacity: 0.9;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,

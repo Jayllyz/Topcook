@@ -1,6 +1,6 @@
 <?php $active = " active"; ?>
 
-<header id="header">
+<header id="header" class="mb-3">
       <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://topcook.site/"><img src="https://topcook.site/images/topcook_logo.svg" width="50" height="50"></a>
@@ -87,8 +87,8 @@
         </div>
       </nav>
   <div class="container" id="container-search">
-        <form class="d-flex searchbar pt-3 pb-3">
-              <input class="form-control me-2" type="search" id="searchbar" placeholder="Search" aria-label="Search">
+        <form class="d-flex searchbar pt-3">
+              <input class="form-control me-2" type="search" id="searchbar" placeholder="Saisir une recette" aria-label="Search">
     </form>
   </div>
   </header>

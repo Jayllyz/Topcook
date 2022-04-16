@@ -1,5 +1,4 @@
-<?php session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <?php
@@ -8,7 +7,7 @@ $linkCss = "css/style.css";
 $title = "TopCook - Accueil";
 include "includes/head.php";
 include "includes/db.php";
-include ('includes/functions.php');
+include "includes/functions.php";
 if (isset($_SESSION["id"])) {
   $date = date("d/m/Y H:i:s");
   $log_visit = fopen("log/log_index.txt", "a+");
@@ -19,7 +18,6 @@ if (isset($_SESSION["id"])) {
   fputs($log_visit, "\n");
   fclose($log_visit);
 }
-
 ?>
 <body>
     <?php include "includes/header.php"; ?>
@@ -28,28 +26,29 @@ if (isset($_SESSION["id"])) {
       <?php include "includes/message.php"; ?>
       </div>
         <?php
-
-
-        $selectRecipe = $db->prepare("SELECT name, images, id, description FROM RECIPE WHERE name = :name");
+        $selectRecipe = $db->prepare(
+          "SELECT name, images, id, description FROM RECIPE WHERE name = :name"
+        );
         $selectRecipe->execute([
-          'name' => moreViewsRecipe()
+          "name" => moreViewsRecipe(),
         ]);
         $result = $selectRecipe->fetch();
-        $recipeName = $result['name'];
-        $recipeImage = $result['images'];
-        $recipeId = $result['id'];
-        $recipeDescription = $result['description'];
-
-
+        $recipeName = $result["name"];
+        $recipeImage = $result["images"];
+        $recipeId = $result["id"];
+        $recipeDescription = $result["description"];
         ?>
-
       <h1 class="pb-3 text-center"><strong>La recette la plus visité</strong></h1>
-        <a href="recipes/recipe.php?id=<?=$recipeId?>&name=<?=$recipeName?>" class="text-dark text-decoration-none link_recipe_moment">
+        <a href="recipes/recipe.php?id=<?= $recipeId ?>&name=<?= $recipeName ?>" class="text-dark text-decoration-none link_recipe_moment">
     <div class="card mb-3 me-5 ms-5 recipe_moment">
       <div class="row g-0">
 
         <div class="col-md-2">
-            <?= '<img src="uploads/recipe/' . $recipeImage . '"class="img-fluid rounded-start" alt=image -' . $recipeName . '">'; ?>
+            <?= '<img src="uploads/recipe/' .
+              $recipeImage .
+              '"class="img-fluid rounded-start" alt=image -' .
+              $recipeName .
+              '">' ?>
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -115,26 +114,37 @@ if (isset($_SESSION["id"])) {
           </div>
         </div>
       
-        <?php 
+        <?php
         $query = $db->query(
-            "SELECT id, name, images, description FROM RECIPE ORDER BY id DESC"
+          "SELECT id, name, images, description FROM RECIPE ORDER BY id DESC"
         );
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);?>
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        ?>
    
       <h3 class="pt-5 pb-3"><strong>Dernières recettes publiées</strong></h3>
       <div class="last_recipe row row-col-md-4 me-5 ms-5 mt-3 mb-3">
-      <?php foreach (array_slice($result, 0 , 3) as $select) { ?>
+      <?php foreach (array_slice($result, 0, 3) as $select) { ?>
           <div class="col-md-3">
             <div class="card recipe" style="width: 100%;">
-            <?= '<img src="uploads/recipe/' . $select["images"] . '"height="380" class="card-img-top" alt=image -' . $select['names'] . '">'; ?>
+            <?= '<img src="uploads/recipe/' .
+              $select["images"] .
+              '"height="380" class="card-img-top" alt=image -' .
+              $select["names"] .
+              '">' ?>
               <div class="card-body">
-                <h5 class="card-title"><?= $select['name']?></h5>
-                <p class="card-text col-12 text-truncate"><?= $select['description'] ?></p>
-                <a href="recipes/recipe.php?id=<?=$select['id']?>&name=<?=$select['name']?>" class="btn see_more">Voir d'avantage</a>
+                <h5 class="card-title"><?= $select["name"] ?></h5>
+                <p class="card-text col-12 text-truncate"><?= $select[
+                  "description"
+                ] ?></p>
+                <a href="recipes/recipe.php?id=<?= $select[
+                  "id"
+                ] ?>&name=<?= $select[
+  "name"
+] ?>" class="btn see_more">Voir d'avantage</a>
               </div>
             </div>
           </div>
-      <?php }  ?>
+      <?php } ?>
         </div>
 
         <div class="container pt-4">
@@ -147,12 +157,10 @@ if (isset($_SESSION["id"])) {
       <h3 class="pt-5 pb-3"><strong>Derniers Topics publiées</strong></h3>
       <div class="container pb-5">
           <?php
-
           $selectLastTopic = $db->query(
-              "SELECT id, subject, date, id_user FROM TOPIC ORDER BY id DESC LIMIT 5"
+            "SELECT id, subject, date, id_user FROM TOPIC ORDER BY id DESC LIMIT 5"
           );
           $resultLastTopic = $selectLastTopic->fetchAll(PDO::FETCH_ASSOC);
-
           ?>
         <table class="table table-bordered table-hover">
             <thead class="text-center">
@@ -163,28 +171,28 @@ if (isset($_SESSION["id"])) {
                 
             </tr>
             </thead>
-            <?php foreach($resultLastTopic as $lastTopic){
-                $subjectTopic = $lastTopic['subject'];
-                $dateTopic = $lastTopic['date'];
-                $idTopic = $lastTopic['id'];
-                $idUser = $lastTopic['id_user'];
+            <?php foreach ($resultLastTopic as $lastTopic) {
 
-                $selectCreator = $db->query(
-                    "SELECT pseudo FROM USER WHERE id = '$lastTopic[id_user]'"
-                );
-                $resultCreator = $selectCreator->fetch(PDO::FETCH_ASSOC);
-                $creator = $resultCreator['pseudo'];
-
-                ?>
+              $subjectTopic = $lastTopic["subject"];
+              $dateTopic = $lastTopic["date"];
+              $idTopic = $lastTopic["id"];
+              $idUser = $lastTopic["id_user"];
+              $selectCreator = $db->query(
+                "SELECT pseudo FROM USER WHERE id = '$lastTopic[id_user]'"
+              );
+              $resultCreator = $selectCreator->fetch(PDO::FETCH_ASSOC);
+              $creator = $resultCreator["pseudo"];
+              ?>
 
           <tbody>
             <tr>
               <td><?= $creator ?></td>
-              <td><a href="https://topcook.site/forum/subject.php?id_subject=<?= $idTopic ?>&creator=<?= $creator ?>&id_creator=<?=$idUser?>"><?= $subjectTopic ?></a></td>
+              <td><a href="https://topcook.site/forum/subject.php?id_subject=<?= $idTopic ?>&creator=<?= $creator ?>&id_creator=<?= $idUser ?>"><?= $subjectTopic ?></a></td>
               <td><?= $dateTopic ?></td>
             </tr>
           </tbody>
-            <?php } ?>
+            <?php
+            } ?>
         </table>
       </div>
 

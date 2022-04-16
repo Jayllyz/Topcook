@@ -112,7 +112,7 @@ include "../includes/head.php";
                               "id"
                             ] ?>&id_user=<?= $select[
   "id_user"
-] ?>&name=<?= $select["name"] ?>" onclick="checkConfirm()" class="btn">
+] ?>&name=<?= $select["name"] ?>" onclick="return checkConfirm()" class="btn">
                                 Supprimer la recette
                             </a>
                         </div>

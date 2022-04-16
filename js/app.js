@@ -240,5 +240,9 @@ function removePers() {
 }
 
 function checkConfirm() {
-  return confirm("Voulez vous vraiment supprimer cette recette?");
+  if (confirm("Voulez vous vraiment supprimer cette recette?") === true) {
+    return true;
+  } else {
+    return false;
+  }
 }

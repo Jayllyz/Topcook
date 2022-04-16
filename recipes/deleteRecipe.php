@@ -22,7 +22,7 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] == $id_user) {
     "id_user" => $_SESSION["id"],
   ]);
   $date = date("d/m/Y H:i:s");
-  $log_dislike = fopen("../log/recipe_$name.txt", "a+");
+  $log_dislike = fopen("../log/recipe_logs/$name.txt", "a+");
   fputs($log_dislike, $name . " ");
   fputs($log_dislike, "supprimé le ");
   fputs($log_dislike, $date);
@@ -30,6 +30,9 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] == $id_user) {
   fputs($log_dislike, $_SESSION["id"]);
   fputs($log_dislike, "\n");
   fclose($log_dislike);
+  $delete_recipelog = fopen("../log/recipe_logs/$name.txt", "w+");
+  unlink($delete_recipelog);
+
   header(
     "location: https://topcook.site/toutes-nos-recettes?message=Recette supprimée !&type=success"
   );

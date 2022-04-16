@@ -96,8 +96,7 @@ if (isset($_POST["submit"])) {
     $destination = $path . "/" . $filename;
     move_uploaded_file($_FILES["image"]["tmp_name"], $destination);
     include "../includes/resolution.php";
-
-  }  else {
+  } else {
     $image_exist = 0;
     header(
       "location: ../recettes.php?message=Veuillez ajouter une image !&valid=invalid&input=image"
@@ -150,6 +149,16 @@ if (isset($_POST["submit"])) {
   }
 
   if ($image_exist == 1) {
+    $date = date("d/m/Y H:i:s");
+    $log_recipe = fopen("../log/recipe_logs/recipe.txt", "a+");
+    fputs($log_recipe, $name . " ");
+    fputs($log_recipe, "ajouté le ");
+    fputs($log_recipe, $date);
+    fputs($log_recipe, "par ");
+    fputs($log_recipe, $_SESSION["id"]);
+    fputs($log_recipe, "\n");
+    fclose($log_recipe);
+
     header(
       "location: ../recipes/recipe.php?message=Recette ajoutée avec succès !&type=success&name=$name&id=$id_recipe"
     );

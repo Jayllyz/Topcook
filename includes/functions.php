@@ -107,12 +107,12 @@ function topLikesRecipesMonth()
   $arrayLikes = likesArray("likes");
 
   $arrayDislikes = likesArray("dislikes");
-  $array = [];
-  for ($i = 0; $i < count($arrayLikes); $i++) {
-    $array[$i] = $arrayLikes[$i] - $arrayDislikes[$i];
+
+  foreach ($arrayLikes as $key => $value) {
+    $arrayLikes[$key] = $value - $arrayDislikes[$key];
   }
 
-  return $array;
+  return $arrayLikes;
 }
 
 ?>

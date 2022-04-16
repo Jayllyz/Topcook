@@ -79,22 +79,40 @@ function cutImg($linkImg, $nameFolder)
   imagedestroy($img);
 }
 
-//broken
-function topLikesRecipes($rank)
+function likesArray($type)
 {
-  $sql = $db->query(
-    "SELECT id_recipe FROM LIKES ORDER BY votes DESC LIMIT " . $rank
-  );
-  $sql->execute();
-  $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+  $files = scandir("log/recipe_$type/");
+  $nbFile = count($files);
+  $nbLikes = 0;
+  for ($i = 0; $i < $nbFile; $i++) {
+    $Alllines = file("log/recipe_$type/" . $files[$i]);
+    $nbLines = count($Alllines);
+    for ($j = 0; $j < $nbLines; $j++) {
+      $line = explode(" ", $Alllines[$j]);
+      $date = explode("/", $line[3]);
 
-  $sql = $db->prepare("SELECT name FROM recipe WHERE id = :id_recipe");
-  $sql->execute([
-    "id_recipe" => $result[$rank]["id_recipe"],
-  ]);
-  $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-  var_dump($result);
-  echo $result;
+      if ($date[1] == date("m") && $date[2] == date("Y")) {
+        $nbLikes++;
+        $tabLikes[$files[$i]] = $nbLikes;
+      }
+    }
+  }
+
+  return $tabLikes;
+}
+
+//most likes recipes during the month
+function topLikesRecipesMonth()
+{
+  $arrayLikes = likesArray("likes");
+
+  $arrayDislikes = likesArray("dislikes");
+  $array = [];
+  for ($i = 0; $i < count($arrayLikes); $i++) {
+    $array[$i] = $arrayLikes[$i] - $arrayDislikes[$i];
+  }
+
+  return $array;
 }
 
 ?>

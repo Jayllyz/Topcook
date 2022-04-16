@@ -16,18 +16,18 @@ if (isset($_SESSION["id"])) {
     "id_recipe" => $id_recipe,
     "id_user" => $_SESSION["id"],
   ]);
-  $date = date("d/m/Y H:i:s");
-  $log_like = fopen("../log/recipe_likes/$name.txt", "a+");
-  fputs($log_like, $name . " ");
-  fputs($log_like, "liké le ");
-  fputs($log_like, $date);
-  fputs($log_like, "par ");
-  fputs($log_like, $_SESSION["id"]);
-  fputs($log_like, "\n");
-  fclose($log_like);
   header(
     "location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Votre vote a bien été pris en compte !&type=success"
   );
+  $date = date("d/m/Y H:i:s");
+  $log_like = fopen("../log/recipe_likes/$name.txt", "a+");
+  fputs($log_like, $id_recipe . " ");
+  fputs($log_like, "liké le ");
+  fputs($log_like, $date);
+  fputs($log_like, "par  ");
+  fputs($log_like, $_SESSION["id"]);
+  fputs($log_like, "\n");
+  fclose($log_like);
   exit();
 } else {
   header(

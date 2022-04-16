@@ -61,6 +61,10 @@ if (isset($_SESSION["id"])) {
     </div>
         </a>
 
+      
+   <?php var_dump(topLikesRecipesMonth()); ?>
+
+
       <h3 class="pb-4 pt-5"><strong>Top recettes du mois</strong></h3>
       <div class="best_recipe row row-col-md-4 me-5 ms-5">
           <div class="col">

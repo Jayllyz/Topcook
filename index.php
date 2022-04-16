@@ -160,7 +160,7 @@ if (isset($_SESSION["id"])) {
             <tr>
                 <th scope="col">Créateur</th>
                 <th scope="col">Sujet</th>
-                <th scope="col">Date</th>
+                <th scope="col">Date de création</th>
                 
             </tr>
             </thead>

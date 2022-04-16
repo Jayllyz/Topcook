@@ -24,6 +24,7 @@ searchbar.addEventListener("keyup", function () {
           const div = document.getElementById("result");
           div.innerHTML = "<p class='text-center fs-3'>Aucun résultat</p>";
 
+
         }
       }
     };

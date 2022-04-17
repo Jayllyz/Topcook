@@ -185,6 +185,15 @@ nav ul li a:before {
   right: 0;
 
 }
+.btn{
+  color: white !important;
+}
+.btn-success, .btn-danger{
+  border-color: transparent !important;
+}
+.btn-success:hover, .btn-danger:hover{
+  border-color: transparent !important;
+}
 #see_more_btn {
   font-size: 1.3rem !important;
 }

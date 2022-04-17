@@ -21,16 +21,16 @@ include "../../includes/functions.php";
   </head>
   <body>
     <h1>Puzzle</h1>
-    <div class="puzzle col-md-4" style="margin: 0 auto;">
-      <img src="../../images/captcha/minion/image1.jpg" id="image1" onclick="changeImage()">
-      <img src="../../images/captcha/minion/image2.jpg" id="image2" onclick="changeImage()">
-      <img src="../../images/captcha/minion/image3.jpg" id="image3" onclick="changeImage()">
-      <img src="../../images/captcha/minion/image4.jpg" id="image4" onclick="changeImage()">
-      <img src="../../images/captcha/minion/image5.jpg" id="image5" onclick="changeImage()">
-      <img src="../../images/captcha/minion/image6.jpg" id="image6" onclick="changeImage()">
-      <img src="../../images/captcha/minion/image7.jpg" id="image7" onclick="changeImage()">
-      <img src="../../images/captcha/minion/image8.jpg" id="image8" onclick="changeImage()">
-      <img src="../../images/captcha/minion/image9.jpg" id="image9" onclick="changeImage()">
+    <div class="puzzle col-md-5" style="margin: 0 auto;">
+      <img src="../../images/captcha/minion/image1.jpg" id="image1" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/image2.jpg" id="image2" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/image3.jpg" id="image3" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/image4.jpg" id="image4" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/image5.jpg" id="image5" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/image6.jpg" id="image6" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/image7.jpg" id="image7" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/image8.jpg" id="image8" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/image9.jpg" id="image9" onclick="changeImage(this.src, this.id)">
     </div>
     <script src="js/app.js"></script>
     <script

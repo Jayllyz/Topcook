@@ -37,22 +37,25 @@
 * {
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
+
+
 }
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+
+
 }
 nav {
   background-color: #f8f9fa;
   transition: 0.5s;
 }
-
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
   transition: 0.5s;
+
 }
 h1,
 h3 {
@@ -467,6 +470,7 @@ footer {
 #img_recipe {
   margin: 0 auto;
   padding: 30px;
+  border-radius: 80px;
 }
 #my_recipe {
   margin-bottom: 30px;
@@ -525,9 +529,7 @@ footer {
   padding: 15px;
   z-index: 1;
   opacity: 0.9;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  width: 1288px;
+  border-radius: 15px;
 }
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
@@ -554,8 +556,8 @@ footer {
 
   .recipe_moment img {
     border-radius: 10% !important;
-    border-bottom-left-radius: 0% !important;
-    border-bottom-right-radius: 0% !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
   }
   .competition {
     padding-right: 5% !important;
@@ -580,9 +582,6 @@ footer {
   }
   .last_recipe img {
     height: 238px !important;
-  }
-  #result{
-    width: 92vw;
   }
 }
 @keyframes rotationMoon {

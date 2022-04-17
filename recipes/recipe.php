@@ -38,7 +38,7 @@ include "../includes/head.php";
             <div class="container col-md-6 shadow-lg recipe-page">
                 <?= '<img src="../uploads/recipe/' .
                   $select["images"] .
-                  '" class="rounded img-fluid" id="img_recipe" alt="image -' .
+                  '" class="img-fluid" id="img_recipe" alt="image -' .
                   $select["names"] .
                   '"></a>' ?>
                 <div class="test">

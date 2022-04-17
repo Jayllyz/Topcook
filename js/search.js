@@ -18,6 +18,7 @@ searchbar.addEventListener("keyup", function () {
         if (res !== "") {
           const containerSearch = document.getElementById("container-search");
           div.setAttribute("id", "result");
+          div.setAttribute("class", "container");
           containerSearch.appendChild(div);
           div.innerHTML = res;
         } else {

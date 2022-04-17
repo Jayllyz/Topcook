@@ -103,7 +103,7 @@ if (isset($_SESSION["id"])) {
         </div>
             <div class="container pt-4">
                 <div class="d-grid gap-2 col-2 mx-auto">
-                    <a href="https://topcook.site/toutes-nos-recettes" class="btn" type="button" id="see_more_btn"><div>Voir plus...</div></a>
+                    <a href="https://topcook.site/toutes-nos-recettes" class="btn" type="button" id="see_more_btn">Voir plus...</a>
                 </div>
             </div>
       
@@ -142,7 +142,7 @@ if (isset($_SESSION["id"])) {
 
         <div class="container pt-4">
             <div class="d-grid gap-2 col-2 mx-auto">
-                <a href="https://topcook.site/toutes-nos-recettes" class="btn" type="button" id="see_more_btn"><div>Voir plus...</div></a>
+                <a href="https://topcook.site/toutes-nos-recettes" class="btn" type="button" id="see_more_btn">Voir plus...</a>
             </div>
         </div>
 

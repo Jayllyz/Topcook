@@ -50,6 +50,7 @@ include "../../includes/head.php";
         </table>
     </div>
     <h1>Historiques des messages</h1>
+        <h2 class="mt-3 mb-3">Commentaires recette</h2>
         <div class="container">
             <table class="table text-center table-bordered">
                 <tr>
@@ -90,6 +91,23 @@ include "../../includes/head.php";
 
     <?php }
     ?>
+    <h2 class="mt-3 mb-3">Messages topic</h2>
+    <div class="container">
+        <table class="table text-center table-bordered">
+            <tr>
+                <th>Topic</th>
+                <th>Message</th>
+                <th>Date</th>
+            </tr>
+            <?php
+                    ?>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+        </table>
+    </div>
     <?php include "../../includes/footer.php"; ?>
     <?php
     $linkJSGeneral = "../../js/app.js";

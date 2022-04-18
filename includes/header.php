@@ -54,6 +54,7 @@
                   <?php } ?>
 
             </ul>
+
             <div id="moon">
               <button type="button" class="btn moon" onClick="darkMode()">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-moon-fill" viewBox="0 0 16 16">
@@ -83,12 +84,14 @@
          
           <?php } ?>
 
-          
+
         </div>
+
       </nav>
-  <div class="container" id="container-search">
+    <div class="container" id="container-search">
         <form class="d-flex searchbar pt-3 mb-2">
-              <input class="form-control me-2" type="search" id="searchbar" placeholder="Saisir une recette" aria-label="Search">
-    </form>
-  </div>
+            <input class="form-control me-2" type="search" id="searchbar" placeholder="Saisir une recette" aria-label="Search">
+        </form>
+    </div>
+
   </header>

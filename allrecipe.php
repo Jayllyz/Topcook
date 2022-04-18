@@ -23,9 +23,9 @@ if (isset($_SESSION["id"])) {
 
 }
 ?>
-<body>  
+<body>
     <?php include "includes/header.php"; ?>
-    <main>
+    <main id="swup" class="transition-fade">
         <div class="container col-md-6">
          <?php include "includes/message.php"; ?>
         </div>
@@ -86,7 +86,7 @@ if (isset($_SESSION["id"])) {
             </div>
 
 
-    
+
     <?php } ?>
 
 
@@ -168,6 +168,7 @@ if (isset($_SESSION["id"])) {
     ?>
 </body>
 </html>
+
 <script>
     function changeType() {
         let selectedType = document.getElementById("selectedType");

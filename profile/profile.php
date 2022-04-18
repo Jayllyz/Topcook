@@ -14,6 +14,8 @@ include "../includes/head.php";
 <body>
     <?php include "../includes/header.php"; ?>
 
+    <main id="swup" class="transition-fade">
+
     <h2 class="text-center text-uppercase">Bienvenue sur votre profil <?= $pseudo ?> !</h2>
     <?php
     $req = $db->query(
@@ -58,7 +60,7 @@ include "../includes/head.php";
 </div>
 <?php }
     ?>
-
+    </main>
 
     <?php include "../includes/footer.php"; ?>
 

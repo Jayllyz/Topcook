@@ -13,7 +13,7 @@ include "../includes/head.php";
 ?>
 <body>
     <?php include "../includes/header.php"; ?>
-    <main>
+    <main id="swup" class="transition-fade">
         <h1 class="pb-3 text-center">Mes recettes</h1>
 
         <?php

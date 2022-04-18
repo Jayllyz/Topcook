@@ -1,5 +1,8 @@
 <?php
 session_start();
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
 include "../../includes/db.php";
 $id = htmlspecialchars($_GET["id"]);
 if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
@@ -24,7 +27,7 @@ include "../../includes/head.php";
     foreach ($result as $select) { ?>
 
     <h1>Profil de <?= $select["pseudo"] ?></h1>
-    <div class="container">
+    <div class="container info_user">
         <table class="table text-center table-bordered">
             <tr>
                 <th>Photo de profil</th>
@@ -52,15 +55,17 @@ include "../../includes/head.php";
     <h1>Historiques des messages</h1>
         <h2 class="mt-3 mb-3">Commentaires recette</h2>
         <div class="container">
-            <table class="table text-center table-bordered">
-                <tr>
-                    <th>Recette</th>
-                    <th>Message</th>
-                    <th>Date</th>
-                </tr>
+            <table class="table text-center table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Recette</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
                 <?php
                 $selectMessage = $db->prepare(
-                  "SELECT message, id_recipe, date_send FROM COMMENTAIRE WHERE id_user = :id"
+                  "SELECT message, id_recipe, date_send FROM COMMENTAIRE WHERE id_user = :id ORDER BY date_send DESC LIMIT 10"
                 );
                 $selectMessage->execute([
                   "id" => $id,
@@ -93,21 +98,56 @@ include "../../includes/head.php";
     ?>
     <h2 class="mt-3 mb-3">Messages topic</h2>
     <div class="container">
-        <table class="table text-center table-bordered">
-            <tr>
-                <th>Topic</th>
-                <th>Message</th>
-                <th>Date</th>
-            </tr>
+        <table class="table text-center table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Sujet</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
             <?php
-                    ?>
+
+            $selectTopic = $db->query(
+              "SELECT id, subject, id_user FROM TOPIC"
+            );
+            $resultIdTopic = $selectTopic->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach($resultIdTopic as $topic){
+                $idTopic = $topic['id'];
+                $subject = $topic['subject'];
+                $idUser = $topic['id_user'];
+
+                $selectUser = $db->prepare(
+                  "SELECT pseudo FROM USER WHERE id = :id"
+                );
+                $selectUser->execute([
+                  "id" => $idUser,
+                ]);
+                $result = $selectUser->fetch(PDO::FETCH_ASSOC);
+                $creator = $result['pseudo'];
+
+            $selectTopicMessage = $db->prepare("SELECT message, date FROM FORUM_MSG WHERE id_user = :id_user AND id_topic = :id_topic ORDER BY date DESC LIMIT 10");
+            $selectTopicMessage->execute([
+              "id_user" => $id,
+              "id_topic" => $idTopic,
+            ]);
+
+            $resultTopic = $selectTopicMessage->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($resultTopic as $selectTopicMessage) {
+                    $messageTopic = $selectTopicMessage["message"];
+                    $dateTopic = $selectTopicMessage["date"];
+                ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><a href="https://topcook.site/forum/subject.php?id_subject=<?= $idTopic ?>&creator=<?= $creator ?>&id_creator=<?= $idUser ?>"><?= $subject ?></a></td>
+                        <td><?= $messageTopic ?></td>
+                        <td><?= $dateTopic ?></td>
                     </tr>
+                <?php }}?>
         </table>
+
     </div>
+
     <?php include "../../includes/footer.php"; ?>
     <?php
     $linkJSGeneral = "../../js/app.js";

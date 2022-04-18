@@ -19,7 +19,7 @@ if(isset($_SESSION["id"])) {
 
 <body>
     <?php include "includes/header.php"; ?>
-    <main>
+    <main id="swup" class="transition-fade">
         <h1>Inscription</h1>
         <div class="formulaire">
             <form id="form" class="container col-md-4" action="verifications/verification_inscription.php" method="post" enctype="multipart/form-data">

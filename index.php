@@ -21,7 +21,7 @@ if (isset($_SESSION["id"])) {
 ?>
 <body>
     <?php include "includes/header.php"; ?>
-    <main>
+    <main id="swup" class="transition-fade">
       <div class="container col-md-6">
       <?php include "includes/message.php"; ?>
       </div>
@@ -109,14 +109,22 @@ if (isset($_SESSION["id"])) {
       
         <?php
         $query = $db->query(
-          "SELECT id, name, images, description FROM RECIPE ORDER BY id DESC"
+          "SELECT id, name, images, description, id_user FROM RECIPE ORDER BY id DESC"
         );
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
         ?>
    
       <h3 class="pt-5 pb-3"><strong>Dernières recettes publiées</strong></h3>
       <div class="last_recipe row row-col-md-4 me-5 ms-5 mt-3 mb-3">
-      <?php foreach (array_slice($result, 0, 3) as $select) { ?>
+      <?php foreach (array_slice($result, 0, 3) as $select) {
+          $selectCreatorRecipe = $db->query("SELECT pseudo FROM USER WHERE id = ".$select['id_user']);
+          $resultCreatorRecipe = $selectCreatorRecipe->fetchAll(PDO::FETCH_ASSOC);
+          foreach ($resultCreatorRecipe as $selectCreatorRecipe){
+              $creatorRecipe = $selectCreatorRecipe['pseudo'];
+
+          ?>
           <div class="col-md-3">
             <div class="card recipe" style="width: 100%;">
             <?= '<img src="uploads/recipe/' .
@@ -125,7 +133,7 @@ if (isset($_SESSION["id"])) {
               $select["names"] .
               '">' ?>
               <div class="card-body">
-                <h5 class="card-title"><?= $select["name"] ?></h5>
+                <h5 class="card-title"><?= $select["name"] ?> par <em><strong><?= $creatorRecipe ?></strong></em></h5>
                 <p class="card-text col-12 text-truncate"><?= $select[
                   "description"
                 ] ?></p>
@@ -137,7 +145,7 @@ if (isset($_SESSION["id"])) {
               </div>
             </div>
           </div>
-      <?php } ?>
+      <?php }} ?>
         </div>
 
         <div class="container pt-4">
@@ -198,6 +206,7 @@ if (isset($_SESSION["id"])) {
     <?php include "includes/footer.php"; ?>
 
     <?php
+
     $linkJSGeneral = "js/app.js";
     $linkJSSearch = "js/search.js";
     include "includes/scripts.php";

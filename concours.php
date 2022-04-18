@@ -20,7 +20,7 @@ if(isset($_SESSION["id"])) {
 ?>
 <body>
     <?php include "includes/header.php"; ?>
-    <main>
+    <main id="swup" class="transition-fade">
       <div class="container col-md-6">
       <?php include "includes/message.php"; ?>
       </div>

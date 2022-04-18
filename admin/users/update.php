@@ -14,6 +14,7 @@ include "../../includes/head.php";
 <body>
 
 <?php include "../../includes/header.php"; ?>
+<main id="swup" class="transition-fade">
     <form action="verif/verif_update.php?id=<?=$id_user?>" method="post">
         <div class="container col-md-6">
             <?php include "../../includes/message.php"; ?>
@@ -30,7 +31,7 @@ include "../../includes/head.php";
             </div>
         </div>
     </form>
-
+</main>
 <?php include "../../includes/footer.php"; ?>
 <?php
 $linkJSGeneral = "../../js/app.js";

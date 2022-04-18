@@ -13,6 +13,7 @@ include "../includes/head.php";
 <body>
     <?php include "../includes/header.php"; ?>
 
+    <main id="swup" class="transition-fade">
     <div class="container col-md-6">
       <?php include "../includes/message.php"; ?>
     </div>
@@ -129,7 +130,7 @@ include "../includes/head.php";
         </table>
     </div>
 
-
+    </main>
 
     <?php include "../includes/footer.php"; ?>
 

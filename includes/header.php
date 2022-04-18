@@ -1,5 +1,5 @@
 <?php $active = " active"; ?>
-
+<div id="swup" class="transition-fade">
 <header id="header" class="mb-3">
       <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <div class="container-fluid">
@@ -95,3 +95,4 @@
     </div>
 
   </header>
+</div>

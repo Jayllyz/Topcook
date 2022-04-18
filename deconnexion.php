@@ -1,6 +1,7 @@
 <?php
 session_start();
 session_destroy();
-header("location: https://topcook.site/");
+// Refresh 0.1s
+header("Refresh: 0.1; url=https://topcook.site/");
 
 ?>

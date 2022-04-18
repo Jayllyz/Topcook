@@ -10,7 +10,7 @@ include "../../includes/head.php";
 <body>
 
     <?php include "../../includes/header.php"; ?>
-    <main id="swup" class="transition-fade">
+    <main>
     <div class="container col-md-6">
             <?php include "../../includes/message.php"; ?>
         </div>

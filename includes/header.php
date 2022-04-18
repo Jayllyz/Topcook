@@ -1,5 +1,4 @@
 <?php $active = " active"; ?>
-<div id="swup" class="transition-fade">
 <header id="header" class="mb-3">
       <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <div class="container-fluid">
@@ -88,11 +87,11 @@
         </div>
 
       </nav>
+
+
     <div class="container" id="container-search">
         <form class="d-flex searchbar pt-3 mb-2">
             <input class="form-control me-2" type="search" id="searchbar" placeholder="Saisir une recette" aria-label="Search">
         </form>
     </div>
-
   </header>
-</div>

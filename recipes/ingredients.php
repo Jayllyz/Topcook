@@ -13,7 +13,7 @@ $title = "$name_recipe";
 include "../includes/head.php";
 ?>
 <?php include "../includes/header.php"; ?>
-<main id="swup" class="transition-fade">
+<main>
     <form method="post" action="../verifications/add_ingredients.php?name=<?=$name_recipe?>&id_recipe=<?=$id_recipe?>&nbSteps=<?=$nbSteps?>" id="ingredients">
             <div class="ingredients">
                 <div>

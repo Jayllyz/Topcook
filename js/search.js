@@ -1,7 +1,6 @@
 const searchbar = document.getElementById("searchbar");
 const div = document.createElement("div");
 
-
 searchbar.addEventListener("keyup", function () {
   div.innerHTML = "";
   let search = searchbar.value;
@@ -33,5 +32,6 @@ searchbar.addEventListener("keyup", function () {
     div.style.display = "none";
   }
 });
+
 
 

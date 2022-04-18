@@ -9,7 +9,7 @@ include "includes/head.php";
 <body>
     <?php include "includes/header.php"; ?>
 
-    <main id="swup" class="transition-fade">
+    <main>
 
     <form action="verifications/update_password.php" method="post">
     <div class="container col-md-6">

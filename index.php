@@ -64,6 +64,12 @@ if (isset($_SESSION["id"])) {
 
                 <div class="last_recipe row row-col-md-4 me-5 ms-5 mt-3 mb-3">
    <?php
+   $query = $db->query(
+       "SELECT id_user FROM RECIPE ORDER BY id DESC"
+   );
+   $result = $query->fetch(PDO::FETCH_ASSOC);
+   $id_creator_recipe = $result["id_user"];
+
    $array = topLikesRecipesMonth();
    foreach ($array as $key => $value){
        $nameRecipeMonth = explode(".txt", $key);
@@ -81,6 +87,11 @@ if (isset($_SESSION["id"])) {
            $recipeImageMonth = $selectMonth["images"];
            $recipeDescriptionMonth = $selectMonth["description"];
 
+               $selectCreatorRecipe = $db->query("SELECT pseudo FROM USER WHERE id = ".$id_creator_recipe);
+
+               $resultCreatorRecipe = $selectCreatorRecipe->fetch(PDO::FETCH_ASSOC);
+               $creatorRecipe = $resultCreatorRecipe['pseudo'];
+
    ?>
 
                     <div class="col-md-3">
@@ -92,7 +103,7 @@ if (isset($_SESSION["id"])) {
                         $recipeNameMonth .
                         '">' ?>
                         <div class="card-body">
-                            <h5 class="card-title"><?= $recipeNameMonth ?></h5>
+                            <h5 class="card-title"><?= $recipeNameMonth ?> par <em><strong><?= $creatorRecipe ?></strong></em></h5>
                             <p class="card-text col-12 text-truncate"><?= $recipeDescriptionMonth ?></p>
                             <a href="recipes/recipe.php?id=<?= $recipeIdMonth ?>&name=<?= $recipeNameMonth ?>" class="btn see_more">Voir d'avantage</a>
                         </div>
@@ -108,21 +119,18 @@ if (isset($_SESSION["id"])) {
             </div>
       
         <?php
+
         $query = $db->query(
-          "SELECT id, name, images, description, id_user FROM RECIPE ORDER BY id DESC"
+            "SELECT id, name, images, description FROM RECIPE ORDER BY id DESC"
         );
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
-
 
         ?>
    
       <h3 class="pt-5 pb-3"><strong>Dernières recettes publiées</strong></h3>
       <div class="last_recipe row row-col-md-4 me-5 ms-5 mt-3 mb-3">
       <?php foreach (array_slice($result, 0, 3) as $select) {
-          $selectCreatorRecipe = $db->query("SELECT pseudo FROM USER WHERE id = ".$select['id_user']);
-          $resultCreatorRecipe = $selectCreatorRecipe->fetchAll(PDO::FETCH_ASSOC);
-          foreach ($resultCreatorRecipe as $selectCreatorRecipe){
-              $creatorRecipe = $selectCreatorRecipe['pseudo'];
+
 
           ?>
           <div class="col-md-3">
@@ -145,7 +153,7 @@ if (isset($_SESSION["id"])) {
               </div>
             </div>
           </div>
-      <?php }} ?>
+      <?php } ?>
         </div>
 
         <div class="container pt-4">

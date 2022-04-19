@@ -263,6 +263,14 @@ footer {
   text-decoration: none;
   color: white;
 }
+.allrecipes{
+  transition: 0.5s;
+}
+.allrecipes:hover{
+  transition: 0.5s;
+  box-shadow: 0 0 0 5px #f98400;
+
+}
 .btn-read {
   background-color: #089f58 !important;
 }

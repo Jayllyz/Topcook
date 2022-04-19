@@ -79,10 +79,10 @@ if (isset($_SESSION["id"])) {
                   $countSteps .
                   '"><img src="uploads/recipe/' .
                   $select["images"] .
-                  '" class="rounded img-fluid" alt="image -' .
+                  '" class="rounded img-fluid allrecipes" alt="image -' .
                   $select["names"] .
                   '"></a>' ?>
-                <h4 class="text-center"><?= $select["name"] ?></h4>
+                <h4 class="text-center mb-3 mt-3"><?= $select["name"] ?></h4>
             </div>
 
 

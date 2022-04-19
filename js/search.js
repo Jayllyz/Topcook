@@ -14,7 +14,7 @@ searchbar.addEventListener("keyup", function () {
       if (request.readyState === 4 && request.status === 200) {
         const res = request.responseText;
         div.style.display = "block";
-        if (res !== "") {
+        if (res !== "" && res !== " ") {
           const containerSearch = document.getElementById("container-search");
           div.setAttribute("id", "result");
           containerSearch.appendChild(div);

@@ -48,7 +48,7 @@ if (isset($_SESSION["id"])) {
         <div class="sort mb-4 mt-4">
             <label>Selectionner un type de recette: </label>
             <select name="type" id="selectedType" class="form-control" onchange="changeType()">
-                <option value="0">----Choisir une option de tri----</option>
+                <option value="----Choisir une option de tri----">----Choisir une option de tri----</option>
                 <option value="entree">Entrée</option>
                 <option value="plat">Plat</option>
                 <option value="dessert">Déssert</option>
@@ -180,7 +180,7 @@ if (isset($_SESSION["id"])) {
             request.onreadystatechange = function () {
                 if (request.readyState === 4) {
                     const resType = request.responseText;
-                    if (resType !== "") {
+                    if (selectedTypeValue !== "----Choisir une option de tri----") {
                         document.getElementById("recettes").style.display = "none";
                         document.getElementById("selectRecipeView").innerHTML = resType;
                     }else{
@@ -192,6 +192,7 @@ if (isset($_SESSION["id"])) {
             request.send();
         }
     }
+
 
 </script>
 

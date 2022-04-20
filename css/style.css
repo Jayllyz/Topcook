@@ -542,7 +542,7 @@ footer {
   position: absolute;
   background-color: #E1E1E1;
   padding: 15px;
-  z-index: 1;
+  z-index: 3;
   opacity: 0.9;
   border-radius: 15px;
 

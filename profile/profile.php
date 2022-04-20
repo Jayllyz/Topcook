@@ -52,7 +52,7 @@ include "../includes/head.php";
         <button type="button" class="btn"><a href="https://topcook.site/profile/update/form_update.php?id=<?= $_SESSION[
           "id"
         ] ?>" class="card-link text-decoration-none text-dark">Modifier votre profil</a></button>
-        <button type="button" class="btn mt-3"><a href="#" class="card-link text-decoration-none text-dark">Créé votre avatar</a></button>
+        <button type="button" class="btn mt-3"><a href="https://topcook.site/avatar/avatar.php" class="card-link text-decoration-none text-dark">Créé votre avatar</a></button>
     </div>
   </div>
 

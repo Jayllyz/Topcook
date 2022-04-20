@@ -4,8 +4,6 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 include "../../includes/functions.php";
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -19,18 +17,18 @@ include "../../includes/functions.php";
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body onload="randomImg()">
     <h1>Puzzle</h1>
-    <div class="puzzle col-md-5" style="margin: 0 auto;">
-      <img src="../../images/captcha/minion/image1.jpg" id="image1" onclick="changeImage(this.src, this.id)">
-      <img src="../../images/captcha/minion/image2.jpg" id="image2" onclick="changeImage(this.src, this.id)">
-      <img src="../../images/captcha/minion/image3.jpg" id="image3" onclick="changeImage(this.src, this.id)">
-      <img src="../../images/captcha/minion/image4.jpg" id="image4" onclick="changeImage(this.src, this.id)">
-      <img src="../../images/captcha/minion/image5.jpg" id="image5" onclick="changeImage(this.src, this.id)">
-      <img src="../../images/captcha/minion/image6.jpg" id="image6" onclick="changeImage(this.src, this.id)">
-      <img src="../../images/captcha/minion/image7.jpg" id="image7" onclick="changeImage(this.src, this.id)">
-      <img src="../../images/captcha/minion/image8.jpg" id="image8" onclick="changeImage(this.src, this.id)">
-      <img src="../../images/captcha/minion/image9.jpg" id="image9" onclick="changeImage(this.src, this.id)">
+    <div class="puzzle col-md-5" id="puzzle" style="margin: 0 auto;">
+      <img src="../../images/captcha/minion/1.jpg" id="1" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/2.jpg" id="2" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/3.jpg" id="3" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/4.jpg" id="4" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/5.jpg" id="5" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/6.jpg" id="6" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/7.jpg" id="7" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/8.jpg" id="8" onclick="changeImage(this.src, this.id)">
+      <img src="../../images/captcha/minion/9.jpg" id="9" onclick="changeImage(this.src, this.id)">
     </div>
     <script src="js/app.js"></script>
     <script

@@ -539,7 +539,6 @@ footer {
   width: auto;
 }
 #result{
-  width: 1296px;
   position: absolute;
   background-color: #E1E1E1;
   padding: 15px;
@@ -548,6 +547,7 @@ footer {
   border-radius: 15px;
 
 }
+
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {
@@ -602,9 +602,6 @@ footer {
   }
   .info_user{
     overflow: scroll;
-  }
-  #result{
-    width: auto;
   }
 }
 @keyframes rotationMoon {

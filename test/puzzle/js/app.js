@@ -3,6 +3,41 @@ let temp_id = [];
 let result_images = [];
 let verify_images = [];
 let compteur = 0;
+
+
+function randomImg(){
+    let tabid = [];
+    let img1 = document.getElementById("1").id;
+    let img2 = document.getElementById("2").id;
+    let img3 = document.getElementById("3").id;
+    let img4 = document.getElementById("4").id;
+    let img5 = document.getElementById("5").id;
+    let img6 = document.getElementById("6").id;
+    let img7 = document.getElementById("7").id;
+    let img8 = document.getElementById("8").id;
+    let img9 = document.getElementById("9").id;
+    for(let i = 1; i <= 9; i++){
+        tabid.push(i);
+    }
+    tabid.sort(() => Math.random() - 0.5);
+    console.log(tabid);
+    for(let i = 1; i <= 9; i++){
+        img + i = tabid[i];
+    }
+}
+
+/*    let children = document.getElementById("puzzle").children;
+
+    let idArr = [];
+
+    for (let i = 0; i < children.length; i++) {
+        idArr.push(children[i].id);
+    }
+    */
+
+
+
+
 function changeImage(src_image, id_image) {
     compteur++;
 
@@ -32,8 +67,6 @@ function changeImage(src_image, id_image) {
 
         temp_src = [];
         temp_id = [];
-
-        console.log(result_images);
 
     }
 

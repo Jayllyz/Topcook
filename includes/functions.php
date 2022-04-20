@@ -43,17 +43,24 @@ function moreViewsRecipe()
   return $newFileMax;
 }
 
+
+
 function cutImg($linkImg, $nameFolder)
 {
-  $compteur = 0;
+  $countC = 1;
+  $countL = 1;
+
+
   $img = imagecreatefromjpeg($linkImg);
   $largeur = imagesx($img);
   $hauteur = imagesy($img);
   $largeur_partie = $largeur / 3;
   $hauteur_partie = $hauteur / 3;
+  $partie = imagecreatetruecolor($largeur_partie, $hauteur_partie);
   for ($i = 0; $i < 3; $i++) {
+
     for ($j = 0; $j < 3; $j++) {
-      $partie = imagecreatetruecolor($largeur_partie, $hauteur_partie);
+
       imagecopy(
         $partie,
         $img,
@@ -69,11 +76,15 @@ function cutImg($linkImg, $nameFolder)
       if (!is_dir($dir)) {
         mkdir($dir, 0777);
       }
-      $compteur++;
+
       chmod($dir, 0777);
-      $dir = $dir . "image" . $compteur . ".jpg";
+      $dir = $dir . $countL . ".jpg";
+      $countL += 3;
       imagejpeg($partie, $dir);
     }
+    $countC +=1;
+    $countL = $countC;
+
   }
   imagejpeg($img, "image_build.jpg");
   imagedestroy($img);

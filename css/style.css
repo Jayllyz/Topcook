@@ -548,8 +548,12 @@ footer {
 
 }
 
-
-
+.btn-captcha{
+  background-color: #05B3C1 !important;
+}
+.puzzle{
+  margin: 0 auto;
+}
 #parent {
   position: relative;
   width: 320px;

@@ -55,6 +55,8 @@ include "../includes/head.php";
 </main>
 
 <?php include "../includes/footer.php"; ?>
-<script src="../js/avatar.js"></script>
+<?php
+include "../includes/scripts.php";
+?>
 </body>
 </html>

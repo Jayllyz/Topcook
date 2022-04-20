@@ -162,8 +162,6 @@ if (isset($_SESSION["id"])) {
     <?php include "includes/footer.php"; ?>
 
     <?php
-    $linkJSGeneral = "js/app.js";
-    $linkJSSearch = "js/search.js";
     include "includes/scripts.php";
     ?>
 </body>

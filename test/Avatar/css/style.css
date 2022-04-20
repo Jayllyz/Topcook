@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+}
+
+#parent {
+    position: relative;
+    width: 320px;
+    height: 320px;
+}
+
+#corps {
+    position: absolute;
+    left: 0;
+}
+
+#yeux {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}

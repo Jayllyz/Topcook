@@ -49,10 +49,11 @@ include "../includes/head.php";
           ] ?></li>
         </ul>
         <div class="card-body button_profil">
-        <button type="button" class="btn"><a href="https://topcook.site/profile/update/form_update.php?id=<?= $_SESSION[
+        <a href="https://topcook.site/profile/update/form_update.php?id=<?= $_SESSION[
           "id"
-        ] ?>" class="card-link text-decoration-none text-dark">Modifier votre profil</a></button>
-        <button type="button" class="btn mt-3"><a href="https://topcook.site/avatar/avatar.php" class="card-link text-decoration-none text-dark">Créé votre avatar</a></button>
+        ] ?>" class="btn card-link text-decoration-none text-dark">Modifier votre profil</a>
+        <a href="https://topcook.site/avatar/avatar.php" class="btn mt-3 card-link text-decoration-none text-dark">Créé votre avatar</a>
+        <a href="https://topcook.site/profile/exportData.php" class="btn mt-3 card-link text-decoration-none text-dark">Exporter vos données</a>
     </div>
   </div>
 

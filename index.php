@@ -8,16 +8,6 @@ $title = "TopCook - Accueil";
 include "includes/head.php";
 include "includes/db.php";
 include "includes/functions.php";
-if (isset($_SESSION["id"])) {
-  $date = date("d/m/Y H:i:s");
-  $log_visit = fopen("log/log_index.txt", "a+");
-  fputs($log_visit, "Visite de index le :");
-  fputs($log_visit, $date);
-  fputs($log_visit, " par ");
-  fputs($log_visit, $_SESSION["id"]);
-  fputs($log_visit, "\n");
-  fclose($log_visit);
-}
 ?>
 <body>
     <?php include "includes/header.php"; ?>

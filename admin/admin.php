@@ -22,6 +22,7 @@ include "../includes/head.php";
     <div class="container">
         <div id="logs">
             <a href="logsRead.php" class="btn mb-4">Consulter les logs</a>
+            <a href="users/exportDataAllUsers.php" class="btn ms-4 mb-4">Exporter les données</a>
         </div>
         <table class="table text-center table-bordered table-hover" id="active">
             <thead>

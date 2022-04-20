@@ -11,8 +11,9 @@ function randomImg() {
   }
   tabid.sort(() => Math.random() - 0.5);
   console.log(tabid);
+  let img = 0;
   for (let i = 1; i <= 9; i++) {
-    let img = document.getElementById(i).id;
+    img = document.getElementById(i).id;
     img = tabid[i];
   }
 }

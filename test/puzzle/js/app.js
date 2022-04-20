@@ -10,12 +10,17 @@ function randomImg() {
     tabid.push(i);
   }
   tabid.sort(() => Math.random() - 0.5);
-  console.log(tabid);
-  let img = 0;
+  let img;
+  let j = 0;
   for (let i = 1; i <= 9; i++) {
-    img = document.getElementById(i).id;
-    img = tabid[i];
+    img = document.getElementById(i);
+    let idImg = img.id;
+    idImg = tabid[j];
+    j++;
+    img.id = idImg;
   }
+  return tabid;
+
 }
 
 /*    let children = document.getElementById("puzzle").children;

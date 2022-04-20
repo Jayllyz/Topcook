@@ -19,18 +19,32 @@ function randomImg() {
     j++;
     img.id = idImg;
   }
-  return tabid;
+
+  for (let i = 1; i <= 9; i++) {
+    img = document.getElementById(i);
+    let srcImg = img.src;
+    srcImg = tabid[j];
+    j++;
+    img.src = "../../images/captcha/minion/" + img.id + ".jpg";
+  }
 
 }
-
-/*    let children = document.getElementById("puzzle").children;
-
-    let idArr = [];
-
-    for (let i = 0; i < children.length; i++) {
-        idArr.push(children[i].id);
+function verifCaptcha(){
+  let count = 0;
+  let j = 1;
+  let children = document.getElementById("puzzle").children;
+  for (let i = 0; i < 9; i++) {
+    let img = children[i];
+    if (parseInt(img.id) === j) {
+      count++;
     }
-    */
+    j++;
+
+  }
+  if (count === 9) {
+    return true;
+  }
+}
 
 function changeImage(src_image, id_image) {
   compteur++;
@@ -54,9 +68,14 @@ function changeImage(src_image, id_image) {
     let image_1 = document.getElementById(temp_id[0]);
     let image_2 = document.getElementById(temp_id[1]);
     image_1.src = temp_src[1];
+    image_1.id = temp_id[1];
     image_2.src = temp_src[0];
+    image_2.id = temp_id[0];
 
     temp_src = [];
     temp_id = [];
+    if(verifCaptcha() === true){
+      alert("Bravo vous avez gagné");
+    }
   }
 }

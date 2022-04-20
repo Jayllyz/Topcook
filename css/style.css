@@ -575,6 +575,11 @@ footer {
   left: 0;
 }
 
+.card_profil{
+  width: 600px;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {

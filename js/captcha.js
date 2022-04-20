@@ -3,7 +3,6 @@ let temp_id = [];
 let result_images = [];
 let verify_images = [];
 let compteurForCaptcha = 0;
-
 let submit = document.getElementById("submit");
 let p = document.getElementById("captcha-message");
 let captchaBtn = document.getElementById("captcha-btn");
@@ -57,6 +56,8 @@ function changeImage(src_image, id_image) {
 
     temp_src.push(src_image);
     temp_id.push(id_image);
+    document.getElementById(id_image).style.border = "2px solid #17760A";
+
     if (compteurForCaptcha % 2 === 0) {
         let temp_src_1 = temp_src[0];
         let temp_id_1 = temp_id[0];
@@ -77,9 +78,11 @@ function changeImage(src_image, id_image) {
         image_1.id = temp_id[1];
         image_2.src = temp_src[0];
         image_2.id = temp_id[0];
-
+        document.getElementById(temp_id[0]).style.border = "none";
+        document.getElementById(temp_id[1]).style.border = "none";
         temp_src = [];
         temp_id = [];
+
         if(verifCaptcha() === true){
             submit.style.display = "block";
             p.innerHTML = "Validé";

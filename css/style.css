@@ -265,6 +265,7 @@ footer {
 }
 .allrecipes{
   transition: 0.5s;
+  border-radius: 35px;
 }
 .allrecipes:hover{
   transition: 0.5s;
@@ -538,12 +539,14 @@ footer {
   width: auto;
 }
 #result{
+  width: 1296px;
   position: absolute;
   background-color: #E1E1E1;
   padding: 15px;
   z-index: 1;
   opacity: 0.9;
   border-radius: 15px;
+
 }
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
@@ -599,6 +602,9 @@ footer {
   }
   .info_user{
     overflow: scroll;
+  }
+  #result{
+    width: auto;
   }
 }
 @keyframes rotationMoon {

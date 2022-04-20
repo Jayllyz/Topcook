@@ -14,11 +14,12 @@ searchbar.addEventListener("keyup", function () {
       if (request.readyState === 4 && request.status === 200) {
         const res = request.responseText;
         div.style.display = "block";
-        if (res !== "" && res !== " ") {
+        if (res !== "") {
           const containerSearch = document.getElementById("container-search");
           div.setAttribute("id", "result");
           containerSearch.appendChild(div);
           div.innerHTML = res;
+
         } else {
           const div = document.getElementById("result");
           div.innerHTML = "<p class='text-center fs-3'>Aucun résultat</p>";

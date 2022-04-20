@@ -16,7 +16,7 @@ foreach ($result as $row) {
     $id = $row['id'];
     echo "<div class='col col-md-3'>";
     echo "<a href='recipes/recipe.php?name=$name&id=$id'>";
-    echo "<img src='../uploads/recipe/$images' alt='$name' class='rounded img-fluid allrecipes'>";
+    echo "<img src='../uploads/recipe/$images' alt='$name' class='img-fluid allrecipes'>";
     echo "</a>";
     echo "<h4 class='text-center mb-3 mt-3'>$name</h4>";
     echo "</div>";

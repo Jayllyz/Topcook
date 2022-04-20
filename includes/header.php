@@ -91,7 +91,7 @@
 
     <div class="container" id="container-search">
         <form class="d-flex searchbar pt-3 mb-2">
-            <input class="form-control me-2" type="search" id="searchbar" placeholder="Saisir une recette <?= $_SESSION['rights'] == 1 ? 'ou un utilisateur': '' ?>" aria-label="Search">
+            <input class="form-control me-2" type="search" id="searchbar" placeholder="Saisir une recette, un topic <?= $_SESSION['rights'] == 1 ? 'ou un utilisateur': '' ?> à rechercher" aria-label="Search">
         </form>
     </div>
   </header>

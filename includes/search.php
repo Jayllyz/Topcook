@@ -1,6 +1,6 @@
 <?php
 session_start();
-$search = trim(htmlspecialchars($_GET['search']));
+$search = htmlspecialchars($_GET['search']);
 
 include ("db.php");
 
@@ -11,6 +11,9 @@ $searchRecipe->execute(array(
     'name' => '%'. "$search" . '%'
 ));
 $resultRecipe = $searchRecipe->fetchAll(PDO::FETCH_ASSOC);
+if($resultRecipe){
+    echo "<p class='fs-5 search_link'><em><strong>Recettes</strong></em></p>";
+}
 
 foreach ($resultRecipe as $recipe) {
     $name = $recipe['name'];
@@ -29,6 +32,7 @@ $searchTopic->execute(array(
 $resultTopic = $searchTopic->fetchAll(PDO::FETCH_ASSOC);
 if($resultTopic){
     echo "<hr>";
+    echo "<p class='fs-5 search_link'><em><strong>Topics</strong></em></p>";
 }
 foreach ($resultTopic as $topic) {
 
@@ -54,11 +58,15 @@ if($_SESSION['rights'] == 1) {
     $resultUser = $selectUser->fetchAll(PDO::FETCH_ASSOC);
     if($resultUser){
         echo "<hr>";
+        echo "<p class='fs-5 search_link'><em><strong>Utilisateurs</strong></em></p>";
     }
     foreach ($resultUser as $user) {
         $pseudo = $user['pseudo'];
         $idUser = $user['id'];
         echo "<p class='fs-5 search_link'><a href='https://topcook.site/admin/users/read.php?id=$idUser' class='text-decoration-none'>$pseudo</a></p>";
     }
+}
+if(!$resultTopic && !$resultRecipe && !$resultUser){
+    echo "<p class='fs-5'>Aucun résultat</p>";
 }
 ?>

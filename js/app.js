@@ -7,7 +7,6 @@ let parameters = {
 let strengthBar = document.getElementById("strength-bar");
 let msg = document.getElementById("msg");
 
-
 function viewPassword() {
   var passConnexion = document.getElementById("password");
 

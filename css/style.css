@@ -65,7 +65,7 @@ body {
 }
 h1,
 h3, h2 {
-  color: #fd891c;
+  color: #fd891c !important;
   text-align: center;
 }
 .nav-link {
@@ -580,10 +580,36 @@ footer {
   margin: 0 auto;
 }
 
-.darkmode nav, .darkmode header{
-  background-color: #0a0f42 !important;
+.darkmode nav{
+  background-color: #212d40 !important;
+}
+.darkmode .alert{
+  color: black !important;
+}
+.darkmode #container-search{
+  background-color: transparent !important;
 }
 
+.darkmode .card{
+  background-color: #364156 !important;
+}
+.darkmode, .darkmode .modal-content{
+  background-color: #273A50 !important;
+
+}
+.darkmode img{
+  filter: brightness(.8) contrast(1.2) !important;
+}
+.darkmode .list-group *{
+  background-color: #364156 !important;
+  color: #f8f8ff !important;
+}
+.darkmode .card-body *, .darkmode table *, .darkmode h4, .darkmode p, .darkmode span, .darkmode label, .darkmode .modal-title{
+  color: #f8f8ff !important;
+}
+.darkmode .head-recipe *, .darkmode .sort *{
+  color: black !important;
+}
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {

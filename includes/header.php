@@ -1,5 +1,5 @@
 <?php $active = " active"; ?>
-<header id="header" class="mb-3">
+<header id="header" class="pb-3">
       <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://topcook.site/"><img src="https://topcook.site/images/topcook_logo.svg" width="50" height="50"></a>

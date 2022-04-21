@@ -1,5 +1,7 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <?php
 $linkLogoOnglet = "../images/topcook_logo.svg";
 $linkCss = "../css/style.css";
@@ -36,6 +38,13 @@ if (isset($_SESSION["id"])) {
                     <label class="control-label"><strong>Date de fin</strong></label>
                     <input type="date" class="form-control" name="end_date" required><br>
 
+                    <label class="control-label"><strong>Thèmes</strong></label>
+                    <select name="theme" class="form-control" required>
+                        <option value="0">Choisissez un thème</option>
+                        <option value="entrée">Entrée</option>
+                        <option value="plat">Plat</option>
+                        <option value="dessert">Dessert</option>
+                    </select><br>
                     <label class="control-label"><strong>Photo du concours</strong></label>
                     <input type="file" class="form-control" name="image" accept="image/jpeg,image/png"><br>
 

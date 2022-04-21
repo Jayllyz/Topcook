@@ -556,6 +556,19 @@ footer {
   width: 600px;
   margin: 0 auto;
 }
+.contest{
+  margin: 0 auto !important;
+}
+.contest img{
+  border-radius: 35px;
+  margin: 0 auto;
+  display: flex;
+}
+.info_contest{
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 10px;
+}
 
 .darkmode nav{
   background-color: #212d40 !important;
@@ -585,6 +598,13 @@ footer {
   color: #f8f8ff !important;
 }
 .darkmode .head-recipe *, .darkmode .sort *{
+  color: black !important;
+}
+.darkmode .navbar-toggler{
+  background-color: white !important;
+  border-color: black !important;
+}
+.darkmode #result p{
   color: black !important;
 }
 @media screen and (max-width: 800px) {

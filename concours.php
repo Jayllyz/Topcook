@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php session_start();
+
+include 'includes/db.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <?php
@@ -32,6 +35,34 @@ if (isset($_SESSION["id"])) {
                   </a>
              </div>
       <?php } ?>
+        <?php
+
+        $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST WHERE date_end > NOW()");
+        $selectContest->execute();
+        $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($resultContest as $contest){
+            $name = $contest["name"];
+            $description = $contest["description"];
+            $theme = $contest["theme"];
+            $image = $contest["image"];
+            $date_start = $contest["date_start"];
+            $date_end = $contest["date_end"];
+            ?>
+        <div class="contest container row d-flex justify-content-center mb-3">
+            <div class="col-md-6">
+                <img src="https://topcook.site/uploads/img_contest/<?= $image; ?>" alt="<?= $name; ?>" class="img-fluid">
+                <h2><?= $name ?></h2>
+                <div class="info_contest">
+                    <p>Description : <?= $description ?></p>
+                    <p>Le thème est <em><?= $theme ?></em></p>
+                    <p>A commencer le <em><strong><?= date("d/m/Y", strtotime($date_start)) ?></strong></em></p>
+                    <p>Se termine le <em><strong><?= date("d/m/Y", strtotime($date_end)) ?></strong></em></p>
+                </div>
+            </div>
+        </div>
+
+        <?php } ?>
 
       <form method="post" action="">
           <div class="container col-md-4">

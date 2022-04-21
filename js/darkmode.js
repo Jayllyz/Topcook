@@ -7,14 +7,20 @@ const enableDarkMode = () => {
     localStorage.setItem("darkmode", "enabled");
     darkmodeLogo.style.transform = "rotate(180deg)";
     darkmodeLogo.style.transition = "0.5s";
-    logo_admin.style.fill = "white";
+
+    if (logo_admin) {
+        logo_admin.style.fill = "white";
+    }
 };
 const disableDarkMode = () => {
     document.body.classList.remove('darkmode');
     localStorage.setItem("darkmode", null);
     darkmodeLogo.style.transform = "rotate(0deg)";
     darkmodeLogo.style.transition = "0.5s";
-    logo_admin.style.fill = "black";
+    // Si logo admin existe
+    if (logo_admin) {
+        logo_admin.style.fill = "black";
+    }
 };
 
 if (darkmode === "enabled") {

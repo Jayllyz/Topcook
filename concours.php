@@ -27,7 +27,7 @@ if (isset($_SESSION["id"])) {
 
       <?php if ($_SESSION["rights"] == 1) { ?>
            <div class="btn_ingredients mb-4">
-                 <a href="createContest.php" class="btn">
+                 <a href="contest/createContest.php" class="btn">
                        Créer un concours
                   </a>
              </div>

@@ -31,11 +31,11 @@ include "../includes/head.php";
             <?php include "../includes/message.php"; ?>
         </div>
 <div class="mt-3 mb-3 container">
-      <div class="card card_profil">
+      <div class="card col-md-4 card_profil">
         <?php if (!empty($select["image"])) {
           echo '<img src="../uploads/' .
             $select["image"] .
-            '" class="card-img-top" id="img_profil" alt="...">';
+            '" class="card-img-top" id="img_profil" width="400" alt="...">';
         } ?>
         <div class="card-body">
           <h5 class="card-title text-uppercase text-center"><?= $pseudo ?></h5>

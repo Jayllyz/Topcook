@@ -580,6 +580,10 @@ footer {
   margin: 0 auto;
 }
 
+.darkmode nav, .darkmode header{
+  background-color: #0a0f42 !important;
+}
+
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {
@@ -622,9 +626,6 @@ footer {
   #moon,
   #sun {
     animation: none;
-  }
-  .card_profil {
-    margin-left: 12%;
   }
   .head-recipe {
     font-size: 0.7em;

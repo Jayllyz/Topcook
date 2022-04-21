@@ -224,31 +224,8 @@ footer {
   padding: 1rem;
 }
 
-.moon {
-  background-color: transparent !important;
-}
-
-.sun {
-  background-color: transparent !important;
-}
-#sun {
-  display: none;
-}
-#moon {
-  animation: rotationMoon 1s;
-}
-#sun {
-  animation: rotationSun 1s;
-}
-#sun button:active,
-#moon button:active {
-  outline: none;
-  border: none;
-}
-#sun button:focus,
-#moon button:focus {
-  outline: none !important;
-  box-shadow: none;
+#moon{
+  cursor: pointer;
 }
 
 .button_profil {
@@ -649,10 +626,6 @@ footer {
     height: 120px !important;
     border-radius: 10% !important;
   }
-  #moon,
-  #sun {
-    animation: none;
-  }
   .head-recipe {
     font-size: 0.7em;
   }
@@ -661,22 +634,6 @@ footer {
   }
   .info_user{
     overflow: scroll;
-  }
-}
-@keyframes rotationMoon {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-}
-@keyframes rotationSun {
-  from {
-    transform: rotate(359deg);
-  }
-  to {
-    transform: rotate(0deg);
   }
 }
 @keyframes rotate {

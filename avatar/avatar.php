@@ -93,9 +93,8 @@ include "../includes/head.php";
             <option value="green">Vert</option>
         </select>-->
 
-        <input type="submit" value="Envoyer" onclick="addAvatar()">
-
-
+        <input type="submit" name="submit" value="Envoyer" onclick="addAvatar()">
+    <div id="error"></div>
 </div>
 </main>
 

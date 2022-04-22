@@ -77,19 +77,21 @@ function changeBeard() {
 }
 
 function addAvatar() {
-    let body = document.getElementById("test");
-    let eyes = document.getElementById("test2");
-    let hat = document.getElementById("test3");
-    let sweet = document.getElementById("test4");
+    let body = document.getElementById("test").value;
+    let eyes = document.getElementById("test2").value;
+    let hat = document.getElementById("test3").value;
+    let sweet = document.getElementById("test4").value;
     const request = new XMLHttpRequest();
     request.open('POST', 'https://topcook.site/verifications/addAvatar.php', true
     );
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.onreadystatechange = function () {
+        const res = request.responseText;
         if (request.readyState === 4 && request.status === 200) {
+            document.getElementById("error").innerHTML = res;
         }
     };
 
-    request.send("body=" + body.options[body.selectedIndex].value + "&eyes=" + eyes.options[eyes.selectedIndex].value + "&hat=" + hat.options[hat.selectedIndex].value + "&sweet=" + sweet.options[sweet.selectedIndex].value + "&mouth=" + mouth.options[mouth.selectedIndex].value + "&beard=" + beard.options[beard.selectedIndex].value);
+    request.send("body=" + body + "&eyes=" + eyes + "&hat=" + hat + "&sweet=" + sweet );
 
 }

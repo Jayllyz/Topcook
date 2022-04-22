@@ -10,7 +10,11 @@
 <body>
 
 
-<input type="text" name="message" id="message">
+<select name="message" id="message" onchange="changeSweet()">
+    <option value="start">----Selectionner une couleur du vetement----</option>
+    <option value="brown">Marron</option>
+    <option value="green">Vert</option>
+</select>
 <input type="submit" name="submit" onclick="insert()" value="Envoyer">
 
 <script src="js/app.js"></script>

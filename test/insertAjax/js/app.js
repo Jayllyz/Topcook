@@ -1,10 +1,6 @@
 function insert() {
   const xhttp = new XMLHttpRequest();
-  xhttp.open(
-    "POST",
-    "https://topcook.site/test/insertAjax/insert.php?msg=",
-    true
-  );
+  xhttp.open("POST", "https://topcook.site/test/insertAjax/insert.php", true);
   request.setRequestHeader("Content-Type", "text/plain");
   const msg = document.getElementById("message").value;
   xhttp.onreadystatechange = function () {
@@ -13,5 +9,5 @@ function insert() {
     }
   };
 
-  xhttp.send0("msg" + msg);
+  xhttp.send("msg" + msg);
 }

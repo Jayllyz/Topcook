@@ -7,9 +7,6 @@ function changeCorps() {
     if (selectOptions) {
         corps.style.fill = selectOptions;
     }
-    if (selectOptions === "start") {
-        corps.style.fill = "#E9ADA1";
-    }
 }
 
 function changeEyes() {
@@ -20,9 +17,6 @@ function changeEyes() {
     if (selectOptions) {
         eyes.style.fill = selectOptions;
     }
-    if (selectOptions === "start") {
-        eyes.style.fill = "#00004D";
-    }
 }
 function changeHat() {
     let select = document.getElementById("test3");
@@ -31,9 +25,6 @@ function changeHat() {
     let eyes = document.getElementById("hat");
     if (selectOptions) {
         eyes.style.fill = selectOptions;
-    }
-    if (selectOptions === "start") {
-        eyes.style.fill = "#00004D";
     }
 }
 function changeSweet() {
@@ -44,9 +35,6 @@ function changeSweet() {
     if (selectOptions) {
         eyes.style.fill = selectOptions;
     }
-    if (selectOptions === "start") {
-        eyes.style.fill = "#00004D";
-    }
 }
 function changeMouth() {
     let select = document.getElementById("test5");
@@ -55,9 +43,6 @@ function changeMouth() {
     let eyes = document.getElementById("mouth");
     if (selectOptions) {
         eyes.style.fill = selectOptions;
-    }
-    if (selectOptions === "start") {
-        eyes.style.fill = "#00004D";
     }
 }
 
@@ -69,9 +54,6 @@ function changeBeard() {
     if (selectOptions) {
         eyes.style.fill = selectOptions;
     }
-    if (selectOptions === "start") {
-        eyes.style.fill = "#00004D";
-    }
 
 
 }
@@ -81,6 +63,7 @@ function addAvatar() {
     let eyes = document.getElementById("test2").value;
     let hat = document.getElementById("test3").value;
     let sweet = document.getElementById("test4").value;
+    let beard = document.getElementById("test6").value;
     const request = new XMLHttpRequest();
     request.open('POST', 'https://topcook.site/verifications/addAvatar.php', true
     );
@@ -92,6 +75,6 @@ function addAvatar() {
         }
     };
 
-    request.send("body=" + body + "&eyes=" + eyes + "&hat=" + hat + "&sweet=" + sweet );
+    request.send("body=" + body + "&eyes=" + eyes + "&hat=" + hat + "&sweet=" + sweet + "&beard=" + beard);
 
 }

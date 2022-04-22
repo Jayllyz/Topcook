@@ -66,13 +66,13 @@ include "../includes/head.php";
         <!-- form envoie de l'image -->
             <label>Couleur du corps</label>
             <select name="body" id="test" onchange="changeCorps()" class="form-control">
-                <option value="#F5CDD3">Beige</option>
+                <option value="#F5CDD3" style="background-image: url('../images/topcook_logo.svg')">Beige</option>
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
             </select>
             <label class="mt-3">Couleur des yeux</label>
             <select name="eyes" id="test2" onchange="changeEyes()" class="form-control">
-                <option value="#00004D">Bleu</option>
+                <option value="#00004D">Bleu foncé</option>
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
             </select>
@@ -82,6 +82,7 @@ include "../includes/head.php";
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
             </select>
+
             <label class="mt-3">Couleur du vetement</label>
             <select name="sweet" id="test4" onchange="changeSweet()" class="form-control">
                 <option value="#80C43B">Vert clair</option>
@@ -92,12 +93,13 @@ include "../includes/head.php";
                 <option value="start">----Selectionner une couleur de la bouche----</option>
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
-            </select>
-            <select id="test6" onchange="changeBeard()">
-                <option value="start">----Selectionner une couleur de la barbe----</option>
+            </select>-->
+            <label class="mt-3">Couleur de la barbe</label>
+            <select id="test6" onchange="changeBeard()" class="form-control">
+                <option value="#00004D">Bleu foncé</option>
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
-            </select>-->
+            </select>
 
 
         </div>

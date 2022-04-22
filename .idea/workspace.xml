@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb7a126a-8df9-4efa-83b2-d42400a35cfd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test/insertAjax/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/insertAjax/insert.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/insertAjax/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/captcha.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/captcha.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verifications/add_recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/verifications/add_recipe.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +106,8 @@
       <workItem from="1650560205257" duration="6038000" />
       <workItem from="1650577641728" duration="720000" />
       <workItem from="1650579638116" duration="3417000" />
+      <workItem from="1650624275781" duration="10000" />
+      <workItem from="1650628127452" duration="1421000" />
     </task>
     <servers />
   </component>

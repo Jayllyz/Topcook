@@ -1,4 +1,5 @@
 function insert() {
+<<<<<<< Updated upstream
   const xhttp = new XMLHttpRequest();
   xhttp.open("POST", "https://topcook.site/test/insertAjax/insert.php", true);
   request.setRequestHeader("Content-Type", "text/plain");
@@ -11,3 +12,16 @@ function insert() {
 
   xhttp.send("msg" + msg);
 }
+=======
+  const request = new XMLHttpRequest();
+  request.open('POST', 'https://topcook.site/test/insertAjax/insert.php', true
+  );
+  request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200) {
+    }
+  };
+
+  request.send('msg=' + document.getElementById('message').value);
+}
+>>>>>>> Stashed changes

@@ -548,8 +548,17 @@ footer {
   z-index: 1;
   width: 100%;
   height: 100%;
-  top: 0;
+  top: 20px;
   left: 0;
+}
+#cheveux, #barbe, #bouche,#turban,#vetement{
+  position: absolute;
+}
+#bouche{
+  top: 15px;
+}
+#turban{
+  z-index: 3;
 }
 
 .card_profil{
@@ -569,6 +578,7 @@ footer {
   border-radius: 15px;
   padding: 10px;
 }
+
 
 .darkmode nav{
   background-color: #212d40 !important;

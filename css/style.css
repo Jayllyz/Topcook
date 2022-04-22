@@ -54,13 +54,12 @@ html {
 }
 nav {
   background-color: #f8f9fa;
-  transition: 0.5s;
+
 }
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  transition: 0.5s;
 
 }
 h1,
@@ -579,9 +578,12 @@ footer {
   padding: 10px;
 }
 
-
+.darkmode{
+  transition: 0.5s;
+}
 .darkmode nav{
   background-color: #212d40 !important;
+
 }
 .darkmode .alert{
   color: black !important;

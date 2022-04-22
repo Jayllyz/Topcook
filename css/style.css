@@ -604,6 +604,9 @@ footer {
   background-color: white !important;
   border-color: black !important;
 }
+.darkmode .recipe{
+  filter: drop-shadow(0 0 0.75rem #212D40) !important;
+}
 .darkmode #result p{
   color: black !important;
 }
@@ -654,6 +657,20 @@ footer {
   }
   .info_user{
     overflow: scroll;
+  }
+  .sort label {
+    margin: 15px;
+  }
+  #recettes{
+    overflow: hidden;
+  }
+  #recettes .row {
+    display: block;
+  }
+  #recettes .row .col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 @keyframes rotate {

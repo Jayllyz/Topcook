@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb7a126a-8df9-4efa-83b2-d42400a35cfd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/verifications/verifications_contest/add_contest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/concours.php" beforeDir="false" afterPath="$PROJECT_DIR$/concours.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contest/createContest.php" beforeDir="false" afterPath="$PROJECT_DIR$/contest/createContest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/captcha.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/captcha.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/verifications/add_recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/verifications/add_recipe.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,16 +44,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/danse/Documents/COURS/SEMESTRE_2/Projet_annuel/TestLocal/Avatar",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/danse/Documents/COURS/SEMESTRE_2/Projet_annuel/TestLocal/Avatar&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -103,7 +103,9 @@
       <workItem from="1650411788138" duration="2970000" />
       <workItem from="1650448747371" duration="23586000" />
       <workItem from="1650539320036" duration="7232000" />
-      <workItem from="1650560205257" duration="5984000" />
+      <workItem from="1650560205257" duration="6038000" />
+      <workItem from="1650577641728" duration="720000" />
+      <workItem from="1650579638116" duration="3417000" />
     </task>
     <servers />
   </component>

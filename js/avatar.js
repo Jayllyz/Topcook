@@ -90,6 +90,6 @@ function addAvatar() {
         }
     };
 
-    request.send("body=" + body.options[body.selectedIndex].value + "&eyes=" + eyes.options[eyes.selectedIndex].value + "&hat=" + hat.options[hat.selectedIndex].value + "&sweet=" + sweet.options[sweet.selectedIndex].value);
+    request.send("body=" + body.options[body.selectedIndex].value + "&eyes=" + eyes.options[eyes.selectedIndex].value + "&hat=" + hat.options[hat.selectedIndex].value + "&sweet=" + sweet.options[sweet.selectedIndex].value + "&mouth=" + mouth.options[mouth.selectedIndex].value + "&beard=" + beard.options[beard.selectedIndex].value);
 
 }

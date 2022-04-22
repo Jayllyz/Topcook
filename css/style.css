@@ -578,6 +578,12 @@ footer {
   padding: 10px;
 }
 
+.select{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
 .darkmode{
   transition: 0.5s;
 }
@@ -622,6 +628,7 @@ footer {
 .darkmode #result p{
   color: black !important;
 }
+
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {

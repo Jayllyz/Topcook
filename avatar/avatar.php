@@ -61,40 +61,49 @@ include "../includes/head.php";
             </svg>
         </div>
     </div>
-    <!-- form envoie de l'image -->
-        <select name="body" id="test" onchange="changeCorps()">
-            <option value="start">----Selectionner une couleur du corps----</option>
-            <option value="brown">Marron</option>
-            <option value="green">Vert</option>
-        </select>
-        <select name="eyes" id="test2" onchange="changeEyes()">
-            <option value="start">----Selectionner une couleur des yeux----</option>
-            <option value="brown">Marron</option>
-            <option value="green">Vert</option>
-        </select>
-        <select name="hat" id="test3" onchange="changeHat()">
-            <option value="start">----Selectionner une couleur du chapeau----</option>
-            <option value="brown">Marron</option>
-            <option value="green">Vert</option>
-        </select>
-        <select name="sweet" id="test4" onchange="changeSweet()">
-            <option value="start">----Selectionner une couleur du vetement----</option>
-            <option value="brown">Marron</option>
-            <option value="green">Vert</option>
-        </select>
-<!--        <select id="test5" onchange="changeMouth()">
-            <option value="start">----Selectionner une couleur de la bouche----</option>
-            <option value="brown">Marron</option>
-            <option value="green">Vert</option>
-        </select>
-        <select id="test6" onchange="changeBeard()">
-            <option value="start">----Selectionner une couleur de la barbe----</option>
-            <option value="brown">Marron</option>
-            <option value="green">Vert</option>
-        </select>-->
+    <div class="container pt-4">
+        <div class="select">
+        <!-- form envoie de l'image -->
+            <label>Couleur du corps</label>
+            <select name="body" id="test" onchange="changeCorps()" class="form-control">
+                <option value="#F5CDD3">Beige</option>
+                <option value="brown">Marron</option>
+                <option value="green">Vert</option>
+            </select>
+            <label class="mt-3">Couleur des yeux</label>
+            <select name="eyes" id="test2" onchange="changeEyes()" class="form-control">
+                <option value="#00004D">Bleu</option>
+                <option value="brown">Marron</option>
+                <option value="green">Vert</option>
+            </select>
+            <label class="mt-3">Couleur du chapeau</label>
+            <select name="hat" id="test3" onchange="changeHat()" class="form-control">
+                <option value="#2384F5">Bleu clair</option>
+                <option value="brown">Marron</option>
+                <option value="green">Vert</option>
+            </select>
+            <label class="mt-3">Couleur du vetement</label>
+            <select name="sweet" id="test4" onchange="changeSweet()" class="form-control">
+                <option value="#80C43B">Vert clair</option>
+                <option value="brown">Marron</option>
+                <option value="green">Vert</option>
+            </select>
+    <!--        <select id="test5" onchange="changeMouth()">
+                <option value="start">----Selectionner une couleur de la bouche----</option>
+                <option value="brown">Marron</option>
+                <option value="green">Vert</option>
+            </select>
+            <select id="test6" onchange="changeBeard()">
+                <option value="start">----Selectionner une couleur de la barbe----</option>
+                <option value="brown">Marron</option>
+                <option value="green">Vert</option>
+            </select>-->
 
-        <input type="submit" name="submit" value="Envoyer" onclick="addAvatar()">
-    <div id="error"></div>
+
+        </div>
+        <input type="submit" name="submit" value="Envoyer" class="btn btn-success mt-4" onclick="addAvatar()">
+        <div id="error"></div>
+    </div>
 </div>
 </main>
 

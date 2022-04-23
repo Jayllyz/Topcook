@@ -34,6 +34,8 @@ if (isset($_SESSION["id"])) {
                   </a>
              </div>
       <?php } ?>
+
+
         <?php
 
         $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST WHERE date_end > NOW()");
@@ -48,6 +50,17 @@ if (isset($_SESSION["id"])) {
             $date_start = $contest["date_start"];
             $date_end = $contest["date_end"];
             ?>
+        <div class="timer">
+            <p class="fs-3 end_contest">Le concours se termine dans: </p>
+            <div id="timer">
+
+                <input type="hidden" id="date" value="<?= $date_end ?>">
+                <div class="days"><span id="days"></span><p>Jours</p></div>
+                <div class="hours"><span id="hours"></span><p>Heures</p></div>
+                <div class="minutes"><span id="minutes"></span><p>Minutes</p></div>
+                <div class="seconds"><span id="seconds"></span><p>Secondes</p></div>
+            </div>
+        </div>
         <div class="contest container row d-flex justify-content-center mb-3">
             <div class="col-md-6">
                 <img src="https://topcook.site/uploads/img_contest/<?= $image; ?>" alt="<?= $name; ?>" class="img-fluid">
@@ -73,5 +86,6 @@ if (isset($_SESSION["id"])) {
     </main>
 </body>
 <?php include "includes/footer.php"; ?>
+<script src="js/timer.js"></script>
 <?php include "includes/scripts.php"; ?>
 </html>

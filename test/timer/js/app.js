@@ -1,6 +1,6 @@
 function timer() {
   let date_now = new Date().getTime();
-  let date_end = new Date(2022, 4, 23, 4, 5, 20).getTime();
+  let date_end = new Date("2022/04/25").getTime();
   let gab = date_end - date_now;
   const second = 1000;
   const minute = second * 60;

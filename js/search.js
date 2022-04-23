@@ -20,11 +20,6 @@ searchbar.addEventListener("keyup", function () {
           containerSearch.appendChild(div);
           div.innerHTML = res;
 
-        } else {
-          const div = document.getElementById("result");
-          div.innerHTML = "<p class='text-center fs-3'>Aucun résultat</p>";
-
-
         }
       }
     };

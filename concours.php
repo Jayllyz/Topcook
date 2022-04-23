@@ -1,5 +1,4 @@
 <?php session_start();
-
 include 'includes/db.php';
 ?>
 <!DOCTYPE html>
@@ -56,8 +55,8 @@ if (isset($_SESSION["id"])) {
                 <div class="info_contest">
                     <p>Description : <?= $description ?></p>
                     <p>Le thème est <em><?= $theme ?></em></p>
-                    <p>A commencer le <em><strong><?= date("d/m/Y", strtotime($date_start)) ?></strong></em></p>
-                    <p>Se termine le <em><strong><?= date("d/m/Y", strtotime($date_end)) ?></strong></em></p>
+                    <p>Début le <em><strong><?= date("d/m/Y", strtotime($date_start)) ?></strong></em></p>
+                    <p>Fin le <em><strong><?= date("d/m/Y", strtotime($date_end)) ?></strong></em></p>
                 </div>
             </div>
         </div>

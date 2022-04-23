@@ -1,5 +1,13 @@
+
 function timer() {
     const date = document.getElementById("date").value;
+    const form_contest = document.getElementById("form_contest");
+    const info_timer = document.getElementById("info_timer");
+    const divDays = document.getElementById("days");
+    const divHours = document.getElementById("hours");
+    const divMinutes = document.getElementById("minutes");
+    const divSeconds = document.getElementById("seconds");
+
     let date_now = new Date().getTime();
     let date_end = new Date(date).getTime();
     let gab = date_end - date_now;
@@ -13,9 +21,14 @@ function timer() {
     let minutes = Math.floor((gab % hour) / minute);
     let seconds = Math.floor((gab % minute) / second);
 
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+    divDays.innerHTML = days;
+    divHours.innerHTML = hours;
+    divMinutes.innerHTML = minutes;
+    divSeconds.innerHTML = seconds;
+
+    if(divDays.innerHTML === "0" && divHours.innerHTML === "0" && divMinutes.innerHTML === "0" && divSeconds.innerHTML === "0"){
+        info_timer.innerHTML = "<p class='text-center fs-3'>Inscriptions terminés !</p>";
+        form_contest.innerHTML = "<div class='container'><p class='alert alert-warning'>Les inscriptions sont fermées</p></div>";
+    }
 }
 setInterval(timer, 1000);

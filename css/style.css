@@ -740,6 +740,10 @@ footer {
     flex-direction: column;
     align-items: center;
   }
+  #timer{
+    flex-wrap: wrap;
+    width: 90%;
+  }
 }
 @keyframes rotate {
   to {

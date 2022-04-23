@@ -50,7 +50,7 @@ if (isset($_SESSION["id"])) {
             $date_start = $contest["date_start"];
             $date_end = $contest["date_end"];
             ?>
-        <div class="timer">
+        <div class="timer" id="info_timer">
             <p class="fs-3 end_contest">Le concours se termine dans: </p>
             <div id="timer">
 
@@ -76,7 +76,7 @@ if (isset($_SESSION["id"])) {
 
         <?php } ?>
 
-      <form method="post" action="">
+      <form method="post" action="" id="form_contest">
           <div class="container col-md-4">
             <label class="control-label"><strong>Votre photo pour participer</strong></label>
             <input type="file" class="form-control" name="image" accept="image/jpeg,image/png"><br>

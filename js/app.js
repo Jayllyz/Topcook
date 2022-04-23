@@ -217,14 +217,10 @@ function removePers() {
   }
 }
 
-function checkConfirm() {
-  if (confirm("Voulez vous vraiment supprimer cette recette?") === true) {
+function checkConfirm(text) {
+  if (confirm(text) === true) {
     return true;
   } else {
     return false;
   }
 }
-
-
-
-

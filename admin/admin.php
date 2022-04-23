@@ -22,6 +22,7 @@ include "../includes/head.php";
     <div class="container">
         <div id="logs">
             <a href="logsRead.php" class="btn mb-4">Consulter les logs</a>
+            <a href="reportRead.php" class="btn ms-4 mb-4">Consulter les signalements</a>
             <a href="users/exportDataAllUsers.php" class="btn ms-4 mb-4">Exporter les données</a>
         </div>
         <table class="table text-center table-bordered table-hover" id="active">
@@ -41,7 +42,7 @@ include "../includes/head.php";
             );
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $select) { ?>
-            <tbody id="<?= $select['pseudo'] ?>">
+            <tbody id="<?= $select["pseudo"] ?>">
                 <tr>
                     <td><?= $select["id"] ?></td>
                     <td><?php
@@ -135,9 +136,7 @@ include "../includes/head.php";
 
     <?php include "../includes/footer.php"; ?>
 
-    <?php
-    include "../includes/scripts.php";
-    ?>
+    <?php include "../includes/scripts.php"; ?>
 </body>
 </html>
 <?php } else {header("location: http://164.132.229.157/");

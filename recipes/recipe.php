@@ -112,11 +112,15 @@ include "../includes/head.php";
                               "id"
                             ] ?>&id_user=<?= $select[
   "id_user"
-] ?>&name=<?= $select["name"] ?>" onclick="return checkConfirm()" class="btn btn-danger">
+] ?>&name=<?= $select[
+  "name"
+] ?>" onclick="return checkConfirm('Voulez vous vraiment supprimer cette recette?')" class="btn btn-danger">
                                 Supprimer la recette
                             </a>
                         </div>
                  <?php } ?>
+
+
 
                 <div class="list_ingredient">
                     <h3>Ingrédients</h3> 
@@ -181,6 +185,31 @@ include "../includes/head.php";
                     ?>
                 </div>
                 
+                <?php
+                $selectReport = $db->prepare(
+                  "SELECT count(id) FROM REPORT_RECIPE WHERE id_user = :id_user AND id_recipe = :id_recipe"
+                );
+                $selectReport->execute([
+                  "id_user" => $_SESSION["id"],
+                  "id_recipe" => $select["id"],
+                ]);
+                $selectReport = $selectReport->fetch(PDO::FETCH_NUM);
+                ?>
+
+                 <?php if (isset($_SESSION["id"]) && $selectReport[0] == 0) { ?>
+                  <div class="btn_ingredients mb-4">
+                            <a href="reportRecipe.php?id=<?= $select[
+                              "id"
+                            ] ?>&id_user=<?= $select[
+  "id_user"
+] ?>&name=<?= $select[
+  "name"
+] ?>" onclick="return checkConfirm('Voulez vous vraiment signaler cette recette?')" class="btn btn-danger">
+                                Signaler la recette
+                            </a>
+                        </div>
+                 <?php } ?>
+
 
                 <div class="commentaires">
                     <h3>Commentaires</h3>
@@ -283,8 +312,6 @@ include "../includes/head.php";
 
         </main>
     <?php include "../includes/footer.php"; ?>
-    <?php
-    include "../includes/scripts.php";
-    ?>
+    <?php include "../includes/scripts.php"; ?>
 </body>
 </html>  

@@ -14,7 +14,7 @@ include "../../includes/head.php";
 <body>
 
 <?php include "../../includes/header.php"; ?>
-<main id="swup" class="transition-fade">
+<main>
     <form action="verif/verif_update.php?id=<?=$id_user?>" method="post">
         <div class="container col-md-6">
             <?php include "../../includes/message.php"; ?>

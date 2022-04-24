@@ -13,7 +13,7 @@ include "../includes/head.php";
 <body>
     <?php include "../includes/header.php"; ?>
 
-    <main id="swup" class="transition-fade">
+    <main>
     <div class="container col-md-6">
       <?php include "../includes/message.php"; ?>
     </div>
@@ -21,8 +21,8 @@ include "../includes/head.php";
     <h1>Liste des Utilisateurs</h1>
     <div class="container">
         <div id="logs">
-            <a href="logsRead.php" class="btn mb-4">Consulter les logs</a>
-            <a href="reportRead.php" class="btn ms-4 mb-4">Consulter les signalements</a>
+            <a href="https://topcook.site/admin/logsRead.php" class="btn mb-4">Consulter les logs</a>
+            <a href="https://topcook.site/admin/reportRead.php" class="btn ms-4 mb-4">Consulter les signalements</a>
             <a href="users/exportDataAllUsers.php" class="btn ms-4 mb-4">Exporter les données</a>
         </div>
         <table class="table text-center table-bordered table-hover" id="active">
@@ -139,5 +139,5 @@ include "../includes/head.php";
     <?php include "../includes/scripts.php"; ?>
 </body>
 </html>
-<?php } else {header("location: http://164.132.229.157/");
+<?php } else {header("location: https://topcook.site/");
   exit();} ?>

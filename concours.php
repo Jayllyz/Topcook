@@ -84,8 +84,10 @@ if (isset($_SESSION["id"])) {
         </div>
       </form>
     </main>
+
+    <?php include "includes/footer.php"; ?>
+    <script src="js/timer.js"></script>
+    <?php include "includes/scripts.php"; ?>
 </body>
-<?php include "includes/footer.php"; ?>
-<script src="js/timer.js"></script>
-<?php include "includes/scripts.php"; ?>
+
 </html>

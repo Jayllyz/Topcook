@@ -20,8 +20,8 @@ include "../includes/head.php";
 <h1 class="pb-3">Liste des signalements des messages</h1>
 <div class="container">
 <div id="logs">
-            <a href="reportReadCom.php" class="btn mb-4">Commentaires</a>
-            <a href="reportRead.php" class="btn ms-4 mb-4">Recettes</a>
+            <a href="https://topcook.site/admin/reportReadCom.php" class="btn mb-4">Commentaires</a>
+            <a href="https://topcook.site/admin/reportRead.php" class="btn ms-4 mb-4">Recettes</a>
             
         </div>
     <table class="table text-center table-bordered table-hover" id="active">
@@ -61,7 +61,7 @@ include "../includes/head.php";
         <tbody>
                 <tr>
                     <td><?= $resultUser["pseudo"] ?></td>
-                    <td><?= $select["count(id_msg)"] ?></td>
+                    <td><?= $select["count(id_msg)"] ?><p><a href="https://topcook.site/admin/viewMsgReport.php?id_msg=<?= $select['id_msg']?>&pseudo=<?= $resultUser['pseudo'] ?>">Consulter les messages</a></p></td>
                     <td>
                     <div class="button_profil">
                     <a href="users/read.php?id=<?= $resultName[
@@ -84,6 +84,8 @@ include "../includes/head.php";
         </table>
 </div>
 </main>
+<script src="https://topcook.site/node_modules/swup/dist/swup.min.js"></script>
+<script src="https://topcook.site/js/swup.js"></script>
 <?php include "../includes/footer.php"; ?>
 <?php include "../includes/scripts.php"; ?>
 </body>

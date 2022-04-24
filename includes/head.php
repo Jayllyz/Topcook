@@ -1,9 +1,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- FontAwesome Icons -->
-    <script defer src="https://topcook.site/node_modules/swup/dist/swup.min.js"></script>
-    <script defer src="https://topcook.site/js/swup.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" type="image/svg+xml" sizes="16x16" href="<?= $linkLogoOnglet ?>">
     <link rel="stylesheet" href="<?= $linkCss ?>">

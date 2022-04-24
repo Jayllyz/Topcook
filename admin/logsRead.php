@@ -12,7 +12,7 @@ include "../includes/head.php";
 ?>
 <body>
 <?php include "../includes/header.php"; ?>
-<main id="swup" class="transition-fade">
+<main>
 <h1 class="pb-3">Liste des logs</h1>
 <div class="container">
     <table class="table text-center table-bordered table-hover">

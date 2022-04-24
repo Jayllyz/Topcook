@@ -65,7 +65,7 @@ include "../includes/head.php";
           <div class="btn_ingredients mb-4">
                     <a href="reportTopic.php?id_topic=<?= $id_subject ?>&creator_name=<?= $pseudo ?>&id_creator=<?= $id_creator ?>" 
                     onclick="return checkConfirm('Voulez vous vraiment signaler ce sujet?')" class="btn btn-danger">
-                        Signaler le sujet
+                        Signaler le topic
                     </a>
                 </div>
               <?php }

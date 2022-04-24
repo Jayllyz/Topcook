@@ -298,19 +298,20 @@ include "../includes/head.php";
                                           "date_send"
                                         ] ?></td>
 
-                                    <?php if (
-                                      isset($_SESSION["id"]) &&
-                                      $selectReportCom[0] == 0
-                                    ) { ?>
                                         <td>
+                                        <?php if (
+                                          isset($_SESSION["id"]) &&
+                                          $selectReportCom[0] == 0
+                                        ) { ?>
                                           <a href="../admin/comment/report_comment.php?name_recipe=<?= $select[
                                             "name"
                                           ] ?>&id_comment=<?= $message[
   "id"
 ] ?>&id_recipe=<?= htmlspecialchars($_GET["id"]) ?>" 
                                           class="btn btn-danger">Signaler</a></td>
+                                          <?php } ?>
                                         </td>
-                                      <?php } ?>
+                                      
 
                                         <?php if (isset($_SESSION["id"])) { ?>
                                         <td>

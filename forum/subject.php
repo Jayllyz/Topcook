@@ -162,14 +162,18 @@ $selectReportMsg = $selectReportMsg->fetch(PDO::FETCH_NUM);
                                           "date"
                                         ] ?></td>
 
+                                        
+                                        <td>
                                         <?php if (
                                           isset($_SESSION["id"]) &&
                                           $selectReportMsg[0] == 0
                                         ) { ?>
-                                        <td><a href="reportMsg.php?creator=<?= $pseudo ?>&id_msg=<?= $message[
+                                          <a href="reportMsg.php?creator=<?= $pseudo ?>&id_msg=<?= $message[
   "id"
-] ?>&id_subject=<?= $id_subject ?>&id_topic=<?= $id_topic ?>&id_creator=<?= $id_creator ?>" class="btn btn-danger">Signaler</a></td>
+] ?>&id_subject=<?= $id_subject ?>&id_topic=<?= $id_topic ?>&id_creator=<?= $id_creator ?>" class="btn btn-danger">Signaler</a>
                                         <?php } ?>
+                                        </td>
+                                        
 
                                         <?php if (
                                           $_SESSION["rights"] == 1 ||

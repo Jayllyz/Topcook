@@ -1,0 +1,89 @@
+<?php
+session_start();
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
+include "../includes/functions.php";
+include "../includes/db.php";
+?>
+<!doctype html>
+<html lang="fr">
+<?php
+$linkLogoOnglet = "../images/topcook_logo.svg";
+$linkCss = "../css/style.css";
+$title = "TopCook - Signalements commentaires";
+include "../includes/head.php";
+?>
+<body>
+<?php include "../includes/header.php"; ?>
+<main id="swup" class="transition-fade">
+<h1 class="pb-3">Liste des signalements des commentaires</h1>
+<div class="container">
+<div id="logs">
+            <a href="reportRead.php" class="btn mb-4">Recettes</a>
+            <a href="reportReadMsg.php" class="btn ms-4 mb-4">Messages</a>
+            
+        </div>
+    <table class="table text-center table-bordered table-hover" id="active">
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Nombre de signalements</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <?php
+        $query = $db->query(
+          "SELECT id_comment, count(id_comment) FROM REPORT_COM GROUP BY id_comment"
+        );
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($result as $select) { ?>
+
+        <?php
+        $getName = $db->prepare(
+          "SELECT id_user FROM COMMENTAIRE WHERE id = :id_comment"
+        );
+        $getName->execute([
+          "id_comment" => $select["id_comment"],
+        ]);
+        $resultName = $getName->fetch(PDO::FETCH_ASSOC);
+
+        $getUser = $db->prepare(
+          "SELECT pseudo, rights  FROM USER WHERE id = :id_user"
+        );
+        $getUser->execute([
+          "id_user" => $resultName["id_user"],
+        ]);
+        $resultUser = $getUser->fetch(PDO::FETCH_ASSOC);
+        ?>
+         <tbody>
+                <tr>
+                    <td><?= $resultUser["pseudo"] ?></td>
+                    <td><?= $select["count(id_comment)"] ?></td>
+                    <td>
+                    <div class="button_profil">
+                    <a href="users/read.php?id=<?= $resultName[
+                      "id_user"
+                    ] ?>" class="btn-read btn ms-2 me-2">Consulter</a><br>
+                        
+                        <a href="users/ban.php?id=<?= $resultName[
+                          "id_user"
+                        ] ?>&pseudo=<?= $resultUser[
+  "pseudo"
+] ?>&rights=<?= $resultUser["rights"] ?>" class="btn btn-danger">Bannir</a>
+                            
+                    </div>
+                    </td>
+                </tr>
+        </tbody>
+    
+        <?php }
+        ?>
+        </table>
+</div>
+</main>
+<?php include "../includes/footer.php"; ?>
+<?php include "../includes/scripts.php"; ?>
+</body>
+</html>

@@ -11,29 +11,30 @@ include "../includes/db.php";
 <?php
 $linkLogoOnglet = "../images/topcook_logo.svg";
 $linkCss = "../css/style.css";
-$title = "TopCook - Signalements";
+$title = "TopCook - Signalements messages";
 include "../includes/head.php";
 ?>
 <body>
 <?php include "../includes/header.php"; ?>
 <main id="swup" class="transition-fade">
-<h1 class="pb-3">Liste des signalements</h1>
+<h1 class="pb-3">Liste des signalements des messages</h1>
 <div class="container">
 <div id="logs">
             <a href="reportReadCom.php" class="btn mb-4">Commentaires</a>
-            <a href="reportReadMsg.php" class="btn ms-4 mb-4">Messages</a>    
+            <a href="reportRead.php" class="btn ms-4 mb-4">Recettes</a>
+            
         </div>
     <table class="table text-center table-bordered table-hover" id="active">
         <thead>
             <tr>
-                <th>Recettes</th>
+                <th>Pseudo</th>
                 <th>Nombre de signalements</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <?php
         $query = $db->query(
-          "SELECT id_recipe, count(id_recipe) FROM REPORT_RECIPE GROUP BY id_recipe"
+          "SELECT id_msg, count(id_msg) FROM FORUM_MSG_REPORT GROUP BY id_msg"
         );
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -41,42 +42,38 @@ include "../includes/head.php";
 
         <?php
         $getName = $db->prepare(
-          "SELECT name  FROM RECIPE WHERE id = :id_recipe"
+          "SELECT id_user FROM FORUM_MSG WHERE id = :id_msg"
         );
         $getName->execute([
-          "id_recipe" => $select["id_recipe"],
+          "id_msg" => $select["id_msg"],
         ]);
         $resultName = $getName->fetch(PDO::FETCH_ASSOC);
 
-        $countSteps = $db->prepare(
-          "SELECT COUNT(id) FROM STEPS WHERE id_recipe = :id_recipe"
+        $getUser = $db->prepare(
+          "SELECT pseudo, rights  FROM USER WHERE id = :id_user"
         );
-        $countSteps->execute([
-          "id_recipe" => $select["id_recipe"],
+        $getUser->execute([
+          "id_user" => $resultName["id_user"],
         ]);
-        $countSteps = $countSteps->fetch(PDO::FETCH_ASSOC);
-        $countSteps = $countSteps["COUNT(id)"];
+        $resultUser = $getUser->fetch(PDO::FETCH_ASSOC);
         ?>
 
         <tbody>
                 <tr>
-                    <td><?= $resultName["name"] ?></td>
-                    <td><?= $select["count(id_recipe)"] ?></td>
+                    <td><?= $resultUser["pseudo"] ?></td>
+                    <td><?= $select["count(id_msg)"] ?></td>
                     <td>
                     <div class="button_profil">
-                        <a href="../recipes/recipe.php?name=<?= $resultName[
-                          "name"
-                        ] ?>&id=<?= $select[
-  "id_recipe"
-] ?>&nbSteps=<?= $countSteps ?>" class="btn-update btn ms-2 me-2">Voir la recette</a><br>
+                    <a href="users/read.php?id=<?= $resultName[
+                      "id_user"
+                    ] ?>" class="btn-read btn ms-2 me-2">Consulter</a><br>
                         
-                        <a href="../recipes/deleteRecipe.php?id=<?= $select[
-                          "id_recipe"
-                        ] ?>&id_user=<?= $session["id"] ?>&name=<?= $resultName[
-  "name"
-] ?>" onclick="return checkConfirm('Voulez vous vraiment supprimer cette recette?')" class="btn btn-danger">
-                            Supprimer la recette
-                        </a>
+                        <a href="users/ban.php?id=<?= $resultName[
+                          "id_user"
+                        ] ?>&pseudo=<?= $resultUser[
+  "pseudo"
+] ?>&rights=<?= $resultUser["rights"] ?>" class="btn btn-danger">Bannir</a>
+                            
                     </div>
                     </td>
                 </tr>

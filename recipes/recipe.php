@@ -243,7 +243,7 @@ include "../includes/head.php";
                       $_SESSION["rights"] == 1 ||
                       $resultUserCreateRecipe["id_user"] == $_SESSION["id"]
                     ) { ?>
-                    <th>Supprimer</th>
+                    <th>Supprimer ou signaler</th>
                           <?php } ?>
                     <?php }
             ?>
@@ -283,19 +283,32 @@ include "../includes/head.php";
                                         <td id="date_send"><?= $message[
                                           "date_send"
                                         ] ?></td>
+
+                                        <?php if (isset($_SESSION["id"])) { ?>
+                                        <td>
                                         <?php if (
                                           $_SESSION["rights"] == 1 ||
                                           $resultUserCreateRecipe["id_user"] ==
                                             $_SESSION["id"]
                                         ) { ?>
-                                        <td><a href="../admin/comment/delete_comment.php?name_recipe=<?= $select[
-                                          "name"
-                                        ] ?>&id_comment=<?= $message[
+                                          <a href="../admin/comment/delete_comment.php?name_recipe=<?= $select[
+                                            "name"
+                                          ] ?>&id_comment=<?= $message[
   "id"
 ] ?>&id_user=<?= $message["id_user"] ?>&id_recipe=<?= htmlspecialchars(
   $_GET["id"]
-) ?>" class="btn btn-ban">Supprimer</a></td>
-                                        <?php } ?>
+) ?>" class="btn btn-ban">Supprimer</a><br>
+                                    <?php } ?>
+                                          <a href="../admin/comment/report_comment.php?name_recipe=<?= $select[
+                                            "name"
+                                          ] ?>&id_comment=<?= $message[
+  "id"
+] ?>&id_recipe=<?= htmlspecialchars($_GET["id"]) ?>" 
+                                          class="btn btn-danger">Signaler</a>
+
+                                        </td>
+                                      
+                                      <?php } ?>
                                     </tr>
                                 </tbody>
 

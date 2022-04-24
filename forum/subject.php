@@ -6,15 +6,13 @@ $pseudo = htmlspecialchars($_GET["creator"]);
 $id_creator = htmlspecialchars($_GET["id_creator"]);
 
 $selectTopic = $db->query(
-    "SELECT subject, message, image, date FROM TOPIC WHERE id = " .
-    $id_subject
+  "SELECT subject, message, image, date FROM TOPIC WHERE id = " . $id_subject
 );
 $resultTopic = $selectTopic->fetch(PDO::FETCH_ASSOC);
 $subject = $resultTopic["subject"];
 $message = $resultTopic["message"];
 $image = $resultTopic["image"];
 $date = $resultTopic["date"];
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,7 +21,6 @@ $linkLogoOnglet = "../images/topcook_logo.svg";
 $linkCss = "../css/style.css";
 $title = $subject;
 include "../includes/head.php";
-
 ?>
 <body>
     <?php include "../includes/header.php"; ?>
@@ -43,10 +40,10 @@ include "../includes/head.php";
             <span class="d-flex">Description :<p class="ms-3 me-3" id="description"></span>
 
                 <strong id="message"><?= $message ?></strong>
-                <?php
-                if($id_creator == $_SESSION["id"] || $_SESSION['rights'] == 1){
-
-                ?>
+                <?php if (
+                  $id_creator == $_SESSION["id"] ||
+                  $_SESSION["rights"] == 1
+                ) { ?>
         <div class="modify">
             <img src="../images/crayon.png" id="crayon" width="30" height="30" alt="modify" class="modify">
         </div>
@@ -54,6 +51,26 @@ include "../includes/head.php";
             </p>
         </div>
 
+        <?php
+        $selectReport = $db->prepare(
+          "SELECT count(id) FROM REPORT_TOPIC WHERE id_user = :id_user AND id_topic = :id_topic"
+        );
+        $selectReport->execute([
+          "id_user" => $_SESSION["id"],
+          "id_topic" => $id_subject,
+        ]);
+        $selectReport = $selectReport->fetch(PDO::FETCH_NUM);
+
+        if (isset($_SESSION["id"]) && $selectReport[0] == 0) { ?>
+          <div class="btn_ingredients mb-4">
+                    <a href="reportTopic.php?id_topic=<?= $id_subject ?>&creator_name=<?= $pseudo ?>&id_creator=<?= $id_creator ?>" 
+                    onclick="return checkConfirm('Voulez vous vraiment signaler ce sujet?')" class="btn btn-danger">
+                        Signaler le sujet
+                    </a>
+                </div>
+              <?php }
+        ?>
+       
 
 
     </div>
@@ -132,10 +149,11 @@ include "../includes/head.php";
                                         ] ?></td>
                                         <?php if (
                                           $_SESSION["rights"] == 1 ||
-                                          $id_creator ==
-                                            $_SESSION["id"]
+                                          $id_creator == $_SESSION["id"]
                                         ) { ?>
-                                        <td><a href="../admin/comment/delete_topic_msg.php?id_creator=<?=$id_creator?>&creator=<?=$pseudo?>&id_msg=<?= $message["id"] ?>&id_topic=<?= $id_subject ?>&id_subject=<?=$id_subject?>" class="btn btn-ban">Supprimer</a></td>
+                                        <td><a href="../admin/comment/delete_topic_msg.php?id_creator=<?= $id_creator ?>&creator=<?= $pseudo ?>&id_msg=<?= $message[
+  "id"
+] ?>&id_topic=<?= $id_subject ?>&id_subject=<?= $id_subject ?>" class="btn btn-ban">Supprimer</a></td>
                                         <?php } ?>
                                     </tr>
                                 </tbody>
@@ -147,8 +165,6 @@ include "../includes/head.php";
 </div>
 </main>
 <?php include "../includes/footer.php"; ?>
-<?php
-include "../includes/scripts.php";
-?>
+<?php include "../includes/scripts.php"; ?>
 </body>
 </html>

@@ -8,8 +8,11 @@ $id_comment = htmlspecialchars($_GET["id_comment"]);
 $id_recipe = htmlspecialchars($_GET["id_recipe"]);
 $name_recipe = htmlspecialchars($_GET["name_recipe"]);
 
-$deleteMessage = $db->prepare("DELETE FROM COMMENTAIRE WHERE id = :id_comment");
+$deleteMessage = $db->prepare(
+  "INSERT INTO REPORT_COM (id_user, id_comment) VALUES (:id_user , :id_comment)"
+);
 $deleteMessage->execute([
+  "id_user" => $_SESSION["id"],
   "id_comment" => $id_comment,
 ]);
 header(

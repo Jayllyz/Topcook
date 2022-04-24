@@ -239,13 +239,17 @@ include "../includes/head.php";
                     <th>Pseudo</th>
                     <th>Message</th>
                     <th>Date</th>
+                    <?php if (isset($_SESSION["id"])) { ?>
+                    <th>Signaler</th>
+                    <?php } ?>
                     <?php if (
                       $_SESSION["rights"] == 1 ||
                       $resultUserCreateRecipe["id_user"] == $_SESSION["id"]
                     ) { ?>
-                    <th>Supprimer ou signaler</th>
+                    <th>Supprimer</th>
                           <?php } ?>
-                    <?php }
+                    
+        <?php }
             ?>
                 </tr>
                 </thead>
@@ -258,6 +262,16 @@ include "../includes/head.php";
                     ]);
                     $selectMessages = $query->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($selectMessages as $message) { ?>
+                    <?php
+                    $selectReportCom = $db->prepare(
+                      "SELECT count(id) FROM REPORT_COM WHERE id_user = :id_user AND id_comment = :id_comment"
+                    );
+                    $selectReportCom->execute([
+                      "id_user" => $_SESSION["id"],
+                      "id_comment" => $message["id"],
+                    ]);
+                    $selectReportCom = $selectReportCom->fetch(PDO::FETCH_NUM);
+                    ?>
                     <div class="sending">
                         <div class="users">
                             <?php
@@ -284,6 +298,20 @@ include "../includes/head.php";
                                           "date_send"
                                         ] ?></td>
 
+                                    <?php if (
+                                      isset($_SESSION["id"]) &&
+                                      $selectReportCom[0] == 0
+                                    ) { ?>
+                                        <td>
+                                          <a href="../admin/comment/report_comment.php?name_recipe=<?= $select[
+                                            "name"
+                                          ] ?>&id_comment=<?= $message[
+  "id"
+] ?>&id_recipe=<?= htmlspecialchars($_GET["id"]) ?>" 
+                                          class="btn btn-danger">Signaler</a></td>
+                                        </td>
+                                      <?php } ?>
+
                                         <?php if (isset($_SESSION["id"])) { ?>
                                         <td>
                                         <?php if (
@@ -297,16 +325,10 @@ include "../includes/head.php";
   "id"
 ] ?>&id_user=<?= $message["id_user"] ?>&id_recipe=<?= htmlspecialchars(
   $_GET["id"]
-) ?>" class="btn btn-ban">Supprimer</a><br>
-                                    <?php } ?>
-                                          <a href="../admin/comment/report_comment.php?name_recipe=<?= $select[
-                                            "name"
-                                          ] ?>&id_comment=<?= $message[
-  "id"
-] ?>&id_recipe=<?= htmlspecialchars($_GET["id"]) ?>" 
-                                          class="btn btn-danger">Signaler</a>
+) ?>" class="btn btn-ban">Supprimer</a></td>
 
-                                        </td>
+                                    <?php } ?>
+                                   
                                       
                                       <?php } ?>
                                     </tr>

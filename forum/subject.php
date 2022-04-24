@@ -70,8 +70,6 @@ include "../includes/head.php";
                 </div>
               <?php }
         ?>
-       
-
 
     </div>
 
@@ -104,12 +102,16 @@ include "../includes/head.php";
                     <th>Pseudo</th>
                     <th>Message</th>
                     <th>Date</th>
+                    <?php if (isset($_SESSION["id"])) { ?>
+                    <th>Signaler</th>
+                    <?php } ?>
                     <?php if (
                       $_SESSION["rights"] == 1 ||
                       $id_creator == $_SESSION["id"]
                     ) { ?>
                     <th>Supprimer</th>
                           <?php } ?>
+                    
         
                 </tr>
                 </thead>
@@ -122,6 +124,18 @@ include "../includes/head.php";
                     ]);
                     $selectMessages = $query->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($selectMessages as $message) { ?>
+
+<?php
+$selectReportMsg = $db->prepare(
+  "SELECT count(id) FROM FORUM_MSG_REPORT WHERE id_user = :id_user AND id_msg = :id_msg"
+);
+$selectReportMsg->execute([
+  "id_user" => $_SESSION["id"],
+  "id_msg" => $message["id"],
+]);
+$selectReportMsg = $selectReportMsg->fetch(PDO::FETCH_NUM);
+?>
+
                     <div class="sending">
                         <div class="users">
                             <?php
@@ -147,6 +161,16 @@ include "../includes/head.php";
                                         <td id="date_send"><?= $message[
                                           "date"
                                         ] ?></td>
+
+                                        <?php if (
+                                          isset($_SESSION["id"]) &&
+                                          $selectReportMsg[0] == 0
+                                        ) { ?>
+                                        <td><a href="reportMsg.php?creator=<?= $pseudo ?>&id_msg=<?= $message[
+  "id"
+] ?>&id_subject=<?= $id_subject ?>&id_topic=<?= $id_topic ?>&id_creator=<?= $id_creator ?>" class="btn btn-danger">Signaler</a></td>
+                                        <?php } ?>
+
                                         <?php if (
                                           $_SESSION["rights"] == 1 ||
                                           $id_creator == $_SESSION["id"]
@@ -155,6 +179,11 @@ include "../includes/head.php";
   "id"
 ] ?>&id_topic=<?= $id_subject ?>&id_subject=<?= $id_subject ?>" class="btn btn-ban">Supprimer</a></td>
                                         <?php } ?>
+
+                                        
+
+                                        
+                                        
                                     </tr>
                                 </tbody>
                         </div>

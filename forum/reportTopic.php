@@ -8,10 +8,10 @@ $id_topic = htmlspecialchars($_GET["id_topic"]);
 $creator_name = htmlspecialchars($_GET["creator_name"]);
 $creator = htmlspecialchars($_GET["id_creator"]);
 
-$deleteMessage = $db->prepare(
+$reportTopic = $db->prepare(
   "INSERT INTO REPORT_TOPIC (id_user, id_topic) VALUES (:id_user , :id_topic)"
 );
-$deleteMessage->execute([
+$reportTopic->execute([
   "id_user" => $_SESSION["id"],
   "id_topic" => $id_topic,
 ]);

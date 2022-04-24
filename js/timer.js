@@ -1,4 +1,3 @@
-
 function timer() {
     const date = document.getElementById("date").value;
     const form_contest = document.getElementById("form_contest");
@@ -7,6 +6,7 @@ function timer() {
     const divHours = document.getElementById("hours");
     const divMinutes = document.getElementById("minutes");
     const divSeconds = document.getElementById("seconds");
+
 
     let date_now = new Date().getTime();
     let date_end = new Date(date).getTime();
@@ -21,9 +21,41 @@ function timer() {
     let minutes = Math.floor((gab % hour) / minute);
     let seconds = Math.floor((gab % minute) / second);
 
-    divDays.innerHTML = days;
-    divHours.innerHTML = hours;
+    if (seconds.toString() !== divSeconds.innerHTML && divSeconds.innerHTML !== "") {
+        divSeconds.classList.add("animated");
+        setTimeout(function() {
+            divSeconds.className = "";
+        }, 700);
+    }
+
+    if (minutes.toString() !== divMinutes.innerHTML && divMinutes.innerHTML !== "") {
+        divMinutes.classList.add("animated");
+        setTimeout(function() {
+            divMinutes.className = "";
+        }, 700);
+
+    }
+
+    if (hours.toString() !== divHours.innerHTML && divHours.innerHTML !== "") {
+        divHours.classList.add("animated");
+        setTimeout(function() {
+            divHours.className = "";
+        }, 700);
+
+    }
+
+    if (days.toString() !== divDays.innerHTML && divDays.innerHTML !== "") {
+        divDays.classList.add("animated");
+        setTimeout(function() {
+            divDays.className = "";
+        }, 700);
+
+
+    }
+
     divMinutes.innerHTML = minutes;
+    divHours.innerHTML = hours;
+    divDays.innerHTML = days;
     divSeconds.innerHTML = seconds;
 
     if(divDays.innerHTML === "0" && divHours.innerHTML === "0" && divMinutes.innerHTML === "0" && divSeconds.innerHTML === "0"){

@@ -597,18 +597,20 @@ footer {
   display: flex;
   justify-content: center;
   margin: 15px;
+
 }
 #timer p{
   margin: 10px;
   font-weight: bold;
+
 }
 .days, .hours, .minutes, .seconds{
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 15px;
-
   min-height: 90px;
+
 }
 #days, #hours, #minutes, #seconds{
   text-align: center;
@@ -617,6 +619,7 @@ footer {
   font-size: 1.5em;
   border-radius: 10px;
   color: white;
+
 }
 #days{
   background: #fa5559;
@@ -631,6 +634,9 @@ footer {
   background: #054D73;
 }
 
+.animated{
+  animation: flip 0.7s ease forwards;
+}
 
 
 .darkmode{
@@ -748,5 +754,13 @@ footer {
 @keyframes rotate {
   to {
     transform: rotate3d(0, 1, 0, 359deg);
+  }
+}
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
   }
 }

@@ -19,7 +19,7 @@ include "../includes/head.php";
 <main id="swup" class="transition-fade">
 <h1 class="pb-3">Liste des signalements des commentaires</h1>
 <div class="container">
-<div id="logs">
+        <div id="logs">
             <a href="https://topcook.site/admin/reportRead.php" class="btn mb-4">Recettes</a>
             <a href="https://topcook.site/admin/reportReadMsg.php" class="btn ms-4 mb-4">Messages</a>
             
@@ -65,13 +65,13 @@ include "../includes/head.php";
                     <div class="button_profil">
                     <a href="users/read.php?id=<?= $resultName[
                       "id_user"
-                    ] ?>" class="btn-read btn ms-2 me-2">Consulter</a><br>
+                    ] ?>" class="btn-read btn ms-3 me-3">Consulter</a><br>
                         
                         <a href="users/ban.php?id=<?= $resultName[
                           "id_user"
                         ] ?>&pseudo=<?= $resultUser[
   "pseudo"
-] ?>&rights=<?= $resultUser["rights"] ?>" class="btn btn-danger">Bannir</a>
+] ?>&rights=<?= $resultUser["rights"] ?>" class="btn btn-danger btn-ban ms-3 me-3">Bannir</a>
                             
                     </div>
                     </td>

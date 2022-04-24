@@ -66,13 +66,13 @@ include "../includes/head.php";
                     <div class="button_profil">
                     <a href="users/read.php?id=<?= $resultName[
                       "id_user"
-                    ] ?>" class="btn-read btn ms-2 me-2">Consulter</a><br>
+                    ] ?>" class="btn-read btn ms-3 me-3">Consulter</a><br>
                         
                         <a href="users/ban.php?id=<?= $resultName[
                           "id_user"
                         ] ?>&pseudo=<?= $resultUser[
   "pseudo"
-] ?>&rights=<?= $resultUser["rights"] ?>" class="btn btn-danger">Bannir</a>
+] ?>&rights=<?= $resultUser["rights"] ?>" class="btn btn-ban ms-3 me-3">Bannir</a>
                             
                     </div>
                     </td>

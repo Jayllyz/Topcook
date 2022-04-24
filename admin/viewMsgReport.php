@@ -20,7 +20,7 @@ include "../includes/head.php";
 <body>
 <?php include "../includes/header.php"; ?>
 
-<main>
+<main id="swup" class="transition-fade">
     <?php
     $selectMsgReport = $db->query("SELECT id, message, date, id_user, id_topic FROM FORUM_MSG WHERE id = ".$id_msg);
     $msgReport = $selectMsgReport->fetch(PDO::FETCH_ASSOC);
@@ -31,7 +31,15 @@ include "../includes/head.php";
 
     ?>
     <div class="container">
-        <h1 class="pb-3">Messages signalé rédiger par <em><?= $pseudo ?></em></h1>
+
+        <h1 class="mb-3">Messages signalé rédiger par <em><?= $pseudo ?></em></h1>
+
+        <div id="logs">
+            <a href="https://topcook.site/admin/reportRead.php" class="btn mb-4">Recettes</a>
+            <a href="https://topcook.site/admin/reportReadMsg.php" class="btn ms-4 mb-4">Messages</a>
+            <a href="https://topcook.site/admin/reportReadCom.php" class="btn ms-4 mb-4">Commentaires</a>
+
+        </div>
         <table class="table text-center table-bordered table-hover">
             <thead>
                 <th>Message</th>

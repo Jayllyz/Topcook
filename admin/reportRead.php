@@ -68,13 +68,13 @@ include "../includes/head.php";
                           "name"
                         ] ?>&id=<?= $select[
   "id_recipe"
-] ?>&nbSteps=<?= $countSteps ?>" class="btn-update btn ms-2 me-2">Voir la recette</a><br>
+] ?>&nbSteps=<?= $countSteps ?>" class="btn-update btn ms-3 me-3">Voir la recette</a><br>
                         
                         <a href="../recipes/deleteRecipe.php?id=<?= $select[
                           "id_recipe"
                         ] ?>&id_user=<?= $session["id"] ?>&name=<?= $resultName[
   "name"
-] ?>" onclick="return checkConfirm('Voulez vous vraiment supprimer cette recette?')" class="btn btn-danger">
+] ?>" onclick="return checkConfirm('Voulez vous vraiment supprimer cette recette?')" class="btn btn-danger btn-ban ms-3 me-3">
                             Supprimer la recette
                         </a>
                     </div>

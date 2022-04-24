@@ -132,4 +132,27 @@ function topLikesRecipesMonth()
 
 }
 
+
+function banword($banlist,$text){
+  $banlist = file_get_contents($banlist); //on récupère la liste de mots bannis
+
+  $tabBan = explode("\n", $banlist); //on la transforme en tableau
+
+  $nbBan = count($tabBan);
+
+  for ($i = 0; $i < $nbBan; $i++) {
+    $tabBan[$i] = trim($tabBan[$i]);
+  }
+
+  $tabBan = array_filter($tabBan); //on supprime les éléments vides
+
+  $nbBan = count($tabBan);
+  for ($i = 0; $i < $nbBan; $i++) {
+    $tabBan[$i] = "/" . $tabBan[$i] . "/";
+  }
+  $text = preg_replace($tabBan, "*****", $text); //on remplace les mots bannis par *****
+
+  return $text;
+}
+
 ?>

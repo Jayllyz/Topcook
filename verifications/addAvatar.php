@@ -9,14 +9,21 @@ $sweet = $_POST['sweet'];
 $beard = $_POST['beard'];
 
 if($body != "start" && $hair != "start" && $eyes != "start" && $hat != "start" && $sweet != "start") {
-    $insertAvatar = $db->prepare("INSERT INTO AVATAR (colorBody, colorHair, colorEyes, colorHat, colorSweet, colorBeard, idUser) VALUES (:colorBody, :colorHair, :colorEyes, :colorHat, :colorSweet, :colorBeard, :idUser)");
+    $insertAvatar = $db->prepare("INSERT INTO AVATAR (colorBody, colorHair, colorEyes, colorHat, colorSweet, colorMouth,colorBeard, hat, hair, eyes, beard, mouth, sweat, idUser) VALUES (:colorBody, :colorHair, :colorEyes, :colorHat, :colorSweet, :colorMouth, :colorBeard, :hat, :hair, :eyes, :beard, :mouth, :sweat, :idUser)");
     $insertAvatar->execute([
         'colorBody' => $body,
         'colorHair' => $hair,
         'colorEyes' => $eyes,
         'colorHat' => $hat,
         'colorSweet' => $sweet,
+        'colorMouth' => "",
         'colorBeard' => $beard,
+        'hat' => "",
+        'hair' => "",
+        'eyes' => "",
+        'beard' => "",
+        'mouth' => "",
+        'sweat' => "",
         'idUser' => $_SESSION['id']
     ]);
     echo "<p class='alert alert-success mt-3'>Votre avatar a bien été modifié !</p>";

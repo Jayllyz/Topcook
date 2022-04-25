@@ -155,4 +155,10 @@ function banword($banlist,$text){
   return $text;
 }
 
+function viewElement($db,$table){
+  $select = $db->query("SELECT id, image FROM ".$table);
+  return $select->fetchAll(PDO::FETCH_ASSOC);
+
+}
+
 ?>

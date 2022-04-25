@@ -75,6 +75,6 @@ function addAvatar() {
         }
     };
 
-    request.send("body=" + body + "&eyes=" + eyes + "&hat=" + hat + "&sweet=" + sweet + "&beard=" + beard);
+    request.send("colorBody=" + body + "&colorEyes=" + eyes + "&colorHat=" + hat + "&colorSweet=" + sweet + "&colorBeard=" + beard);
 
 }

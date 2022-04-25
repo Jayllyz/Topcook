@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../includes/db.php";
+include "../includes/functions.php";
 $id_subject = htmlspecialchars($_GET["id_subject"]);
 $pseudo = htmlspecialchars($_GET["creator"]);
 $id_creator = htmlspecialchars($_GET["id_creator"]);
@@ -133,7 +134,7 @@ $selectReportMsg->execute([
   "id_user" => $_SESSION["id"],
   "id_msg" => $message["id"],
 ]);
-$selectReportMsg = $selectReportMsg->fetch(PDO::FETCH_NUM);
+$selectReportMsg = $selectReportMsg->fetch(PDO::FETCH_ASSOC);
 ?>
 
                     <div class="sending">
@@ -157,22 +158,24 @@ $selectReportMsg = $selectReportMsg->fetch(PDO::FETCH_NUM);
                                         <?php } else { ?>
                                         <td><?= $selectUser["pseudo"] ?></td>
                                         <?php } ?>
-                                        <td><?= $message["message"] ?></td>
+                                        <td><?= banword("../banlist.txt", $message["message"]) ?></td>
                                         <td id="date_send"><?= $message[
                                           "date"
                                         ] ?></td>
 
+                                        <?php if (
+                                        isset($_SESSION["id"]) &&
+                                        $selectReportMsg[0] == 0
+                                        ) { ?>
                                         
                                         <td>
-                                        <?php if (
-                                          isset($_SESSION["id"]) &&
-                                          $selectReportMsg[0] == 0
-                                        ) { ?>
+
                                           <a href="reportMsg.php?creator=<?= $pseudo ?>&id_msg=<?= $message[
   "id"
 ] ?>&id_subject=<?= $id_subject ?>&id_topic=<?= $id_topic ?>&id_creator=<?= $id_creator ?>" class="btn btn-danger">Signaler</a>
-                                        <?php } ?>
+
                                         </td>
+                                        <?php } ?>
                                         
 
                                         <?php if (

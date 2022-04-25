@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../includes/db.php";
+include "../includes/functions.php";
 $nbSteps = htmlspecialchars($_GET["nbSteps"]);
 $name = htmlspecialchars($_GET["name"]);
 $date = date("d/m/Y H:i:s");
@@ -293,26 +294,26 @@ include "../includes/head.php";
                                         <?php } else { ?>
                                         <td><?= $selectUser["pseudo"] ?></td>
                                         <?php } ?>
-                                        <td><?= $message["message"] ?></td>
+                                        <td><?= banword("../banlist.txt", $message["message"]) ?></td>
                                         <td id="date_send"><?= $message[
                                           "date_send"
                                         ] ?></td>
-
-                                        <td>
                                         <?php if (
-                                          isset($_SESSION["id"]) &&
-                                          $selectReportCom[0] == 0
+                                            isset($_SESSION["id"]) &&
+                                            $selectReportCom[0] == 0
                                         ) { ?>
+                                        <td>
+
                                           <a href="../admin/comment/report_comment.php?name_recipe=<?= $select[
                                             "name"
                                           ] ?>&id_comment=<?= $message[
   "id"
 ] ?>&id_recipe=<?= htmlspecialchars($_GET["id"]) ?>" 
                                           class="btn btn-danger">Signaler</a></td>
-                                          <?php } ?>
-                                        </td>
-                                      
 
+                                        </td>
+
+                                        <?php } ?>
                                         <?php if (isset($_SESSION["id"])) { ?>
                                         <td>
                                         <?php if (

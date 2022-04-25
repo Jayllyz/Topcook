@@ -31,5 +31,17 @@ function changeTypeAccessories(){
 }
 
 function addElement(id){
-    console.log(id);
+    const selectedType = document.getElementById("selectedTypeAccessories");
+    const selectedTypeValue = selectedType.options[selectedType.selectedIndex].value;
+    const request = new XMLHttpRequest();
+    request.open("GET", "https://topcook.site/avatar/addElement.php?id=" + id + "&type=" + selectedTypeValue);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4) {
+            const resType = request.responseText;
+            if(selectedTypeValue === "----Choisir une option de tri----"){
+                document.getElementById("viewSelectedElement").innerHTML = resType;
+            }
+        }
+    };
+    request.send();
 }

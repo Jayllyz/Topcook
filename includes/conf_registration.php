@@ -4,12 +4,13 @@ ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 include "db.php";
-$req = $db->prepare("SELECT token FROM USER WHERE email = :email");
+$req = $db->prepare("SELECT id, token FROM USER WHERE email = :email");
 $req->execute([
   "email" => htmlspecialchars($_GET["email"]),
 ]);
-$result = $req->fetch(PDO::FETCH_ASSOC);
+$result = $req->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as $existToken) {
+  $idUser = $existToken['id'];
   if ($existToken != "") {
     $token = htmlspecialchars($_GET["token"]);
     $email = htmlspecialchars($_GET["email"]);
@@ -40,6 +41,10 @@ foreach ($result as $existToken) {
   </div>
   </div>
   ";
+      $createAvatar = $db->prepare("INSERT INTO AVATAR (idUser) VALUES (:idUser)");
+      $createAvatar->execute([
+        "idUser" => $idUser,
+      ]);
     } else {
       session_destroy();
       echo "Email doesn't confirmed !";

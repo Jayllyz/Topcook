@@ -153,6 +153,7 @@ if (isset($_POST["submit"])) {
         "token" => $token,
         "creation" => $creation,
       ]);
+
       $subject = "Confirmation de votre inscription";
       $mailMsg = "Validé votre inscription!";
       $msgHTML =

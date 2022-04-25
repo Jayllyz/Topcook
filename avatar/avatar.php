@@ -1,5 +1,6 @@
 <?php
 session_start();
+$idUser = $_SESSION['id'];
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
@@ -31,62 +32,41 @@ include "../includes/head.php";
                       d="M87.609 101.918c.255-.929.392-1.908.392-2.918 0-6.075-4.925-11-11-11-1.52 0-2.966.308-4.282.865M232.391 101.918A11.012 11.012 0 0 1 232 99c0-6.075 4.925-11 11-11 1.518 0 2.965.308 4.282.865"/>
             </svg>
 
-
         </div>
-        <?php
-        $resultHat = viewElement($db,'HAT');
-        foreach ($resultHat as $hat){
-
-        ?>
-        <div id="turban">
-            <?= $hat['image']; ?>
-        </div>
-        <?php } ?>
 
         <?php
-        $resultEyes = viewElement($db,'EYES');
-        foreach ($resultEyes as $eyes){
+
+        $selectHat = $db->query("SELECT hat FROM AVATAR WHERE idUser = ".$idUser);
+        $selectHat = $selectHat->fetch(PDO::FETCH_ASSOC);
+        $selectHat = $selectHat['hat'];
+        $selectImgHat = $db->query("SELECT image FROM HAT WHERE id = ".$selectHat);
+        $selectImgHat = $selectImgHat->fetch(PDO::FETCH_ASSOC);
+        $selectImgHat = $selectImgHat['image'];
         ?>
+        <div id="hat">
+            <?= $selectImgHat ?>
+        </div>
+
         <div id="yeux">
-            <?= $eyes['image']; ?>
-        </div>
-        <?php } ?>
 
-        <?php
-        $resultMouth = viewElement($db,'MOUTH');
-        foreach ($resultMouth as $mouth){
-        ?>
+        </div>
+
         <div id="bouche">
-            <?= $mouth['image']; ?>
-        </div>
-        <?php } ?>
 
-        <?php
-        $resultHair = viewElement($db,'HAIR');
-        foreach ($resultHair as $hair){
-        ?>
+        </div>
+
+
         <div id="cheveux">
-            <?= $hair['image']; ?>
-        </div>
-        <?php } ?>
 
-        <?php
-        $resultBeard = viewElement($db,'BEARD');
-        foreach ($resultBeard as $beard){
-        ?>
+        </div>
+
         <div id="barbe">
-            <?= $beard['image']; ?>
-        </div>
-        <?php } ?>
 
-        <?php
-        $resultSweat = viewElement($db,'SWEAT');
-        foreach ($resultSweat as $sweat){
-        ?>
-        <div id="vetement">
-            <?= $sweat['image']; ?>
         </div>
-        <?php } ?>
+
+        <div id="vetement">
+
+        </div>
 
     </div>
     <div class="container g-1">
@@ -103,6 +83,7 @@ include "../includes/head.php";
             </select>
         </div>
     </div>
+    <div id="viewSelectedElement" class="d-flex flex-wrap"></div>
     <div class="container">
         <div class="chooseElement" id="chooseElement">
             <div id="eyes-presentation" class="d-flex flex-wrap">
@@ -173,7 +154,7 @@ include "../includes/head.php";
             </div>
         </div>
     </div>
-    <div id="viewSelectedElement" class="d-flex flex-wrap"></div>
+
 
     <div class="container pt-4">
         <div class="select">

@@ -552,13 +552,13 @@ footer {
   top: 20px;
   left: 0;
 }
-#cheveux, #barbe, #bouche,#turban,#vetement{
+#cheveux, #barbe, #bouche,#hat,#vetement{
   position: absolute;
 }
 #bouche{
   top: 15px;
 }
-#turban{
+#hat{
   z-index: 3;
 }
 

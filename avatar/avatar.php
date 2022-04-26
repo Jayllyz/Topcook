@@ -144,37 +144,38 @@ include "../includes/head.php";
         <div class="select">
         <!-- form envoie de l'image -->
             <label>Couleur du corps</label>
-            <select name="body" id="test" onchange="changeCorps()" class="form-control">
+            <select name="colorBody" id="colorBody" onchange="changeColor(this.name)" class="form-control">
                 <option value="#F5CDD3" style="background-image: url('../images/topcook_logo.svg')">Beige</option>
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
             </select>
             <label class="mt-3">Couleur des yeux</label>
-            <select name="eyes" id="test2" onchange="changeEyes()" class="form-control">
+            <select name="colorEyes" id="colorEyes" onchange="changeColor(this.name)" class="form-control">
                 <option value="#00004D">Bleu foncé</option>
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
             </select>
             <label class="mt-3">Couleur du chapeau</label>
-            <select name="hat" id="test3" onchange="changeHat()" class="form-control">
+            <select name="colorHat" id="colorHat" onchange="changeColor(this.name)" class="form-control">
                 <option value="#2384F5">Bleu clair</option>
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
             </select>
 
             <label class="mt-3">Couleur du vetement</label>
-            <select name="sweet" id="test4" onchange="changeSweet()" class="form-control">
+            <select name="colorSweet" id="colorSweet" onchange="changeColor(this.name)" class="form-control">
                 <option value="#80C43B">Vert clair</option>
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
             </select>
-    <!--        <select id="test5" onchange="changeMouth()">
+            <label class="mt-3">Couleur de la bouche</label>
+            <select name="colorMouth" id="colorMouth" onchange="changeColor(this.name)">
                 <option value="start">----Selectionner une couleur de la bouche----</option>
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
-            </select>-->
+            </select>
             <label class="mt-3">Couleur de la barbe</label>
-            <select id="test6" onchange="changeBeard()" class="form-control">
+            <select id="colorBeard" name="colorBeard" onchange="changeColor(this.name)" class="form-control">
                 <option value="#00004D">Bleu foncé</option>
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
@@ -182,8 +183,6 @@ include "../includes/head.php";
 
 
         </div>
-        <input type="submit" name="submit" value="Envoyer" class="btn btn-success mt-4" onclick="addAvatar()">
-        <div id="error"></div>
     </div>
 </div>
 </main>

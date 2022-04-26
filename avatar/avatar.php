@@ -35,16 +35,19 @@ include "../includes/head.php";
         </div>
 
         <?php
-/*
+
         $selectHat = $db->query("SELECT hat FROM AVATAR WHERE idUser = ".$idUser);
         $selectHat = $selectHat->fetch(PDO::FETCH_ASSOC);
         $selectHat = $selectHat['hat'];
         $selectImgHat = $db->query("SELECT image FROM HAT WHERE id = ".$selectHat);
         $selectImgHat = $selectImgHat->fetch(PDO::FETCH_ASSOC);
-        $selectImgHat = $selectImgHat['image'];*/
+        $selectImgHat = $selectImgHat['image'];
+
+        
         ?>
         <div id="hat">
-
+            <?php $selectImgHat = getAvatar($db,'hat', $idUser); ?>
+            <?= $selectImgHat ?>
         </div>
 
         <div id="yeux">

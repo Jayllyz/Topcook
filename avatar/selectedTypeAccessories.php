@@ -13,7 +13,7 @@ $result = $selectTypeAccessories->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as $row) {
     $images = $row['image'];
     $id = $row['id'];
-    echo "<div class='col col-md-3'>";
+    echo "<div class='col col-md-3 accessories me-1 mb-2'>";
     echo $images;
     echo "<button class='btn btn-primary' id=$id onclick='addElement(this.id)'>Ajouter</button>";
     echo "</div>";

@@ -1,3 +1,6 @@
+
+
+
 function changeTypeAccessories(){
     const chooseElement = document.getElementById('chooseElement');
     const viewSelectedElement = document.getElementById('viewSelectedElement');
@@ -45,3 +48,4 @@ function addElement(id){
     };
     request.send();
 }
+

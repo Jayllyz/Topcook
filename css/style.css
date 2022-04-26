@@ -638,6 +638,9 @@ footer {
   animation: flip 0.7s ease forwards;
 }
 
+.accessories{
+  border: 1px solid black;
+}
 
 .darkmode{
   transition: 0.5s;

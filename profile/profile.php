@@ -19,7 +19,7 @@ include "../includes/head.php";
     <h2 class="text-center text-uppercase">Bienvenue sur votre profil <?= $pseudo ?> !</h2>
     <?php
     $req = $db->query(
-      "SELECT email,image, date_birth,rights,avatar FROM USER WHERE id = " .
+      "SELECT email,image, date_birth,rights FROM USER WHERE id = " .
         $_SESSION["id"]
     );
     $req->execute([
@@ -28,6 +28,7 @@ include "../includes/head.php";
     $result = $req->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($result as $select) { ?>
+
         <div class="container col-md-6">
             <?php include "../includes/message.php"; ?>
         </div>
@@ -57,7 +58,7 @@ include "../includes/head.php";
           "id"
         ] ?>" class="btn card-link text-decoration-none text-dark">Modifier votre profil</a>
         <a href="https://topcook.site/avatar/avatar.php" class="btn mt-3 card-link text-decoration-none text-dark">Créé votre avatar</a>
-        <button class="btn mt-3 card-link text-decoration-none text-dark" id="avatarButton" onClick="activateAvatar()">Activer</button>
+        <button class="btn mt-3 card-link text-decoration-none text-dark" id="avatarButton" >Activer</button>
         <a href="https://topcook.site/profile/exportData.php" class="btn mt-3 card-link text-decoration-none text-dark">Exporter vos données</a>
     </div>
   </div>
@@ -70,6 +71,7 @@ include "../includes/head.php";
 
     <?php include "../includes/footer.php"; ?>
     <script src="../js/changeAccessories.js"></script>
+    <script src="../js/avatar.js"></script>
     <?php include "../includes/scripts.php"; ?>
 </body>
 </html>

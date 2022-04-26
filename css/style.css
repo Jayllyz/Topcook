@@ -544,7 +544,7 @@ footer {
   left: 0;
 }
 
-#yeux {
+#eyes {
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -552,10 +552,10 @@ footer {
   top: 20px;
   left: 0;
 }
-#cheveux, #barbe, #bouche,#hat,#vetement{
+#hair, #beard, #mouth,#hat,#sweat{
   position: absolute;
 }
-#bouche{
+#mouth{
   top: 15px;
 }
 #hat{

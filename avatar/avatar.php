@@ -16,7 +16,7 @@ $linkCss = "../css/style.css";
 $title = "Création d'avatar";
 include "../includes/head.php";
 ?>
-<body>
+<body onload="reloadAvatar()">
 
 <?php include "../includes/header.php"; ?>
 <main>
@@ -33,54 +33,16 @@ include "../includes/head.php";
             </svg>
 
         </div>
-        <div id="hat">
-            <?php $selectImgHat = getAvatar($db,'hat', $idUser); ?>
-            <?php if( $selectImgHat !== FALSE){
-                        echo $selectImgHat;
-            }?>
-        </div>
 
-        <div id="yeux">
-            <?php $selectImgEyes = getAvatar($db,'eyes', $idUser); ?>
-            <?php if( $selectImgEyes !== FALSE){
-                        echo $selectImgEyes;
-            }?>
-        </div>
-
-        <div id="bouche">
-            <?php $selectImgMouth = getAvatar($db,'mouth', $idUser); ?>
-            <?php if( $selectImgMouth !== FALSE){
-                        echo $selectImgMouth;
-            }?>
-        </div>
-
-
-        <div id="cheveux">
-            <?php $selectImgHair = getAvatar($db,'hair', $idUser); ?>
-            <?php if( $selectImgHair !== FALSE){
-                        echo $selectImgHair;
-            }?>
-        </div>
-
-        <div id="barbe">
-            <?php $selectImgBeard = getAvatar($db,'beard', $idUser); ?>
-            <?php if( $selectImgBeard !== FALSE){
-                        echo $selectImgBeard;
-            }?>
-        </div>
-
-        <div id="vetement">
-            <?php $selectImgSweat = getAvatar($db,'sweat', $idUser); ?>
-            <?php if( $selectImgSweat !== FALSE){
-                        echo $selectImgSweat;
-            }?>
-        </div>
+        <div id="ajax"></div>
 
     </div>
     <div class="container g-1">
+
         <div class="sort mb-4 mt-4">
             <label>Selectionner un type d'accessoire : </label>
             <select name="type" id="selectedTypeAccessories" class="form-control" onchange="changeTypeAccessories()">
+                <option value="Choisir un type d'accessoire">Choisir un type d'accessoire</option>
                 <option value="HAIR">Cheveux</option>
                 <option value="MOUTH">Bouche</option>
                 <option value="HAT">Chapeau</option>
@@ -89,6 +51,7 @@ include "../includes/head.php";
                 <option value="SWEAT">Vetement</option>
             </select>
         </div>
+        <button class="btn btn-danger" id="btn_delete" onclick="deleteAccessories()" style="display: none">Supprimer l'accessoire</button>
     </div>
     <div class="container">
     <div id="viewSelectedElement" class="d-flex flex-wrap justify-content-center"></div>

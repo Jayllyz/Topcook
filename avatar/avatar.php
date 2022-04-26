@@ -35,33 +35,45 @@ include "../includes/head.php";
         </div>
         <div id="hat">
             <?php $selectImgHat = getAvatar($db,'hat', $idUser); ?>
-            <?= $selectImgHat ?>
+            <?php if( $selectImgHat !== FALSE){
+                        echo $selectImgHat;
+            }?>
         </div>
 
         <div id="yeux">
             <?php $selectImgEyes = getAvatar($db,'eyes', $idUser); ?>
-            <?= $selectImgEyes ?>
+            <?php if( $selectImgEyes !== FALSE){
+                        echo $selectImgEyes;
+            }?>
         </div>
 
         <div id="bouche">
             <?php $selectImgMouth = getAvatar($db,'mouth', $idUser); ?>
-            <?= $selectImgMouth ?>
+            <?php if( $selectImgMouth !== FALSE){
+                        echo $selectImgMouth;
+            }?>
         </div>
 
 
         <div id="cheveux">
             <?php $selectImgHair = getAvatar($db,'hair', $idUser); ?>
-            <?= $selectImgHair ?>
+            <?php if( $selectImgHair !== FALSE){
+                        echo $selectImgHair;
+            }?>
         </div>
 
         <div id="barbe">
             <?php $selectImgBeard = getAvatar($db,'beard', $idUser); ?>
-            <?= $selectImgBeard ?>
+            <?php if( $selectImgBeard !== FALSE){
+                        echo $selectImgBeard;
+            }?>
         </div>
 
         <div id="vetement">
             <?php $selectImgSweat = getAvatar($db,'sweat', $idUser); ?>
-            <?= $selectImgSweat ?>
+            <?php if( $selectImgSweat !== FALSE){
+                        echo $selectImgSweat;
+            }?>
         </div>
 
     </div>

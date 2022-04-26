@@ -538,10 +538,14 @@ footer {
   height: 320px;
   margin: 0 auto;
 }
-
-#corps {
+#ajax{
   position: absolute;
+}
+#corps {
   left: 0;
+}
+#img_contest_index{
+  border-radius: 35px;
 }
 
 #eyes {

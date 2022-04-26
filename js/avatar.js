@@ -14,13 +14,10 @@ function changeColor(name) {
   request.send();
 }
 
-function activateAvatar(value) {
+function activateAvatar() {
   const request = new XMLHttpRequest();
   request.open("GET", "https://topcook.site/avatar/activateAvatar.php");
   request.onreadystatechange = function () {};
   request.send();
-  console.log(value);
-  if (value === "1") {
-    reloadAvatar();
-  }
+  window.location.reload()
 }

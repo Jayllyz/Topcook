@@ -196,13 +196,40 @@ include "includes/functions.php";
       </div>
 
       <div class="d-flex justify-content-center competition pb-5">
-        <h1 class="align-self-center pe-5"><strong>Concours en cours</strong></h1>
-        <a href=""><img src="https://braindegeek.com/wp-content/uploads/2016/11/concours.png"  class="" width="100%" height="250"></a>
+          <?php
+
+          $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST WHERE date_end > NOW()");
+          $selectContest->execute();
+          $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
+
+          foreach ($resultContest as $contest){
+          $id = $contest["id"];
+          $name = $contest["name"];
+          $description = $contest["description"];
+          $theme = $contest["theme"];
+          $image = $contest["image"];
+          $date_start = $contest["date_start"];
+          $date_end = $contest["date_end"];
+          ?>
+          <div class="timer" id="info_timer">
+              <a href="https://topcook.site/concours" class="text-decoration-none"><h2 class="text-center"><?= $name ?></h2>
+              <img src="uploads/img_contest/<?= $image ?>" alt="<?= $name ?>" id="img_contest_index" class="img-fluid"></a>
+              <p class="fs-3 end_contest">Le concours se termine dans: </p>
+              <div id="timer">
+
+                  <input type="hidden" id="date" value="<?= $date_end ?>">
+                  <div class="days"><span id="days"></span><p>Jours</p></div>
+                  <div class="hours"><span id="hours"></span><p>Heures</p></div>
+                  <div class="minutes"><span id="minutes"></span><p>Minutes</p></div>
+                  <div class="seconds"><span id="seconds"></span><p>Secondes</p></div>
+              </div>
+          </div>
+          <?php } ?>
       </div>
     </main>
 
     <?php include "includes/footer.php"; ?>
-
+    <script src="js/timer.js"></script>
     <?php
     include "includes/scripts.php";
     ?>

@@ -26,8 +26,11 @@ if (isset($_SESSION["id"])) {
       <?php include "includes/message.php"; ?>
       </div>
       <h1 class="pb-3 text-center"><strong>Concours</strong></h1>
-
-      <?php if ($_SESSION["rights"] == 1) { ?>
+        <?php
+        $req = $db->query("SELECT id FROM CONTEST");
+        $nb_contest = $req->rowCount();
+        ?>
+      <?php if ($_SESSION["rights"] == 1 && $nb_contest == 0) { ?>
            <div class="btn_ingredients mb-4">
                  <a href="contest/createContest.php" class="btn">
                        Créer un concours
@@ -43,6 +46,7 @@ if (isset($_SESSION["id"])) {
         $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($resultContest as $contest){
+            $id = $contest["id"];
             $name = $contest["name"];
             $description = $contest["description"];
             $theme = $contest["theme"];
@@ -74,9 +78,8 @@ if (isset($_SESSION["id"])) {
             </div>
         </div>
 
-        <?php } ?>
-
-      <form method="post" action="" id="form_contest">
+      <form method="post" action="verifications/verifications_contest/participation.php?id=<?= $id ?>" id="form_contest" enctype="multipart/form-data">
+          <?php } ?>
           <div class="container col-md-4">
             <label class="control-label"><strong>Votre photo pour participer</strong></label>
             <input type="file" class="form-control" name="image" accept="image/jpeg,image/png"><br>

@@ -41,9 +41,6 @@ function addElement(id){
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
             const resType = request.responseText;
-            if(selectedTypeValue === "----Choisir une option de tri----"){
-                document.getElementById("viewSelectedElement").innerHTML = resType;
-            }
         }
     };
     request.send();

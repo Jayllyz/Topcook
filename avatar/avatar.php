@@ -33,42 +33,35 @@ include "../includes/head.php";
             </svg>
 
         </div>
-
-        <?php
-
-        $selectHat = $db->query("SELECT hat FROM AVATAR WHERE idUser = ".$idUser);
-        $selectHat = $selectHat->fetch(PDO::FETCH_ASSOC);
-        $selectHat = $selectHat['hat'];
-        $selectImgHat = $db->query("SELECT image FROM HAT WHERE id = ".$selectHat);
-        $selectImgHat = $selectImgHat->fetch(PDO::FETCH_ASSOC);
-        $selectImgHat = $selectImgHat['image'];
-
-        
-        ?>
         <div id="hat">
             <?php $selectImgHat = getAvatar($db,'hat', $idUser); ?>
             <?= $selectImgHat ?>
         </div>
 
         <div id="yeux">
-
+            <?php $selectImgEyes = getAvatar($db,'eyes', $idUser); ?>
+            <?= $selectImgEyes ?>
         </div>
 
         <div id="bouche">
-
+            <?php $selectImgMouth = getAvatar($db,'mouth', $idUser); ?>
+            <?= $selectImgMouth ?>
         </div>
 
 
         <div id="cheveux">
-
+            <?php $selectImgHair = getAvatar($db,'hair', $idUser); ?>
+            <?= $selectImgHair ?>
         </div>
 
         <div id="barbe">
-
+            <?php $selectImgBeard = getAvatar($db,'beard', $idUser); ?>
+            <?= $selectImgBeard ?>
         </div>
 
         <div id="vetement">
-
+            <?php $selectImgSweat = getAvatar($db,'sweat', $idUser); ?>
+            <?= $selectImgSweat ?>
         </div>
 
     </div>
@@ -76,7 +69,6 @@ include "../includes/head.php";
         <div class="sort mb-4 mt-4">
             <label>Selectionner un type d'accessoire : </label>
             <select name="type" id="selectedTypeAccessories" class="form-control" onchange="changeTypeAccessories()">
-                <option value="----Choisir une option de tri----">----Choisir une option de tri----</option>
                 <option value="HAIR">Cheveux</option>
                 <option value="MOUTH">Bouche</option>
                 <option value="HAT">Chapeau</option>

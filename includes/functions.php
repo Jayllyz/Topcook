@@ -165,12 +165,13 @@ function getAvatar($db,$type, $idUser){
   $lower = strtolower($type);
   $upper = strtoupper($type);
   
-  $select = $db->query('SELECT ' . $lower . ' FROM AVATAR WHERE idUser = '. $idUser);
+  $select = $db->query("SELECT $lower FROM AVATAR WHERE idUser = ". $idUser);
         $select = $select->fetch(PDO::FETCH_ASSOC);
         $select = $select[$lower];
-        $selectImg = $db->query('SELECT image FROM' . $upper . 'WHERE id = '.$select);
+        $selectImg = $db->query("SELECT image FROM $upper WHERE id = ". $select);
         $selectImg = $selectImg->fetch(PDO::FETCH_ASSOC);
         $selectImg = $selectImg['image'];
+        return $selectImg;
 }
 
 ?>

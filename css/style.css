@@ -540,15 +540,22 @@ footer {
 }
 #ajax{
   position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 #corps {
   left: 0;
+  display: flex;
+  justify-content: center;
 }
 #img_contest_index{
   border-radius: 35px;
 }
 
 #eyes {
+  display: flex;
+  justify-content: center;
   position: absolute;
   z-index: 1;
   width: 100%;

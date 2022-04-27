@@ -27,7 +27,7 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 
 fseek($f, 0);
 
-header("Content-Type: text/pdf; charset=utf-8");
+header("Content-Type: application/pdf; charset=utf-8");
 header('Content-Disposition: attachment; filename="' . $filename . '";');
 
 fpassthru($f);

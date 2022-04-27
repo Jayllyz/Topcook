@@ -68,7 +68,7 @@ include "../includes/head.php";
           "id"
         ] ?>" class="btn card-link text-decoration-none text-dark" id="link-first">Modifier votre profil</a>
         <a href="https://topcook.site/avatar/avatar.php" class="btn mt-3 card-link text-decoration-none text-dark">Créé votre avatar</a>
-        <a class="btn mt-3 card-link text-decoration-none text-dark" id="avatarButton" onclick="activateAvatar()" ><?= $select['avatar'] == 0 ? 'Activer':'Désactiver'?></a>
+        <a class="btn mt-3 card-link text-decoration-none text-dark" id="avatarButton" onclick="activateAvatar()" ><?= $select['avatar'] == 0 ? 'Activer':'Désactiver'?></ad>
         <a href="https://topcook.site/profile/exportData.php" class="btn mt-3 card-link text-decoration-none text-dark">Exporter vos données</a>
     </div>
   </div>

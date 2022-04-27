@@ -7,7 +7,7 @@ $query = $db->query(
     $_SESSION["id"]
 );
 
-$filename = "user-data_" . date("Y-m-d") . ".csv";
+$filename = "user-data_" . date("Y-m-d") . ".pdf";
 
 $f = fopen("php://memory", "w");
 
@@ -27,7 +27,7 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 
 fseek($f, 0);
 
-header("Content-Type: text/csv; charset=utf-8");
+header("Content-Type: text/pdf; charset=utf-8");
 header('Content-Disposition: attachment; filename="' . $filename . '";');
 
 fpassthru($f);

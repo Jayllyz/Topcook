@@ -562,6 +562,9 @@ footer {
 #mouth{
   top: 15px;
 }
+#link-first{
+  margin-left: 13px;
+}
 #hat{
   z-index: 3;
 }

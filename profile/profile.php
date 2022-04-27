@@ -66,9 +66,9 @@ include "../includes/head.php";
         <div class="card-body button_profil">
         <a href="https://topcook.site/profile/update/form_update.php?id=<?= $_SESSION[
           "id"
-        ] ?>" class="btn card-link text-decoration-none text-dark">Modifier votre profil</a>
+        ] ?>" class="btn card-link text-decoration-none text-dark" id="link-first">Modifier votre profil</a>
         <a href="https://topcook.site/avatar/avatar.php" class="btn mt-3 card-link text-decoration-none text-dark">Créé votre avatar</a>
-        <button class="btn mt-3 card-link text-decoration-none text-dark" id="avatarButton" onclick="activateAvatar()" >Activer</button>
+        <button class="btn mt-3 card-link text-decoration-none text-dark" id="avatarButton" onclick="activateAvatar()" ><?= $select['avatar'] == 0 ? 'Activer':'Désactiver'?></button>
         <a href="https://topcook.site/profile/exportData.php" class="btn mt-3 card-link text-decoration-none text-dark">Exporter vos données</a>
     </div>
   </div>

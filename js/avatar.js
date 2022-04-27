@@ -17,7 +17,11 @@ function changeColor(name) {
 function activateAvatar() {
   const request = new XMLHttpRequest();
   request.open("GET", "https://topcook.site/avatar/activateAvatar.php");
-  request.onreadystatechange = function () {};
+  request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200) {
+      location.reload();
+    }
+  };
   request.send();
-  window.location.reload()
+
 }

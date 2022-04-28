@@ -28,6 +28,12 @@ include "../includes/head.php";
             <?php include "../includes/message.php"; ?>
         </div>
             <?php
+            $selectFavorite = $db->query("SELECT idUser, idRecipe FROM FAVORITE_RECIPE WHERE idUser = ".$_SESSION["id"]." AND idRecipe = ".$_GET["id"]);
+            $favorite = $selectFavorite->fetch(PDO::FETCH_ASSOC);
+            $idUserFavorite = $favorite["idUser"];
+            $idRecipeFavorite = $favorite["idRecipe"];
+
+
             $query = $db->prepare(
               "SELECT id, name, images, description, time_prep, time_cooking, nb_persons, type, id_user FROM RECIPE WHERE id = :id"
             );
@@ -61,8 +67,14 @@ include "../includes/head.php";
                         </p>
                     </div>
                 </div>
-
-
+                <?php
+                if($idUserFavorite !== $_SESSION['id']){
+                ?>
+                <button class="btn mb-3" id="add_favorite" onclick="addFavorite(<?=$select['id']?>)">Ajouter aux favoris</button>
+                <?php } else { ?>
+                <button class="btn btn-ban mb-3" id="add_favorite" onclick="removeFavorite(<?=$select['id']?>)">Retirer des favoris</button>
+                <?php } ?>
+                <div id="result_favorite"></div>
                 <p><?= "Description : " . $select["description"] ?></p>
                 <p><?= "Preparation : " . $select["time_prep"] ?> min</p>
                 <p><?= "Cuisson : " . $select["time_cooking"] ?> min</p>
@@ -349,6 +361,7 @@ include "../includes/head.php";
 
         </main>
     <?php include "../includes/footer.php"; ?>
+    <script src="../js/addFavorite.js"></script>
     <?php include "../includes/scripts.php"; ?>
 </body>
 </html>  

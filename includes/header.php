@@ -48,6 +48,11 @@
                       : " " ?>" aria-current="page" href="https://topcook.site/mes-recettes">Mes recettes</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link<?= $title == "TopCook - Mes favoris"
+                      ? $active
+                      : " " ?>" aria-current="page" href="https://topcook.site/recettes-favorites">Mes favoris</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="https://topcook.site/deconnexion.php">Deconnexion</a>
                   </li>
                   <?php } ?>

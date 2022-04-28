@@ -572,8 +572,24 @@ footer {
 #mouth{
   top: 15px;
 }
+#add_favorite{
+  margin: 0 auto;
+}
+.button_profil .modify_avatar{
+  background-color: #035480 !important;
+}
+.button_profil #avatarButton{
+  background-color: #027A92 !important;
+}
+.button_profil #exportData{
+  background-color: #255C15 !important;
+}
+.button_profil a{
+  color: white !important;
+}
 #link-first{
   margin-left: 13px;
+  background-color: #08087B !important;
 }
 #hat{
   z-index: 3;

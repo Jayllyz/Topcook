@@ -28,12 +28,13 @@ include "../includes/head.php";
             <?php include "../includes/message.php"; ?>
         </div>
             <?php
-            $selectFavorite = $db->query("SELECT idUser, idRecipe FROM FAVORITE_RECIPE WHERE idUser = ".$_SESSION["id"]." AND idRecipe = ".$_GET["id"]);
-            $favorite = $selectFavorite->fetch(PDO::FETCH_ASSOC);
-            $idUserFavorite = $favorite["idUser"];
-            $idRecipeFavorite = $favorite["idRecipe"];
+            if(isset($_SESSION['id'])) {
+                $selectFavorite = $db->query("SELECT idUser, idRecipe FROM FAVORITE_RECIPE WHERE idUser = " . $_SESSION["id"] . " AND idRecipe = " . $_GET["id"]);
+                $favorite = $selectFavorite->fetch(PDO::FETCH_ASSOC);
+                $idUserFavorite = $favorite["idUser"];
+                $idRecipeFavorite = $favorite["idRecipe"];
 
-
+            }
             $query = $db->prepare(
               "SELECT id, name, images, description, time_prep, time_cooking, nb_persons, type, id_user FROM RECIPE WHERE id = :id"
             );

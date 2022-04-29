@@ -1,11 +1,11 @@
 <?php
 session_start();
-$idUser = $_SESSION['id'];
+$idUser = $_SESSION["id"];
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
-include '../includes/db.php';
-include '../includes/functions.php';
+include "../includes/db.php";
+include "../includes/functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -62,79 +62,91 @@ include "../includes/head.php";
             <div id="eyes-presentation" class="d-flex flex-wrap justify-content-center">
 
                 <?php
-                $resultEyes = viewElement($db,'EYES');
-                foreach ($resultEyes as $eyes){
-                ?>
+                $resultEyes = viewElement($db, "EYES");
+                foreach ($resultEyes as $eyes) { ?>
                 <div class="eyes-presentation-element col-md-3 accessories me-1 mb-2">
-                    <?= $eyes['image']; ?>
-                    <button class="btn btn-primary" id="<?= $eyes['id']; ?>" onclick="addElement(this.id)">Ajouter</button>
+                    <?= $eyes["image"] ?>
+                    <button class="btn btn-primary" id="<?= $eyes[
+                      "id"
+                    ] ?>" onclick="addElement(this.id)">Ajouter</button>
                 </div>
-                <?php } ?>
+                <?php }
+                ?>
             </div>
             <h2 class="mt-3 mb-3">Chapeau</h2>
             <div id="hat-presentation" class="d-flex flex-wrap justify-content-center">
 
                 <?php
-                $resultHat = viewElement($db,'HAT');
-                foreach ($resultHat as $hat){
-                    ?>
+                $resultHat = viewElement($db, "HAT");
+                foreach ($resultHat as $hat) { ?>
                     <div class="hat-presentation-element col-md-3 accessories me-1 mb-2"">
-                        <?= $hat['image']; ?>
-                        <button class="btn btn-primary" id="<?= $hat['id']; ?>" onclick="addElement(this.id)">Ajouter</button>
+                        <?= $hat["image"] ?>
+                        <button class="btn btn-primary" id="<?= $hat[
+                          "id"
+                        ] ?>" onclick="addElement(this.id)">Ajouter</button>
                     </div>
-                <?php } ?>
+                <?php }
+                ?>
             </div>
             <h2 class="mt-3 mb-3">Barbe</h2>
             <div id="beard-presentation" class="d-flex flex-wrap justify-content-center">
 
                 <?php
-                $resultBeard = viewElement($db,'BEARD');
-                foreach ($resultBeard as $beard){
-                    ?>
+                $resultBeard = viewElement($db, "BEARD");
+                foreach ($resultBeard as $beard) { ?>
                     <div class="beard-presentation-element col-md-3 accessories me-1 mb-2"">
-                        <?= $beard['image']; ?>
-                        <button class="btn btn-primary" id="<?= $beard['id']; ?>" onclick="addElement(this.id)">Ajouter</button>
+                        <?= $beard["image"] ?>
+                        <button class="btn btn-primary" id="<?= $beard[
+                          "id"
+                        ] ?>" onclick="addElement(this.id)">Ajouter</button>
                     </div>
-                <?php } ?>
+                <?php }
+                ?>
             </div>
             <h2 class="mt-3 mb-3">Bouche</h2>
             <div id="mouth-presentation" class="d-flex flex-wrap justify-content-center">
 
                 <?php
-                $resultMouth = viewElement($db,'MOUTH');
-                foreach ($resultMouth as $mouth){
-                    ?>
+                $resultMouth = viewElement($db, "MOUTH");
+                foreach ($resultMouth as $mouth) { ?>
                     <div class="mouth-presentation-element col-md-3 accessories me-1 mb-2"">
-                        <?= $mouth['image']; ?>
-                        <button class="btn btn-primary" id="<?= $mouth['id']; ?>" onclick="addElement(this.id)">Ajouter</button>
+                        <?= $mouth["image"] ?>
+                        <button class="btn btn-primary" id="<?= $mouth[
+                          "id"
+                        ] ?>" onclick="addElement(this.id)">Ajouter</button>
                     </div>
-                <?php } ?>
+                <?php }
+                ?>
             </div>
             <h2 class="mt-3 mb-3">Vetement</h2>
             <div id="sweat-presentation" class="d-flex flex-wrap justify-content-center">
 
                 <?php
-                $resultSweat = viewElement($db,'SWEAT');
-                foreach ($resultSweat as $sweat){
-                    ?>
+                $resultSweat = viewElement($db, "SWEAT");
+                foreach ($resultSweat as $sweat) { ?>
                     <div class="sweat-presentation-element col-md-3 accessories me-1 mb-2"">
-                        <?= $sweat['image']; ?>
-                        <button class="btn btn-primary" id="<?= $sweat['id']; ?>" onclick="addElement(this.id)">Ajouter</button>
+                        <?= $sweat["image"] ?>
+                        <button class="btn btn-primary" id="<?= $sweat[
+                          "id"
+                        ] ?>" onclick="addElement(this.id)">Ajouter</button>
                     </div>
-                <?php } ?>
+                <?php }
+                ?>
             </div>
             <h2 class="mt-3 mb-3">Cheveux</h2>
             <div id="hair-presentation" class="d-flex flex-wrap justify-content-center">
 
                 <?php
-                $resultHair = viewElement($db,'HAIR');
-                foreach ($resultHair as $hair){
-                    ?>
+                $resultHair = viewElement($db, "HAIR");
+                foreach ($resultHair as $hair) { ?>
                     <div class="hair-presentation-element col-md-3 accessories me-1 mb-2">
-                        <?= $hair['image']; ?>
-                        <button class="btn btn-primary" id="<?= $hair['id']; ?>" onclick="addElement(this.id)">Ajouter</button>
+                        <?= $hair["image"] ?>
+                        <button class="btn btn-primary" id="<?= $hair[
+                          "id"
+                        ] ?>" onclick="addElement(this.id)">Ajouter</button>
                     </div>
-                <?php } ?>
+                <?php }
+                ?>
             </div>
         </div>
     </div>
@@ -151,6 +163,12 @@ include "../includes/head.php";
             </select>
             <label class="mt-3">Couleur des yeux</label>
             <select name="colorEyes" id="colorEyes" onchange="changeColor(this.name)" class="form-control">
+                <option value="#00004D">Bleu foncé</option>
+                <option value="brown">Marron</option>
+                <option value="green">Vert</option>
+            </select>
+            <label class="mt-3">Couleur des cheveux</label>
+            <select name="colorHair" id="colorHair" onchange="changeColor(this.name)" class="form-control">
                 <option value="#00004D">Bleu foncé</option>
                 <option value="brown">Marron</option>
                 <option value="green">Vert</option>
@@ -189,8 +207,6 @@ include "../includes/head.php";
 
 <?php include "../includes/footer.php"; ?>
 <script src="../js/changeAccessories.js"></script>
-<?php
-include "../includes/scripts.php";
-?>
+<?php include "../includes/scripts.php"; ?>
 </body>
 </html>

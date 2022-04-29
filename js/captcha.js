@@ -78,7 +78,6 @@ function randomImg() {
   nameSrc = name.src;
   nameSrc = nameSrc.split("/");
   nameSrc = nameSrc[5];
-  console.log(nameSrc);
 
   let tabid = [];
   for (let i = 1; i <= 9; i++) {

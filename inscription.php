@@ -5,7 +5,7 @@ $linkLogoOnglet = "images/topcook_logo.svg";
 $linkCss = "css/style.css";
 $title = "Inscription";
 include "includes/head.php";
-if(isset($_SESSION["id"])) {
+if (isset($_SESSION["id"])) {
   $date = date("d/m/Y H:i:s");
   $log_visit = fopen("log/log_inscription.txt", "a+");
   fputs($log_visit, "Visite de inscription le :");
@@ -17,7 +17,7 @@ if(isset($_SESSION["id"])) {
 }
 ?>
 
-<body onload="randomImg()">
+<body onload="randomCaptcha()">
     <?php include "includes/header.php"; ?>
     <main>
         <h1>Inscription</h1>
@@ -104,15 +104,7 @@ if(isset($_SESSION["id"])) {
                             </div>
                             <div class="modal-body">
                                 <div class="puzzle col-md-8" id="puzzle">
-                                    <img src="images/captcha/minion/1.jpg" id="1" onclick="changeImage(this.src, this.id)">
-                                    <img src="images/captcha/minion/2.jpg" id="2" onclick="changeImage(this.src, this.id)">
-                                    <img src="images/captcha/minion/3.jpg" id="3" onclick="changeImage(this.src, this.id)">
-                                    <img src="images/captcha/minion/4.jpg" id="4" onclick="changeImage(this.src, this.id)">
-                                    <img src="images/captcha/minion/5.jpg" id="5" onclick="changeImage(this.src, this.id)">
-                                    <img src="images/captcha/minion/6.jpg" id="6" onclick="changeImage(this.src, this.id)">
-                                    <img src="images/captcha/minion/7.jpg" id="7" onclick="changeImage(this.src, this.id)">
-                                    <img src="images/captcha/minion/8.jpg" id="8" onclick="changeImage(this.src, this.id)">
-                                    <img src="images/captcha/minion/9.jpg" id="9" onclick="changeImage(this.src, this.id)">
+                                    
 
                                 </div>
                                 <p id="captcha-message" class="text-center"></p>
@@ -130,9 +122,7 @@ if(isset($_SESSION["id"])) {
         </form>
         </div>
     </main>
-    <?php
-    include "includes/scripts.php";
-    ?>
+    <?php include "includes/scripts.php"; ?>
     <script src="js/captcha.js"></script>
     <?php include "includes/footer.php"; ?>
 

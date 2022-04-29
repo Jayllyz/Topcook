@@ -168,15 +168,4 @@ function getAvatar($db, $type, $idUser)
   return $selectImg;
 }
 
-// function readFolders()
-// {
-//   $files = scandir("https://topcook.site/images/captcha/");
-//   $nbFile = count($files);
-//   $tabFolders = [];
-//   for ($i = 0; $i < $nbFile; $i++) {
-//     $tabFolders[$i] = $files[$i];
-//   }
-//   return $tabFolders;
-// }
-
 ?>

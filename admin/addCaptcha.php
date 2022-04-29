@@ -40,7 +40,6 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) {
 
     $destination = $path . "/" . $filename;
     move_uploaded_file($_FILES["image"]["tmp_name"], $destination);
-    include "../includes/resolution.php";
 
     $link = "http://topcook.site/uploads/" . $filename;
     $name = $_POST["captcha"];

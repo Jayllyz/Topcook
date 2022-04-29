@@ -15,14 +15,71 @@ function randomCaptcha() {
   request.open("GET", "../includes/random_captcha.php");
   request.onreadystatechange = function () {
     if (request.readyState === XMLHttpRequest.DONE) {
-      return request.responseText;
+      const res = request.responseText;
+      let div = document.getElementById("puzzle");
+      div.innerHTML = "";
+      let img1 = document.createElement("img");
+      let img2 = document.createElement("img");
+      let img3 = document.createElement("img");
+      let img4 = document.createElement("img");
+      let img5 = document.createElement("img");
+      let img6 = document.createElement("img");
+      let img7 = document.createElement("img");
+      let img8 = document.createElement("img");
+      let img9 = document.createElement("img");
+
+      img1.id = "1";
+      img2.id = "2";
+      img3.id = "3";
+      img4.id = "4";
+      img5.id = "5";
+      img6.id = "6";
+      img7.id = "7";
+      img8.id = "8";
+      img9.id = "9";
+
+      img1.src = "images/captcha/" + res + "/1.jpg";
+      img2.src = "images/captcha/" + res + "/2.jpg";
+      img3.src = "images/captcha/" + res + "/3.jpg";
+      img4.src = "images/captcha/" + res + "/4.jpg";
+      img5.src = "images/captcha/" + res + "/5.jpg";
+      img6.src = "images/captcha/" + res + "/6.jpg";
+      img7.src = "images/captcha/" + res + "/7.jpg";
+      img8.src = "images/captcha/" + res + "/8.jpg";
+      img9.src = "images/captcha/" + res + "/9.jpg";
+
+      img1.setAttribute("onclick", "changeImage(this.src, this.id)");
+      img2.setAttribute("onclick", "changeImage(this.src, this.id)");
+      img3.setAttribute("onclick", "changeImage(this.src, this.id)");
+      img4.setAttribute("onclick", "changeImage(this.src, this.id)");
+      img5.setAttribute("onclick", "changeImage(this.src, this.id)");
+      img6.setAttribute("onclick", "changeImage(this.src, this.id)");
+      img7.setAttribute("onclick", "changeImage(this.src, this.id)");
+      img8.setAttribute("onclick", "changeImage(this.src, this.id)");
+      img9.setAttribute("onclick", "changeImage(this.src, this.id)");
+
+      div.appendChild(img1);
+      div.appendChild(img2);
+      div.appendChild(img3);
+      div.appendChild(img4);
+      div.appendChild(img5);
+      div.appendChild(img6);
+      div.appendChild(img7);
+      div.appendChild(img8);
+      div.appendChild(img9);
+      randomImg();
     }
   };
   request.send();
 }
 
 function randomImg() {
-  $name = randomCaptcha();
+  let name = document.getElementById("1");
+  nameSrc = name.src;
+  nameSrc = nameSrc.split("/");
+  nameSrc = nameSrc[5];
+  console.log(nameSrc);
+
   let tabid = [];
   for (let i = 1; i <= 9; i++) {
     tabid.push(i);
@@ -42,7 +99,7 @@ function randomImg() {
     let srcImg = img.src;
     srcImg = tabid[j];
     j++;
-    img.src = "images/captcha/$name/" + img.id + ".jpg";
+    img.src = "../images/captcha/" + nameSrc + "/" + img.id + ".jpg";
   }
 }
 function verifCaptcha() {

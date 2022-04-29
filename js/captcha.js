@@ -12,7 +12,7 @@ submit.style.display = "none";
 
 function randomCaptcha() {
   let request = new XMLHttpRequest();
-  request.open("GET", "random_captcha.php?id=" + Math.random());
+  request.open("GET", "../includes/random_captcha.php");
   request.onreadystatechange = function () {
     if (request.readyState === XMLHttpRequest.DONE) {
       return request.responseText;

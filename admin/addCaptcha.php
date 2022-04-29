@@ -36,7 +36,7 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) {
     $array = explode(".", $filename);
     $ext = end($array);
 
-    $filename = "image-" . time() . "." . $ext;
+    $filename = "captcha-" . time() . "." . $ext;
 
     $destination = $path . "/" . $filename;
     move_uploaded_file($_FILES["image"]["tmp_name"], $destination);
@@ -44,6 +44,30 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) {
     $link = "http://topcook.site/uploads/" . $filename;
     $name = $_POST["captcha"];
 
+    $image = imagecreatefromjpeg($destination);
+    $width = imagesx($image);
+    $height = imagesy($image);
+
+    $new_width = 630;
+    $new_height = 354;
+
+    $new_image = imagecreatetruecolor($new_width, $new_height);
+    imagecopyresampled(
+      $new_image,
+      $image,
+      0,
+      0,
+      0,
+      0,
+      $new_width,
+      $new_height,
+      $width,
+      $height
+    );
+
+    imagejpeg($new_image, $destination);
+    imagedestroy($new_image);
+    imagedestroy($image);
     cutImg($link, $name);
     header(
       "location: https://topcook.site/admin/admin.php?message=Captcha ajouté avec succès"

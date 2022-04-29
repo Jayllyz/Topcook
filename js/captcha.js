@@ -96,8 +96,6 @@ function randomImg() {
   }
   for (let i = 1; i <= 9; i++) {
     img = document.getElementById(i);
-    let srcImg = img.src;
-    srcImg = tabid[j];
     j++;
     img.src = "../images/captcha/" + nameSrc + "/" + img.id + ".jpg";
   }

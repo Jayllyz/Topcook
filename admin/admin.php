@@ -24,6 +24,7 @@ include "../includes/head.php";
             <a href="https://topcook.site/admin/logsRead.php" class="btn mb-4">Consulter les logs</a>
             <a href="https://topcook.site/admin/reportRead.php" class="btn ms-4 mb-4">Consulter les signalements</a>
             <a href="users/exportDataAllUsers.php" class="btn ms-4 mb-4">Exporter les données</a>
+            <a type="button" class="btn ms-4 mb-4" data-bs-toggle="modal" data-bs-target="#addCaptcha">Ajouter une image Captcha</a>
         </div>
         <table class="table text-center table-bordered table-hover" id="active">
             <thead>
@@ -130,6 +131,28 @@ include "../includes/head.php";
             <?php }
             ?>
         </table>
+    </div>
+
+
+    <div class="modal fade" id="addCaptcha" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ajouter une image Captcha</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="addCaptcha.php" method="post" enctype="multipart/form-data">
+                    <div class="container col-md-8">
+                        <input type="text" name="captcha" placeholder="Nom de l'image" required>
+                        <input type="file" class="form-control" name="image" required>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" name="submit" value="Valider" class="btn btn-success">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     </main>

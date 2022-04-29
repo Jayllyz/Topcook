@@ -43,13 +43,10 @@ function moreViewsRecipe()
   return $newFileMax;
 }
 
-
-
 function cutImg($linkImg, $nameFolder)
 {
   $countC = 1;
   $countL = 1;
-
 
   $img = imagecreatefromjpeg($linkImg);
   $largeur = imagesx($img);
@@ -58,9 +55,7 @@ function cutImg($linkImg, $nameFolder)
   $hauteur_partie = $hauteur / 3;
   $partie = imagecreatetruecolor($largeur_partie, $hauteur_partie);
   for ($i = 0; $i < 3; $i++) {
-
     for ($j = 0; $j < 3; $j++) {
-
       imagecopy(
         $partie,
         $img,
@@ -82,9 +77,8 @@ function cutImg($linkImg, $nameFolder)
       $countL += 3;
       imagejpeg($partie, $dir);
     }
-    $countC +=1;
+    $countC += 1;
     $countL = $countC;
-
   }
   imagejpeg($img, "image_build.jpg");
   imagedestroy($img);
@@ -102,7 +96,6 @@ function likesArray($type)
     for ($j = 0; $j < $nbLines; $j++) {
       $line = explode(" ", $Alllines[$j]);
       $date = explode("/", $line[3]);
-
 
       if ($date[1] == date("m") && $date[2] == date("Y")) {
         $nbLikes++;
@@ -124,16 +117,13 @@ function topLikesRecipesMonth()
     $arrayLikes[$key] = $value - $arrayDislikes[$key];
   }
 
-
   arsort($arrayLikes);
 
   return array_slice($arrayLikes, 0, 4);
-
-
 }
 
-
-function banword($banlist,$text){
+function banword($banlist, $text)
+{
   $banlist = file_get_contents($banlist); //on récupère la liste de mots bannis
 
   $tabBan = explode("\n", $banlist); //on la transforme en tableau
@@ -155,26 +145,40 @@ function banword($banlist,$text){
   return $text;
 }
 
-function viewElement($db,$table){
-  $select = $db->query("SELECT id, image FROM ".$table);
+function viewElement($db, $table)
+{
+  $select = $db->query("SELECT id, image FROM " . $table);
   return $select->fetchAll(PDO::FETCH_ASSOC);
-
 }
 
-function getAvatar($db,$type, $idUser){
+function getAvatar($db, $type, $idUser)
+{
   $lower = strtolower($type);
   $upper = strtoupper($type);
-  
-  $select = $db->query("SELECT $lower FROM AVATAR WHERE idUser = ". $idUser);
-        $select = $select->fetch(PDO::FETCH_ASSOC);
-        $result = $select[$lower];
-        if($result === NULL){
-          return false;
-        }
-        $selectImg = $db->query("SELECT image FROM $upper WHERE id = ". $result);
-        $selectImg = $selectImg->fetch(PDO::FETCH_ASSOC);
-        $selectImg = $selectImg['image'];
-        return $selectImg;
+
+  $select = $db->query("SELECT $lower FROM AVATAR WHERE idUser = " . $idUser);
+  $select = $select->fetch(PDO::FETCH_ASSOC);
+  $result = $select[$lower];
+  if ($result === null) {
+    return false;
+  }
+  $selectImg = $db->query("SELECT image FROM $upper WHERE id = " . $result);
+  $selectImg = $selectImg->fetch(PDO::FETCH_ASSOC);
+  $selectImg = $selectImg["image"];
+  return $selectImg;
+}
+
+function readFolders()
+{
+  $files = scandir("https://topcook.site/images/captcha/");
+  $nbFile = count($files);
+  $tabFolders = [];
+  for ($i = 0; $i < $nbFile; $i++) {
+    if ($files[$i] != "." && $files[$i] != "..") {
+      $tabFolders[] = $files[$i];
+    }
+  }
+  return $tabFolders;
 }
 
 ?>

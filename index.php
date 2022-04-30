@@ -93,7 +93,7 @@ include "includes/functions.php";
                         $recipeNameMonth .
                         '">' ?>
                         <div class="card-body">
-                            <h5 class="card-title"><?= $recipeNameMonth ?> par <em><strong><?= $creatorRecipe ?></strong></em></h5>
+                            <h5 class="card-title"><?= $recipeNameMonth ?><br> par <em><strong><?= $creatorRecipe ?></strong></em></h5>
                             <p class="card-text col-12 text-truncate"><?= $recipeDescriptionMonth ?></p>
                             <a href="recipes/recipe.php?id=<?= $recipeIdMonth ?>&name=<?= $recipeNameMonth ?>" class="btn see_more">Voir d'avantage</a>
                         </div>
@@ -131,7 +131,7 @@ include "includes/functions.php";
               $select["names"] .
               '">' ?>
               <div class="card-body">
-                <h5 class="card-title"><?= $select["name"] ?> par <em><strong><?= $creatorRecipe ?></strong></em></h5>
+                <h5 class="card-title"><?= $select["name"] ?><br> par <em><strong><?= $creatorRecipe ?></strong></em></h5>
                 <p class="card-text col-12 text-truncate"><?= $select[
                   "description"
                 ] ?></p>

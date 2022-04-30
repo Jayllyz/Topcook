@@ -117,7 +117,6 @@ if (isset($_SESSION["id"])) {
                 </div>
 
             <div id="validate-captcha"></div>
-            <button type="submit" name="submit" id="submit" class="btn btn-success">Envoyer</button>
             
         </form>
         </div>

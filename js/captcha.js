@@ -3,12 +3,10 @@ let temp_id = [];
 let result_images = [];
 let verify_images = [];
 let compteurForCaptcha = 0;
-let submit = document.getElementById("submit");
 let p = document.getElementById("captcha-message");
 let captchaBtn = document.getElementById("captcha-btn");
 let validateCaptcha = document.getElementById("validate-captcha");
 validateCaptcha.innerHTML = "";
-submit.style.display = "none";
 
 function randomCaptcha() {
   let request = new XMLHttpRequest();
@@ -141,7 +139,13 @@ function changeImage(src_image, id_image) {
     temp_src = [];
     temp_id = [];
     if (verifCaptcha() === true) {
-      submit.style.display = "block";
+      const sumbit = document.createElement("input");
+      sumbit.setAttribute("type", "submit");
+      sumbit.setAttribute("name", "submit");
+      sumbit.setAttribute("id", "submit");
+      sumbit.setAttribute("class", "btn btn-success");
+      sumbit.innerHTML = "Envoyer";
+      document.getElementById("form").appendChild(sumbit);
       p.innerHTML = "Validé";
       captchaBtn.style.display = "none";
       validateCaptcha.innerHTML =

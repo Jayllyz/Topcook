@@ -58,9 +58,10 @@ function timer() {
     divDays.innerHTML = days;
     divSeconds.innerHTML = seconds;
 
-    if(divDays.innerHTML === "0" && divHours.innerHTML === "0" && divMinutes.innerHTML === "0" && divSeconds.innerHTML === "0"){
+    if(divDays.innerHTML === "00" && divHours.innerHTML === "00" && divMinutes.innerHTML === "00" && divSeconds.innerHTML === "00"){
         info_timer.innerHTML = "<p class='text-center fs-3'>Inscriptions terminés !</p>";
         form_contest.innerHTML = "<div class='container'><p class='alert alert-warning'>Les inscriptions sont fermées</p></div>";
     }
+
 }
 setInterval(timer, 1000);

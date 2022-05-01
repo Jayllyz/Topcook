@@ -95,6 +95,7 @@ function likesArray($type)
   }
   $nbFile = count($files);
   $nbLikes = 0;
+  $tabLikes = [];
   for ($i = 0; $i < $nbFile; $i++) {
     $nbLikes = 0;
     $Alllines = file("log/recipe_$type/" . $files[$i]);
@@ -105,11 +106,12 @@ function likesArray($type)
 
       if ($date[1] == date("m") && $date[2] == date("Y")) {
         $nbLikes++;
+
         $tabLikes[$files[$i]] = $nbLikes;
       }
     }
   }
-  var_dump($tabLikes);
+
   return $tabLikes;
 }
 

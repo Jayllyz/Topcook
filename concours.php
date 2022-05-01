@@ -41,7 +41,7 @@ if (isset($_SESSION["id"])) {
 
         <?php
 
-        $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST WHERE date_end > NOW()");
+        $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST");
         $selectContest->execute();
         $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 
@@ -55,7 +55,7 @@ if (isset($_SESSION["id"])) {
             $date_end = $contest["date_end"];
             ?>
         <div class="timer" id="info_timer">
-            <p class="fs-3 end_contest">Le concours se termine dans: </p>
+            <p class="fs-3 end_contest" id="end-contest">Le concours se termine dans: </p>
             <div id="timer">
 
                 <input type="hidden" id="date" value="<?= $date_end ?>">

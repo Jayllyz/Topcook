@@ -197,11 +197,16 @@ require "includes/functions.php";
         </table>
       </div>
 
-      <div class="d-flex justify-content-center competition pb-5">
+      <div class="d-flex justify-content-center competition pb-5" id="competition">
           <?php
+<<<<<<< Updated upstream
           $selectContest = $db->prepare(
             "SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST WHERE date_end > NOW()"
           );
+=======
+
+          $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST");
+>>>>>>> Stashed changes
           $selectContest->execute();
           $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 
@@ -218,7 +223,7 @@ require "includes/functions.php";
           <div class="timer" id="info_timer">
               <a href="https://topcook.site/concours" class="text-decoration-none"><h2 class="text-center"><?= $name ?></h2>
               <img src="uploads/img_contest/<?= $image ?>" alt="<?= $name ?>" id="img_contest_index" class="img-fluid"></a>
-              <p class="fs-3 end_contest">Le concours se termine dans: </p>
+              <p class="fs-3 end_contest" id="end-contest">Le concours se termine dans: </p>
               <div id="timer">
 
                   <input type="hidden" id="date" value="<?= $date_end ?>">

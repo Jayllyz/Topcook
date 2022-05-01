@@ -48,6 +48,7 @@
 html.is-animating .transition-fade {
   opacity: 0;
 }
+
 html {
   font-size: 16px;
   scroll-behavior: smooth;

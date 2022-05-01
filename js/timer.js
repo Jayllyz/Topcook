@@ -57,11 +57,19 @@ function timer() {
     divHours.innerHTML = hours;
     divDays.innerHTML = days;
     divSeconds.innerHTML = seconds;
+    if(gab < 0) {
+        divHours.innerHTML = "00";
+        divMinutes.innerHTML = "00";
+        divSeconds.innerHTML = "00";
+        divDays.innerHTML = "00";
+        divDays.classList.remove("animated");
+        divHours.classList.remove("animated");
+        divMinutes.classList.remove("animated");
+        divSeconds.classList.remove("animated");
+        document.getElementById("end-contest").innerHTML = "<p class='fs-3 end_contest'>Concours terminé !</p>";
 
-    if(divDays.innerHTML === "00" && divHours.innerHTML === "00" && divMinutes.innerHTML === "00" && divSeconds.innerHTML === "00"){
-        info_timer.innerHTML = "<p class='text-center fs-3'>Inscriptions terminés !</p>";
-        form_contest.innerHTML = "<div class='container'><p class='alert alert-warning'>Les inscriptions sont fermées</p></div>";
     }
 
 }
 setInterval(timer, 1000);
+

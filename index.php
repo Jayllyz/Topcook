@@ -199,14 +199,11 @@ require "includes/functions.php";
 
       <div class="d-flex justify-content-center competition pb-5" id="competition">
           <?php
-<<<<<<< Updated upstream
           $selectContest = $db->prepare(
             "SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST WHERE date_end > NOW()"
           );
-=======
 
           $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST");
->>>>>>> Stashed changes
           $selectContest->execute();
           $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 

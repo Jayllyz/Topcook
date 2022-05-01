@@ -86,7 +86,13 @@ function cutImg($linkImg, $nameFolder)
 
 function likesArray($type)
 {
-  $files = scandir("log/recipe_$type/");
+  $getFiles = scandir("log/recipe_$type/");
+  $nbFile = count($getFiles);
+  for ($i = 0; $i < $nbFile; $i++) {
+    if ($getFiles[$i] != "." && $getFiles[$i] != "..") {
+      $files[] = $getFiles[$i];
+    }
+  }
   $nbFile = count($files);
   $nbLikes = 0;
   for ($i = 0; $i < $nbFile; $i++) {
@@ -103,7 +109,7 @@ function likesArray($type)
       }
     }
   }
-
+  var_dump($tabLikes);
   return $tabLikes;
 }
 

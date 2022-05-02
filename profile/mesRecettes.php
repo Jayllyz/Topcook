@@ -51,7 +51,9 @@ include "../includes/head.php";
                 <?php
                   }
                 } else {
-                  echo '<h3 class="text-center mt-3 text-dark">Vous n\'avez pas encore de recette</h3>';
+                        echo "<div class='container'>";
+                        echo "<p class='fs-3 text-center alert alert-warning'> Vous n'avez pas de recettes</p>";
+                        echo "</div>";
                 } ?>
             
             </div>

@@ -91,6 +91,7 @@ include "../includes/head.php";
                 $resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
                 ?>
                 <div class="d-flex flex-row">
+
                     <p class="pe-3 fs-4"><?= $resultLike ?></p>
 
                     <?php
@@ -113,9 +114,9 @@ include "../includes/head.php";
                     <?php } else { ?>
                     <a href="unlike.php?id=<?= $select[
                       "id"
-                    ] ?>&name=<?= $select["name"] ?>">
-                        <img src="../images/like.svg" class="validate" width="30"></a>
+                    ] ?>&name=<?= $select["name"] ?>"><img src="../images/like.svg" class="liked" width="30"></a>
                     <?php } ?>
+
                 </div>
 
                 <?php if (

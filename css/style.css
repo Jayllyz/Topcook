@@ -451,9 +451,8 @@ footer {
   color: #af2c10;
   font-weight: bold;
 }
-.validate {
-  filter: invert(21%) sepia(91%) saturate(2428%) hue-rotate(211deg)
-    brightness(89%) contrast(109%);
+.liked {
+  filter: invert(21%) sepia(91%) saturate(2428%) hue-rotate(211deg) brightness(89%) contrast(109%);
 }
 #img_profil {
   margin: 0 auto;
@@ -632,6 +631,34 @@ footer {
   justify-content: center;
   margin: 15px;
 
+}
+.add_captcha{
+  background-color: #155C58 !important;
+}
+.exportData{
+  background-color: #01255F !important;
+}
+.report{
+  background-color: #C9330A !important;
+}
+.logs{
+  background-color: #068E0C !important;
+}
+.add_captcha, .exportData, .report, .logs{
+  transition: 0.5s !important;
+}
+.add_captcha:hover, .exportData:hover, .report:hover, .logs:hover{
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.comment_report{
+  background-color: #3B878C !important;
+}
+.msg_report{
+  background-color: #068E0C !important;
+}
+.recipe_report{
+  background-color: #C9330A !important;
 }
 #timer p{
   margin: 10px;

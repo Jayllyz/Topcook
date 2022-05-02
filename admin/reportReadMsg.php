@@ -20,8 +20,8 @@ include "../includes/head.php";
 <h1 class="pb-3">Liste des signalements des messages</h1>
 <div class="container">
 <div id="logs">
-            <a href="https://topcook.site/admin/reportReadCom.php" class="btn mb-4">Commentaires signalés</a>
-            <a href="https://topcook.site/admin/reportRead.php" class="btn ms-4 mb-4">Recettes signalés</a>
+            <a href="https://topcook.site/admin/reportReadCom.php" class="btn mb-4 comment_report">Commentaires signalés</a>
+            <a href="https://topcook.site/admin/reportRead.php" class="btn ms-4 mb-4 recipe_report">Recettes signalés</a>
             
         </div>
     <table class="table text-center table-bordered table-hover" id="active">

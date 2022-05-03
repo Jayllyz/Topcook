@@ -20,7 +20,7 @@ $linkCss = "../css/style.css";
 $title = "";
 include "../includes/head.php";
 ?>
-<body>
+<body onload="countLike(<?= $_GET['id'] ?>)">
 
     <?php include "../includes/header.php"; ?>
         <main>
@@ -81,41 +81,12 @@ include "../includes/head.php";
                 <p><?= "Preparation : " . $select["time_prep"] ?> min</p>
                 <p><?= "Cuisson : " . $select["time_cooking"] ?> min</p>
                 <p><?= "Type : " . $select["type"] ?></p>
-                <?php
-                $selectLike = $db->prepare(
-                  "SELECT votes FROM LIKES WHERE id_recipe = :id_recipe"
-                );
-                $selectLike->execute([
-                  "id_recipe" => $select["id"],
-                ]);
-                $resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
-                ?>
+
                 <div class="d-flex flex-row">
-
-                    <p class="pe-3 fs-4"><?= $resultLike ?></p>
-
-                    <?php
-                    $selectCount = $db->prepare(
-                      "SELECT count(id) FROM LIKES WHERE id_user = :id_user AND id_recipe = :id_recipe"
-                    );
-                    $selectCount->execute([
-                      "id_user" => $_SESSION["id"],
-                      "id_recipe" => $select["id"],
-                    ]);
-                    $count = $selectCount->fetch(PDO::FETCH_NUM);
-                    ?>
-
-                    <?php if (!isset($_SESSION["id"]) || $count[0] == 0) { ?>
-                        <a href="like.php?id=<?= $select[
-                          "id"
-                        ] ?>&name=<?= $select[
-  "name"
-] ?>"><img src="../images/like.svg" width="30"></a>
-                    <?php } else { ?>
-                    <a href="unlike.php?id=<?= $select[
-                      "id"
-                    ] ?>&name=<?= $select["name"] ?>"><img src="../images/like.svg" class="liked" width="30"></a>
-                    <?php } ?>
+                    <div id="like">
+                        <img src="../images/like.svg" id="isLiked" alt="like" width="30" height="30" onclick="like(<?= $select['id'] ?>)">
+                    </div>
+                    <p class="pe-3 fs-4" id="result_like"></p>
 
                 </div>
 
@@ -363,6 +334,7 @@ include "../includes/head.php";
                 </div>
 
         </main>
+    <script src="../js/likes.js"></script>
     <?php include "../includes/footer.php"; ?>
     <script src="../js/addFavorite.js"></script>
     <?php include "../includes/scripts.php"; ?>

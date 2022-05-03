@@ -84,11 +84,23 @@ include "../includes/head.php";
 
                 <div class="d-flex flex-row">
                     <div id="like">
-                        <img src="../images/like.svg" id="isLiked" alt="like" width="30" height="30" onclick="like(<?= $select['id'] ?>)">
+                        <?php
+                        if(isset($_SESSION['id'])) {
+                            $selectIdUserIfLike = $db->query("SELECT id_user FROM LIKES WHERE id_user = " . $_SESSION["id"] . " AND id_recipe = " . $_GET["id"]);
+                            $idUserIfLike = $selectIdUserIfLike->fetch(PDO::FETCH_ASSOC);
+                            $idUserIfLike = $idUserIfLike["id_user"];
+
+                        ?>
+                        <img src="../images/like.svg" id="isLiked" alt="like" width="30" class="<?= $idUserIfLike == $_SESSION['id'] ? 'liked' : '' ?>" height="30" onclick="like(<?= $select['id'] ?>)">
+                        <?php } else { ?>
+                        <img src="../images/like.svg" alt="like" width="30" class="notLiked" height="30" onclick="errorLike()">
+                        <?php } ?>
                     </div>
-                    <p class="pe-3 fs-4" id="result_like"></p>
+                    <p class="ps-3 fs-4" id="result_like"></p>
 
                 </div>
+                <div id="error_like"></div>
+
 
                 <?php if (
                   $_SESSION["rights"] == 1 ||

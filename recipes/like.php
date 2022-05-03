@@ -21,6 +21,7 @@ if($resultLike == 1){
         "id_recipe" => $id,
         "id_user" => $_SESSION["id"],
     ]);
+    echo "<img src='../images/like.svg' id='isLiked' alt='like' width='30' height='30' onclick='like($id)'>";
 }else{
     $req = $db->prepare(
         "INSERT INTO LIKES (votes, id_recipe, id_user )VALUES( :votes , :id_recipe , :id_user)"
@@ -30,6 +31,7 @@ if($resultLike == 1){
         "id_recipe" => $id,
         "id_user" => $_SESSION["id"],
     ]);
+    echo "<img src='../images/like.svg' id='isLiked' alt='like' width='30' height='30' class='liked' onclick='like($id)'>";
 }
 
 

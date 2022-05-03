@@ -7,6 +7,7 @@ function countLike(id){
         }
     };
     request.send();
+
 }
 
 function like(id){
@@ -15,9 +16,14 @@ function like(id){
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-            
+            document.getElementById("like").innerHTML = request.responseText;
+            countLike(id);
+
         }
     };
     request.send('id=' + id);
-    countLike(id);
+
+}
+function errorLike(){
+    document.getElementById("error_like").innerHTML = "<p class=\"pe-3 fs-4 alert alert-danger\">Vous devez être connecté pour aimer une recette</p>";
 }

@@ -7,7 +7,7 @@ include "../includes/db.php";
 include "../includes/functions.php";
 $idUser = $_SESSION['id'];
 
-    $avatar = $db->query("SELECT colorBody, colorHair, colorEyes, colorHat, colorSweet, colorMouth, colorBeard, hat, hair, eyes, mouth, sweat FROM AVATAR WHERE idUser = ".$idUser);
+    $avatar = $db->query("SELECT colorBody, colorHair, colorEyes, colorHat, colorSweet, colorBeard, hat, hair, eyes, mouth, sweat FROM AVATAR WHERE idUser = ".$idUser);
     $avatar = $avatar->fetch();
     $selectImgHat = getAvatar($db,'hat', $idUser);
     $selectImgHair = getAvatar($db,'hair', $idUser);

@@ -238,11 +238,21 @@ include "../includes/head.php";
                     <th>Message</th>
                     <th>Date</th>
                     <?php if (isset($_SESSION["id"])) { ?>
-                    <th>Signaler</th>
+                    <th id="th-report">Signaler</th>
                     <?php } ?>
-                    <?php if (
+                    <?php
+                    $selectIdUserRecipeMsg = $db->prepare("SELECT COUNT(id) FROM COMMENTAIRE WHERE id_recipe = :id_recipe AND id_user = :id_user");
+                    $selectIdUserRecipeMsg->execute([
+                      "id_recipe" => htmlspecialchars($_GET["id"]),
+                      "id_user" => $_SESSION["id"],
+                    ]);
+                    $resultIdUserRecipeMsg = $selectIdUserRecipeMsg->fetch(PDO::FETCH_NUM);
+
+                    if (
                       $_SESSION["rights"] == 1 ||
-                      $resultUserCreateRecipe["id_user"] == $_SESSION["id"]
+                      $resultUserCreateRecipe["id_user"] == $_SESSION["id"] ||
+                      $resultIdUserRecipeMsg[0] > 0
+
                     ) { ?>
                     <th>Supprimer</th>
                           <?php } ?>
@@ -297,7 +307,8 @@ include "../includes/head.php";
                                         ] ?></td>
                                         <?php if (
                                             isset($_SESSION["id"]) &&
-                                            $selectReportCom[0] == 0
+                                            $selectReportCom[0] == 0 &&
+                                            $_SESSION["id"] != $message["id_user"]
                                         ) { ?>
                                         <td>
 
@@ -306,16 +317,20 @@ include "../includes/head.php";
                                           ] ?>&id_comment=<?= $message[
   "id"
 ] ?>&id_recipe=<?= htmlspecialchars($_GET["id"]) ?>" 
-                                          class="btn btn-danger">Signaler</a></td>
+                                          class="btn btn-danger" id="report-btn">Signaler</a></td>
 
                                         </td>
 
+                                        <?php } else { ?>
+                                        <td>
+                                          <a href="#"></a>
+                                        </td>
                                         <?php } ?>
                                         <?php if (isset($_SESSION["id"])) { ?>
                                         <td>
                                         <?php if (
                                           $_SESSION["rights"] == 1 ||
-                                          $resultUserCreateRecipe["id_user"] ==
+                                          $message["id_user"] ==
                                             $_SESSION["id"]
                                         ) { ?>
                                           <a href="../admin/comment/delete_comment.php?name_recipe=<?= $select[
@@ -345,6 +360,13 @@ include "../includes/head.php";
                 </div>
 
         </main>
+    <script>
+        const reportBtn = document.getElementById("report-btn");
+        const thReport = document.getElementById("th-report");
+        if(typeof reportBtn === 'undefined' || reportBtn === null) {
+            thReport.remove();
+        }
+    </script>
     <script src="../js/likes.js"></script>
     <?php include "../includes/footer.php"; ?>
     <script src="../js/addFavorite.js"></script>

@@ -107,8 +107,7 @@ include "../includes/head.php";
                     <th>Signaler</th>
                     <?php } ?>
                     <?php if (
-                      $_SESSION["rights"] == 1 ||
-                      $id_creator == $_SESSION["id"]
+                      $_SESSION["rights"] == 1
                     ) { ?>
                     <th>Supprimer</th>
                           <?php } ?>

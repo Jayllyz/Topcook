@@ -1,10 +1,20 @@
 <?php
 session_start();
-include '../includes/db.php';
-$idUser = $_SESSION['id'];
-$nameCol = htmlspecialchars($_GET['nameCol']);
-$color = htmlspecialchars($_GET['color']);
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
+include "../includes/db.php";
+$idUser = $_SESSION["id"];
+$colorBody = $_POST["colorBody"];
+$colorHair = $_POST["colorHair"];
+$colorHat = $_POST["colorHat"];
+$colorSweat = $_POST["colorSweat"];
+$colorEyes = $_POST["colorEyes"];
+$colorBeard = $_POST["colorBeard"];
 
-$updateColor = $db->query("UPDATE AVATAR SET $nameCol = '$color' WHERE idUser = ". $idUser);
+$updateColor = $db->query(
+  "UPDATE AVATAR SET colorBody = '$colorBody', colorHair = '$colorHair' , colorHat = '$colorHat' , colorSweet = '$colorSweat' , colorEyes = '$colorEyes' , colorBeard = '$colorBeard' WHERE idUser = " .
+    $idUser
+);
 
 ?>

@@ -37,7 +37,30 @@ include "../includes/head.php";
         <div id="ajax"></div>
 
     </div>
+    
     <div class="container g-1">
+
+    <div class="container pt-4">
+        <div class="select">
+        
+            <!-- <label>Couleur du corps</label>
+                <input type="color" id="colorBody"  class="form-control"> -->
+            <label>Couleur du body</label>
+                <input type="color" id="colorBody"  class="form-control">
+            <label class="mt-3">Couleur des yeux</label>
+                <input type="color" id="colorEyes"  class="form-control">
+            <label class="mt-3">Couleur des cheveux</label>
+                <input type="color" id="colorHair"  class="form-control">
+            <label class="mt-3">Couleur du chapeau</label>
+                <input type="color" id="colorHat"  class="form-control"> 
+            <label class="mt-3">Couleur du vetement</label>
+             <input type="color" id="colorSweat"  class="form-control">
+            <label class="mt-3">Couleur de la barbe</label>
+                <input type="color" id="colorBeard"  class="form-control">
+            <input type="button" value="Enregistrer" class="btn btn-primary mt-3" onclick="changeColor()">
+
+        </div>
+    </div>
 
         <div class="sort mb-4 mt-4">
             <label>Selectionner un type d'accessoire : </label>
@@ -151,52 +174,6 @@ include "../includes/head.php";
         </div>
     </div>
 
-
-    <div class="container pt-4">
-        <div class="select">
-        <!-- form envoie de l'image -->
-            <label>Couleur du corps</label>
-            <select name="colorBody" id="colorBody" onchange="changeColor(this.name)" class="form-control">
-                <option value="#F5CDD3" style="background-image: url('../images/topcook_logo.svg')">Beige</option>
-                <option value="brown">Marron</option>
-                <option value="green">Vert</option>
-            </select>
-            <label class="mt-3">Couleur des yeux</label>
-            <select name="colorEyes" id="colorEyes" onchange="changeColor(this.name)" class="form-control">
-                <option value="#00004D">Bleu foncé</option>
-                <option value="brown">Marron</option>
-                <option value="green">Vert</option>
-            </select>
-            <label class="mt-3">Couleur des cheveux</label>
-            <select name="colorHair" id="colorHair" onchange="changeColor(this.name)" class="form-control">
-                <option value="#00004D">Bleu foncé</option>
-                <option value="brown">Marron</option>
-                <option value="green">Vert</option>
-            </select>
-            <label class="mt-3">Couleur du chapeau</label>
-            <select name="colorHat" id="colorHat" onchange="changeColor(this.name)" class="form-control">
-                <option value="#2384F5">Bleu clair</option>
-                <option value="brown">Marron</option>
-                <option value="green">Vert</option>
-            </select>
-
-            <label class="mt-3">Couleur du vetement</label>
-            <select name="colorSweet" id="colorSweet" onchange="changeColor(this.name)" class="form-control">
-                <option value="#80C43B">Vert clair</option>
-                <option value="brown">Marron</option>
-                <option value="green">Vert</option>
-            </select>
-        
-            <label class="mt-3">Couleur de la barbe</label>
-            <select id="colorBeard" name="colorBeard" onchange="changeColor(this.name)" class="form-control">
-                <option value="#00004D">Bleu foncé</option>
-                <option value="brown">Marron</option>
-                <option value="green">Vert</option>
-            </select>
-
-
-        </div>
-    </div>
 </div>
 </main>
 

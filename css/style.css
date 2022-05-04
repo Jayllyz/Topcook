@@ -37,8 +37,6 @@
 * {
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
-
-
 }
 .transition-fade {
   transition: 0.4s;
@@ -56,17 +54,16 @@ html {
 nav {
   background-color: #f8f9fa;
   transition: 0.5s;
-
 }
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   transition: 0.5s;
-
 }
 h1,
-h3, h2 {
+h3,
+h2 {
   color: #fd891c !important;
   text-align: center;
 }
@@ -138,7 +135,7 @@ nav ul li a:before {
 .btn {
   background-color: orange !important;
 }
-.btn-danger{
+.btn-danger {
   background-color: #dc3545 !important;
 }
 .btn-search {
@@ -161,48 +158,50 @@ nav ul li a:before {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #E67D0E;
+  background-color: #e67d0e;
   border-radius: 30px;
   transition: all 0.5s;
   z-index: -1;
-
 }
-#see_more_btn{
+#see_more_btn {
   border-radius: 15px;
 }
-#see_more_btn::before{
+#see_more_btn::before {
   content: "";
   position: absolute;
   right: 215px;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #E67D0E;
+  background-color: #e67d0e;
   border-radius: 15px;
   transition: all 0.5s;
   z-index: -1;
 }
-.see_more, #see_more_btn{
+.see_more,
+#see_more_btn {
   z-index: 0;
   position: relative;
   overflow: hidden;
   color: white;
-
 }
-.see_more:hover, #see_more_btn:hover{
-  border: 1px solid #E67D0E !important;
+.see_more:hover,
+#see_more_btn:hover {
+  border: 1px solid #e67d0e !important;
 }
-.see_more:hover::before, #see_more_btn:hover::before{
+.see_more:hover::before,
+#see_more_btn:hover::before {
   right: 0;
-
 }
-.btn{
+.btn {
   color: white !important;
 }
-.btn-success, .btn-danger{
+.btn-success,
+.btn-danger {
   border-color: transparent !important;
 }
-.btn-success:hover, .btn-danger:hover{
+.btn-success:hover,
+.btn-danger:hover {
   border-color: transparent !important;
 }
 #see_more_btn {
@@ -226,7 +225,7 @@ footer {
   padding: 1rem;
 }
 
-#moon{
+#moon {
   cursor: pointer;
 }
 
@@ -242,14 +241,13 @@ footer {
   text-decoration: none;
   color: white;
 }
-.allrecipes{
+.allrecipes {
   transition: 0.5s;
   border-radius: 35px;
 }
-.allrecipes:hover{
+.allrecipes:hover {
   transition: 0.5s;
   box-shadow: 0 0 0 5px #f98400;
-
 }
 .btn-read {
   background-color: #089f58 !important;
@@ -452,16 +450,17 @@ footer {
   font-weight: bold;
 }
 .liked {
-  filter: invert(21%) sepia(91%) saturate(2428%) hue-rotate(211deg) brightness(89%) contrast(109%);
+  filter: invert(21%) sepia(91%) saturate(2428%) hue-rotate(211deg)
+    brightness(89%) contrast(109%);
 }
-#div-voted{
+#div-voted {
   display: flex;
 }
-#btn-voted{
+#btn-voted {
   width: 50%;
   margin: 0 auto;
 }
-#favorite{
+#favorite {
   margin: 0 auto;
 }
 #img_profil {
@@ -484,7 +483,7 @@ footer {
   transform: scale(1.1);
   transition: 0.5s;
 }
-#img-participate{
+#img-participate {
   justify-content: space-around;
 }
 .sort {
@@ -509,7 +508,7 @@ footer {
 .search_link a:hover {
   color: #f98400;
 }
-.link_recipe_moment .recipe_moment{
+.link_recipe_moment .recipe_moment {
   transition: 0.5s;
 }
 .link_recipe_moment .recipe_moment:hover {
@@ -518,31 +517,29 @@ footer {
 }
 .modify:hover {
   cursor: pointer;
-
 }
-.last_recipe .recipe img{
+.last_recipe .recipe img {
   height: auto;
 }
-.new-topic .submit{
+.new-topic .submit {
   width: 166px;
 }
-.new-topic .image-topic{
+.new-topic .image-topic {
   width: auto;
 }
-#result{
+#result {
   position: absolute;
-  background-color: #E1E1E1;
+  background-color: #e1e1e1;
   padding: 15px;
   z-index: 3;
   opacity: 0.9;
   border-radius: 15px;
-
 }
 
-.btn-captcha{
-  background-color: #05B3C1 !important;
+.btn-captcha {
+  background-color: #05b3c1 !important;
 }
-.puzzle{
+.puzzle {
   margin: 0 auto;
 }
 #parent {
@@ -551,7 +548,7 @@ footer {
   height: 320px;
   margin: 0 auto;
 }
-#ajax{
+#ajax {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -565,7 +562,7 @@ footer {
   display: flex;
   justify-content: center;
 }
-#img_contest_index{
+#img_contest_index {
   border-radius: 35px;
 }
 
@@ -579,185 +576,203 @@ footer {
   top: 20px;
   left: 0;
 }
-#hair, #beard, #mouth,#hat,#sweat{
+#hair,
+#beard,
+#mouth,
+#hat,
+#sweat {
   position: absolute;
 }
-#mouth{
+#mouth {
   top: 15px;
 }
-#add_favorite{
+#add_favorite {
   margin: 0 auto;
 }
-.button_profil .modify_avatar{
+.button_profil .modify_avatar {
   background-color: #035480 !important;
 }
-.button_profil #avatarButton{
-  background-color: #027A92 !important;
+.button_profil #avatarButton {
+  background-color: #027a92 !important;
 }
-.button_profil #exportData{
-  background-color: #255C15 !important;
+.button_profil #exportData {
+  background-color: #255c15 !important;
 }
-.button_profil a{
+.button_profil a {
   color: white !important;
 }
-#link-first{
+#link-first {
   margin-left: 13px;
-  background-color: #08087B !important;
+  background-color: #08087b !important;
 }
-#hat{
+#hat {
   z-index: 3;
 }
 
-.card_profil{
+.card_profil {
   width: 600px;
   margin: 0 auto;
 }
-.contest{
+.contest {
   margin: 0 auto !important;
 }
-.contest img{
+.contest img {
   border-radius: 35px;
   margin: 0 auto;
   display: flex;
 }
-.info_contest{
+.info_contest {
   border: 2px solid black;
   border-radius: 15px;
   padding: 10px;
 }
 
-.select{
+.select {
   display: flex;
-  flex-direction: column;
-  width: 25%;
+  flex-direction: row;
 }
-.timer{
+
+.timer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.end_contest{
+.end_contest {
   color: #fd891c;
 }
-#timer{
+#timer {
   display: flex;
   justify-content: center;
   margin: 15px;
-
 }
-.add_captcha{
-  background-color: #155C58 !important;
+.add_captcha {
+  background-color: #155c58 !important;
 }
-.exportData{
-  background-color: #01255F !important;
+.exportData {
+  background-color: #01255f !important;
 }
-.report{
-  background-color: #C9330A !important;
+.report {
+  background-color: #c9330a !important;
 }
-.logs{
-  background-color: #068E0C !important;
+.logs {
+  background-color: #068e0c !important;
 }
-.add_captcha, .exportData, .report, .logs{
+.add_captcha,
+.exportData,
+.report,
+.logs {
   transition: 0.5s !important;
 }
-.add_captcha:hover, .exportData:hover, .report:hover, .logs:hover{
+.add_captcha:hover,
+.exportData:hover,
+.report:hover,
+.logs:hover {
   transform: scale(1.1);
   transition: 0.5s;
 }
-.comment_report{
-  background-color: #3B878C !important;
+.comment_report {
+  background-color: #3b878c !important;
 }
-.msg_report{
-  background-color: #068E0C !important;
+.msg_report {
+  background-color: #068e0c !important;
 }
-.recipe_report{
-  background-color: #C9330A !important;
+.recipe_report {
+  background-color: #c9330a !important;
 }
-#timer p{
+#timer p {
   margin: 10px;
   font-weight: bold;
-
 }
-.days, .hours, .minutes, .seconds{
+.days,
+.hours,
+.minutes,
+.seconds {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 15px;
   min-height: 90px;
-
 }
-#days, #hours, #minutes, #seconds{
+#days,
+#hours,
+#minutes,
+#seconds {
   text-align: center;
   padding: 15px;
   width: 100px;
   font-size: 1.5em;
   border-radius: 10px;
   color: white;
-
 }
-#days{
+#days {
   background: #fa5559;
 }
-#hours{
-  background: #0EB04E;
+#hours {
+  background: #0eb04e;
 }
-#minutes{
+#minutes {
   background: #099374;
 }
-#seconds{
-  background: #054D73;
+#seconds {
+  background: #054d73;
 }
 
-.animated{
+.animated {
   animation: flip 0.7s ease forwards;
 }
 
-.accessories{
+.accessories {
   border: 1px solid black;
 }
 
-.darkmode{
+.darkmode {
   transition: 0.5s;
 }
-.darkmode nav{
+.darkmode nav {
   background-color: #212d40 !important;
-
 }
-.darkmode .alert{
+.darkmode .alert {
   color: black !important;
 }
-.darkmode #container-search{
+.darkmode #container-search {
   background-color: transparent !important;
 }
 
-.darkmode .card{
+.darkmode .card {
   background-color: #364156 !important;
 }
-.darkmode, .darkmode .modal-content{
-  background-color: #273A50 !important;
-
+.darkmode,
+.darkmode .modal-content {
+  background-color: #273a50 !important;
 }
-.darkmode img{
-  filter: brightness(.8) contrast(1.2) !important;
+.darkmode img {
+  filter: brightness(0.8) contrast(1.2) !important;
 }
-.darkmode .list-group *{
+.darkmode .list-group * {
   background-color: #364156 !important;
   color: #f8f8ff !important;
 }
-.darkmode .card-body *, .darkmode table *, .darkmode h4, .darkmode p, .darkmode span, .darkmode label, .darkmode .modal-title{
+.darkmode .card-body *,
+.darkmode table *,
+.darkmode h4,
+.darkmode p,
+.darkmode span,
+.darkmode label,
+.darkmode .modal-title {
   color: #f8f8ff !important;
 }
-.darkmode .head-recipe *, .darkmode .sort *{
+.darkmode .head-recipe *,
+.darkmode .sort * {
   color: black !important;
 }
-.darkmode .navbar-toggler{
+.darkmode .navbar-toggler {
   background-color: white !important;
   border-color: black !important;
 }
-.darkmode .recipe{
-  filter: drop-shadow(0 0 0.75rem #212D40) !important;
+.darkmode .recipe {
+  filter: drop-shadow(0 0 0.75rem #212d40) !important;
 }
-.darkmode #result p{
+.darkmode #result p {
   color: black !important;
 }
 
@@ -806,24 +821,24 @@ footer {
   .last_recipe img {
     height: 238px !important;
   }
-  .info_user{
+  .info_user {
     overflow: scroll;
   }
   .sort label {
     margin: 15px;
   }
-  #recettes{
+  #recettes {
     overflow: hidden;
   }
   #recettes .row {
     display: block;
   }
-  #recettes .row .col{
+  #recettes .row .col {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  #timer{
+  #timer {
     flex-wrap: wrap;
     width: 90%;
   }

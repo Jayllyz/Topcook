@@ -52,25 +52,39 @@ function reloadAvatar() {
       request2.onreadystatechange = function () {
         if (request2.readyState === XMLHttpRequest.DONE) {
           const res = request2.responseText;
+          console.log(res);
           array = res.split(",");
-          let body = document.getElementById("body");
-          body.removeAttribute("fill");
-          body.setAttribute("fill", array[0]);
+
           let hair = document.getElementById("hair-path");
-          hair.removeAttribute("fill");
-          hair.setAttribute("fill", array[1]);
+          if (hair !== null) {
+            hair.setAttribute("fill", "#" + array[0]);
+          }
+
           let hat = document.getElementById("hat-path");
-          hat.removeAttribute("fill");
-          hat.setAttribute("fill", array[2]);
+          if (hat !== null) {
+            hat.setAttribute("fill", "#" + array[1]);
+          }
+
           let sweet = document.getElementById("sweet-path");
-          sweet.removeAttribute("fill");
-          sweet.setAttribute("fill", array[3]);
+          if (sweet !== null) {
+            sweet.setAttribute("fill", "#" + array[2]);
+          }
+
           let eyes = document.getElementById("eyes-path");
-          eyes.removeAttribute("fill");
-          eyes.setAttribute("fill", array[4]);
+
+          if (eyes !== null) {
+            eyes.setAttribute("fill", "#" + array[3]);
+          }
+
           let beard = document.getElementById("beard-path");
-          beard.removeAttribute("fill");
-          beard.setAttribute("fill", array[5]);
+          if (beard !== null) {
+            beard.setAttribute("fill", "#" + array[4]);
+          }
+          let body = document.getElementById("body");
+
+          if (body !== null) {
+            body.setAttribute("fill", "#" + array[5]);
+          }
         }
       };
       request2.send();

@@ -20,7 +20,7 @@ $linkCss = "../css/style.css";
 $title = "";
 include "../includes/head.php";
 ?>
-<body onload="countLike(<?= $_GET['id'] ?>)">
+<body onload="countLike(<?= $_GET["id"] ?>)">
 
     <?php include "../includes/header.php"; ?>
         <main>
@@ -28,7 +28,6 @@ include "../includes/head.php";
             <?php include "../includes/message.php"; ?>
         </div>
             <?php
-
             $query = $db->prepare(
               "SELECT id, name, images, description, time_prep, time_cooking, nb_persons, type, id_user FROM RECIPE WHERE id = :id"
             );
@@ -62,19 +61,31 @@ include "../includes/head.php";
                         </p>
                     </div>
                 </div>
-                <?php
-                if(isset($_SESSION['id'])) {
-                    $selectFavorite = $db->query("SELECT idUser, idRecipe FROM FAVORITE_RECIPE WHERE idUser = " . $_SESSION["id"] . " AND idRecipe = " . $_GET["id"]);
-                    $favorite = $selectFavorite->fetch(PDO::FETCH_ASSOC);
-                    $idUserFavorite = $favorite["idUser"];
-                    $idRecipeFavorite = $favorite["idRecipe"];
+                <?php if (isset($_SESSION["id"])) {
 
-                ?>
+                  $selectFavorite = $db->query(
+                    "SELECT idUser, idRecipe FROM FAVORITE_RECIPE WHERE idUser = " .
+                      $_SESSION["id"] .
+                      " AND idRecipe = " .
+                      $_GET["id"]
+                  );
+                  $favorite = $selectFavorite->fetch(PDO::FETCH_ASSOC);
+                  $idUserFavorite = $favorite["idUser"];
+                  $idRecipeFavorite = $favorite["idRecipe"];
+                  ?>
                         <div id="favorite">
-                            <button class="btn mb-3 <?= $idUserFavorite !== $_SESSION['id'] ? '' : 'btn-ban'?>" id="add_favorite" onclick="addFavorite(<?=$select['id']?>)"><?= $idUserFavorite !== $_SESSION['id'] ? 'Ajouter aux favoris' : 'Retirer des favoris'?></button>
+                            <button class="btn mb-3 <?= $idUserFavorite !==
+                            $_SESSION["id"]
+                              ? ""
+                              : "btn-ban" ?>" id="add_favorite" onclick="addFavorite(<?= $select[
+  "id"
+] ?>)"><?= $idUserFavorite !== $_SESSION["id"]
+  ? "Ajouter aux favoris"
+  : "Retirer des favoris" ?></button>
                         </div>
 
-                <?php } ?>
+                <?php
+                } ?>
                 <div id="result_favorite"></div>
                 <p><?= "Description : " . $select["description"] ?></p>
                 <p><?= "Preparation : " . $select["time_prep"] ?> min</p>
@@ -83,17 +94,31 @@ include "../includes/head.php";
 
                 <div class="d-flex flex-row">
                     <div id="like">
-                        <?php
-                        if(isset($_SESSION['id'])) {
-                            $selectIdUserIfLike = $db->query("SELECT id_user FROM LIKES WHERE id_user = " . $_SESSION["id"] . " AND id_recipe = " . $_GET["id"]);
-                            $idUserIfLike = $selectIdUserIfLike->fetch(PDO::FETCH_ASSOC);
-                            $idUserIfLike = $idUserIfLike["id_user"];
+                        <?php if (isset($_SESSION["id"])) {
 
-                        ?>
-                        <img src="../images/like.svg" id="isLiked" alt="like" width="30" class="<?= $idUserIfLike == $_SESSION['id'] ? 'liked' : '' ?>" height="30" onclick="like(<?= $select['id'] ?>)">
-                        <?php } else { ?>
+                          $selectIdUserIfLike = $db->query(
+                            "SELECT id_user FROM LIKES WHERE id_user = " .
+                              $_SESSION["id"] .
+                              " AND id_recipe = " .
+                              $_GET["id"]
+                          );
+                          $idUserIfLike = $selectIdUserIfLike->fetch(
+                            PDO::FETCH_ASSOC
+                          );
+                          $idUserIfLike = $idUserIfLike["id_user"];
+                          ?>
+                        <img src="../images/like.svg" id="isLiked" alt="like" width="30" class="<?= $idUserIfLike ==
+                        $_SESSION["id"]
+                          ? "liked"
+                          : "" ?>" height="30" onclick="like(<?= $select[
+  "id"
+] ?>)">
+                        <?php
+                        } else {
+                           ?>
                         <img src="../images/like.svg" alt="like" width="30" class="notLiked" height="30" onclick="errorLike()">
-                        <?php } ?>
+                        <?php
+                        } ?>
                     </div>
                     <p class="ps-3 fs-4" id="result_like"></p>
 
@@ -220,7 +245,7 @@ include "../includes/head.php";
                     </form>
                 </div>
                 <div class="messages mt-5 mb-5">
-                <table class="table text-center table-bordered table-hover">
+                <table id="com" class="table text-center table-bordered table-hover">
                 <thead>
                 <?php
                 $selectUserCreateRecipe = $db->prepare(
@@ -241,21 +266,25 @@ include "../includes/head.php";
                     <th id="th-report">Signaler</th>
                     <?php } ?>
                     <?php
-                    $selectIdUserRecipeMsg = $db->prepare("SELECT COUNT(id) FROM COMMENTAIRE WHERE id_recipe = :id_recipe AND id_user = :id_user");
+                    $selectIdUserRecipeMsg = $db->prepare(
+                      "SELECT COUNT(id) FROM COMMENTAIRE WHERE id_recipe = :id_recipe AND id_user = :id_user"
+                    );
                     $selectIdUserRecipeMsg->execute([
                       "id_recipe" => htmlspecialchars($_GET["id"]),
                       "id_user" => $_SESSION["id"],
                     ]);
-                    $resultIdUserRecipeMsg = $selectIdUserRecipeMsg->fetch(PDO::FETCH_NUM);
+                    $resultIdUserRecipeMsg = $selectIdUserRecipeMsg->fetch(
+                      PDO::FETCH_NUM
+                    );
 
                     if (
                       $_SESSION["rights"] == 1 ||
                       $resultUserCreateRecipe["id_user"] == $_SESSION["id"] ||
                       $resultIdUserRecipeMsg[0] > 0
-
                     ) { ?>
                     <th>Supprimer</th>
-                          <?php } ?>
+                          <?php }
+                    ?>
                     
         <?php }
             ?>
@@ -301,16 +330,20 @@ include "../includes/head.php";
                                         <?php } else { ?>
                                         <td><?= $selectUser["pseudo"] ?></td>
                                         <?php } ?>
-                                        <td><?= banword("../banlist.txt", $message["message"]) ?></td>
+                                        <td><?= banword(
+                                          "../banlist.txt",
+                                          $message["message"]
+                                        ) ?></td>
                                         <td id="date_send"><?= $message[
                                           "date_send"
                                         ] ?></td>
+                                        
                                         <?php if (
-                                            isset($_SESSION["id"]) &&
-                                            $selectReportCom[0] == 0 &&
-                                            $_SESSION["id"] != $message["id_user"]
+                                          isset($_SESSION["id"]) &&
+                                          $selectReportCom[0] == 0 &&
+                                          $_SESSION["id"] != $message["id_user"]
                                         ) { ?>
-                                        <td>
+                                        <td id="report">
 
                                           <a href="../admin/comment/report_comment.php?name_recipe=<?= $select[
                                             "name"
@@ -322,17 +355,16 @@ include "../includes/head.php";
                                         </td>
 
                                         <?php } else { ?>
-                                        <td>
-                                          <a href="#"></a>
+                                        <td id="report">
+                                          <a id="report" href="#"></a>
                                         </td>
                                         <?php } ?>
-                                        <?php if (isset($_SESSION["id"])) { ?>
-                                        <td>
                                         <?php if (
                                           $_SESSION["rights"] == 1 ||
-                                          $message["id_user"] ==
-                                            $_SESSION["id"]
+                                          $message["id_user"] == $_SESSION["id"]
                                         ) { ?>
+                                        <td>
+                                        
                                           <a href="../admin/comment/delete_comment.php?name_recipe=<?= $select[
                                             "name"
                                           ] ?>&id_comment=<?= $message[
@@ -340,10 +372,7 @@ include "../includes/head.php";
 ] ?>&id_user=<?= $message["id_user"] ?>&id_recipe=<?= htmlspecialchars(
   $_GET["id"]
 ) ?>" class="btn btn-ban">Supprimer</a></td>
-
-                                    <?php } ?>
                                    
-                                      
                                       <?php } ?>
                                     </tr>
                                 </tbody>
@@ -360,13 +389,20 @@ include "../includes/head.php";
                 </div>
 
         </main>
-    <script>
+      <script>
         const reportBtn = document.getElementById("report-btn");
-        const thReport = document.getElementById("th-report");
+        
+        let table = document.getElementById("com").rows;
+      
         if(typeof reportBtn === 'undefined' || reportBtn === null) {
-            thReport.remove();
+           
+            let i = 3;
+            for(let j=0; j < table.length; j++) {
+                table[j].deleteCell(i);
+            }
+
         }
-    </script>
+      </script>  
     <script src="../js/likes.js"></script>
     <?php include "../includes/footer.php"; ?>
     <script src="../js/addFavorite.js"></script>

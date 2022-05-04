@@ -10,7 +10,7 @@ $idRecipeFavorite = $favorite["idRecipe"];
 if($idUserFavorite == $_SESSION["id"] && $idRecipeFavorite == $_POST["id"]) {
 
     $deleteFavorite = $db->query("DELETE FROM FAVORITE_RECIPE WHERE idUser = ".$_SESSION['id']." AND idRecipe = ".$id_recipe);
-    echo "<p class='mt-3 mb-3 alert alert-success'>La recette a bien été supprimée de vos favoris.</p>";
+    echo "<button class='btn mb-3' id='add_favorite' onclick='addFavorite($id_recipe)'>Ajouter aux favoris</button>";
 
 }else{
     $addFavorite = $db->prepare("INSERT INTO FAVORITE_RECIPE (idUser, idRecipe) VALUES (:idUser, :idRecipe)");
@@ -19,18 +19,6 @@ if($idUserFavorite == $_SESSION["id"] && $idRecipeFavorite == $_POST["id"]) {
         'idRecipe' => $id_recipe
     ]);
     $result = $addFavorite->fetchAll(PDO::FETCH_ASSOC);
-}
-
-$query = $db->prepare(
-    "SELECT id, name, images, description, time_prep, time_cooking, nb_persons, type, id_user FROM RECIPE WHERE id = :id"
-);
-$query->execute([
-    "id" => htmlspecialchars($_GET["id"]),
-]);
-$result = $query->fetchAll(PDO::FETCH_ASSOC);
-foreach ($result as $select) {
-    $id = $select['id'];
-    echo "la recette a bien été ajoutée à vos favoris";
-
+    echo "<button class='btn mb-3 btn-ban' id='add_favorite' onclick='addFavorite($id_recipe)'>Retirer des favoris</button>";
 }
 ?>

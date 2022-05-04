@@ -70,7 +70,10 @@ include "../includes/head.php";
                     $idRecipeFavorite = $favorite["idRecipe"];
 
                 ?>
-                <button class="btn mb-3 <?= $idUserFavorite !== $_SESSION['id'] ? '' : 'btn-ban'?>" id="add_favorite" onclick="addFavorite(<?=$select['id']?>)"><?= $idUserFavorite !== $_SESSION['id'] ? 'Ajouter aux favoris' : 'Retirer des favoris'?></button>
+                        <div id="favorite">
+                            <button class="btn mb-3 <?= $idUserFavorite !== $_SESSION['id'] ? '' : 'btn-ban'?>" id="add_favorite" onclick="addFavorite(<?=$select['id']?>)"><?= $idUserFavorite !== $_SESSION['id'] ? 'Ajouter aux favoris' : 'Retirer des favoris'?></button>
+                        </div>
+
                 <?php } ?>
                 <div id="result_favorite"></div>
                 <p><?= "Description : " . $select["description"] ?></p>

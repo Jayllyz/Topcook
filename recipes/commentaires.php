@@ -19,7 +19,7 @@ if(isset($_SESSION['id'])) {
         'id_user' => $_SESSION['id'],
         'date_send' => date("d-m-Y H:i:s")
     ]);
-    header("location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Commetaire ajouté !&type=success");
+    header("location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Commentaire ajouté !&type=success");
     exit();
 }else{
     header("location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Vous devez être connecté pour ajouter un commentaire&type=danger");

@@ -24,7 +24,7 @@ if (isset($_SESSION["id"])) {
             <?php include "../includes/message.php"; ?>
         </div>
     <main>
-            <form method="post" action="../verifications/verifications_contest/add_contest.php" enctype="multipart/form-data">             
+            <form name="contest" onsubmit="return validateForm(this.name);"method="post" action="../verifications/verifications_contest/add_contest.php" enctype="multipart/form-data">             
                 <div class="container col-md-4">
                     <label class="control-label"><strong>Titre du concours</strong></label>
                     <input type="text" class="form-control" name="title"  required><br>

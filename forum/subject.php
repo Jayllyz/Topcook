@@ -79,7 +79,7 @@ include "../includes/head.php";
 
     <div class="commentaires">
         
-        <form action="../verifications/verifications_forum/verif_message.php?id_topic=<?= $id_subject ?>" method="post">
+        <form name="add_msg" onsubmit="return validateForm(this.name)" action="../verifications/verifications_forum/verif_message.php?id_topic=<?= $id_subject ?>" method="post">
                         <label class="form-label" >Saisir un message</label>
                         <textarea name="message" class="form-control mb-3" id="comment"></textarea>
                         <input type="submit" class="form-control btn btn-success mb-3"  name="submit" value="Envoyer">

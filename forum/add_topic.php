@@ -19,7 +19,7 @@ include "../includes/head.php";
         </div>
             <h1 class="pb-3 text-center"><strong>Ajouter un topic</strong></h1>
 
-        <form action="../verifications/verifications_forum/verif_topic.php?id=<?= $_SESSION[
+        <form name="add_topic" onsubmit="return validateForm(this.name)" action="../verifications/verifications_forum/verif_topic.php?id=<?= $_SESSION[
           "id"
         ] ?>" method="post" enctype="multipart/form-data"">
         <div class="container col-md-10 new-topic">

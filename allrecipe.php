@@ -107,7 +107,7 @@ if (isset($_SESSION["id"])) {
             </div>
             <div class="modal-body">
 
-                <form action="verifications/add_recipe.php" method="post" enctype="multipart/form-data">
+                <form name="add_recipe" onsubmit="return validateForm(this.name)" action="verifications/add_recipe.php" method="post" enctype="multipart/form-data">
                 <div class="container col-md-10">
                     <label class="form-label">Nom de la recette</label>
                     <input type="text" name="nom" class="form-control"  required>

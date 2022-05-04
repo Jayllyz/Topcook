@@ -24,7 +24,7 @@ if(isset($_SESSION["id"])) {
         <div class="container col-md-6">
             <?php include "includes/message.php"; ?>
         </div>
-        <form action="verifications/verification_connexion.php" method="post">
+        <form name="connexion" onsubmit="return validateForm(this.name)" action="verifications/verification_connexion.php" method="post">
             <div class="container col-md-4" id="form" >
                 <div class="mb-3">
                     <label for="login" class="form-label"><strong>Email</strong></label>

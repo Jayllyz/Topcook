@@ -22,7 +22,7 @@ if (isset($_SESSION["id"])) {
     <main>
         <h1>Inscription</h1>
         <div class="formulaire">
-            <form id="form" class="container col-md-4" action="verifications/verification_inscription.php" method="post" enctype="multipart/form-data">
+            <form name="inscription" onsubmit="return validateForm(this.name)" id="form" class="container col-md-4" action="verifications/verification_inscription.php" method="post" enctype="multipart/form-data">
                 <?php include "includes/message.php"; ?>
                 <div class="mb-3">
                     <label class="form-label"><strong>Pseudo</strong></label>

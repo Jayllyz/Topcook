@@ -69,13 +69,9 @@ include "../includes/head.php";
                     $idUserFavorite = $favorite["idUser"];
                     $idRecipeFavorite = $favorite["idRecipe"];
 
-
-                if($idUserFavorite !== $_SESSION['id']){
                 ?>
-                <button class="btn mb-3" id="add_favorite" onclick="addFavorite(<?=$select['id']?>)">Ajouter aux favoris</button>
-                <?php } else { ?>
-                <button class="btn btn-ban mb-3" id="add_favorite" onclick="removeFavorite(<?=$select['id']?>)">Retirer des favoris</button>
-                <?php }} ?>
+                <button class="btn mb-3 <?= $idUserFavorite !== $_SESSION['id'] ? '' : 'btn-ban'?>" id="add_favorite" onclick="addFavorite(<?=$select['id']?>)"><?= $idUserFavorite !== $_SESSION['id'] ? 'Ajouter aux favoris' : 'Retirer des favoris'?></button>
+                <?php } ?>
                 <div id="result_favorite"></div>
                 <p><?= "Description : " . $select["description"] ?></p>
                 <p><?= "Preparation : " . $select["time_prep"] ?> min</p>

@@ -1,8 +1,6 @@
 <?php
 session_start();
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
+
 include '../includes/db.php';
 $id = $_POST['id'];
 $selectLike = $db->prepare(
@@ -33,21 +31,6 @@ if($resultLike == 1){
     ]);
     echo "<img src='../images/like.svg' id='isLiked' alt='like' width='30' height='30' class='liked' onclick='like($id)'>";
 }
-
-
-
-
-
-/*
-if ($countLikeUser > 1) {
-    $req = $db->prepare(
-        "DELETE FROM LIKES WHERE id_user = :id_user AND id_recipe = :id_recipe"
-    );
-    $req->execute([
-        "id_recipe" => $id,
-        "id_user" => $_SESSION["id"],
-    ]);
-}*/
 
 
 

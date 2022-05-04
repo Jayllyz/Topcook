@@ -180,7 +180,7 @@ $selectReportMsg = $selectReportMsg->fetch(PDO::FETCH_ASSOC);
 
                                         <?php if (
                                           $_SESSION["rights"] == 1 ||
-                                          $id_creator == $_SESSION["id"]
+                                          $_SESSION["id"] == $message["id_user"]
                                         ) { ?>
                                         <td><a href="../admin/comment/delete_topic_msg.php?id_creator=<?= $id_creator ?>&creator=<?= $pseudo ?>&id_msg=<?= $message[
   "id"

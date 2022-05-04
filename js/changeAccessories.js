@@ -1,5 +1,3 @@
-const { hasTrailingComment } = require("@prettier/plugin-php/src/util");
-
 function changeTypeAccessories() {
   const chooseElement = document.getElementById("chooseElement");
   const viewSelectedElement = document.getElementById("viewSelectedElement");
@@ -43,7 +41,7 @@ function reloadAvatar() {
   const request = new XMLHttpRequest();
   request.open("GET", "https://topcook.site/avatar/reloadAvatar.php");
   request.onreadystatechange = function () {
-    if (request.readyState === 4 && request.status === 200) {
+    if (request.readyState === XMLHttpRequest.DONE) {
       const resType = request.responseText;
       const div = document.getElementById("ajax");
       div.innerHTML = "";
@@ -52,12 +50,27 @@ function reloadAvatar() {
       const request2 = new XMLHttpRequest();
       request2.open("GET", "https://topcook.site/avatar/getColor.php");
       request2.onreadystatechange = function () {
-        if (request2.readyState === 4) {
+        if (request2.readyState === XMLHttpRequest.DONE) {
           const res = request2.responseText;
-          console.log(res);
+          array = res.split(",");
+          let body = document.getElementById("body");
+          body.removeAttribute("fill");
+          body.setAttribute("fill", array[0]);
           let hair = document.getElementById("hair-path");
           hair.removeAttribute("fill");
-          hair.setAttribute("fill", res);
+          hair.setAttribute("fill", array[1]);
+          let hat = document.getElementById("hat-path");
+          hat.removeAttribute("fill");
+          hat.setAttribute("fill", array[2]);
+          let sweet = document.getElementById("sweet-path");
+          sweet.removeAttribute("fill");
+          sweet.setAttribute("fill", array[3]);
+          let eyes = document.getElementById("eyes-path");
+          eyes.removeAttribute("fill");
+          eyes.setAttribute("fill", array[4]);
+          let beard = document.getElementById("beard-path");
+          beard.removeAttribute("fill");
+          beard.setAttribute("fill", array[5]);
         }
       };
       request2.send();

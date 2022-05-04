@@ -77,15 +77,27 @@ if (isset($_SESSION["id"])) {
                 </div>
             </div>
         </div>
+        <?php
 
+            $date_end = strtotime($date_end);
+            $now = time();
+            $diff = $date_end - $now;
+
+        if ($diff > 0) {
+        ?>
       <form method="post" action="verifications/verifications_contest/participation.php?id=<?= $id ?>" id="form_contest" enctype="multipart/form-data">
-          <?php } ?>
+
           <div class="container col-md-4">
             <label class="control-label"><strong>Votre photo pour participer</strong></label>
             <input type="file" class="form-control" name="image" accept="image/jpeg,image/png"><br>
             <input type="submit" class="btn btn-success" value="Submit">
         </div>
       </form>
+        <?php }else{ ?>
+        <div class="container col-md-4" id="div-voted">
+            <a class="btn" id="btn-voted" href="https://topcook.site/contest/viewPublication.php">Place aux votes</a>
+        </div>
+        <?php }} ?>
     </main>
 
     <?php include "includes/footer.php"; ?>

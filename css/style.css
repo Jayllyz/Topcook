@@ -454,6 +454,13 @@ footer {
 .liked {
   filter: invert(21%) sepia(91%) saturate(2428%) hue-rotate(211deg) brightness(89%) contrast(109%);
 }
+#div-voted{
+  display: flex;
+}
+#btn-voted{
+  width: 50%;
+  margin: 0 auto;
+}
 #favorite{
   margin: 0 auto;
 }
@@ -476,6 +483,9 @@ footer {
   cursor: pointer;
   transform: scale(1.1);
   transition: 0.5s;
+}
+#img-participate{
+  justify-content: space-around;
 }
 .sort {
   display: flex;

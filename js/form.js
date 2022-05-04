@@ -6,9 +6,10 @@ function validateForm(nameForm) {
   for (i = 0; i < y.length; i++) {
     x = document.forms[nameForm].elements[i].value;
     console.log(x);
-    if (x === "") {
+    if (x === "" && x.attributes.input) {
       alert("Veuillez remplir tous les champs");
       return false;
     }
   }
+  return true;
 }

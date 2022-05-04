@@ -142,13 +142,13 @@ include "../includes/head.php";
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="addCaptcha.php" method="post" enctype="multipart/form-data">
+                <form name="add_captcha" onsubmit="return validateForm(this.name)" action="addCaptcha.php" method="post" enctype="multipart/form-data">
                     <div class="container col-md-8">
-                        <input type="text" name="captcha" placeholder="Nom de l'image" required>
-                        <input type="file" class="form-control" name="image" required>
+                        <input class="form-control" formtype="text" name="captcha" placeholder="Nom de l'image" required>
+                        <input class="form-control" type="file" class="form-control" name="image" required>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" name="submit" value="Valider" class="btn btn-success">
+                        <input class="form-control" type="submit" name="submit" value="Valider" class="btn btn-success">
                     </div>
                 </form>
             </div>

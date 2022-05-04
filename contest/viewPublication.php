@@ -27,7 +27,6 @@ include "../includes/head.php";
     <img src="../images/like.svg" class="ms-3" width="30" height="30" alt="like" onclick="likeParticipate(<?= $idParticipate ?>)">
     <p id="<?= $idParticipate ?>"><?= $participate['likes']?></p>
 </div>
-            <p id="error_voted"></p>
 
 
 <?php } ?>

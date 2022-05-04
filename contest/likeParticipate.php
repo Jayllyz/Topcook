@@ -9,19 +9,33 @@ $selectUserIsVoted->execute([
     'id' => $_SESSION['id']
 ]);
 $selectUserIsVoted = $selectUserIsVoted->fetch(PDO::FETCH_ASSOC);
+
 if($selectUserIsVoted['participateContest'] == 0){
-    $updateUserIsVoted = $db->prepare("UPDATE USER SET participateContest = 1 WHERE id = :id");
+
+        $updateUserIsVoted = $db->prepare("UPDATE USER SET participateContest = 1 WHERE id = :id");
+        $updateUserIsVoted->execute([
+            'id' => $_SESSION['id']
+
+        ]);
+
+        $insertLike = $db->prepare("UPDATE PARTICIPATE SET likes = likes + 1 WHERE id = :id AND idUser = :idUser");
+        $resultLike = $insertLike->execute([
+            'id' => $idContest,
+            'idUser' => $_SESSION['id'],
+        ]);
+}else{
+
+    $updateUserIsVoted = $db->prepare("UPDATE USER SET participateContest = 0 WHERE id = :id");
     $updateUserIsVoted->execute([
         'id' => $_SESSION['id']
 
     ]);
 
-    $insertLike = $db->prepare("UPDATE PARTICIPATE SET likes = likes + 1 WHERE id = :id");
+    $insertLike = $db->prepare("UPDATE PARTICIPATE SET likes = likes - 1 WHERE id = :id AND likes > 0 AND idUser = :idUser");
     $resultLike = $insertLike->execute([
-        'id' => $idContest
+        'id' => $idContest,
+        'idUser' => $_SESSION['id']
     ]);
-}else{
-    die("error");
 }
 
 

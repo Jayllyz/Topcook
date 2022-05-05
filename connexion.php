@@ -6,15 +6,15 @@ $linkLogoOnglet = "images/topcook_logo.svg";
 $linkCss = "css/style.css";
 $title = "Connexion";
 include "includes/head.php";
-if(isset($_SESSION["id"])) {
-    $date = date("d/m/Y H:i:s");
-    $log_visit = fopen("log/log_connexion.txt", "a+");
-    fputs($log_visit, "Visite de connexion le :");
-    fputs($log_visit, $date);
-    fputs($log_visit, " par ");
-    fputs($log_visit, $_SESSION["id"]);
-    fputs($log_visit, "\n");
-    fclose($log_visit);
+if (isset($_SESSION["id"])) {
+  $date = date("d/m/Y H:i:s");
+  $log_visit = fopen("log/log_connexion.txt", "a+");
+  fputs($log_visit, "Visite de connexion le :");
+  fputs($log_visit, $date);
+  fputs($log_visit, " par ");
+  fputs($log_visit, $_SESSION["id"]);
+  fputs($log_visit, "\n");
+  fclose($log_visit);
 }
 ?>
 <body>
@@ -39,10 +39,6 @@ if(isset($_SESSION["id"])) {
                     <label class="form-label">Voir mon mot de passe</label>
                     <input type="checkbox" class="form-check-input" onClick="viewPassword()">
                 <div class="mb-3">
-                    <label for="stay-connected">Rester connecté</label>
-                    <input type="checkbox" class="form-check-input" name="checkbox">
-                </div>
-                <div class="mb-3">
                 <a href="lost_password.php">Mot de passe oublié ?</a>
                 </div>
                 <button type="submit" name="submit" class="btn">Envoyer</button>
@@ -51,8 +47,6 @@ if(isset($_SESSION["id"])) {
           
     </main>
     <?php include "includes/footer.php"; ?>
-    <?php
-    include "includes/scripts.php";
-    ?>
+    <?php include "includes/scripts.php"; ?>
 </body>
 </html>

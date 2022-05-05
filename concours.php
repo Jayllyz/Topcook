@@ -102,6 +102,7 @@ if (isset($_SESSION["id"])) {
 
     <?php include "includes/footer.php"; ?>
     <script src="js/timer.js"></script>
+    <script src="js/likeParticipate.js"></script>
     <?php include "includes/scripts.php"; ?>
 </body>
 

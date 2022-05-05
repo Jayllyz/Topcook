@@ -343,7 +343,7 @@ include "../includes/head.php";
                                           $selectReportCom[0] == 0 &&
                                           $_SESSION["id"] != $message["id_user"]
                                         ) { ?>
-                                        <td id="report">
+                                        <td>
 
                                           <a href="../admin/comment/report_comment.php?name_recipe=<?= $select[
                                             "name"
@@ -354,11 +354,11 @@ include "../includes/head.php";
 
                                         </td>
 
-                                        <?php } else { ?>
-                                        <td id="report">
-                                          <a id="report" href="#"></a>
+                                        <?php } else {if ($_SESSION["id"]) { ?>
+                                        <td>
+                                          <a href="#"></a>
                                         </td>
-                                        <?php } ?>
+                                        <?php }} ?>
                                         <?php if (
                                           $_SESSION["rights"] == 1 ||
                                           $message["id_user"] == $_SESSION["id"]
@@ -371,8 +371,10 @@ include "../includes/head.php";
   "id"
 ] ?>&id_user=<?= $message["id_user"] ?>&id_recipe=<?= htmlspecialchars(
   $_GET["id"]
-) ?>" class="btn btn-ban">Supprimer</a></td>
+) ?>" id="delete-btn" class="btn btn-ban">Supprimer</a></td>
                                    
+                                
+                                        
                                       <?php } ?>
                                     </tr>
                                 </tbody>
@@ -391,17 +393,16 @@ include "../includes/head.php";
         </main>
       <script>
         const reportBtn = document.getElementById("report-btn");
-        
+
         let table = document.getElementById("com").rows;
       
         if(typeof reportBtn === 'undefined' || reportBtn === null) {
-           
             let i = 3;
             for(let j=0; j < table.length; j++) {
                 table[j].deleteCell(i);
             }
-
         }
+
       </script>  
     <script src="../js/likes.js"></script>
     <?php include "../includes/footer.php"; ?>

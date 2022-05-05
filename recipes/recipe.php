@@ -143,8 +143,6 @@ include "../includes/head.php";
                         </div>
                  <?php } ?>
 
-
-
                 <div class="list_ingredient">
                     <h3>Ingrédients</h3> 
                     <?php if (
@@ -265,6 +263,7 @@ include "../includes/head.php";
                     <?php if (isset($_SESSION["id"])) { ?>
                     <th id="th-report">Signaler</th>
                     <?php } ?>
+
                     <?php
                     $selectIdUserRecipeMsg = $db->prepare(
                       "SELECT COUNT(id) FROM COMMENTAIRE WHERE id_recipe = :id_recipe AND id_user = :id_user"
@@ -341,17 +340,16 @@ include "../includes/head.php";
                                         <?php if (
                                           isset($_SESSION["id"]) &&
                                           $selectReportCom[0] == 0 &&
-                                          $_SESSION["id"] != $message["id_user"]
+                                          $_SESSION["id"] !==
+                                            $message["id_user"]
                                         ) { ?>
                                         <td>
-
                                           <a href="../admin/comment/report_comment.php?name_recipe=<?= $select[
                                             "name"
                                           ] ?>&id_comment=<?= $message[
   "id"
 ] ?>&id_recipe=<?= htmlspecialchars($_GET["id"]) ?>" 
                                           class="btn btn-danger" id="report-btn">Signaler</a></td>
-
                                         </td>
 
                                         <?php } else {if ($_SESSION["id"]) { ?>
@@ -364,7 +362,6 @@ include "../includes/head.php";
                                           $message["id_user"] == $_SESSION["id"]
                                         ) { ?>
                                         <td>
-                                        
                                           <a href="../admin/comment/delete_comment.php?name_recipe=<?= $select[
                                             "name"
                                           ] ?>&id_comment=<?= $message[
@@ -372,9 +369,7 @@ include "../includes/head.php";
 ] ?>&id_user=<?= $message["id_user"] ?>&id_recipe=<?= htmlspecialchars(
   $_GET["id"]
 ) ?>" id="delete-btn" class="btn btn-ban">Supprimer</a></td>
-                                   
-                                
-                                        
+
                                       <?php } ?>
                                     </tr>
                                 </tbody>
@@ -393,16 +388,13 @@ include "../includes/head.php";
         </main>
       <script>
         const reportBtn = document.getElementById("report-btn");
-
         let table = document.getElementById("com").rows;
-      
         if(typeof reportBtn === 'undefined' || reportBtn === null) {
             let i = 3;
             for(let j=0; j < table.length; j++) {
                 table[j].deleteCell(i);
             }
         }
-
       </script>  
     <script src="../js/likes.js"></script>
     <?php include "../includes/footer.php"; ?>

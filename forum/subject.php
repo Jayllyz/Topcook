@@ -74,9 +74,6 @@ include "../includes/head.php";
 
     </div>
 
-
-            
-
     <div class="commentaires">
         
         <form name="add_msg" onsubmit="return validateForm(this.name)" action="../verifications/verifications_forum/verif_message.php?id_topic=<?= $id_subject ?>" method="post">
@@ -90,10 +87,11 @@ include "../includes/head.php";
                 <thead>
                 <?php
                 $selectUserCreateMsg = $db->prepare(
-                  "SELECT id_user FROM FORUM_MSG WHERE id = :id"
+                  "SELECT count(id) FROM FORUM_MSG WHERE id_user = :id AND id_topic = :id_topic"
                 );
                 $selectUserCreateMsg->execute([
-                  "id" => htmlspecialchars($_GET["id"]),
+                  "id" => $_SESSION["id"],
+                  "id_topic" => $id_subject,
                 ]);
                 $resultUserCreateMsg = $selectUserCreateMsg->fetch(
                   PDO::FETCH_ASSOC
@@ -104,15 +102,15 @@ include "../includes/head.php";
                     <th>Message</th>
                     <th>Date</th>
                     <?php if (isset($_SESSION["id"])) { ?>
-                    <th>Signaler</th>
+                    <th id="th-report">Signaler</th>
                     <?php } ?>
                     <?php if (
-                      $_SESSION["rights"] == 1
+                      $_SESSION["rights"] == 1 ||
+                      $_SESSION["id"] == $id_creator ||
+                      $resultUserCreateMsg > 0
                     ) { ?>
                     <th>Supprimer</th>
-                          <?php } ?>
-                    
-        
+                    <?php } ?>
                 </tr>
                 </thead>
                     <?php
@@ -157,26 +155,34 @@ $selectReportMsg = $selectReportMsg->fetch(PDO::FETCH_ASSOC);
                                         <?php } else { ?>
                                         <td><?= $selectUser["pseudo"] ?></td>
                                         <?php } ?>
-                                        <td><?= banword("../banlist.txt", $message["message"]) ?></td>
+                                        <td><?= banword(
+                                          "../banlist.txt",
+                                          $message["message"]
+                                        ) ?></td>
                                         <td id="date_send"><?= $message[
                                           "date"
                                         ] ?></td>
 
                                         <?php if (
-                                        isset($_SESSION["id"]) &&
-                                        $selectReportMsg[0] == 0
+                                          isset($_SESSION["id"]) &&
+                                          $selectReportMsg[0] == 0 &&
+                                          $_SESSION["id"] !==
+                                            $message["id_user"]
                                         ) { ?>
                                         
-                                        <td>
-
+                                        <td id="th-report">
                                           <a href="reportMsg.php?creator=<?= $pseudo ?>&id_msg=<?= $message[
   "id"
 ] ?>&id_subject=<?= $id_subject ?>&id_topic=<?= $id_topic ?>&id_creator=<?= $id_creator ?>" class="btn btn-danger">Signaler</a>
 
                                         </td>
-                                        <?php } ?>
+                                        <?php } else {if ($_SESSION["id"]) { ?> 
+                                          <td>
+                                            <a href="#"></a>
+                                          </td>
+                                          <?php }} ?>
                                         
-
+                                
                                         <?php if (
                                           $_SESSION["rights"] == 1 ||
                                           $_SESSION["id"] == $message["id_user"]
@@ -185,11 +191,6 @@ $selectReportMsg = $selectReportMsg->fetch(PDO::FETCH_ASSOC);
   "id"
 ] ?>&id_topic=<?= $id_subject ?>&id_subject=<?= $id_subject ?>" class="btn btn-ban">Supprimer</a></td>
                                         <?php } ?>
-
-                                        
-
-                                        
-                                        
                                     </tr>
                                 </tbody>
                         </div>
@@ -199,6 +200,16 @@ $selectReportMsg = $selectReportMsg->fetch(PDO::FETCH_ASSOC);
     </table>
 </div>
 </main>
+<script>
+      const reportBtn = document.getElementById("report-btn");
+      let table = document.getElementById("com").rows;
+      if(typeof reportBtn === 'undefined' || reportBtn === null) {
+            let i = 3;
+            for(let j=0; j < table.length; j++) {
+                table[j].deleteCell(i);
+            }
+        }
+</script>  
 <?php include "../includes/footer.php"; ?>
 <?php include "../includes/scripts.php"; ?>
 </body>

@@ -82,11 +82,9 @@ if (isset($_SESSION["id"])) {
   $insert = $db->prepare(
     "INSERT INTO TOPIC (subject, date, message, image, id_user) VALUES (:subject, :date, :message, :image, :id_user)"
   );
-  $subject = $subject;
-  $date = $date;
-  $message = $message;
+
   $image = $filename;
-  $id_user = $id_user;
+
 
   $insert->execute([
     "subject" => $subject,

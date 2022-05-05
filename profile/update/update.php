@@ -189,4 +189,3 @@ foreach ($result as $information) {
     exit();
   }
 }
-?>

@@ -74,4 +74,4 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) {
     );
     exit();
   }
-} ?>
+}

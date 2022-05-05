@@ -14,17 +14,17 @@ include "../includes/head.php";
 ?>
 <?php include "../includes/header.php"; ?>
 <main>
-    <form method="post" action="../verifications/add_ingredients.php?name=<?=$name_recipe?>&id_recipe=<?=$id_recipe?>&nbSteps=<?=$nbSteps?>" id="ingredients">
-            <div class="ingredients">
-                <div>
-                    <label class="form-label">Ingredients :</label>
-                </div>
-                <div class="logo-add-remove-ingredients">
-                            <img src="../images/plus-lg.svg" id="plus" onclick="addIngredients()">
-                            <img src="../images/dash-lg.svg" id="minus" onclick="removeIngredients()">
-                        </div>
-                        </label>
-                    </div>
+    <form method="post" action="../verifications/add_ingredients.php?name=<?= $name_recipe ?>&id_recipe=<?= $id_recipe ?>&nbSteps=<?= $nbSteps ?>" id="ingredients">
+        <div class="ingredients">
+            <div>
+                <label class="form-label">Ingredients :</label>
+            </div>
+            <div class="logo-add-remove-ingredients">
+                <img src="../images/plus-lg.svg" id="plus" onclick="addIngredients()">
+                <img src="../images/dash-lg.svg" id="minus" onclick="removeIngredients()">
+            </div>
+            </label>
+        </div>
         <div class="new-ingredients">
             <input type="text" name="ingredients[]" class="form-control steps-input ingredient" placeholder="Ingredients 1" required>
             <input type="number" name="quantity[]" class="form-control steps-input quantity" placeholder="Quantitée" required>
@@ -33,9 +33,9 @@ include "../includes/head.php";
                 <option value="cl">cl</option>
             </select>
         </div>
-            <div id="new-ingredients" class="1">
-            </div>
-            <button type="submit" name="submit" class="btn mt-3" data-bs-dismiss="modal">Envoyer</button>
+        <div id="new-ingredients" class="1">
+        </div>
+        <button type="submit" name="submit" class="btn mt-3" data-bs-dismiss="modal">Envoyer</button>
     </form>
 
 </main>
@@ -43,7 +43,9 @@ include "../includes/head.php";
 <?php
 include "../includes/scripts.php";
 ?>
+
 <body>
-    
+
 </body>
+
 </html>

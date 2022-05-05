@@ -33,7 +33,3 @@ header('Content-Disposition: attachment; filename="' . $filename . '";');
 fpassthru($f);
 
 exit();
-
-
-
-?>

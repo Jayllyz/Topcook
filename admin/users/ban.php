@@ -50,5 +50,3 @@ if ($pseudo == $pseudoUser) {
   );
   exit();
 }
-
-?>

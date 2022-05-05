@@ -54,4 +54,3 @@ foreach ($result as $existToken) {
     exit();
   }
 }
-?>

@@ -14,23 +14,24 @@ $linkCss = "../css/style.css";
 $title = "TopCook - Signalements commentaires";
 include "../includes/head.php";
 ?>
+
 <body>
-<?php include "../includes/header.php"; ?>
-<main id="swup" class="transition-fade">
-<h1 class="pb-3">Liste des signalements des commentaires</h1>
-<div class="container">
-        <div id="logs">
-            <a href="https://topcook.site/admin/reportRead.php" class="btn mb-4 recipe_report">Recettes signalés</a>
-            <a href="https://topcook.site/admin/reportReadMsg.php" class="btn ms-4 mb-4 msg_report">Messages signalés</a>
-            
-        </div>
-    <table class="table text-center table-bordered table-hover" id="active">
+  <?php include "../includes/header.php"; ?>
+  <main id="swup" class="transition-fade">
+    <h1 class="pb-3">Liste des signalements des commentaires</h1>
+    <div class="container">
+      <div id="logs">
+        <a href="https://topcook.site/admin/reportRead.php" class="btn mb-4 recipe_report">Recettes signalés</a>
+        <a href="https://topcook.site/admin/reportReadMsg.php" class="btn ms-4 mb-4 msg_report">Messages signalés</a>
+
+      </div>
+      <table class="table text-center table-bordered table-hover" id="active">
         <thead>
-            <tr>
-                <th>Pseudo</th>
-                <th>Nombre de signalements</th>
-                <th>Actions</th>
-            </tr>
+          <tr>
+            <th>Pseudo</th>
+            <th>Nombre de signalements</th>
+            <th>Actions</th>
+          </tr>
         </thead>
         <?php
         $query = $db->query(
@@ -40,52 +41,47 @@ include "../includes/head.php";
 
         foreach ($result as $select) { ?>
 
-        <?php
-        $getName = $db->prepare(
-          "SELECT id_user FROM COMMENTAIRE WHERE id = :id_comment"
-        );
-        $getName->execute([
-          "id_comment" => $select["id_comment"],
-        ]);
-        $resultName = $getName->fetch(PDO::FETCH_ASSOC);
+          <?php
+          $getName = $db->prepare(
+            "SELECT id_user FROM COMMENTAIRE WHERE id = :id_comment"
+          );
+          $getName->execute([
+            "id_comment" => $select["id_comment"],
+          ]);
+          $resultName = $getName->fetch(PDO::FETCH_ASSOC);
 
-        $getUser = $db->prepare(
-          "SELECT pseudo, rights  FROM USER WHERE id = :id_user"
-        );
-        $getUser->execute([
-          "id_user" => $resultName["id_user"],
-        ]);
-        $resultUser = $getUser->fetch(PDO::FETCH_ASSOC);
-        ?>
-         <tbody>
-                <tr>
-                    <td><?= $resultUser["pseudo"] ?></td>
-                    <td><?= $select["count(id_comment)"] ?></td>
-                    <td>
-                    <div class="button_profil">
-                    <a href="users/read.php?id=<?= $resultName[
-                      "id_user"
-                    ] ?>" class="btn-read btn ms-3 me-3">Consulter</a><br>
-                        
-                        <a href="users/ban.php?id=<?= $resultName[
-                          "id_user"
-                        ] ?>&pseudo=<?= $resultUser[
-  "pseudo"
-] ?>&rights=<?= $resultUser["rights"] ?>" class="btn btn-danger btn-ban ms-3 me-3">Bannir</a>
-                            
-                    </div>
-                    </td>
-                </tr>
-        </tbody>
-    
+          $getUser = $db->prepare(
+            "SELECT pseudo, rights  FROM USER WHERE id = :id_user"
+          );
+          $getUser->execute([
+            "id_user" => $resultName["id_user"],
+          ]);
+          $resultUser = $getUser->fetch(PDO::FETCH_ASSOC);
+          ?>
+          <tbody>
+            <tr>
+              <td><?= $resultUser["pseudo"] ?></td>
+              <td><?= $select["count(id_comment)"] ?></td>
+              <td>
+                <div class="button_profil">
+                  <a href="users/read.php?id=<?= $resultName["id_user"] ?>" class="btn-read btn ms-3 me-3">Consulter</a><br>
+
+                  <a href="users/ban.php?id=<?= $resultName["id_user"] ?>&pseudo=<?= $resultUser["pseudo"] ?>&rights=<?= $resultUser["rights"] ?>" class="btn btn-danger btn-ban ms-3 me-3">Bannir</a>
+
+                </div>
+              </td>
+            </tr>
+          </tbody>
+
         <?php }
         ?>
-        </table>
-</div>
-</main>
-<script src="https://topcook.site/node_modules/swup/dist/swup.min.js"></script>
-<script src="https://topcook.site/js/swup.js"></script>
-<?php include "../includes/footer.php"; ?>
-<?php include "../includes/scripts.php"; ?>
+      </table>
+    </div>
+  </main>
+  <script src="https://topcook.site/node_modules/swup/dist/swup.min.js"></script>
+  <script src="https://topcook.site/js/swup.js"></script>
+  <?php include "../includes/footer.php"; ?>
+  <?php include "../includes/scripts.php"; ?>
 </body>
+
 </html>

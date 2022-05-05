@@ -8,6 +8,3 @@ $type = htmlspecialchars($_GET['type']);
 $type = strtolower($type);
 
 $delElement = $db->query("UPDATE AVATAR SET $type = NULL WHERE idUser = ".$_SESSION['id']);
-
-
-?>

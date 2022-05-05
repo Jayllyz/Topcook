@@ -27,5 +27,3 @@ if (isset($_SESSION["id"])) {
   header("Location: topic.php?message=Vous devez être connecté&type=danger");
   exit();
 }
-
-?>

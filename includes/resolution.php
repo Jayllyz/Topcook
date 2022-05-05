@@ -24,5 +24,3 @@ imagecopyresampled(
 imagejpeg($new_image, $destination);
 imagedestroy($new_image);
 imagedestroy($image);
-
-?>

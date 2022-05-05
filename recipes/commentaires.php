@@ -8,7 +8,7 @@ $commentaire = $_POST['comment'];
 $submit = $_POST['submit'];
 $id_recipe = htmlspecialchars($_GET['id_recipe']);
 $name = htmlspecialchars($_GET['name']);
-if(isset($_SESSION['id'])) {
+if (isset($_SESSION['id'])) {
 
 
 
@@ -21,9 +21,7 @@ if(isset($_SESSION['id'])) {
     ]);
     header("location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Commentaire ajouté !&type=success");
     exit();
-}else{
+} else {
     header("location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Vous devez être connecté pour ajouter un commentaire&type=danger");
     exit();
 }
-
-?>

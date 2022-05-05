@@ -68,5 +68,3 @@ if(isset($_SESSION['id'])) {
     header("location: https://topcook.site/concours.php?message=Vous devez être connecté pour participer.&type=danger");
     exit();
 }
-
-?>

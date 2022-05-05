@@ -6,25 +6,27 @@ $linkCss = "css/style.css";
 $title = "Mot de passe oublié";
 include "includes/head.php";
 ?>
+
 <body>
     <?php include "includes/header.php"; ?>
 
     <main>
 
-    <form action="verifications/update_password.php" method="post">
-    <div class="container col-md-6">
-            <?php include "includes/message.php"; ?>
-        </div>
-            <div class="container col-md-4" id="form" >
+        <form action="verifications/update_password.php" method="post">
+            <div class="container col-md-6">
+                <?php include "includes/message.php"; ?>
+            </div>
+            <div class="container col-md-4" id="form">
                 <div class="mb-3">
                     <label for="login" class="form-label"><strong>Email</strong></label>
                     <input type="email" class="form-control" name="email"><br>
                     <button type="submit" name="submit" class="btn">Envoyer</button>
                 </div>
             </div>
-    </form>
+        </form>
     </main>
 
     <?php include "includes/footer.php"; ?>
 </body>
+
 </html>

@@ -34,5 +34,3 @@ $pdf->Cell(40,10,'Votre date d\'inscription : '.$creation);
 $pdf->Output('' . $pseudo . '_topcook.pdf','D');
 
 }
-
-?>

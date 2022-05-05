@@ -20,6 +20,4 @@ foreach ($result as $row) {
     echo "</a>";
     echo "<h4 class='text-center mb-3 mt-3'>$name</h4>";
     echo "</div>";
-
 }
-?>

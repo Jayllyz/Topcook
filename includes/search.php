@@ -69,4 +69,3 @@ if($_SESSION['rights'] == 1) {
 if(!$resultTopic && !$resultRecipe && !$resultUser){
     echo "<p class='fs-5'>Aucun résultat</p>";
 }
-?>

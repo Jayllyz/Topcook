@@ -43,11 +43,3 @@ $likes = $resultSelectLike['likes'];
 if ($resultSelectLike) {
     echo $likes;
 }
-
-
-
-
-
-
-
-?>

@@ -16,5 +16,3 @@ $updateColor = $db->query(
   "UPDATE AVATAR SET colorBody = '$colorBody', colorHair = '$colorHair' , colorHat = '$colorHat' , colorSweet = '$colorSweat' , colorEyes = '$colorEyes' , colorBeard = '$colorBeard' WHERE idUser = " .
     $idUser
 );
-
-?>

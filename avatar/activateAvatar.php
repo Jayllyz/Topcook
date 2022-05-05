@@ -19,4 +19,3 @@ if ($selectResult['avatar'] === "0") {
     "UPDATE USER SET avatar = '0' WHERE id = " . $_SESSION["id"]
   );
 }
-?>

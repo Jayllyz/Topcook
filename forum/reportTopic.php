@@ -19,5 +19,3 @@ header(
   "location: https://topcook.site/forum/subject.php?id_subject=$id_topic&creator=$creator_name&id_creator=$creator&message=Sujet signalé avec succés !&type=success"
 );
 exit();
-
-?>

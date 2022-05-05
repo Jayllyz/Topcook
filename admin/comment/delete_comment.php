@@ -30,5 +30,3 @@ header(
   "location: https://topcook.site/recipes/recipe.php?name=$name_recipe&id=$id_recipe&message=Commentaire supprimé avec succés !&type=success"
 );
 exit();
-
-?>

@@ -19,6 +19,3 @@ if($type == "----choisir une option de tri----"){
     ]);
 
 }
-
-
-?>

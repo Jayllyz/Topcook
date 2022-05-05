@@ -71,5 +71,3 @@ if(isset($rights) && !empty($rights) || isset($pseudo) && !empty($pseudo) || iss
     header("location: ../../admin.php?message=Modification effectué !&type=success");
     exit();
 }
-
-?>

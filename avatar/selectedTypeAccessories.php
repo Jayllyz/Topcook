@@ -20,4 +20,3 @@ if($type !== "Choisir un type d'accessoire"){
 
     }
 }
-?>

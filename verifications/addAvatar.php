@@ -30,6 +30,3 @@ if($body != "start" && $hair != "start" && $eyes != "start" && $hat != "start" &
 }else{
     echo "<p class='alert alert-danger mt-3'>Veuillez choisir des options</p>";
 }
-
-
-?>

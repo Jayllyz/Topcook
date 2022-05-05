@@ -17,7 +17,3 @@ $deleteMsg->execute([
 ]);
 header("location: https://topcook.site/forum/subject.php?id_subject=$id_subject&id_creator=$id_creator&creator=$creator&message=Message supprimé avec succès !&type=success");
 exit();
-
-
-
-?>

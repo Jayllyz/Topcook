@@ -46,7 +46,3 @@ $idUser = $_SESSION['id'];
             echo $selectImgSweat;
             echo "</div>";
         }
-
-
-
-?>

@@ -175,5 +175,3 @@ function getAvatar($db, $type, $idUser)
   $selectImg = $selectImg["image"];
   return $selectImg;
 }
-
-?>

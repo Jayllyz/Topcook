@@ -22,5 +22,3 @@ header(
   "location: https://topcook.site/forum/subject.php?id_subject=$id_subject&creator=$creator_name&id_creator=$creator&message=Message signalé avec succés !&type=success"
 );
 exit();
-
-?>

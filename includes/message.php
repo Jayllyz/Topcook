@@ -8,4 +8,3 @@ if (isset($_GET["message"]) && !empty($_GET["message"])) {
       "</p>";
   }
 }
-?>

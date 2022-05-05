@@ -11,7 +11,7 @@ $selectLike->execute([
     "id_user" => $_SESSION['id']
 ]);
 $resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
-if($resultLike == 1){
+if ($resultLike == 1) {
     $req = $db->prepare(
         "DELETE FROM LIKES WHERE id_user = :id_user AND id_recipe = :id_recipe"
     );
@@ -20,7 +20,7 @@ if($resultLike == 1){
         "id_user" => $_SESSION["id"],
     ]);
     echo "<img src='../images/like.svg' id='isLiked' alt='like' width='30' height='30' onclick='like($id)'>";
-}else{
+} else {
     $req = $db->prepare(
         "INSERT INTO LIKES (votes, id_recipe, id_user )VALUES( :votes , :id_recipe , :id_user)"
     );
@@ -31,8 +31,3 @@ if($resultLike == 1){
     ]);
     echo "<img src='../images/like.svg' id='isLiked' alt='like' width='30' height='30' class='liked' onclick='like($id)'>";
 }
-
-
-
-
-?>

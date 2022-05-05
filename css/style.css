@@ -562,6 +562,10 @@ footer {
   display: flex;
   justify-content: center;
 }
+#colorBody, #colorEyes, #colorHair, #colorHat, #colorBeard, #colorSweat{
+  width: 50px;
+}
+
 #img_contest_index {
   border-radius: 35px;
 }
@@ -629,7 +633,8 @@ footer {
 
 .select {
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
+  align-items: end;
 }
 
 .timer {

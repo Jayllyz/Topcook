@@ -13,7 +13,10 @@ include "../includes/head.php";
 ?>
 <body>
 <?php include "../includes/header.php"; ?>
+<main>
 <div class="container g-1" id="recettes">
+    <h1>Vote du concours</h1>
+    <p class="text-center">Attention votre vote est définitif</p>
 
     <div class="pb-4 row" id="img-participate">
         <?php
@@ -32,8 +35,10 @@ include "../includes/head.php";
 <?php } ?>
 </div>
 </div>
+</main>
 <?php include "../includes/footer.php"; ?>
-<script src="../js/likeParticipate.js"></script>
+
 <?php include "../includes/scripts.php"; ?>
+<script src="../js/likeParticipate.js"></script>
 </body>
 </html>

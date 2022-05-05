@@ -42,22 +42,32 @@ include "../includes/head.php";
 
     <div class="container pt-4">
         <div class="select">
-        
-            <!-- <label>Couleur du corps</label>
-                <input type="color" id="colorBody"  class="form-control"> -->
-            <label>Couleur du body</label>
+        <div class="select-header">
+            <label class="mt-3">Body</label>
                 <input type="color" id="colorBody"  class="form-control">
-            <label class="mt-3">Couleur des yeux</label>
+        </div>
+        <div class="select-header">
+            <label class="mt-3">Yeux</label>
                 <input type="color" id="colorEyes"  class="form-control">
-            <label class="mt-3">Couleur des cheveux</label>
+        </div>
+        <div class="select-header">
+            <label class="mt-3">Cheveux</label>
                 <input type="color" id="colorHair"  class="form-control">
-            <label class="mt-3">Couleur du chapeau</label>
-                <input type="color" id="colorHat"  class="form-control"> 
-            <label class="mt-3">Couleur du vetement</label>
+        </div>
+        <div class="select-header">
+            <label class="mt-3">Chapeau</label>
+                <input type="color" id="colorHat"  class="form-control">
+        </div>
+        <div class="select-header">
+            <label class="mt-3">Vetement</label>
              <input type="color" id="colorSweat"  class="form-control">
-            <label class="mt-3">Couleur de la barbe</label>
+        </div>
+        <div class="select-header">
+            <label class="mt-3">Barbe</label>
                 <input type="color" id="colorBeard"  class="form-control">
-            <input type="button" value="Enregistrer" class="btn btn-primary mt-3" onclick="changeColor()">
+        </div>
+            <input type="button" value="Enregistrer" class="btn mt-3" onclick="changeColor()">
+
 
         </div>
     </div>

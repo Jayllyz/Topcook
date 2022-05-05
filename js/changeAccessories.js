@@ -52,38 +52,61 @@ function reloadAvatar() {
       request2.onreadystatechange = function () {
         if (request2.readyState === XMLHttpRequest.DONE) {
           const res = request2.responseText;
-          console.log(res);
-          array = res.split(",");
+          let array = res.split(",");
 
           let hair = document.getElementById("hair-path");
           if (hair !== null) {
             hair.setAttribute("fill", "#" + array[0]);
+            let hairInput = document.getElementById("colorHair");
+            if (hairInput !== null) {
+              hairInput.value = "#" + array[0];
+            }
           }
 
           let hat = document.getElementById("hat-path");
           if (hat !== null) {
             hat.setAttribute("fill", "#" + array[1]);
+            let hatInput = document.getElementById("colorHat");
+            if (hatInput !== null) {
+              hatInput.value = "#" + array[1];
+            }
           }
 
           let sweet = document.getElementById("sweet-path");
           if (sweet !== null) {
             sweet.setAttribute("fill", "#" + array[2]);
+            let sweetInput = document.getElementById("colorSweat");
+            if (sweetInput !== null) {
+              sweetInput.value = "#" + array[2];
+            }
           }
 
           let eyes = document.getElementById("eyes-path");
 
           if (eyes !== null) {
             eyes.setAttribute("fill", "#" + array[3]);
+            let eyesInput = document.getElementById("colorEyes");
+            if (eyesInput !== null) {
+              eyesInput.value = "#" + array[3];
+            }
           }
 
           let beard = document.getElementById("beard-path");
           if (beard !== null) {
             beard.setAttribute("fill", "#" + array[4]);
+            let beardInput = document.getElementById("colorBeard");
+            if (beardInput !== null) {
+              beardInput.value = "#" + array[4];
+            }
           }
           let body = document.getElementById("body");
 
           if (body !== null) {
             body.setAttribute("fill", "#" + array[5]);
+            let bodyInput = document.getElementById("colorBody");
+            if (bodyInput !== null) {
+              bodyInput.value = "#" + array[5];
+            }
           }
         }
       };

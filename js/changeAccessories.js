@@ -58,32 +58,44 @@ function reloadAvatar() {
           let hair = document.getElementById("hair-path");
           if (hair !== null) {
             hair.setAttribute("fill", "#" + array[0]);
+            let haitInput = document.getElementById("colorHair");
+            haitInput.value = "#" + array[0];
           }
 
           let hat = document.getElementById("hat-path");
           if (hat !== null) {
             hat.setAttribute("fill", "#" + array[1]);
+            let hatInput = document.getElementById("colorHat");
+            hatInput.value = "#" + array[1];
           }
 
           let sweet = document.getElementById("sweet-path");
           if (sweet !== null) {
             sweet.setAttribute("fill", "#" + array[2]);
+            let sweetInput = document.getElementById("colorSweat");
+            sweetInput.value = "#" + array[2];
           }
 
           let eyes = document.getElementById("eyes-path");
 
           if (eyes !== null) {
             eyes.setAttribute("fill", "#" + array[3]);
+            let eyesInput = document.getElementById("colorEyes");
+            eyesInput.value = "#" + array[3];
           }
 
           let beard = document.getElementById("beard-path");
           if (beard !== null) {
             beard.setAttribute("fill", "#" + array[4]);
+            let beardInput = document.getElementById("colorBeard");
+            beardInput.value = "#" + array[4];
           }
           let body = document.getElementById("body");
 
           if (body !== null) {
             body.setAttribute("fill", "#" + array[5]);
+            let bodyInput = document.getElementById("colorBody");
+            bodyInput.value = "#" + array[5];
           }
         }
       };

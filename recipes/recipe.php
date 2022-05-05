@@ -17,7 +17,7 @@ fclose($log_recipe);
 <?php
 $linkLogoOnglet = "../images/topcook_logo.svg";
 $linkCss = "../css/style.css";
-$title = "";
+$title = "Topcook - " . $name;
 include "../includes/head.php";
 ?>
 <body onload="countLike(<?= $_GET["id"] ?>)">

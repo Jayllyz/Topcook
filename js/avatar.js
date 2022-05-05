@@ -1,5 +1,4 @@
 function changeColor() {
-  // let colorBody = document.getElementById("colorBody").value;
   let colorHair = document.getElementById("colorHair").value;
   let colorHat = document.getElementById("colorHat").value;
   let colorSweat = document.getElementById("colorSweat").value;
@@ -7,7 +6,6 @@ function changeColor() {
   let colorBeard = document.getElementById("colorBeard").value;
   let colorBody = document.getElementById("colorBody").value;
 
-  // colorBody = colorBody.slice(1);
   colorHair = colorHair.slice(1);
   colorHat = colorHat.slice(1);
   colorSweat = colorSweat.slice(1);

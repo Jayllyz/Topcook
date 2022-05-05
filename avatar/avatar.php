@@ -43,8 +43,6 @@ include "../includes/head.php";
     <div class="container pt-4">
         <div class="select">
         
-            <!-- <label>Couleur du corps</label>
-                <input type="color" id="colorBody"  class="form-control"> -->
             <label>Couleur du body</label>
                 <input type="color" id="colorBody"  class="form-control">
             <label class="mt-3">Couleur des yeux</label>

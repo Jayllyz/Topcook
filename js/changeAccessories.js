@@ -53,7 +53,7 @@ function reloadAvatar() {
         if (request2.readyState === XMLHttpRequest.DONE) {
           const res = request2.responseText;
           console.log(res);
-          array = res.split(",");
+          let array = res.split(",");
 
           let hair = document.getElementById("hair-path");
           if (hair !== null) {

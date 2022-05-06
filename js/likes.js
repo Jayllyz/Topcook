@@ -1,4 +1,5 @@
-function countLikeParticipate(id, type) {
+function countLikeParticipate(id, type, array) {
+  console.log(array);
   const request = new XMLHttpRequest();
   if (type === 0) {
     request.open(
@@ -11,6 +12,8 @@ function countLikeParticipate(id, type) {
         request.status === 200
       ) {
         const result_like = document.querySelectorAll(".result_like");
+        let test = request.responseText;
+        console.log(test);
         for (let i = 0; i < result_like.length; i++) {
           result_like[i].innerHTML = request.responseText;
         }

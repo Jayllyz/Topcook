@@ -10,13 +10,14 @@ $linkLogoOnglet = "../images/topcook_logo.svg";
 $linkCss = "../css/style.css";
 $title = "TopCook - Votez pour vos recettes favorites !";
 include "../includes/head.php";
-$selectIdUser = $db->query("SELECT id FROM USER WHERE idContest = 14");
-$idUser = $selectIdUser->fetch();
-$idUser = $idUser['id'];
+$select = $db->query("SELECT id_proposal FROM LIKES_CONTEST");
+$result = $select->fetchAll(PDO::FETCH_ASSOC);
+
+var_dump($result);
 
 ?>
 
-<body onload="countLikeParticipate(<?= $idUser ?>, 0)">
+<body onload="countLikeParticipate(<?= $_SESSION['id'] ?>, 0, <?= $result ?>)">
     <?php include "../includes/header.php"; ?>
     <main>
         <div class="container g-1" id="recettes">

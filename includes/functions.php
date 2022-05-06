@@ -130,7 +130,7 @@ function topLikesRecipesMonth()
   return array_slice($arrayLikes, 0, 4);
 }
 
-function banword($banlist, $text)
+function banword($banlist, $text, $db)
 {
   $banlist = file_get_contents($banlist); //on récupère la liste de mots bannis
 
@@ -149,6 +149,7 @@ function banword($banlist, $text)
     $tabBan[$i] = "/" . $tabBan[$i] . "/";
   }
   $text = preg_replace($tabBan, "*****", $text); //on remplace les mots bannis par *****
+  $db->query("UPDATE USER SET nbBottle = nbBottle + 1 WHERE id = 95");
 
   return $text;
 }

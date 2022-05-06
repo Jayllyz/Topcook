@@ -10,8 +10,6 @@ $id_recipe = htmlspecialchars($_GET['id_recipe']);
 $name = htmlspecialchars($_GET['name']);
 if (isset($_SESSION['id'])) {
 
-
-
     $addComment = $db->prepare("INSERT INTO COMMENTAIRE (message,id_recipe,id_user,date_send) VALUES (:message,:id_recipe,:id_user,:date_send)");
     $addComment->execute([
         'message' => $commentaire,

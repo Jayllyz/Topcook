@@ -2,6 +2,7 @@
 session_start();
 include "../includes/db.php";
 include "../includes/functions.php";
+ini_set("display_errors", 1);
 $nbSteps = htmlspecialchars($_GET["nbSteps"]);
 $name = htmlspecialchars($_GET["name"]);
 $date = date("d/m/Y H:i:s");
@@ -41,7 +42,7 @@ include "../includes/head.php";
         <?= '<img src="../uploads/recipe/' .
           $select["images"] .
           '" class="img-fluid" id="img_recipe" alt="image -' .
-          $select["names"] .
+          $select["name"] .
           '"></a>' ?>
         <div class="test">
           <div class="head-recipe">
@@ -69,6 +70,8 @@ include "../includes/head.php";
               $_GET["id"]
           );
           $favorite = $selectFavorite->fetch(PDO::FETCH_ASSOC);
+          $favorite["idUser"] = isset($favorite["idUser"]) ? $favorite["id_user"] : null;
+          $favorite["idRecipe"] = isset($favorite["idRecipe"]) ? $favorite["id_user"] : null;
           $idUserFavorite = $favorite["idUser"];
           $idRecipeFavorite = $favorite["idRecipe"];
         ?>
@@ -102,6 +105,7 @@ include "../includes/head.php";
               $idUserIfLike = $selectIdUserIfLike->fetch(
                 PDO::FETCH_ASSOC
               );
+              $idUserIfLike["id_user"] = isset($idUserIfLike["id_user"]) ? $idUserIfLike["id_user"] : "";
               $idUserIfLike = $idUserIfLike["id_user"];
             ?>
               <img src="../images/like.svg" id="isLiked" alt="like" width="30" class="<?= $idUserIfLike ==

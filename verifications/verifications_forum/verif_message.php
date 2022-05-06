@@ -19,6 +19,7 @@ if (isset($_SESSION["id"])) {
     "id_user" => $_SESSION["id"],
     "date" => $date,
   ]);
+
   header(
     "Location: ../../forum/subject.php?id_subject=$id_topic&message=Votre message a bien été envoyé !&type=success"
   );

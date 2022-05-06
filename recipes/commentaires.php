@@ -4,6 +4,7 @@ ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 include "../includes/db.php";
+include "../includes/functions.php";
 $commentaire = $_POST['comment'];
 $submit = $_POST['submit'];
 $id_recipe = htmlspecialchars($_GET['id_recipe']);
@@ -17,6 +18,7 @@ if (isset($_SESSION['id'])) {
         'id_user' => $_SESSION['id'],
         'date_send' => date("d-m-Y H:i:s")
     ]);
+    banword("https://topcook.site/banlist.txt", $commentaire, $db, 1);
     header("location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Commentaire ajouté !&type=success");
     exit();
 } else {

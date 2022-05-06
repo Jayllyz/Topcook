@@ -2,7 +2,6 @@
 session_start();
 include "../includes/db.php";
 include "../includes/functions.php";
-ini_set("display_errors", 1);
 $nbSteps = htmlspecialchars($_GET["nbSteps"]);
 $name = htmlspecialchars($_GET["name"]);
 $date = date("d/m/Y H:i:s");
@@ -310,7 +309,9 @@ include "../includes/head.php";
                       <?php } ?>
                       <td><?= banword(
                             "../banlist.txt",
-                            $message["message"]
+                            $message["message"],
+                            $db,
+                            0
                           ) ?></td>
                       <td id="date_send"><?= $message["date_send"] ?></td>
 

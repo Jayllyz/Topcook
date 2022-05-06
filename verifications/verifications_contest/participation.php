@@ -5,7 +5,7 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 $idContest = htmlspecialchars($_GET['id']);
 include '../../includes/db.php';
-if(isset($_SESSION['id'])) {
+if (isset($_SESSION['id'])) {
     if (isset($_FILES["image"]) && !empty($_FILES["image"]["name"])) {
         // Vérifier le type de fichier
         $acceptable = ["image/jpeg", "image/png"];
@@ -56,15 +56,21 @@ if(isset($_SESSION['id'])) {
         move_uploaded_file($_FILES["image"]["tmp_name"], $destination);
         include "../../includes/resolution.php";
     }
-    $insertParticipation = $db->prepare("INSERT INTO PARTICIPATE (idUser, idContest, image) VALUES (:idUser, :idContest, :image)");
-    $insertParticipation->execute([
-        "idUser" => $_SESSION["id"],
-        "idContest" => $idContest,
-        "image" => isset($filename) ? $filename : ""
-    ]);
-    header("location: https://topcook.site/concours.php?message=Votre participation a bien été enregistrée.&type=success");
-    exit();
-}else{
+    $select = $db->query("SELECT count(id) AS OCC FROM USER WHERE id = " . $_SESSION['id'] . " AND  id_contest = " . $idContest);
+    $result = $select->fetch(PDO::FETCH_ASSOC);
+    if ($result['OCC'] === 0) {
+        $insertParticipation = $db->prepare("INSERT INTO USER (idContest, imagesContest) VALUES ( :idContest, :image)");
+        $insertParticipation->execute([
+            "idContest" => $idContest,
+            "image" => isset($filename) ? $filename : "",
+        ]);
+        header("location: https://topcook.site/concours.php?message=Votre participation a bien été enregistrée.&type=success");
+        exit();
+    } else {
+        header("location: https://topcook.site/concours.php?message=Vous avez déjà participé à ce concours.&type=danger");
+        exit();
+    }
+} else {
     header("location: https://topcook.site/concours.php?message=Vous devez être connecté pour participer.&type=danger");
     exit();
 }

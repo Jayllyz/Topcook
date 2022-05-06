@@ -1,45 +1,33 @@
 <?php
 session_start();
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
 
-include "../includes/db.php";
-$idContest = $_POST['id'];
-
-
-$selectUserIsVoted = $db->prepare("SELECT participateContest FROM USER WHERE id = :id");
-$selectUserIsVoted->execute([
-    'id' => $_SESSION['id']
-]);
-$selectUserIsVoted = $selectUserIsVoted->fetch(PDO::FETCH_ASSOC);
-
-
-if($selectUserIsVoted['participateContest'] === '0'){
-
-        $updateUserIsVoted = $db->prepare("UPDATE USER SET participateContest = '1' WHERE id = :id");
-        $updateUserIsVoted->execute([
-            'id' => $_SESSION['id']
-
-        ]);
-
-        $insertLike = $db->prepare("UPDATE PARTICIPATE SET likes = likes + 1 WHERE id = :id");
-        $resultLike = $insertLike->execute([
-            'id' => $idContest
-        ]);
-}
-
-
-
-$selectLike = $db->prepare("SELECT likes FROM PARTICIPATE WHERE id = :id");
+include '../includes/db.php';
+$id = $_POST['id'];
+$selectLike = $db->prepare(
+    "SELECT votes FROM LIKES_CONTEST WHERE id_contest = :id_contest AND id_user = :id_user"
+);
 $selectLike->execute([
-    'id' => $idContest
+    "id_contest" => $id,
+    "id_user" => $_SESSION['id']
 ]);
-$resultSelectLike = $selectLike->fetch(PDO::FETCH_ASSOC);
-$likes = $resultSelectLike['likes'];
-
-
-
-if ($resultSelectLike) {
-    echo $likes;
+$resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
+if ($resultLike == 1) {
+    $req = $db->prepare(
+        "DELETE FROM LIKES_CONTEST WHERE id_user = :id_user AND id_contest = :id_contest"
+    );
+    $req->execute([
+        "id_contest" => $id,
+        "id_user" => $_SESSION["id"],
+    ]);
+    echo "<img src='../images/like.svg' id='isLiked' alt='like' width='30' height='30' onclick='likeContest($id)'>";
+} else {
+    $req = $db->prepare(
+        "INSERT INTO LIKES_CONTEST (votes, id_contest, id_user )VALUES( :votes , :id_contest , :id_user)"
+    );
+    $req->execute([
+        "votes" => 1,
+        "id_contest" => $id,
+        "id_user" => $_SESSION["id"],
+    ]);
+    echo "<img src='../images/like.svg' id='isLiked' alt='like' width='30' height='30' class='liked' onclick='likeContest($id)'>";
 }

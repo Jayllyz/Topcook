@@ -19,7 +19,7 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
     <?php include "../../includes/header.php"; ?>
     <?php
     $req = $db->prepare(
-      "SELECT pseudo, email, date_birth,rights,image,creation FROM USER WHERE id = :id"
+      "SELECT pseudo, email, nbBottle, date_birth,rights,image,creation FROM USER WHERE id = :id"
     );
     $req->execute([
       "id" => $id,
@@ -35,6 +35,7 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
             <th>Pseudo</th>
             <th>Email</th>
             <th>Date de naissance</th>
+            <th>Bouteilles</th>
             <th>Droits</th>
             <th>Date de création de compte</th>
           </tr>
@@ -47,6 +48,7 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
             <td><?= $select["pseudo"] ?></td>
             <td><?= $select["email"] ?></td>
             <td><?= $select["date_birth"] ?></td>
+            <td><?= $select["nbBottle"] ?></td>
             <td><?= $select["rights"] ?></td>
             <td><?= $select["creation"] ?></td>
 

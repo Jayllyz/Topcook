@@ -130,26 +130,30 @@ function topLikesRecipesMonth()
   return array_slice($arrayLikes, 0, 4);
 }
 
-function banword($banlist, $text, $db)
+function banword($banlist, $text, $db, $insert)
 {
   $banlist = file_get_contents($banlist); //on récupère la liste de mots bannis
 
   $tabBan = explode("\n", $banlist); //on la transforme en tableau
 
-  $nbBan = count($tabBan);
-
-  for ($i = 0; $i < $nbBan; $i++) {
+  for ($i = 0; $i < count($tabBan); $i++) {
     $tabBan[$i] = trim($tabBan[$i]);
   }
 
   $tabBan = array_filter($tabBan); //on supprime les éléments vides
 
-  $nbBan = count($tabBan);
-  for ($i = 0; $i < $nbBan; $i++) {
-    $tabBan[$i] = "/" . $tabBan[$i] . "/";
+  for ($i = 0; $i < count($tabBan); $i++) {
+    $tabBan[$i] = "/" . $tabBan[$i] . "/i";
   }
-  $text = preg_replace($tabBan, "*****", $text); //on remplace les mots bannis par *****
-  $db->query("UPDATE USER SET nbBottle = nbBottle + 1 WHERE id = 95");
+  if ($insert === 0) {
+    $text = preg_replace($tabBan, "*****", $text); //on remplace les mots bannis par *****
+  } else {
+    $count = 0;
+    $text = preg_replace($tabBan, "*****", $text, -1, $count);
+    for ($i = 0; $i < $count; $i++) {
+      $db->query("UPDATE USER SET nbBottle = nbBottle + 1 WHERE id = " . $_SESSION['id']);
+    }
+  }
 
   return $text;
 }

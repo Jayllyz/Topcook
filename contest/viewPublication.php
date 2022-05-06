@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../includes/db.php";
+ini_set("display_errors", 1);
 ?>
 <!doctype html>
 <html lang="fr">
@@ -21,15 +22,47 @@ include "../includes/head.php";
 
             <div class="pb-4 row" id="img-participate">
                 <?php
-                $selectParticipate = $db->query("SELECT id, idUser, idContest, image, likes FROM PARTICIPATE ORDER BY id ASC");
+                $selectParticipate = $db->query("SELECT id , idContest, imageContest, likesContest FROM USER ORDER BY id ASC");
                 $resultParticipate = $selectParticipate->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($resultParticipate as $participate) {
                     $idParticipate = $participate['id'];
+                    $idContest = $participate['idContest'];
                 ?>
                     <div class="col-md-4 m-3 d-flex align-items-center">
-                        <img src="../uploads/uploadsParticipate/<?= $participate["image"] ?>" class="img-fluid allrecipes" alt="">
-                        <img src="../images/like.svg" class="ms-3" width="30" height="30" alt="like" onclick="likeParticipate(<?= $idParticipate ?>)">
-                        <p id="<?= $idParticipate ?>"><?= $participate['likes'] ?></p>
+                        <img src="../uploads/uploadsParticipate/<?= $participate["imageContest"] ?>" class="img-fluid allrecipes" alt="">
+                        <div class="d-flex flex-row">
+                            <div id="like">
+                                <?php if (isset($_SESSION["id"])) {
+
+                                    $selectIdUserIfLike = $db->prepare(
+                                        "SELECT id_user FROM LIKES_CONTEST WHERE id_user = :id_user AND id_contest = :id_contest"
+                                    );
+                                    $selectIdUserIfLike->execute([
+                                        "id_user" => $_SESSION["id"],
+                                        "id_contest" => $idContest
+                                    ]);
+                                    $idUserIfLike = $selectIdUserIfLike->fetch(
+                                        PDO::FETCH_ASSOC
+                                    );
+                                    $idUserIfLike["id_user"] = isset($idUserIfLike["id_user"]) ? $idUserIfLike["id_user"] : "";
+                                    $idUserIfLike = $idUserIfLike["id_user"];
+                                ?>
+                                    <img src="../images/like.svg" id="isLiked" alt="like" width="30" class="<?= $idUserIfLike ==
+                                                                                                                $_SESSION["id"]
+                                                                                                                ? "liked"
+                                                                                                                : "" ?>" height="30" onclick="likeContest(<?= $idParticipate ?>)">
+                                <?php
+                                } else {
+                                ?>
+                                    <img src="../images/like.svg" alt="like" width="30" class="notLiked" height="30" onclick="errorLike()">
+                                <?php
+                                } ?>
+                            </div>
+                            <p class="ps-3 fs-4" id="result_like"></p>
+
+                        </div>
+                        <div id="error_like"></div>
+                        <p id="<?= $idContest ?>"><?= $participate['likesContest'] ?></p>
                     </div>
 
 
@@ -38,7 +71,7 @@ include "../includes/head.php";
         </div>
     </main>
     <?php include "../includes/footer.php"; ?>
-
+    <script src="../js/likes.js"></script>
     <?php include "../includes/scripts.php"; ?>
     <script src="../js/likeParticipate.js"></script>
 </body>

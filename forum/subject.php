@@ -14,6 +14,7 @@ $subject = $resultTopic["subject"];
 $message = $resultTopic["message"];
 $image = $resultTopic["image"];
 $date = $resultTopic["date"];
+var_dump($image);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -36,6 +37,9 @@ include "../includes/head.php";
 
       <div class="info_creator text-center">
         <h2 class="pb-3">Sujet : <strong><?= $subject ?></strong></h2>
+        <?php if (isset($image)) { ?>
+          <img src="https://topcook.site/uploads/img_topic/<?= $image ?>" alt="<?= $subject ?>" class="pb-3 img-fluid">
+        <?php } ?>
         <p>Créé par : <strong><?= $pseudo ?></strong></p>
         <p>Date de création : <strong><?= $date ?></strong></p>
         <div class="description d-flex justify-content-center">

@@ -32,7 +32,7 @@ function likeContest(id) {
       countLike(id);
     }
   };
-  request.send("id=" + id);
+  request.send(`id=${id}`);
 }
 
 function errorLike() {

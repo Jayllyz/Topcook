@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+ini_set("display_errors", 1);
 include '../includes/db.php';
 $id = $_POST['id'];
 $selectLike = $db->prepare(

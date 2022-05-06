@@ -22,7 +22,7 @@ include "../includes/head.php";
 
             <div class="pb-4 row" id="img-participate">
                 <?php
-                $selectParticipate = $db->query("SELECT id , idContest, imageContest, likesContest FROM USER ORDER BY id ASC");
+                $selectParticipate = $db->query("SELECT id , idContest, imageContest, likesContest FROM USER  WHERE imageContest != 'NULL' ORDER BY id ASC");
                 $resultParticipate = $selectParticipate->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($resultParticipate as $participate) {
                     $idParticipate = $participate['id'];

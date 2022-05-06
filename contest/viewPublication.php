@@ -15,12 +15,12 @@ $idUser = $selectIdUser->fetch();
 $idUser = $idUser['id'];
 
 ?>
-<body onload="countLikeParticipate(<?= $idUser?>, 0)">
+
+<body onload="countLikeParticipate(<?= $idUser ?>, 0)">
     <?php include "../includes/header.php"; ?>
     <main>
         <div class="container g-1" id="recettes">
             <h1>Vote du concours</h1>
-            <p class="text-center">Attention votre vote est définitif</p>
 
             <div class="pb-4 row" id="img-participate">
                 <?php
@@ -49,10 +49,10 @@ $idUser = $idUser['id'];
                                     $idUserIfLike["id_user"] = isset($idUserIfLike["id_user"]) ? $idUserIfLike["id_user"] : "";
                                     $idUserIfLike = $idUserIfLike["id_user"];
                                 ?>
-                                    <img src="../images/like.svg" id="isLiked" alt="like" width="30" class="<?= $idUserIfLike ==
-                                                                                                                $_SESSION["id"]
-                                                                                                                ? "liked"
-                                                                                                                : "" ?>" height="30" onclick="likeContest(<?= $idParticipate ?>)">
+                                    <img src="../images/like.svg" id="<?= $idParticipate ?>" alt="like" width="30" class="<?= $idUserIfLike ==
+                                                                                                                                $_SESSION["id"]
+                                                                                                                                ? "liked"
+                                                                                                                                : "" ?>" height="30" onclick="likeContest(<?= $idParticipate ?>)">
                                 <?php
                                 } else {
                                 ?>
@@ -64,7 +64,7 @@ $idUser = $idUser['id'];
 
                         </div>
                         <div id="error_like"></div>
-                        <!--<p id="<?/*= $idContest */?>"><?/*= $participate['likesContest'] */?></p>-->
+
                     </div>
 
 
@@ -76,6 +76,7 @@ $idUser = $idUser['id'];
     <script src="../js/likes.js"></script>
     <?php include "../includes/scripts.php"; ?>
     <script src="../js/likeParticipate.js"></script>
+
 </body>
 
 </html>

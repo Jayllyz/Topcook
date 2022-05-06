@@ -1,21 +1,28 @@
-
 function countLikeParticipate(id, type) {
   const request = new XMLHttpRequest();
-  if(type === 0){
-  request.open("GET", "https://topcook.site/contest/countLikeParticipate.php?id=" + id);
+  if (type === 0) {
+    request.open(
+      "GET",
+      "https://topcook.site/contest/countLikeParticipate.php?id=" + id
+    );
     request.onreadystatechange = function () {
-      if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-        const result_like = document.querySelectorAll('.result_like');
+      if (
+        request.readyState === XMLHttpRequest.DONE &&
+        request.status === 200
+      ) {
+        const result_like = document.querySelectorAll(".result_like");
         for (let i = 0; i < result_like.length; i++) {
           result_like[i].innerHTML = request.responseText;
         }
       }
     };
-
-  }else{
+  } else {
     request.open("GET", "countLike.php?id=" + id);
     request.onreadystatechange = function () {
-      if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+      if (
+        request.readyState === XMLHttpRequest.DONE &&
+        request.status === 200
+      ) {
         document.getElementById("result_like").innerHTML = request.responseText;
       }
     };
@@ -31,7 +38,7 @@ function like(id) {
   request.onreadystatechange = function () {
     if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
       document.getElementById("like").innerHTML = request.responseText;
-      countLikeParticipate(id,1);
+      countLikeParticipate(id, 1);
     }
   };
   request.send("id=" + id);
@@ -43,8 +50,16 @@ function likeContest(id) {
   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   request.onreadystatechange = function () {
     if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-      document.getElementById("like").innerHTML = request.responseText;
-      countLikeParticipate(id,0);
+      let res = request.responseText;
+      res = res.split(",");
+      console.log(res[0]);
+      console.log(res[1]);
+      if (res[1] === "liked") {
+        document.getElementById(res[0]).classList.add(res[1]);
+      } else {
+        document.getElementById(res[0]).classList.remove(res[1]);
+      }
+      countLikeParticipate(id, 0);
     }
   };
   request.send(`id=${id}`);

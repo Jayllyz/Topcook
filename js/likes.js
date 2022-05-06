@@ -1,5 +1,5 @@
 function countLikeParticipate(id, type, array) {
-  console.log(array);
+
   const request = new XMLHttpRequest();
   if (type === 0) {
     request.open(

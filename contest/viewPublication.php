@@ -13,11 +13,17 @@ include "../includes/head.php";
 $select = $db->query("SELECT id_proposal FROM LIKES_CONTEST");
 $result = $select->fetchAll(PDO::FETCH_ASSOC);
 
-var_dump($result);
+$nbLikes = count($result);
+for($i = 0; $i < $nbLikes; $i++) {
+    $idProposal = $result[$i]['id_proposal'];
+
+
+
 
 ?>
 
-<body onload="countLikeParticipate(<?= $_SESSION['id'] ?>, 0, <?= $result ?>)">
+<body onload="countLikeParticipate(<?= $_SESSION['id'] ?>, 0, <?= $idProposal ?>)">
+<?php } ?>
     <?php include "../includes/header.php"; ?>
     <main>
         <div class="container g-1" id="recettes">

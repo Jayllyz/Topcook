@@ -52,12 +52,10 @@ function likeContest(id) {
     if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
       let res = request.responseText;
       res = res.split(",");
-      console.log(res[0]);
-      console.log(res[1]);
       if (res[1] === "liked") {
         document.getElementById(res[0]).classList.add(res[1]);
       } else {
-        document.getElementById(res[0]).classList.remove(res[1]);
+        document.getElementById(res[0]).removeAttribute("class");
       }
       countLikeParticipate(id, 0);
     }

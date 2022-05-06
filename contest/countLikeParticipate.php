@@ -6,10 +6,10 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 include '../includes/db.php';
 $selectLike = $db->prepare(
-    "SELECT votes FROM LIKES WHERE id_recipe = :id_recipe"
+    "SELECT votes FROM LIKES_CONTEST WHERE id_contest = :id_contest"
 );
 $selectLike->execute([
-    "id_recipe" => $id
+    "id_contest" => $id,
 ]);
 $resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
 echo $resultLike;

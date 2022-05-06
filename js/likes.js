@@ -1,11 +1,26 @@
-function countLike(id) {
+
+function countLikeParticipate(id, type) {
   const request = new XMLHttpRequest();
-  request.open("GET", "countLike.php?id=" + id);
-  request.onreadystatechange = function () {
-    if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-      document.getElementById("result_like").innerHTML = request.responseText;
-    }
-  };
+  if(type === 0){
+  request.open("GET", "https://topcook.site/contest/countLikeParticipate.php?id=" + id);
+    request.onreadystatechange = function () {
+      if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+        const result_like = document.querySelectorAll('.result_like');
+        for (let i = 0; i < result_like.length; i++) {
+          result_like[i].innerHTML = request.responseText;
+        }
+      }
+    };
+
+  }else{
+    request.open("GET", "countLike.php?id=" + id);
+    request.onreadystatechange = function () {
+      if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+        document.getElementById("result_like").innerHTML = request.responseText;
+      }
+    };
+  }
+
   request.send();
 }
 
@@ -16,7 +31,7 @@ function like(id) {
   request.onreadystatechange = function () {
     if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
       document.getElementById("like").innerHTML = request.responseText;
-      countLike(id);
+      countLikeParticipate(id,1);
     }
   };
   request.send("id=" + id);
@@ -29,7 +44,7 @@ function likeContest(id) {
   request.onreadystatechange = function () {
     if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
       document.getElementById("like").innerHTML = request.responseText;
-      countLike(id);
+      countLikeParticipate(id,0);
     }
   };
   request.send(`id=${id}`);

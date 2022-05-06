@@ -10,10 +10,12 @@ $linkLogoOnglet = "../images/topcook_logo.svg";
 $linkCss = "../css/style.css";
 $title = "TopCook - Votez pour vos recettes favorites !";
 include "../includes/head.php";
+$selectIdUser = $db->query("SELECT id FROM USER WHERE idContest = 14");
+$idUser = $selectIdUser->fetch();
+$idUser = $idUser['id'];
 
 ?>
-
-<body>
+<body onload="countLikeParticipate(<?= $idUser?>, 0)">
     <?php include "../includes/header.php"; ?>
     <main>
         <div class="container g-1" id="recettes">
@@ -22,7 +24,7 @@ include "../includes/head.php";
 
             <div class="pb-4 row" id="img-participate">
                 <?php
-                $selectParticipate = $db->query("SELECT id , idContest, imageContest, likesContest FROM USER  WHERE imageContest != 'NULL' ORDER BY id ASC");
+                $selectParticipate = $db->query("SELECT id , idContest, imageContest FROM USER  WHERE imageContest != 'NULL' ORDER BY id ASC");
                 $resultParticipate = $selectParticipate->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($resultParticipate as $participate) {
                     $idParticipate = $participate['id'];
@@ -58,11 +60,11 @@ include "../includes/head.php";
                                 <?php
                                 } ?>
                             </div>
-                            <p class="ps-3 fs-4" id="result_like"></p>
+                            <p class="ps-3 fs-4 result_like"></p>
 
                         </div>
                         <div id="error_like"></div>
-                        <p id="<?= $idContest ?>"><?= $participate['likesContest'] ?></p>
+                        <!--<p id="<?/*= $idContest */?>"><?/*= $participate['likesContest'] */?></p>-->
                     </div>
 
 

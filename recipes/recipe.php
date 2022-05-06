@@ -21,7 +21,7 @@ $title = "Topcook - " . $name;
 include "../includes/head.php";
 ?>
 
-<body onload="countLike(<?= $_GET["id"] ?>)">
+<body onload="countLikeParticipate(<?= $_GET["id"] ?>,1)">
 
   <?php include "../includes/header.php"; ?>
   <main>

@@ -161,6 +161,7 @@ include "../includes/head.php";
                     <td><?= $test = banword(
                           "../banlist.txt",
                           $message['message'],
+                          $db,
                           0
                         );
                         ?></td>

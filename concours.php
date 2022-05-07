@@ -27,22 +27,12 @@ if (isset($_SESSION["id"])) {
             <?php include "includes/message.php"; ?>
         </div>
         <h1 class="pb-3 text-center"><strong>Concours</strong></h1>
-        <?php
-        $req = $db->query("SELECT id FROM CONTEST");
-        $nb_contest = $req->rowCount();
-        ?>
-        <?php if ($_SESSION["rights"] == 1 && $nb_contest == 0) { ?>
-            <div class="btn_ingredients mb-4">
-                <a href="contest/createContest.php" class="btn">
-                    Créer un concours
-                </a>
-            </div>
-        <?php } ?>
+
 
 
         <?php
 
-        $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST");
+        $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST ORDER BY id DESC LIMIT 1");
         $selectContest->execute();
         $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 
@@ -74,6 +64,23 @@ if (isset($_SESSION["id"])) {
                     </div>
                 </div>
             </div>
+            <?php
+            $date_end_plus_2 = date("Y/m/d", strtotime($date_end . "+2days"));
+            if ($date_end < $date_end_plus_2) {
+
+            $req = $db->query("SELECT id FROM CONTEST ORDER BY id DESC LIMIT 1");
+            $nb_contest = $req->rowCount();
+            ?>
+            <div class="btn_ingredients mb-4" id="parent_create_contest">
+                <?php if ($_SESSION["rights"] == 1 && $nb_contest == 0) { ?>
+
+                    <a href="contest/createContest.php" class="btn" id="create_contest">
+                        Créer un concours
+                    </a>
+
+                <?php } ?>
+            </div>
+            <?php } ?>
             <div class="contest container row d-flex justify-content-center mb-3">
                 <div class="col-md-6">
                     <img src="https://topcook.site/uploads/img_contest/<?= $image; ?>" alt="<?= $name; ?>" class="img-fluid">

@@ -68,6 +68,15 @@ function timer() {
         divMinutes.classList.remove("animated");
         divSeconds.classList.remove("animated");
         document.getElementById("end-contest").innerHTML = "<p class='fs-3 end_contest'>Concours terminé !</p>";
+        const a = document.createElement("a");
+        //                 <a href="contest/createContest.php" class="btn" id="create_contest">
+        //                     Créer un concours
+        //                 </a>
+        a.href = "contest/createContest.php";
+        a.className = "btn";
+        a.id = "create_contest";
+        a.innerHTML = "Créer un concours";
+        document.getElementById("parent_create_contest").innerHTML = a.outerHTML;
     }
 
 }

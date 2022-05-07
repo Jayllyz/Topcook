@@ -36,7 +36,7 @@ include "../includes/head.php";
 
             </div>
 
-            <div class="container g-1">
+            <div id="container_choose_avatar" class="container g-1">
 
                 <div class="container pt-4">
                     <div class="select">

@@ -170,8 +170,11 @@ include "../includes/head.php";
           ?>
               <div class="btn_ingredients mb-4">
                 <a href="https://topcook.site/recipes/modifyIngredients.php?name=<?= $select["name"] ?>&id=<?= $select["id"] ?>&nbIngredients=<?= $nbIngredients ?>" class="btn">
-                  Ajouter des ingrédients
+                  Modifier les ingrédients
                 </a>
+                  <a href="https://topcook.site/recipes/ingredients.php?name=<?= $select["name"] ?>&id=<?= $select["id"] ?>&nbIngredients=<?= $nbIngredients ?>" class="btn ms-3">
+                    Ajouter un ingrédient
+                    </a>
               </div>
           <?php }
           } ?>

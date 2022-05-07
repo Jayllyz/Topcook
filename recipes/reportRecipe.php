@@ -2,9 +2,6 @@
 session_start();
 $id_recipe = htmlspecialchars($_GET["id"]);
 $name = htmlspecialchars($_GET["name"]);
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
 include "../includes/db.php";
 
 if (isset($_SESSION["id"])) {

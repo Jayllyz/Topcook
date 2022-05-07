@@ -873,3 +873,10 @@ footer {
     transform: rotateX(360deg);
   }
 }
+
+@media only screen and (max-width: 600px) and (min-width: 400px)  {
+  #container_profil{
+    overflow: auto;
+    width: 100%;
+  }
+}

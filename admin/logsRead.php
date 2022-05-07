@@ -5,7 +5,6 @@ include('../includes/db.php');
 $selectBottle = $db->query("SELECT SUM(nbBottle) FROM USER");
 $bottle = $selectBottle->fetch(PDO::FETCH_ASSOC);
 $bottle = $bottle['SUM(nbBottle)'];
-var_dump($bottle);
 ?>
 <!doctype html>
 <html lang="fr">

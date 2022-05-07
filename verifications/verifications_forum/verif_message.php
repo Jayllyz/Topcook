@@ -19,7 +19,11 @@ if (isset($_SESSION["id"])) {
     "id_user" => $_SESSION["id"],
     "date" => $date,
   ]);
-
+  $count = banword("https://topcook.site/banlist.txt", $message, $db, 1);
+  if ($count > 0) {
+    header("location: https://topcook.site/forum/subject.php?id_subject=$id_topic&message=Message ajouté mais avec $count bouteilles!&type=warning");
+    exit();
+  }
   header(
     "Location: ../../forum/subject.php?id_subject=$id_topic&message=Votre message a bien été envoyé !&type=success"
   );

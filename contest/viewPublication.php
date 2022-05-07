@@ -18,7 +18,7 @@ include "../includes/head.php";
     <main>
         <?php
 
-        $selectContest = $db->query("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST");
+        $selectContest = $db->query("SELECT id,name,description,theme,image,date_start,date_end, finish FROM CONTEST");
         $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($resultContest as $contest) {
@@ -29,6 +29,8 @@ include "../includes/head.php";
             $image = $contest["image"];
             $date_start = $contest["date_start"];
             $date_end = $contest["date_end"];
+            $finish = $contest["finish"];
+            if($finish !== '1'){
         ?>
             <div class="container g-1" id="recettes">
                 <div class="timer" id="info_timer">
@@ -53,6 +55,7 @@ include "../includes/head.php";
             <?php }
             ?>
             <h1>Vote du concours</h1>
+                <?php } ?>
             <div id="end-votes">
                 <?php
 
@@ -67,13 +70,20 @@ include "../includes/head.php";
                     $winnerImage = $result["imageContest"];
                 ?>
                     <h2>Le gagnant est : <?= $winnerPseudo ?> avec <?= $likes ?> likes</h2>
-                    <img src="../uploads/uploadsParticipate/<?= $winnerImage ?>" id="img-winner" alt="<?= $winnerPseudo ?>">
+                    <img src="../uploads/uploadsParticipate/<?= $winnerImage ?>" id="img-winner" class="mt-3" alt="<?= $winnerPseudo ?>">
                 <?php } else { ?>
                     <h2>Aucun gagnant</h2>
                 <?php } ?>
 
 
             </div>
+                <?php
+                $selectContestIsFinished = $db->query("SELECT finish FROM CONTEST");
+                $resultFinished = $selectContestIsFinished->fetch(PDO::FETCH_ASSOC);
+                $finish = $resultFinished["finish"];
+                if ($finish !== '1') {
+
+                ?>
             <div class="pb-4 row" id="img-participate">
                 <?php
                 $selectParticipate = $db->query("SELECT id , idContest, imageContest FROM USER  WHERE imageContest != 'NULL' ORDER BY id ASC");
@@ -132,6 +142,7 @@ include "../includes/head.php";
 
                 <?php } ?>
             </div>
+                <?php } ?>
             </div>
     </main>
     <?php include "../includes/footer.php"; ?>

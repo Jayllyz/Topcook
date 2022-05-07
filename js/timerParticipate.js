@@ -71,14 +71,7 @@ function timer() {
     divHours.classList.remove("animated");
     divMinutes.classList.remove("animated");
     divSeconds.classList.remove("animated");
-    document.getElementById("end-contest").innerHTML =
-      "<p class='fs-3 end_contest'>Vote terminé !</p>";
-    if (removeCount === 0) {
-      removeCount = 1;
-      document.getElementById("img-participate").remove();
-    }
-    document.getElementById("end-votes").style.display = "block";
-    info_timer.remove();
+    document.getElementById("end-contest").innerHTML = "<p class='fs-3 end_contest'>Vote terminé !</p>";
     updateWinner();
   }
 }

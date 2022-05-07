@@ -42,6 +42,7 @@ $userMsg = $query->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($userMsg as $infoUser) {
     $message = $infoUser["message"];
+    $message = strlen($message) > 20 ? substr($message, 0, 20) . '...' : $message;
     $date = $infoUser["date"];
     $pdf->Cell(40, 10, 'Message : ' . $message . ' - Date : ' . $date);
     $pdf->Ln();
@@ -54,8 +55,9 @@ $userCom = $query->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($userCom as $infoUser) {
     $message = $infoUser["message"];
-    $date = $infoUser["date_send"];
-    $pdf->MultiCell(40, 10, 'Commentaire : ' . $message . ' - Date : ' . $date, 2);
+    $message = strlen($message) > 20 ? substr($message, 0, 20) . '...' : $message;
+    $infoUser["date_send"];
+    $pdf->Cell(40, 10, 'Commentaire : ' . $message . ' - Date : ' . $date, 2);
     $pdf->Ln();
 }
 

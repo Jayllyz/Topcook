@@ -1,4 +1,7 @@
 <?php session_start();
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
 $id_user = $_GET['id'];
 if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
 

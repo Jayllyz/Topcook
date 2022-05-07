@@ -1,11 +1,16 @@
 <?php
 session_start();
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
 include "../includes/db.php";
 include "../includes/functions.php";
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
-$nbSteps = htmlspecialchars($_GET["nbSteps"]);
+if(isset($_GET["nbSteps"])){
+    $nbSteps = htmlspecialchars($_GET["nbSteps"]);
+}
 $name = htmlspecialchars($_GET["name"]);
 $date = date("d/m/Y H:i:s");
 $log_recipe = fopen("../log/recipe_logs/$name.txt", "a+");

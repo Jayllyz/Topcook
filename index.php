@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start();
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <?php
@@ -116,20 +120,26 @@ require "includes/functions.php";
 
     <?php
     $query = $db->query(
-      "SELECT id, name, images, description FROM RECIPE ORDER BY id DESC"
+      "SELECT id, name, images, description, id_user FROM RECIPE ORDER BY id DESC"
     );
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
     ?>
 
     <h3 class="pt-5 pb-3"><strong>Dernières recettes publiées</strong></h3>
     <div class="last_recipe row row-col-md-4 me-5 ms-5 mt-3 mb-3">
-      <?php foreach (array_slice($result, 0, 3) as $select) { ?>
+      <?php foreach (array_slice($result, 0, 3) as $select) {
+          $selectCreatorRecipe = $db->query("SELECT pseudo FROM USER WHERE id = " . $select["id_user"]);
+          $resultCreatorRecipe = $selectCreatorRecipe->fetch(PDO::FETCH_ASSOC);
+          $creatorRecipe = $resultCreatorRecipe["pseudo"];
+          ?>
+
         <div class="col-md-3">
           <div class="card recipe" style="width: 100%;">
             <?= '<img src="uploads/recipe/' .
               $select["images"] .
               '"height="380" class="card-img-top" alt=image -' .
-              $select["names"] .
+              $select["name"] .
               '">' ?>
             <div class="card-body">
               <h5 class="card-title"><?= $select["name"] ?><br> par <em><strong><?= $creatorRecipe ?></strong></em></h5>

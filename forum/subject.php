@@ -1,5 +1,8 @@
 <?php
 session_start();
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
 include "../includes/db.php";
 include "../includes/functions.php";
 $id_subject = htmlspecialchars($_GET["id_subject"]);
@@ -169,7 +172,8 @@ include "../includes/head.php";
 
                     <?php if (
                       isset($_SESSION["id"]) &&
-                      $selectReportMsg[0] == 0 &&
+                      isset($selectReportMsg[0]) &&
+                    $selectReportMsg[0] == 0 &&
                       $_SESSION["id"] !==
                       $message["id_user"]
                     ) { ?>

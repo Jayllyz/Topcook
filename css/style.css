@@ -562,7 +562,12 @@ footer {
   display: flex;
   justify-content: center;
 }
-#colorBody, #colorEyes, #colorHair, #colorHat, #colorBeard, #colorSweat{
+#colorBody,
+#colorEyes,
+#colorHair,
+#colorHat,
+#colorBeard,
+#colorSweat {
   width: 50px;
 }
 
@@ -780,6 +785,11 @@ footer {
 .darkmode #result p {
   color: black !important;
 }
+#img-winner {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
 
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
@@ -848,6 +858,7 @@ footer {
     width: 90%;
   }
 }
+
 @keyframes rotate {
   to {
     transform: rotate3d(0, 1, 0, 359deg);

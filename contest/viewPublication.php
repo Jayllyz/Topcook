@@ -22,38 +22,56 @@ include "../includes/head.php";
         $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($resultContest as $contest) {
-        $id = $contest["id"];
-        $name = $contest["name"];
-        $description = $contest["description"];
-        $theme = $contest["theme"];
-        $image = $contest["image"];
-        $date_start = $contest["date_start"];
-        $date_end = $contest["date_end"];
+            $id = $contest["id"];
+            $name = $contest["name"];
+            $description = $contest["description"];
+            $theme = $contest["theme"];
+            $image = $contest["image"];
+            $date_start = $contest["date_start"];
+            $date_end = $contest["date_end"];
         ?>
-        <div class="container g-1" id="recettes">
-            <div class="timer" id="info_timer">
-                <p class="fs-3 end_contest" id="end-contest">Les votes se termine dans: </p>
-                <div id="timer">
+            <div class="container g-1" id="recettes">
+                <div class="timer" id="info_timer">
+                    <p class="fs-3 end_contest" id="end-contest">Les votes se termine dans: </p>
+                    <div id="timer">
 
-                    <input type="hidden" id="date" value="<?= $date_end ?>">
-                    <div class="days"><span id="days"></span>
-                        <p>Jours</p>
-                    </div>
-                    <div class="hours"><span id="hours"></span>
-                        <p>Heures</p>
-                    </div>
-                    <div class="minutes"><span id="minutes"></span>
-                        <p>Minutes</p>
-                    </div>
-                    <div class="seconds"><span id="seconds"></span>
-                        <p>Secondes</p>
+                        <input type="hidden" id="date" value="<?= $date_end ?>">
+                        <div class="days"><span id="days"></span>
+                            <p>Jours</p>
+                        </div>
+                        <div class="hours"><span id="hours"></span>
+                            <p>Heures</p>
+                        </div>
+                        <div class="minutes"><span id="minutes"></span>
+                            <p>Minutes</p>
+                        </div>
+                        <div class="seconds"><span id="seconds"></span>
+                            <p>Secondes</p>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php }
-        ?>
-            <h1 id="commetaenviemec">Vote du concours</h1>
+            ?>
+            <h1>Vote du concours</h1>
+            <div id="end-votes">
+                <?php
 
+                $selectIdWinner = $db->query("SELECT id_proposal,  votes, count(votes) AS OCC FROM LIKES_CONTEST GROUP BY votes ORDER BY OCC DESC LIMIT 1");
+                $resultId0Winner = $selectIdWinner->fetch(PDO::FETCH_ASSOC);
+                $resultId0Winner = $resultId0Winner["id_proposal"];
+                if ($resultId0Winner != null) {
+                    $selectWinner = $db->query("SELECT pseudo, imageContest FROM USER WHERE id = $resultId0Winner");
+                    $result = $selectWinner->fetch(PDO::FETCH_ASSOC);
+                    $winnerPseudo = $result["pseudo"];
+                    $winnerImage = $result["imageContest"];
+                } else {
+                    $resultPseudo = "Aucun votes";
+                }
+                ?>
+                <h2>Le gagnant est : <?= $winnerPseudo ?></h2>
+                <img src="../uploads/uploadsParticipate/<?= $winnerImage ?>" id="img-winner" alt="<?= $winnerPseudo ?>">
+
+            </div>
             <div class="pb-4 row" id="img-participate">
                 <?php
                 $selectParticipate = $db->query("SELECT id , idContest, imageContest FROM USER  WHERE imageContest != 'NULL' ORDER BY id ASC");
@@ -83,9 +101,9 @@ include "../includes/head.php";
                                     $idUserIfLike = $idUserIfLike["id_user"];
                                 ?>
                                     <img src="../images/like.svg" id="<?= $idParticipate ?>" alt="like" width="30" class="ms-3 <?= $idUserIfLike ==
-                                                                                                                                $_SESSION["id"]
-                                                                                                                                ? "liked"
-                                                                                                                                : "" ?>" height="30" onclick="likeContest(this.id)">
+                                                                                                                                    $_SESSION["id"]
+                                                                                                                                    ? "liked"
+                                                                                                                                    : "" ?>" height="30" onclick="likeContest(this.id)">
                                 <?php
                                 } else {
                                 ?>
@@ -102,7 +120,7 @@ include "../includes/head.php";
                             ]);
                             $resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
                             ?>
-                            <p class="ps-3 fs-4 result_like" id="<?= $idParticipate ."-like"?> "><?= $resultLike ?></p>
+                            <p class="ps-3 fs-4 result_like" id="<?= $idParticipate . "-like" ?> "><?= $resultLike ?></p>
 
                         </div>
                         <div id="error_like"></div>
@@ -112,7 +130,7 @@ include "../includes/head.php";
 
                 <?php } ?>
             </div>
-        </div>
+            </div>
     </main>
     <?php include "../includes/footer.php"; ?>
     <script src="../js/timerParticipate.js"></script>

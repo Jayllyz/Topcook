@@ -1,9 +1,6 @@
 <?php
 session_start();
 $idUser = $_SESSION["id"];
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
 include "../includes/db.php";
 include "../includes/functions.php";
 if(!isset($_SESSION["id"])) {

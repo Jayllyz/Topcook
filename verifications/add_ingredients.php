@@ -1,8 +1,5 @@
 <?php
 session_start();
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
 include "../includes/db.php";
 $id_recipe = htmlspecialchars($_GET['id_recipe']);
 $name_recipe = htmlspecialchars($_GET['name']);

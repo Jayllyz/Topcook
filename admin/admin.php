@@ -1,8 +1,5 @@
 <?php
 session_start();
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
 include "../includes/db.php";
 if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
   <!DOCTYPE html>
@@ -129,7 +126,7 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
               <form name="add_captcha" onsubmit="return validateForm(this.name)" action="addCaptcha.php" method="post" enctype="multipart/form-data">
                 <div class="container col-md-8">
                   <input class="form-control" formtype="text" name="captcha" placeholder="Nom de l'image" required>
-                  <input class="form-control" type="file" class="form-control" name="image" required>
+                  <input class="form-control" type="file" name="image" accept="image/jpeg" required>
                 </div>
                 <div class="modal-footer">
                   <input class="form-control" type="submit" name="submit" value="Valider" class="btn btn-success">

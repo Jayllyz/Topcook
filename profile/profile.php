@@ -19,19 +19,19 @@ if (isset($id)) { ?>
     <?php include "../includes/header.php"; ?>
 
     <main>
+        <?php
+        $req = $db->query(
+            "SELECT pseudo, email,image, date_birth,rights, avatar, victory FROM USER WHERE id = " .
+            $_SESSION["id"]
+        );
+        $req->execute([
+            "id" => $id,
+        ]);
+        $result = $req->fetchAll(PDO::FETCH_ASSOC);
 
-      <h2 class="text-center text-uppercase">Bienvenue sur votre profil <?= $pseudo ?> !</h2>
-      <?php
-      $req = $db->query(
-        "SELECT email,image, date_birth,rights, avatar, victory FROM USER WHERE id = " .
-          $_SESSION["id"]
-      );
-      $req->execute([
-        "id" => $id,
-      ]);
-      $result = $req->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($result as $select) { ?>
+      <h2 class="text-center text-uppercase">Bienvenue sur votre profil <?= $select['pseudo'] ?> !</h2>
 
-      foreach ($result as $select) { ?>
 
         <div class="container col-md-6">
           <?php include "../includes/message.php"; ?>
@@ -53,9 +53,6 @@ if (isset($id)) { ?>
               </div>
             <?php echo "<div id='ajax'></div>";
             } ?>
-            <div class="card-body">
-              <h5 class="card-title text-uppercase text-center"><?= $pseudo ?></h5>
-            </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><strong>Votre email: </strong><?= $select["email"] ?></li>
               <li class="list-group-item"><strong>Votre aniverssaire: </strong><?= $select["date_birth"] ?></li>
@@ -83,6 +80,6 @@ if (isset($id)) { ?>
 
   </html>
 <?php } else {
-  header("location: ../index.php");
+  header("location: ../filigrane.php");
   exit();
 } ?>

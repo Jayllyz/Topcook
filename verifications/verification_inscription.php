@@ -93,6 +93,8 @@ if (isset($_POST["submit"])) {
     $destination = $path . "/" . $filename;
     move_uploaded_file($_FILES["image"]["tmp_name"], $destination);
     include "../includes/resolution.php";
+    include "../includes/filigrane.php";
+
   } else {
     $image_exist = 0;
   }

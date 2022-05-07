@@ -48,7 +48,7 @@ foreach ($result as $existToken) {
     </html>
 <?php } else {
     header(
-      "location: ../index.php?message=Le liens à expiré !&type=danger"
+      "location: ../filigrane.php?message=Le liens à expiré !&type=danger"
     );
     exit();
   }

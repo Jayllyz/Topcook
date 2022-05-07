@@ -4,7 +4,10 @@ ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 include "includes/db.php";
-$nbSteps = htmlspecialchars($_GET["nbSteps"]);
+if(isset($_GET["nbSteps"])){
+    $nbSteps = htmlspecialchars($_GET["nbSteps"]);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -82,7 +85,7 @@ if (isset($_SESSION["id"])) {
                             '"><img src="uploads/recipe/' .
                             $select["images"] .
                             '" class="img-fluid allrecipes" alt="image -' .
-                            $select["names"] .
+                            $select["name"] .
                             '"></a>' ?>
                         <h4 class="text-center mb-3 mt-3"><?= $select["name"] ?></h4>
                     </div>

@@ -9,6 +9,13 @@ error_reporting(E_ALL);
 include "../includes/db.php";
 
 if (isset($_SESSION["id"]) && ($_SESSION["id"] == $id_user || $_SESSION["rights"] == 1)) {
+  $selectComReport = $db->query("SELECT id_comment FROM REPORT_COM");
+  $resultComReport = $selectComReport->fetchAll(PDO::FETCH_ASSOC);
+  $deleteReport = $db->prepare("DELETE FROM REPORT_COM WHERE id_comment = :id_comment IN (SELECT id_comment FROM REPORT_COM WHERE id_recipe = :id_recipe)");
+  $deleteReport->execute([
+    "id_comment" => $id_comment,
+    "id_recipe" => $id_recipe,
+  ]);
   $req = $db->prepare("DELETE FROM STEPS WHERE  id_recipe = :id_recipe");
   $req->execute([
     "id_recipe" => $id_recipe,

@@ -8,12 +8,13 @@ include "../includes/functions.php";
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
-if(isset($_GET["nbSteps"])){
-    $nbSteps = htmlspecialchars($_GET["nbSteps"]);
+if (isset($_GET["nbSteps"])) {
+  $nbSteps = htmlspecialchars($_GET["nbSteps"]);
 }
 $name = htmlspecialchars($_GET["name"]);
 $date = date("d/m/Y H:i:s");
-$log_recipe = fopen("../log/recipe_logs/$name.txt", "a+");
+$idLog = htmlspecialchars($_GET["id"]);
+$log_recipe = fopen("../log/recipe_logs/$idLog.txt", "a+");
 fputs($log_recipe, $name . " ");
 fputs($log_recipe, "visité le ");
 fputs($log_recipe, $date);

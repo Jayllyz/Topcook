@@ -69,8 +69,8 @@ include "../includes/head.php";
               $_GET["id"]
           );
           $favorite = $selectFavorite->fetch(PDO::FETCH_ASSOC);
-          $favorite["idUser"] = isset($favorite["idUser"]) ? $favorite["id_user"] : null;
-          $favorite["idRecipe"] = isset($favorite["idRecipe"]) ? $favorite["id_user"] : null;
+          $favorite["idUser"] = isset($favorite["idUser"]) ? $favorite["idUser"] : null;
+          $favorite["idRecipe"] = isset($favorite["idRecipe"]) ? $favorite["idUser"] : null;
           $idUserFavorite = $favorite["idUser"];
           $idRecipeFavorite = $favorite["idRecipe"];
         ?>

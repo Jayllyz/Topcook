@@ -3,6 +3,7 @@ session_start();
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -182,7 +183,9 @@ foreach ($result as $information) {
         include "../../includes/mailer.php";
       }
     }
-    session_destroy();
+    if (isset($_POST["password"]) && !empty($_POST["password"])) {
+      session_destroy();
+    }
     header(
       "location: https://topcook.site/?message=Vos informations ont bien été enregistré !&type=success"
     );

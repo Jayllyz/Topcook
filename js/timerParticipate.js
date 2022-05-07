@@ -79,6 +79,13 @@ function timer() {
     }
     document.getElementById("end-votes").style.display = "block";
     info_timer.remove();
+    updateWinner();
   }
 }
 setInterval(timer, 1000);
+
+function updateWinner() {
+  let request = new XMLHttpRequest();
+  request.open("GET", "https://topcook.site/contest/updateContest.php", true);
+  request.send();
+}

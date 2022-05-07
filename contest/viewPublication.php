@@ -65,12 +65,13 @@ include "../includes/head.php";
                     $result = $selectWinner->fetch(PDO::FETCH_ASSOC);
                     $winnerPseudo = $result["pseudo"];
                     $winnerImage = $result["imageContest"];
-                } else {
-                    $resultPseudo = "Aucun votes";
-                }
                 ?>
-                <h2>Le gagnant est : <?= $winnerPseudo ?> avec <?= $likes ?> likes</h2>
-                <img src="../uploads/uploadsParticipate/<?= $winnerImage ?>" id="img-winner" alt="<?= $winnerPseudo ?>">
+                    <h2>Le gagnant est : <?= $winnerPseudo ?> avec <?= $likes ?> likes</h2>
+                    <img src="../uploads/uploadsParticipate/<?= $winnerImage ?>" id="img-winner" alt="<?= $winnerPseudo ?>">
+                <?php } else { ?>
+                    <h2>Aucun gagnant</h2>
+                <?php } ?>
+
 
             </div>
             <div class="pb-4 row" id="img-participate">

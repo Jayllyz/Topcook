@@ -387,7 +387,7 @@ footer {
 #add-recipe {
   color: white;
 }
-.test {
+.div-head-recipe {
   margin: 0 auto;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -874,8 +874,8 @@ footer {
   }
 }
 
-@media only screen and (max-width: 600px) and (min-width: 400px)  {
-  #container_profil{
+@media only screen and (max-width: 600px) and (min-width: 400px) {
+  #container_profil {
     overflow: auto;
     width: 100%;
   }

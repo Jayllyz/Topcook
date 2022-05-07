@@ -37,7 +37,7 @@ require "includes/functions.php";
     $recipeId = $result["id"];
     $recipeDescription = $result["description"];
 
-    $selectCreator = $db->query("SELECT pseudo FROM USER WHERE id = ".$recipeCreator);
+    $selectCreator = $db->query("SELECT pseudo FROM USER WHERE id = " . $recipeCreator);
     $result = $selectCreator->fetch(PDO::FETCH_ASSOC);
     $recipeCreator = $result["pseudo"];
     ?>
@@ -74,6 +74,7 @@ require "includes/functions.php";
         $nameRecipeMonth = $nameRecipeMonth[0];
         $selectName = $db->query("SELECT name FROM RECIPE WHERE id = " . $nameRecipeMonth);
         $resultName = $selectName->fetch(PDO::FETCH_ASSOC);
+
         $recipeMonth = $db->prepare(
           "SELECT id, name, images, description FROM RECIPE WHERE name = :name"
         );

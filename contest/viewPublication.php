@@ -47,7 +47,7 @@ include "../includes/head.php";
                                     $idUserIfLike["id_user"] = $idUserIfLike["id_user"] ?? "";
                                     $idUserIfLike = $idUserIfLike["id_user"];
                                 ?>
-                                    <img src="../images/like.svg" id="<?= $idParticipate ?>" alt="like" width="30" class="<?= $idUserIfLike ==
+                                    <img src="../images/like.svg" id="<?= $idParticipate ?>" alt="like" width="30" class="ms-3 <?= $idUserIfLike ==
                                                                                                                                 $_SESSION["id"]
                                                                                                                                 ? "liked"
                                                                                                                                 : "" ?>" height="30" onclick="likeContest(this.id)">

@@ -69,11 +69,13 @@ require "includes/functions.php";
       foreach ($array as $key => $value) {
         $nameRecipeMonth = explode(".txt", $key);
         $nameRecipeMonth = $nameRecipeMonth[0];
+        $selectName = $db->query("SELECT name FROM RECIPE WHERE id = " . $nameRecipeMonth);
+        $resultName = $selectName->fetch(PDO::FETCH_ASSOC);
         $recipeMonth = $db->prepare(
           "SELECT id, name, images, description FROM RECIPE WHERE name = :name"
         );
         $recipeMonth->execute([
-          "name" => $nameRecipeMonth,
+          "name" => $resultName["name"],
         ]);
         $resultMonth = $recipeMonth->fetchAll(PDO::FETCH_ASSOC);
         foreach ($resultMonth as $selectMonth) {
@@ -129,10 +131,10 @@ require "includes/functions.php";
     <h3 class="pt-5 pb-3"><strong>Dernières recettes publiées</strong></h3>
     <div class="last_recipe row row-col-md-4 me-5 ms-5 mt-3 mb-3">
       <?php foreach (array_slice($result, 0, 3) as $select) {
-          $selectCreatorRecipe = $db->query("SELECT pseudo FROM USER WHERE id = " . $select["id_user"]);
-          $resultCreatorRecipe = $selectCreatorRecipe->fetch(PDO::FETCH_ASSOC);
-          $creatorRecipe = $resultCreatorRecipe["pseudo"];
-          ?>
+        $selectCreatorRecipe = $db->query("SELECT pseudo FROM USER WHERE id = " . $select["id_user"]);
+        $resultCreatorRecipe = $selectCreatorRecipe->fetch(PDO::FETCH_ASSOC);
+        $creatorRecipe = $resultCreatorRecipe["pseudo"];
+      ?>
 
         <div class="col-md-3">
           <div class="card recipe" style="width: 100%;">

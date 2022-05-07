@@ -22,8 +22,8 @@ if ($resultLike == 1) {
         "id_recipe" => $id,
         "id_user" => $_SESSION["id"],
     ]);
-    $log_dislike = fopen("../log/recipe_dislikes/$id.txt", "a+");
-    fputs($log_dislike, $name . " ");
+    $log_dislike = fopen("../log/recipe_dislikes/" . $id . ".txt", "a+");
+    fputs($log_dislike, $id . " ");
     fputs($log_dislike, "disliké le ");
     fputs($log_dislike, $date);
     fputs($log_dislike, "par ");
@@ -40,8 +40,8 @@ if ($resultLike == 1) {
         "id_recipe" => $id,
         "id_user" => $_SESSION["id"],
     ]);
-    $log_recipe = fopen("../log/recipe_likes/$id.txt", "a+");
-    fputs($log_recipe, $name . " ");
+    $log_recipe = fopen("../log/recipe_likes/" . $id . ".txt", "a+");
+    fputs($log_recipe, $id . " ");
     fputs($log_recipe, "liké le ");
     fputs($log_recipe, $date);
     fputs($log_recipe, "par ");

@@ -89,10 +89,11 @@ function likesArray($type)
   $getFiles = scandir("log/recipe_$type/");
   $nbFile = count($getFiles);
   for ($i = 0; $i < $nbFile; $i++) {
-    if ($getFiles[$i] != "." && $getFiles[$i] != "..") {
+    if ($getFiles[$i] !== "." && $getFiles[$i] !== "..") {
       $files[] = $getFiles[$i];
     }
   }
+
   $nbFile = count($files);
   $nbLikes = 0;
   $tabLikes = [];
@@ -111,7 +112,6 @@ function likesArray($type)
       }
     }
   }
-
   return $tabLikes;
 }
 
@@ -124,9 +124,7 @@ function topLikesRecipesMonth()
   foreach ($arrayLikes as $key => $value) {
     $arrayLikes[$key] = $value - $arrayDislikes[$key];
   }
-
   arsort($arrayLikes);
-
   return array_slice($arrayLikes, 0, 4);
 }
 

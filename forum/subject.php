@@ -158,10 +158,12 @@ include "../includes/head.php";
                     <?php } else { ?>
                       <td><?= $selectUser["pseudo"] ?></td>
                     <?php } ?>
-                    <td><?= banword(
+                    <td><?= $test = banword(
                           "../banlist.txt",
-                          $message["message"]
-                        ) ?></td>
+                          $message['message'],
+                          0
+                        );
+                        ?></td>
                     <td id="date_send"><?= $message["date"] ?></td>
 
                     <?php if (

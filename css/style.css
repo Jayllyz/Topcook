@@ -369,8 +369,7 @@ footer {
   width: 50px !important;
   margin-left: 15px;
 }
-#new-ingredients,
-.new-ingredients {
+#new-ingredients, .new-ingredients {
   width: 50%;
   display: flex;
   align-items: baseline;

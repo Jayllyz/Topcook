@@ -5,7 +5,6 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 $id_recipe = htmlspecialchars($_GET['id']);
 $name_recipe = htmlspecialchars($_GET['name']);
-$nbSteps = htmlspecialchars($_GET['nbSteps']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,7 +16,7 @@ include "../includes/head.php";
 ?>
 <?php include "../includes/header.php"; ?>
 <main>
-    <form method="post" action="../verifications/add_ingredients.php?name=<?= $name_recipe ?>&id_recipe=<?= $id_recipe ?>&nbSteps=<?= $nbSteps ?>" id="ingredients">
+    <form method="post" action="../verifications/add_ingredients.php?name=<?= $name_recipe ?>&id_recipe=<?= $id_recipe ?>" id="ingredients">
         <div class="ingredients">
             <div>
                 <label class="form-label">Ingredients :</label>

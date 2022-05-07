@@ -160,7 +160,7 @@ if (isset($_POST["submit"])) {
     fclose($log_recipe);
 
     header(
-      "location: ../recipes/recipe.php?message=Recette ajoutée avec succès !&type=success&name=$name&id=$id_recipe"
+      "location: https://topcook.site/recipes/ingredients.php?message=Recette ajoutée avec succès !&type=success&name=$name&id=$id_recipe"
     );
     exit();
   }

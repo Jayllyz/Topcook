@@ -13,11 +13,13 @@ var_dump($_SESSION["rights"]);
 if (isset($_SESSION["id"]) && ($_SESSION["id"] == $id_creator || $_SESSION["rights"] == 1)) {
     $selectMsgReport = $db->query("SELECT id_msg FROM FORUM_MSG_REPORT");
     $resultMsgReport = $selectMsgReport->fetchAll(PDO::FETCH_ASSOC);
-    $deleteReport = $db->prepare("DELETE FROM FORUM_MSG_REPORT WHERE id_msg = :id_msg IN (SELECT id_msg FROM FORUM_MSG_REPORT WHERE id_topic = :id_topic)");
-    $deleteReport->execute([
-        "id_msg" => $id_msg,
-        "id_topic" => $id_topic,
-    ]);
+    foreach ($resultMsgReport as $msgReport) {
+        $deleteReport = $db->prepare("DELETE FROM FORUM_MSG_REPORT WHERE id_msg = :id_msg IN (SELECT id_msg FROM FORUM_MSG_REPORT WHERE id_topic = :id_topic)");
+        $deleteReport->execute([
+            "id_msg" => $msgReport["id_msg"],
+            "id_topic" => $id_topic,
+        ]);
+    }
     $req = $db->prepare("DELETE FROM FORUM_MSG WHERE id_topic = :id_topic");
     $req->execute([
         "id_topic" => $id_topic,

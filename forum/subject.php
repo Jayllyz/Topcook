@@ -5,9 +5,11 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 include "../includes/db.php";
 include "../includes/functions.php";
-$id_subject = htmlspecialchars($_GET["id_subject"]);
-$pseudo = htmlspecialchars($_GET["creator"]);
-$id_creator = htmlspecialchars($_GET["id_creator"]);
+
+$id_subject = isset($_GET["id_subject"]) ? htmlspecialchars($_GET["id_subject"]) : null;
+
+$pseudo = isset($_GET["creator"]) ? htmlspecialchars($_GET["creator"]) : null;
+$id_creator = isset($_GET["id_creator"]) ? htmlspecialchars($_GET["id_creator"]) : null;
 
 $selectTopic = $db->query(
   "SELECT subject, message, image, date FROM TOPIC WHERE id = " . $id_subject
@@ -172,8 +174,7 @@ include "../includes/head.php";
 
                     <?php if (
                       isset($_SESSION["id"]) &&
-                      isset($selectReportMsg[0]) &&
-                    $selectReportMsg[0] == 0 &&
+                    $selectReportMsg['count(id)'] == 0 &&
                       $_SESSION["id"] !==
                       $message["id_user"]
                     ) { ?>

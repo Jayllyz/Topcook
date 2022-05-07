@@ -7,6 +7,10 @@ include "../includes/functions.php";
 include "../includes/db.php";
 $id_msg = htmlspecialchars($_GET['id_msg']);
 $pseudo = htmlspecialchars($_GET['pseudo']);
+if(!isset($_SESSION["id"]) && $_SESSION["rights"] != 1) {
+    header("Location: https://topcook.site/");
+    exit();
+}
 ?>
 <!doctype html>
 <html lang="fr">

@@ -3,6 +3,10 @@ session_start();
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
+if(!isset($_SESSION["id"])) {
+    header("Location: https://topcook.site/");
+    exit();
+}
 include "db.php";
 $req = $db->prepare("SELECT id, token FROM USER WHERE email = :email");
 $req->execute([

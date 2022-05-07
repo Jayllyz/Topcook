@@ -5,6 +5,10 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 include "../includes/db.php";
 include "../includes/functions.php";
+if(!isset($_SESSION["id"])) {
+    header("Location: https://topcook.site/");
+    exit();
+}
 $idUser = $_SESSION['id'];
 
     $avatar = $db->query("SELECT colorBody, colorHair, colorEyes, colorHat, colorSweet, colorBeard, hat, hair, eyes, mouth, sweat FROM AVATAR WHERE idUser = ".$idUser);

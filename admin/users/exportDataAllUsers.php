@@ -1,6 +1,10 @@
 <?php
 session_start();
 include "../../includes/db.php";
+if(!isset($_SESSION["id"]) && $_SESSION["rights"] != 1) {
+    header("Location: https://topcook.site/");
+    exit();
+}
 
 $query = $db->query(
     "SELECT id, pseudo, email, date_birth, creation, rights FROM USER ORDER BY id DESC"

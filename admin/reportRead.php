@@ -5,6 +5,10 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 include "../includes/functions.php";
 include "../includes/db.php";
+if(!isset($_SESSION["id"]) && $_SESSION["rights"] != 1) {
+  header("Location: https://topcook.site/");
+  exit();
+}
 ?>
 <!doctype html>
 <html lang="fr">

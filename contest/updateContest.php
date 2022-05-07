@@ -3,6 +3,10 @@ session_start();
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
+if(!isset($_SESSION["id"])) {
+    header("Location: https://topcook.site/");
+    exit();
+}
 include "../includes/db.php";
 
 $select = $db->query("SELECT id FROM CONTEST ORDER BY id DESC LIMIT 1");

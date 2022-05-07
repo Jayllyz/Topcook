@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 include "../includes/db.php";
 include "../includes/functions.php";
 
+
 if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) {
   $image_exist = 1;
   if (isset($_FILES["image"]) && !empty($_FILES["image"]["name"])) {

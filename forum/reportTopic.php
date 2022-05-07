@@ -4,6 +4,10 @@ ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 include "../includes/db.php";
+if(!isset($_SESSION["id"])) {
+    header("Location: https://topcook.site/");
+    exit();
+}
 $id_topic = htmlspecialchars($_GET["id_topic"]);
 $creator_name = htmlspecialchars($_GET["creator_name"]);
 $creator = htmlspecialchars($_GET["id_creator"]);

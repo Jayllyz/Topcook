@@ -153,6 +153,7 @@ function banword($banlist, $text, $db, $insert)
     for ($i = 0; $i < $count; $i++) {
       $db->query("UPDATE USER SET nbBottle = nbBottle + 1 WHERE id = " . $_SESSION['id']);
     }
+    return $count;
   }
 
   return $text;

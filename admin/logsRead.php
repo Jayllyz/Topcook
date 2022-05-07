@@ -1,6 +1,11 @@
 <?php
 session_start();
 include('../includes/functions.php');
+include('../includes/db.php');
+$selectBottle = $db->query("SELECT SUM(nbBottle) FROM USER");
+$bottle = $selectBottle->fetch(PDO::FETCH_ASSOC);
+$bottle = $bottle['SUM(nbBottle)'];
+var_dump($bottle);
 ?>
 <!doctype html>
 <html lang="fr">
@@ -22,6 +27,7 @@ include "../includes/head.php";
                         <th>Nombre de connexion</th>
                         <th>Nombre de bannis</th>
                         <th>Nombre d'erreurs de connexion</th>
+                        <th>Total des bouteilles</th>
                         <th>Page la plus visitée</th>
                     </tr>
                 </thead>
@@ -33,6 +39,7 @@ include "../includes/head.php";
                             echo $linesBan;
                             ?></td>
                         <td><?= readLogs("../log/log_errors.txt") ?></td>
+                        <td><?= $bottle ?></td>
                         <td>A venir...</td>
 
                     </tr>

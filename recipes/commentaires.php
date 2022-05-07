@@ -18,7 +18,11 @@ if (isset($_SESSION['id'])) {
         'id_user' => $_SESSION['id'],
         'date_send' => date("d-m-Y H:i:s")
     ]);
-    banword("https://topcook.site/banlist.txt", $commentaire, $db, 1);
+    $count = banword("https://topcook.site/banlist.txt", $commentaire, $db, 1);
+    if ($count > 0) {
+        header("location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Commentaire ajouté mais avec $count bouteilles!&type=warning");
+        exit();
+    }
     header("location: https://topcook.site/recipes/recipe.php?name=$name&id=$id_recipe&message=Commentaire ajouté !&type=success");
     exit();
 } else {

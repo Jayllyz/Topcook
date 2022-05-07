@@ -4,6 +4,7 @@ ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 date_default_timezone_set("Europe/Paris");
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -22,15 +23,15 @@ if (isset($_POST["submit"])) {
   } else {
     setcookie("email", $_POST["email"], time() + 3600, "/");
   }
-  // Verifier si le pseudo n'est pas déja utiliser
+
 
   $req = $db->prepare("SELECT id FROM USER WHERE pseudo = :pseudo");
   $req->execute([
     "pseudo" => $_POST["pseudo"],
   ]);
-  // Recupérer la première ligne de résultat
-  $reponse = $req->fetch(); // Renvoie la première ligne sous forme de tableau ou une valeur booléenne FALSE
-  // Si la ligne existe : erreur, le pseudo est déja utilisé
+
+  $reponse = $req->fetch();
+
   if ($reponse) {
     header(
       "location: ../inscription.php?message=Ce pseudo est déja utilisé !&valid=invalid&input=pseudo"
@@ -39,9 +40,6 @@ if (isset($_POST["submit"])) {
   } else {
     setcookie("pseudo", $_POST["pseudo"], time() + 3600, "/");
   }
-  // Fin vérif pseudo
-
-  // Verif si la date de naissance est saisi
 
   if (isset($_POST["birth"])) {
     setcookie("birth", $_POST["birth"], time() + 3600, "/");
@@ -55,51 +53,43 @@ if (isset($_POST["submit"])) {
 
   $image_exist = 1;
   if (isset($_FILES["image"]) && !empty($_FILES["image"]["name"])) {
-    // Vérifier le type de fichier
+
     $acceptable = ["image/jpeg", "image/png"];
 
     if (!in_array($_FILES["image"]["type"], $acceptable)) {
-      // Rediriger vers inscription.php avec un message d'erreur
+
       header(
         "location: ../inscription.php?message=Type de fichier incorrect.&valid=invalid&input=fichier"
       );
       exit();
     }
 
-    // Vérifier le poids du fichier
+
     $maxSize = 2 * 1024 * 1024; //2Mo
 
     if ($_FILES["image"]["size"] > $maxSize) {
-      // Rediriger vers inscription.php avec un message d'erreur
+
       header(
         "location: ../inscription.php?message=Ce fichier est trop lourd.&valid=invalid&input=fichier"
       );
       exit();
     }
 
-    // Enregistrer le fichier sur le serveur
 
-    // Chemin d'enregistrement
     $path = "../uploads";
 
-    // Vérifier que le dossier uploads existe, sinon le créer
+
     if (!file_exists($path)) {
       mkdir($path, 0777);
     }
 
     $filename = $_FILES["image"]["name"];
 
-    // Créer un nom de fichier à partir de la date (timestamp)
-    // image-1613985411.ext
-    // Attention : deux fichiers uploadés dans la même seconde auront le même nom !!
-
-    // Récupérer l'extension du fichier
     $array = explode(".", $filename);
-    $ext = end($array); // extension du fichier
+    $ext = end($array);
 
     $filename = "image-" . time() . "." . $ext;
 
-    // Déplacer le fichier vers son emplacement définitif (le dossier uploads)
     $destination = $path . "/" . $filename;
     move_uploaded_file($_FILES["image"]["tmp_name"], $destination);
     include "../includes/resolution.php";
@@ -107,23 +97,20 @@ if (isset($_POST["submit"])) {
     $image_exist = 0;
   }
 
-  // Verifier si l'email n'est pas déja utiliser
-
-  // Requete SELECT FROM ... WHERE
   $req = $db->prepare("SELECT id FROM USER WHERE email = :email");
   $req->execute([
     "email" => $_POST["email"],
   ]);
-  // Recupérer la première ligne de résultat
-  $reponse = $req->fetch(); // Renvoie la première ligne sous forme de tableau ou une valeur booléenne FALSE
-  // Si la ligne existe : erreur, l'email est déja utilisé
+
+  $reponse = $req->fetch();
+
   if ($reponse) {
     header(
       "location: ../inscription.php?message=Cet email est déja utilisé !&valid=invalid&input=email"
     );
     exit();
   }
-  // Fin vérif email
+
 
   if (
     !empty($_POST["pseudo"]) &&

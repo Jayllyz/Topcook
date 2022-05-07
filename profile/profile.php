@@ -20,7 +20,7 @@ if (isset($id)) { ?>
       <h2 class="text-center text-uppercase">Bienvenue sur votre profil <?= $pseudo ?> !</h2>
       <?php
       $req = $db->query(
-        "SELECT email,image, date_birth,rights, avatar FROM USER WHERE id = " .
+        "SELECT email,image, date_birth,rights, avatar, victory FROM USER WHERE id = " .
           $_SESSION["id"]
       );
       $req->execute([
@@ -56,6 +56,7 @@ if (isset($id)) { ?>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><strong>Votre email: </strong><?= $select["email"] ?></li>
               <li class="list-group-item"><strong>Votre aniverssaire: </strong><?= $select["date_birth"] ?></li>
+              <li class="list-group-item"><strong>Concours gagnés: </strong><?= $select["victory"] ?></li>
             </ul>
             <div class="card-body button_profil">
               <a href="https://topcook.site/profile/update/form_update.php?id=<?= $_SESSION["id"] ?>" class="btn card-link text-decoration-none" id="link-first">Modifier votre profil</a>

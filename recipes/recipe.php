@@ -2,6 +2,9 @@
 session_start();
 include "../includes/db.php";
 include "../includes/functions.php";
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
 $nbSteps = htmlspecialchars($_GET["nbSteps"]);
 $name = htmlspecialchars($_GET["name"]);
 $date = date("d/m/Y H:i:s");

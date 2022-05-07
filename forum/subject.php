@@ -50,18 +50,21 @@ include "../includes/head.php";
           <span class="d-flex">Description :<p class="ms-3 me-3" id="description"></span>
 
           <strong id="message"><?= $message ?></strong>
-          <?php if (
+          <?php
+          if(isset($_SESSION['id']) && isset($_SESSION['rights'])){
+          if (
             $id_creator == $_SESSION["id"] ||
             $_SESSION["rights"] == 1
           ) { ?>
             <div class="modify">
               <img src="../images/crayon.png" id="crayon" width="30" height="30" alt="modify" class="modify">
             </div>
-          <?php } ?>
+          <?php }} ?>
           </p>
         </div>
 
         <?php
+        if(isset($_SESSION['id'])){
         $selectReport = $db->prepare(
           "SELECT count(id) FROM REPORT_TOPIC WHERE id_user = :id_user AND id_topic = :id_topic"
         );
@@ -78,6 +81,7 @@ include "../includes/head.php";
             </a>
           </div>
         <?php }
+        }
         ?>
 
       </div>
@@ -94,16 +98,18 @@ include "../includes/head.php";
         <table class="table text-center table-bordered table-hover">
           <thead>
             <?php
-            $selectUserCreateMsg = $db->prepare(
-              "SELECT count(id) FROM FORUM_MSG WHERE id_user = :id AND id_topic = :id_topic"
-            );
-            $selectUserCreateMsg->execute([
-              "id" => $_SESSION["id"],
-              "id_topic" => $id_subject,
-            ]);
-            $resultUserCreateMsg = $selectUserCreateMsg->fetch(
-              PDO::FETCH_ASSOC
-            );
+            if(isset($_SESSION['id']) && $_SESSION['rights']) {
+                $selectUserCreateMsg = $db->prepare(
+                    "SELECT count(id) FROM FORUM_MSG WHERE id_user = :id AND id_topic = :id_topic"
+                );
+                $selectUserCreateMsg->execute([
+                    "id" => $_SESSION["id"],
+                    "id_topic" => $id_subject,
+                ]);
+                $resultUserCreateMsg = $selectUserCreateMsg->fetch(
+                    PDO::FETCH_ASSOC
+                );
+            }
             ?>
             <tr>
               <th>Pseudo</th>
@@ -112,13 +118,15 @@ include "../includes/head.php";
               <?php if (isset($_SESSION["id"])) { ?>
                 <th id="th-report">Signaler</th>
               <?php } ?>
-              <?php if (
+              <?php
+              if(isset($_SESSION['id']) && $_SESSION['rights']){
+              if (
                 $_SESSION["rights"] == 1 ||
                 $_SESSION["id"] == $id_creator ||
                 $resultUserCreateMsg > 0
               ) { ?>
                 <th>Supprimer</th>
-              <?php } ?>
+              <?php }} ?>
             </tr>
           </thead>
           <?php
@@ -132,6 +140,7 @@ include "../includes/head.php";
           foreach ($selectMessages as $message) { ?>
 
             <?php
+            if(isset($_SESSION['id'])){
             $selectReportMsg = $db->prepare(
               "SELECT count(id) FROM FORUM_MSG_REPORT WHERE id_user = :id_user AND id_msg = :id_msg"
             );
@@ -140,6 +149,7 @@ include "../includes/head.php";
               "id_msg" => $message["id"],
             ]);
             $selectReportMsg = $selectReportMsg->fetch(PDO::FETCH_ASSOC);
+            }
             ?>
 
             <div class="sending">
@@ -156,10 +166,13 @@ include "../includes/head.php";
 
                 <tbody>
                   <tr>
-                    <?php if (
+                    <?php
+                    if(isset($_SESSION['id'])){
+                    if (
                       $_SESSION["id"] == $message["id_user"]
                     ) { ?>
                       <td>Vous</td>
+                        <?php } ?>
                     <?php } else { ?>
                       <td><?= $selectUser["pseudo"] ?></td>
                     <?php } ?>
@@ -184,7 +197,7 @@ include "../includes/head.php";
 
                       </td>
                       <?php } else {
-                      if ($_SESSION["id"]) { ?>
+                      if (isset($_SESSION["id"])) { ?>
                         <td>
                           <a href="#"></a>
                         </td>
@@ -192,7 +205,9 @@ include "../includes/head.php";
                     } ?>
 
 
-                    <?php if (
+                    <?php
+                    if(isset($_SESSION['id']) && isset($_SESSION['rights'])){
+                    if (
                       $_SESSION["rights"] == 1 ||
                       $_SESSION["id"] == $message["id_user"]
                     ) { ?>
@@ -202,7 +217,7 @@ include "../includes/head.php";
                 </tbody>
               </div>
             </div>
-          <?php }
+          <?php }}
           ?>
         </table>
       </div>

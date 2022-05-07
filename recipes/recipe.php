@@ -133,33 +133,32 @@ include "../includes/head.php";
         <div id="error_like"></div>
 
 
-        <?php if (
-          $_SESSION["rights"] == 1 ||
-          $_SESSION["id"] == $select["id_user"]
-        ) { ?>
+        <?php if (isset($_SESSION["id"]) &&
+            isset($_SESSION['rights'])
+        ) {
+            if($_SESSION["rights"] == 1 || $_SESSION["id"] == $select["id_user"]){
+            ?>
           <div class="btn_ingredients mb-4">
             <a href="deleteRecipe.php?id=<?= $select["id"] ?>&id_user=<?= $select["id_user"] ?>&name=<?= $select["name"] ?>" onclick="return checkConfirm('Voulez vous vraiment supprimer cette recette?')" class="btn btn-danger">
               Supprimer la recette
             </a>
           </div>
-        <?php } ?>
+        <?php }} ?>
 
         <div class="list_ingredient">
           <h3>Ingrédients</h3>
-          <?php if (
-            $_SESSION["rights"] == 1 ||
-            $_SESSION["id"] == $select["id_user"]
-          ) { ?>
-            <div class="btn_ingredients mb-4">
-              <a href="ingredients.php?name=<?= $select["name"] ?>&id=<?= $select["id"] ?>&nbSteps=<?= $nbSteps ?>" class="btn">
-                Modifier les ingrédients
-              </a>
-            </div>
-          <?php } ?>
+
           <?php
           $selectIngredients = $db->prepare(
             "SELECT name, quantity, unit FROM INGREDIENT WHERE id_recipe = :id_recipe"
           );
+          $countNbIngredients = $db->prepare("SELECT COUNT(id_recipe) as nbIngredients FROM INGREDIENT WHERE id_recipe = :id_recipe GROUP BY id_recipe");
+          $countNbIngredients->execute([
+                  "id_recipe" => $_GET["id"]
+          ]);
+
+          $nbIngredients = $countNbIngredients->fetch(PDO::FETCH_ASSOC);
+          $nbIngredients = $nbIngredients["nbIngredients"];
           $selectIngredients->execute([
             "id_recipe" => $select["id"],
           ]);
@@ -167,8 +166,19 @@ include "../includes/head.php";
             PDO::FETCH_ASSOC
           );
           ?>
-
-          <?php foreach ($resultIngredients as $ingredient) { ?>
+            <?php if (isset($_SESSION["id"]) &&
+            isset($_SESSION['rights'])
+            ) {
+            if($_SESSION["rights"] == 1 || $_SESSION["id"] == $select["id_user"]){
+            ?>
+            <div class="btn_ingredients mb-4">
+                <a href="https://topcook.site/recipes/modifyIngredients.php?name=<?= $select["name"] ?>&id=<?= $select["id"] ?>&nbIngredients=<?= $nbIngredients ?>" class="btn">
+                    Ajouter des ingrédients
+                </a>
+            </div>
+            <?php }} ?>
+          <?php foreach ($resultIngredients as $ingredient) {
+?>
             <div class="info_ingredients">
 
               <p class="name_ingredient"><?= $ingredient["name"] ?></p>
@@ -181,6 +191,17 @@ include "../includes/head.php";
         </div>
         <div class="list_steps">
           <h3>Préparation</h3>
+            <?php if (isset($_SESSION["id"]) &&
+            isset($_SESSION['rights'])
+            ) {
+            if($_SESSION["rights"] == 1 || $_SESSION["id"] == $select["id_user"]){
+            ?>
+                <div class="btn_ingredients mb-4">
+                    <a href="ingredients.php?name=<?= $select["name"] ?>&id=<?= $select["id"] ?>&nbSteps=<?= $nbSteps ?>" class="btn">
+                        Modifier les étapes
+                    </a>
+                </div>
+            <?php }} ?>
           <?php
           $query = $db->prepare(
             "SELECT details,orders FROM STEPS WHERE id_recipe = :id_recipe"
@@ -200,6 +221,7 @@ include "../includes/head.php";
         </div>
 
         <?php
+        if(isset($_SESSION["id"])){
         $selectReport = $db->prepare(
           "SELECT count(id) FROM REPORT_RECIPE WHERE id_user = :id_user AND id_recipe = :id_recipe"
         );
@@ -216,7 +238,7 @@ include "../includes/head.php";
               Signaler la recette
             </a>
           </div>
-        <?php } ?>
+        <?php }} ?>
 
 
         <div class="commentaires">
@@ -252,6 +274,7 @@ include "../includes/head.php";
                 <?php } ?>
 
                 <?php
+                if(isset($_SESSION["id"])){
                 $selectIdUserRecipeMsg = $db->prepare(
                   "SELECT COUNT(id) FROM COMMENTAIRE WHERE id_recipe = :id_recipe AND id_user = :id_user"
                 );
@@ -272,7 +295,7 @@ include "../includes/head.php";
                 <?php }
                 ?>
 
-              <?php }
+              <?php }}
               ?>
               </tr>
             </thead>
@@ -286,14 +309,16 @@ include "../includes/head.php";
             $selectMessages = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($selectMessages as $message) { ?>
               <?php
-              $selectReportCom = $db->prepare(
-                "SELECT count(id) FROM REPORT_COM WHERE id_user = :id_user AND id_comment = :id_comment"
-              );
-              $selectReportCom->execute([
-                "id_user" => $_SESSION["id"],
-                "id_comment" => $message["id"],
-              ]);
-              $selectReportCom = $selectReportCom->fetch(PDO::FETCH_NUM);
+                if(isset($_SESSION["id"])) {
+                    $selectReportCom = $db->prepare(
+                        "SELECT count(id) FROM REPORT_COM WHERE id_user = :id_user AND id_comment = :id_comment"
+                    );
+                    $selectReportCom->execute([
+                        "id_user" => $_SESSION["id"],
+                        "id_comment" => $message["id"],
+                    ]);
+                    $selectReportCom = $selectReportCom->fetch(PDO::FETCH_NUM);
+                }
               ?>
               <div class="sending">
                 <div class="users">
@@ -309,7 +334,7 @@ include "../includes/head.php";
 
                   <tbody>
                     <tr>
-                      <?php if (
+                      <?php if (isset($_SESSION['id']) &&
                         $_SESSION["id"] == $message["id_user"]
                       ) { ?>
                         <td>Vous</td>
@@ -336,23 +361,22 @@ include "../includes/head.php";
                         </td>
 
                         <?php } else {
-                        if ($_SESSION["id"]) { ?>
+                        if (isset($_SESSION['id']) && $_SESSION["id"]) { ?>
                           <td>
                             <a href="#"></a>
                           </td>
                       <?php }
                       } ?>
-                      <?php if (
-                        $_SESSION["rights"] == 1 ||
-                        $message["id_user"] == $_SESSION["id"]
-                      ) { ?>
+                      <?php if (isset($_SESSION['id']) && isset($_SESSION["id"])) {
+                          if($_SESSION["rights"] == 1 || $message["id_user"] == $_SESSION["id"]){
+                          ?>
                         <td>
                           <a href="../admin/comment/delete_comment.php?name_recipe=<?= $select["name"] ?>&id_comment=<?= $message["id"] ?>&id_user=<?= $message["id_user"] ?>&id_recipe=<?= htmlspecialchars(
                                                                                                                                                                                           $_GET["id"]
                                                                                                                                                                                         ) ?>" id="delete-btn" class="btn btn-ban">Supprimer</a>
                         </td>
 
-                      <?php } ?>
+                      <?php }} ?>
                     </tr>
                   </tbody>
 

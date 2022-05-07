@@ -64,7 +64,6 @@ include "../includes/head.php";
                     $pseudo = $resultUser["pseudo"];
                 ?>
 
-
                     <tbody>
                         <tr>
                             <td><?= $pseudo ?></td>
@@ -77,9 +76,6 @@ include "../includes/head.php";
                 } ?>
             </table>
         </div>
-
-
-
 
     </main>
     <?php include "../includes/footer.php"; ?>

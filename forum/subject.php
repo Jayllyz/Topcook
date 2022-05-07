@@ -44,6 +44,19 @@ include "../includes/head.php";
         <?php if (isset($image) && $image != null) { ?>
           <img src="https://topcook.site/uploads/img_topic/<?= $image ?>" alt="<?= $subject ?>" class="pb-3 img-fluid">
         <?php } ?>
+        <?php if (
+          isset($_SESSION["id"]) &&
+          isset($_SESSION['rights'])
+        ) {
+          if ($_SESSION["rights"] === '1' || $_SESSION["id"] === $id_creator) {
+        ?>
+            <div class="btn_ingredients mb-4">
+              <a href="deleteTopic.php?id=<?= $id_subject ?>$creator=<?= $pseudo ?>&id_creator=<?= $id_creator ?>" onclick="return checkConfirm('Voulez vous vraiment supprimer ce sujet?')" class="btn btn-danger">
+                Supprimer le sujet
+              </a>
+            </div>
+        <?php }
+        } ?>
         <p>Créé par : <strong><?= $pseudo ?></strong></p>
         <p>Date de création : <strong><?= $date ?></strong></p>
         <div class="description d-flex justify-content-center">

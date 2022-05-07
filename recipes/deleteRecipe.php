@@ -8,7 +8,7 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 include "../includes/db.php";
 
-if (isset($_SESSION["id"]) && $_SESSION["id"] == $id_user) {
+if (isset($_SESSION["id"]) && ($_SESSION["id"] == $id_user || $_SESSION["rights"] == 1)) {
   $req = $db->prepare("DELETE FROM STEPS WHERE  id_recipe = :id_recipe");
   $req->execute([
     "id_recipe" => $id_recipe,

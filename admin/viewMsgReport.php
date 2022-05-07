@@ -35,9 +35,9 @@ include "../includes/head.php";
             <h1 class="mb-3">Messages signalé rédiger par <em><?= $pseudo ?></em></h1>
 
             <div id="logs">
-                <a href="https://topcook.site/admin/reportRead.php" class="btn mb-4">Recettes</a>
-                <a href="https://topcook.site/admin/reportReadMsg.php" class="btn ms-4 mb-4">Messages</a>
-                <a href="https://topcook.site/admin/reportReadCom.php" class="btn ms-4 mb-4">Commentaires</a>
+                <a href="https://topcook.site/admin/reportRead" class="btn mb-4">Recettes</a>
+                <a href="https://topcook.site/admin/reportReadMsg" class="btn ms-4 mb-4">Messages</a>
+                <a href="https://topcook.site/admin/reportReadCom" class="btn ms-4 mb-4">Commentaires</a>
 
             </div>
             <table class="table text-center table-bordered table-hover">

@@ -8,5 +8,8 @@ RewriteRule ^forum/$ forum/topic.php
 RewriteRule ^inscription$ inscription.php
 RewriteRule ^mon-profile$ profile/profile.php
 RewriteRule ^mes-recettes$ profile/mesRecettes.php
-
-
+RewriteRule ^admin/$ admin/admin.php
+RewriteRule ^admin/logsRead$ admin/logsRead.php
+RewriteRule ^admin/reportRead$ admin/reportRead.php
+RewriteRule ^admin/reportReadMsg$ admin/reportReadMsg.php
+RewriteRule ^admin/reportReadCom$ admin/reportReadCom.php

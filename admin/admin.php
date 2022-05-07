@@ -25,8 +25,8 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
       <h1>Liste des Utilisateurs</h1>
       <div class="container">
         <div id="logs">
-          <a href="https://topcook.site/admin/logsRead.php" class="btn mb-4 logs">Consulter les logs</a>
-          <a href="https://topcook.site/admin/reportRead.php" class="btn ms-4 mb-4 report">Consulter les signalements</a>
+          <a href="https://topcook.site/admin/logsRead" class="btn mb-4 logs">Consulter les logs</a>
+          <a href="https://topcook.site/admin/reportRead" class="btn ms-4 mb-4 report">Consulter les signalements</a>
           <a href="users/exportDataAllUsers.php" class="btn ms-4 mb-4 exportData">Exporter les données</a>
           <a type="button" class="btn ms-4 mb-4 add_captcha" data-bs-toggle="modal" data-bs-target="#addCaptcha">Ajouter une image Captcha</a>
         </div>

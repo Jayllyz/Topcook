@@ -30,7 +30,6 @@ include "../includes/head.php";
                         <th>Nombre de bannis</th>
                         <th>Nombre d'erreurs de connexion</th>
                         <th>Total des bouteilles</th>
-                        <th>Page la plus visitée</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,7 +41,6 @@ include "../includes/head.php";
                             ?></td>
                         <td><?= readLogs("../log/log_errors.txt") ?></td>
                         <td><?= $bottle ?></td>
-                        <td>A venir...</td>
 
                     </tr>
                 </tbody>

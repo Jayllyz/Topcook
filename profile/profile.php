@@ -37,7 +37,7 @@ if (isset($id)) { ?>
           <?php include "../includes/message.php"; ?>
         </div>
         <div class="mt-3 mb-3 container">
-          <div id="test" class="card col-md-4 card_profil">
+          <div id="container_profil" class="card col-md-4 card_profil">
             <?php if (!empty($select["image"]) && $select["avatar"] === "0") { ?>
               <?php echo '<img src="../uploads/' .
                 $select["image"] .

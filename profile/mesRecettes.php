@@ -44,7 +44,7 @@ if (isset($_SESSION["id"])) { ?>
                   <?= '<img src="../uploads/recipe/' .
                     $select["images"] .
                     '" class="rounded img-fluid" alt="image -' .
-                    $select["names"] .
+                    $select["name"] .
                     '">' ?>
                   <h4 class="text-center mt-3 text-dark"><?= $select["name"] ?></h4>
                 </a>

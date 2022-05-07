@@ -56,13 +56,13 @@ if (isset($_SESSION['id'])) {
         move_uploaded_file($_FILES["image"]["tmp_name"], $destination);
         include "../../includes/resolution.php";
     }
-    $select = $db->query("SELECT count(id) AS OCC FROM USER WHERE id = " . $_SESSION['id'] . " AND  id_contest = " . $idContest);
+    $select = $db->query("SELECT idContest FROM USER WHERE id = " . $_SESSION['id']);
     $result = $select->fetch(PDO::FETCH_ASSOC);
-    if ($result['OCC'] === 0) {
-        $insertParticipation = $db->prepare("INSERT INTO USER (idContest, imagesContest) VALUES ( :idContest, :image)");
+    if ($result['idContest'] !== $idContest) {
+        $insertParticipation = $db->prepare("UPDATE USER SET idContest = :idContest, imageContest = :imageContest WHERE id = " . $_SESSION['id']);
         $insertParticipation->execute([
             "idContest" => $idContest,
-            "image" => isset($filename) ? $filename : "",
+            "imageContest" => isset($filename) ? $filename : "",
         ]);
         header("location: https://topcook.site/concours.php?message=Votre participation a bien été enregistrée.&type=success");
         exit();

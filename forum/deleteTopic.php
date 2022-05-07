@@ -11,19 +11,18 @@ include "../includes/db.php";
 var_dump($_SESSION["rights"]);
 
 if (isset($_SESSION["id"]) && ($_SESSION["id"] == $id_creator || $_SESSION["rights"] == 1)) {
-    $selectMsgReport = $db->query("SELECT id_msg FROM FORUM_MSG_REPORT");
-    $resultMsgReport = $selectMsgReport->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($resultMsgReport as $msgReport) {
-        $deleteReport = $db->prepare("DELETE FROM FORUM_MSG_REPORT WHERE id_msg = :id_msg IN (SELECT id_msg FROM FORUM_MSG_REPORT WHERE id_topic = :id_topic)");
+    $selectMsg = $db->query("SELECT id FROM MESSAGE WHERE id_topic = ". $id_topic);
+    $selectMsg = $selectMsg->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($selectMsg as $msg) {
+        $deleteReport = $db->prepare("DELETE FROM FORUM_MSG_REPORT WHERE id_msg = :id_msg ");
         $deleteReport->execute([
-            "id_msg" => $msgReport["id_msg"],
+            "id_msg" => $msg["id"],
+        ]);
+        $deleteCom = $db->prepare("DELETE FROM MESSAGE WHERE id_topic = :id_topic");
+        $deleteCom->execute([
             "id_topic" => $id_topic,
         ]);
     }
-    $req = $db->prepare("DELETE FROM FORUM_MSG WHERE id_topic = :id_topic");
-    $req->execute([
-        "id_topic" => $id_topic,
-    ]);
 
     $req = $db->prepare(
         "DELETE FROM TOPIC WHERE id = :id_topic"

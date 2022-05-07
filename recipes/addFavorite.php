@@ -8,8 +8,8 @@ include '../includes/db.php';
 $id_recipe = $_POST['id'];
 $selectFavorite = $db->query("SELECT idUser, idRecipe FROM FAVORITE_RECIPE WHERE idUser = " . $_SESSION["id"] . " AND idRecipe = " . $_POST["id"]);
 $favorite = $selectFavorite->fetch(PDO::FETCH_ASSOC);
-$idUserFavorite = $favorite["idUser"];
-$idRecipeFavorite = $favorite["idRecipe"];
+$idUserFavorite = isset($favorite["idUser"]) ? $favorite["idUser"] : null;
+$idRecipeFavorite = isset($favorite["idRecipe"]) ? $favorite["idRecipe"] : null;
 if ($idUserFavorite == $_SESSION["id"] && $idRecipeFavorite == $_POST["id"]) {
 
     $deleteFavorite = $db->query("DELETE FROM FAVORITE_RECIPE WHERE idUser = " . $_SESSION['id'] . " AND idRecipe = " . $id_recipe);

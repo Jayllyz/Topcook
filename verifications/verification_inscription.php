@@ -92,30 +92,7 @@ if (isset($_POST["submit"])) {
 
     $destination = $path . "/" . $filename;
     move_uploaded_file($_FILES["image"]["tmp_name"], $destination);
-    //include "../includes/resolution.php";
-
-// Chargement des image dans des variables
-
-      $logo = ImageCreateFromPNG("../test/logo_topcook.png");
-
-      $filename = ImageCreateFromJPEG($destination);
-
-// Superposition des images
-
-//imagecopy($img, $logo, 100, 110, 0, 0, imagesx($logo), imagesy($logo));
-      imagecopyresized($filename, $logo, 0, 0, 0, 0, 200, 200, 300, 300);
-
-// Un header spécifique
-
-      header("Content-type: image/png");
-
-// Maintenant, envoyer les données de l'image
-
-      imagepng($filename);
-
-// Libérons la mémoire
-      imagedestroy($filename);
-
+    include '../includes/resolution.php';
   } else {
     $image_exist = 0;
   }

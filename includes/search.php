@@ -53,7 +53,9 @@ foreach ($resultTopic as $topic) {
 
 // Select User
 
-if($_SESSION['rights'] == 1) {
+if(
+    isset($_SESSION['rights']) &&
+    $_SESSION['rights'] == 1) {
     $selectUser = $db->prepare("SELECT id,pseudo FROM USER WHERE pseudo LIKE :pseudo LIMIT 10");
     $selectUser->execute(array(
         'pseudo' => '%' . "$search" . '%'
@@ -67,8 +69,11 @@ if($_SESSION['rights'] == 1) {
         $pseudo = $user['pseudo'];
         $idUser = $user['id'];
         echo "<p class='fs-5 search_link'><a href='https://topcook.site/admin/users/read.php?id=$idUser' class='text-decoration-none'>$pseudo</a></p>";
+
     }
+
 }
-if(!$resultTopic && !$resultRecipe && !$resultUser){
+if(!$resultTopic && !$resultRecipe || isset($resultUser) && !$resultUser){
     echo "<p class='fs-5'>Aucun résultat</p>";
 }
+

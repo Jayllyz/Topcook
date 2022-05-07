@@ -42,7 +42,7 @@ if (isset($_SESSION["id"])) {
         <?php } ?>
 
         <?php
-        $query = $db->query("SELECT id,name, images FROM RECIPE, (SELECT id_recipe, votes, count(votes) as occ FROM LIKES GROUP BY id_recipe ORDER BY occ DESC)AS selected WHERE id_recipe = id ORDER BY occ DESC;");
+        $query = $db->query("SELECT id, name, images FROM RECIPE ORDER BY id ASC");
 
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         ?>

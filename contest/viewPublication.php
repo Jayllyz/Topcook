@@ -57,10 +57,11 @@ include "../includes/head.php";
                 <?php
 
                 $selectIdWinner = $db->query("SELECT id_proposal,  votes, count(votes) AS OCC FROM LIKES_CONTEST GROUP BY votes ORDER BY OCC DESC LIMIT 1");
-                $resultId0Winner = $selectIdWinner->fetch(PDO::FETCH_ASSOC);
-                $resultId0Winner = $resultId0Winner["id_proposal"];
-                if ($resultId0Winner != null) {
-                    $selectWinner = $db->query("SELECT pseudo, imageContest FROM USER WHERE id = $resultId0Winner");
+                $resultIdWinner = $selectIdWinner->fetch(PDO::FETCH_ASSOC);
+                $IdWinner = $resultIdWinner["id_proposal"];
+                $likes = $resultIdWinner["OCC"];
+                if ($resultIdWinner != null) {
+                    $selectWinner = $db->query("SELECT pseudo, imageContest FROM USER WHERE id = $IdWinner");
                     $result = $selectWinner->fetch(PDO::FETCH_ASSOC);
                     $winnerPseudo = $result["pseudo"];
                     $winnerImage = $result["imageContest"];
@@ -68,7 +69,7 @@ include "../includes/head.php";
                     $resultPseudo = "Aucun votes";
                 }
                 ?>
-                <h2>Le gagnant est : <?= $winnerPseudo ?></h2>
+                <h2>Le gagnant est : <?= $winnerPseudo ?> avec <?= $likes ?> likes</h2>
                 <img src="../uploads/uploadsParticipate/<?= $winnerImage ?>" id="img-winner" alt="<?= $winnerPseudo ?>">
 
             </div>

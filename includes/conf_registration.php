@@ -35,7 +35,7 @@ foreach ($result as $existToken) {
     <img src='https://topcook.site/images/topcook_logo.svg' class='logo float-left m-2 h-75 me-4' width='95' alt='Logo'>
     <h4 class='alert-heading'><strong>Congratulations !</strong></h4>
     <p>Votre compte a été confirmé ! Vous pouvez retourner sur notre site en cliquant sur ce lien :
-    <a href='https://topcook.site/filigrane.php' class='text-decoration-none'><em>Home</em></a> pour vous connecter et fermer
+    <a href='https://topcook.site' class='text-decoration-none'><em>Home</em></a> pour vous connecter et fermer
     cette page.
     TopCook, vous souhaite la bienvenue !</p>
   </div>

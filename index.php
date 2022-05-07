@@ -24,12 +24,12 @@ require "includes/functions.php";
     </div>
     <?php
     $selectRecipe = $db->prepare(
-      "SELECT name, images, id, description FROM RECIPE WHERE name = :name"
+      "SELECT name, images, id, description FROM RECIPE WHERE id = :id"
     );
     $selectRecipe->execute([
-      "name" => moreViewsRecipe(),
+      "id" => moreViewsRecipe(),
     ]);
-    $result = $selectRecipe->fetch();
+    $result = $selectRecipe->fetch(PDO::FETCH_ASSOC);
     $recipeName = $result["name"];
     $recipeImage = $result["images"];
     $recipeId = $result["id"];

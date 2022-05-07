@@ -26,12 +26,10 @@ function moreViewsRecipe()
       "visité",
       file_get_contents("log/recipe_logs/" . $nameFile[$i + 2])
     );
-    //echo $tabLogs[$i][0] . "<br>";
-    // count nb de ligne dans chaque fichier
+
     $nbLigne = count($tabLogs[$i]);
     $nbLigne = $nbLigne - 1;
-    //echo $nbLigne . "<br>";
-    // fichier qui contient le plus de ligne
+
     $nbLigne = readLogs("log/recipe_logs/" . $nameFile[$i + 2]);
     if ($nbLigne > $nbLigneMax) {
       $nbLigneMax = $nbLigne;

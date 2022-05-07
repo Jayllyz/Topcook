@@ -24,16 +24,22 @@ require "includes/functions.php";
     </div>
     <?php
     $selectRecipe = $db->prepare(
-      "SELECT name, images, id, description FROM RECIPE WHERE id = :id"
+      "SELECT name, images, id, description, id_user FROM RECIPE WHERE id = :id"
     );
     $selectRecipe->execute([
       "id" => moreViewsRecipe(),
     ]);
+
     $result = $selectRecipe->fetch(PDO::FETCH_ASSOC);
     $recipeName = $result["name"];
     $recipeImage = $result["images"];
+    $recipeCreator = $result["id_user"];
     $recipeId = $result["id"];
     $recipeDescription = $result["description"];
+
+    $selectCreator = $db->query("SELECT pseudo FROM USER WHERE id = ".$recipeCreator);
+    $result = $selectCreator->fetch(PDO::FETCH_ASSOC);
+    $recipeCreator = $result["pseudo"];
     ?>
     <h1 class="pb-3 text-center"><strong>La recette la plus visité</strong></h1>
     <a href="recipes/recipe.php?id=<?= $recipeId ?>&name=<?= $recipeName ?>" class="text-dark text-decoration-none link_recipe_moment">
@@ -61,9 +67,6 @@ require "includes/functions.php";
 
     <div class="last_recipe row row-col-md-4 me-5 ms-5 mt-3 mb-3">
       <?php
-      $query = $db->query("SELECT id_user FROM RECIPE ORDER BY id DESC");
-      $result = $query->fetch(PDO::FETCH_ASSOC);
-      $id_creator_recipe = $result["id_user"];
 
       $array = topLikesRecipesMonth();
       foreach ($array as $key => $value) {
@@ -84,13 +87,6 @@ require "includes/functions.php";
           $recipeNameMonth = $selectMonth["name"];
           $recipeImageMonth = $selectMonth["images"];
           $recipeDescriptionMonth = $selectMonth["description"];
-
-          $selectCreatorRecipe = $db->query(
-            "SELECT pseudo FROM USER WHERE id = " . $id_creator_recipe
-          );
-
-          $resultCreatorRecipe = $selectCreatorRecipe->fetch(PDO::FETCH_ASSOC);
-          $creatorRecipe = $resultCreatorRecipe["pseudo"];
       ?>
 
           <div class="col-md-3">
@@ -102,7 +98,7 @@ require "includes/functions.php";
                 $recipeNameMonth .
                 '">' ?>
               <div class="card-body">
-                <h5 class="card-title"><?= $recipeNameMonth ?><br> par <em><strong><?= $creatorRecipe ?></strong></em></h5>
+                <h5 class="card-title"><?= $recipeNameMonth ?><br> par <em><strong><?= $recipeCreator ?></strong></em></h5>
                 <p class="card-text col-12 text-truncate"><?= $recipeDescriptionMonth ?></p>
                 <a href="recipes/recipe.php?id=<?= $recipeIdMonth ?>&name=<?= $recipeNameMonth ?>" class="btn see_more">Voir d'avantage</a>
               </div>

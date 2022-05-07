@@ -174,7 +174,9 @@ include "../includes/head.php";
                         $_SESSION["id"] == $message["id_user"]
                       ) { ?>
                         <td>Vous</td>
-                      <?php } ?>
+                      <?php } else { ?>
+                        <td><?= $selectUser["pseudo"] ?></td>
+                      <?php  } ?>
                     <?php } else { ?>
                       <td><?= $selectUser["pseudo"] ?></td>
                     <?php } ?>

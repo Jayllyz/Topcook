@@ -69,6 +69,7 @@ function timer() {
         divMinutes.classList.remove("animated");
         divSeconds.classList.remove("animated");
         document.getElementById("end-contest").innerHTML = "<p class='fs-3 end_contest'>Vote terminé !</p>";
+        document.getElementById("commetaenviemec").style.display = "none";
     }
 
 }

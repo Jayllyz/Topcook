@@ -50,8 +50,9 @@ include "../includes/head.php";
                     </div>
                 </div>
             </div>
-            <?php } ?>
-            <h1>Vote du concours</h1>
+            <?php }
+        ?>
+            <h1 id="commetaenviemec">Vote du concours</h1>
 
             <div class="pb-4 row" id="img-participate">
                 <?php

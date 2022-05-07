@@ -10,20 +10,10 @@ $linkLogoOnglet = "../images/topcook_logo.svg";
 $linkCss = "../css/style.css";
 $title = "TopCook - Votez pour vos recettes favorites !";
 include "../includes/head.php";
-$select = $db->query("SELECT id_proposal FROM LIKES_CONTEST");
-$result = $select->fetchAll(PDO::FETCH_ASSOC);
-
-$nbLikes = count($result);
-for($i = 0; $i < $nbLikes; $i++) {
-    $idProposal = $result[$i]['id_proposal'];
-
-
-
 
 ?>
 
-<body onload="countLikeParticipate(<?= $_SESSION['id'] ?>, 0, <?= $idProposal ?>)">
-<?php } ?>
+<body>
     <?php include "../includes/header.php"; ?>
     <main>
         <div class="container g-1" id="recettes">
@@ -44,22 +34,23 @@ for($i = 0; $i < $nbLikes; $i++) {
                                 <?php if (isset($_SESSION["id"])) {
 
                                     $selectIdUserIfLike = $db->prepare(
-                                        "SELECT id_user FROM LIKES_CONTEST WHERE id_user = :id_user AND id_contest = :id_contest"
+                                        "SELECT id_user FROM LIKES_CONTEST WHERE id_user = :id_user AND id_contest = :id_contest AND id_proposal = :id_proposal"
                                     );
                                     $selectIdUserIfLike->execute([
                                         "id_user" => $_SESSION["id"],
-                                        "id_contest" => $idContest
+                                        "id_contest" => $idContest,
+                                        "id_proposal" => $idParticipate
                                     ]);
                                     $idUserIfLike = $selectIdUserIfLike->fetch(
                                         PDO::FETCH_ASSOC
                                     );
-                                    $idUserIfLike["id_user"] = isset($idUserIfLike["id_user"]) ? $idUserIfLike["id_user"] : "";
+                                    $idUserIfLike["id_user"] = $idUserIfLike["id_user"] ?? "";
                                     $idUserIfLike = $idUserIfLike["id_user"];
                                 ?>
                                     <img src="../images/like.svg" id="<?= $idParticipate ?>" alt="like" width="30" class="<?= $idUserIfLike ==
                                                                                                                                 $_SESSION["id"]
                                                                                                                                 ? "liked"
-                                                                                                                                : "" ?>" height="30" onclick="likeContest(<?= $idParticipate ?>)">
+                                                                                                                                : "" ?>" height="30" onclick="likeContest(this.id)">
                                 <?php
                                 } else {
                                 ?>
@@ -67,7 +58,16 @@ for($i = 0; $i < $nbLikes; $i++) {
                                 <?php
                                 } ?>
                             </div>
-                            <p class="ps-3 fs-4 result_like"></p>
+                            <?php
+                            $selectLike = $db->prepare(
+                                "SELECT votes as nbVotes FROM LIKES_CONTEST WHERE id_proposal = :id_proposal"
+                            );
+                            $selectLike->execute([
+                                "id_proposal" => $idParticipate
+                            ]);
+                            $resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
+                            ?>
+                            <p class="ps-3 fs-4 result_like" id="<?= $idParticipate ."-like"?> "><?= $resultLike ?></p>
 
                         </div>
                         <div id="error_like"></div>

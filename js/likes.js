@@ -1,36 +1,13 @@
-function countLikeParticipate(id, type, array) {
-
+function countLikeParticipate(id) {
   const request = new XMLHttpRequest();
-  if (type === 0) {
-    request.open(
-      "GET",
-      "https://topcook.site/contest/countLikeParticipate.php?id=" + id
-    );
-    request.onreadystatechange = function () {
-      if (
-        request.readyState === XMLHttpRequest.DONE &&
-        request.status === 200
-      ) {
-        const result_like = document.querySelectorAll(".result_like");
-        let test = request.responseText;
-        console.log(test);
-        for (let i = 0; i < result_like.length; i++) {
-          result_like[i].innerHTML = request.responseText;
-        }
-      }
-    };
-  } else {
     request.open("GET", "countLike.php?id=" + id);
     request.onreadystatechange = function () {
       if (
         request.readyState === XMLHttpRequest.DONE &&
         request.status === 200
-      ) {
+      )
         document.getElementById("result_like").innerHTML = request.responseText;
-      }
     };
-  }
-
   request.send();
 }
 
@@ -44,10 +21,12 @@ function like(id) {
       countLikeParticipate(id, 1);
     }
   };
+
   request.send("id=" + id);
 }
 
 function likeContest(id) {
+  console.log(id);
   const request = new XMLHttpRequest();
   request.open("POST", "https://topcook.site/contest/likeParticipate.php");
   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -57,13 +36,15 @@ function likeContest(id) {
       res = res.split(",");
       if (res[1] === "liked") {
         document.getElementById(res[0]).classList.add(res[1]);
+        console.log(res[3])
+
       } else {
-        document.getElementById(res[0]).removeAttribute("class");
+        document.getElementById(res[0]).classList.remove(res[1]);
       }
-      countLikeParticipate(id, 0);
     }
   };
   request.send(`id=${id}`);
+  window.location.reload();
 }
 
 function errorLike() {

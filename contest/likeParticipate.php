@@ -43,4 +43,7 @@ if ($resultLike === 1) {
         "id_proposal" => $id
     ]);
     echo $id . "," . "liked";
+
 }
+
+?>

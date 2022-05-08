@@ -3,7 +3,7 @@ session_start();
 $idUser = $_SESSION["id"];
 include "../includes/db.php";
 include "../includes/functions.php";
-if (!isset($_SESSION["id"])) {
+if(!isset($_SESSION["id"])) {
     header("Location: https://topcook.site/");
     exit();
 }

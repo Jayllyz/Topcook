@@ -46,3 +46,5 @@ if ($resultLike === 1) {
     echo $id . "," . "liked";
 
 }
+
+?>

@@ -16,18 +16,18 @@ if (isset($id)) { ?>
     <?php include "../includes/header.php"; ?>
 
     <main>
-      <?php
-      $req = $db->query(
-        "SELECT pseudo, email,image, date_birth,rights, avatar, victory FROM USER WHERE id = " .
-          $_SESSION["id"]
-      );
-      $req->execute([
-        "id" => $id,
-      ]);
-      $result = $req->fetchAll(PDO::FETCH_ASSOC);
+        <?php
+        $req = $db->query(
+            "SELECT pseudo, email,image, date_birth,rights, avatar, victory FROM USER WHERE id = " .
+            $_SESSION["id"]
+        );
+        $req->execute([
+            "id" => $id,
+        ]);
+        $result = $req->fetchAll(PDO::FETCH_ASSOC);
 
-      foreach ($result as $select) { ?>
-        <h2 class="text-center text-uppercase">Bienvenue sur votre profil <?= $select['pseudo'] ?> !</h2>
+        foreach ($result as $select) { ?>
+      <h2 class="text-center text-uppercase">Bienvenue sur votre profil <?= $select['pseudo'] ?> !</h2>
 
 
         <div class="container col-md-6">

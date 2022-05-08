@@ -1,9 +1,9 @@
 <?php
 session_start();
 include "../includes/db.php";
-if (!isset($_SESSION["id"])) {
-  header("Location: https://topcook.site/");
-  exit();
+if(!isset($_SESSION["id"])) {
+    header("Location: https://topcook.site/");
+    exit();
 }
 
 $sql =

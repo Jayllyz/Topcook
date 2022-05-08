@@ -1,5 +1,5 @@
 <?php session_start();
-if (!isset($_SESSION["id"])) {
+if(!isset($_SESSION["id"])) {
     header("Location: https://topcook.site/");
     exit();
 }
@@ -33,7 +33,7 @@ if (isset($_SESSION["id"])) {
         <form name="contest" onsubmit="return validateForm(this.name);" method="post" action="../verifications/verifications_contest/add_contest.php" enctype="multipart/form-data">
             <div class="container col-md-4">
                 <label class="control-label"><strong>Titre du concours</strong></label>
-                <input type="text" class="form-control" name="title" onkeyup="checkInputLength(this, 50)" required><br>
+                <input type="text" class="form-control" name="title" onkeyup="checkInputLength(this, 50)"  required><br>
                 <p id="charNum"></p>
 
                 <label class="control-label"><strong>Régles du concours</strong></label>

@@ -9,7 +9,7 @@ $end_date = $_POST['end_date'];
 $theme = $_POST['theme'];
 
 
-if (isset($_SESSION['id'])) {
+if(isset($_SESSION['id'])){
     if (isset($_FILES["image"]) && !empty($_FILES["image"]["name"])) {
         // Vérifier le type de fichier
         $acceptable = ["image/jpeg", "image/png"];
@@ -59,13 +59,13 @@ if (isset($_SESSION['id'])) {
         $destination = $path . "/" . $filename;
         move_uploaded_file($_FILES["image"]["tmp_name"], $destination);
         include "../../includes/resolution.php";
-    } else {
+    }else{
         header("location: https://contest/createContest.php?message=Veuillez choisir une image.&type=danger");
         exit();
     }
-    if (isset($title) && !empty($title) && isset($rules) && !empty($rules) && isset($start_date) && !empty($start_date) && isset($end_date) && !empty($end_date) && isset($theme) && !empty($theme) && $theme != "0") {
+    if(isset($title) && !empty($title) && isset($rules) && !empty($rules) && isset($start_date) && !empty($start_date) && isset($end_date) && !empty($end_date) && isset($theme) && !empty($theme) && $theme != "0"){
 
-        if ($start_date < $end_date) {
+        if($start_date < $end_date){
             $req = $db->prepare("INSERT INTO CONTEST (name, date_start, date_end, description, theme, image) VALUES (:name , :date_start , :date_end , :description , :theme, :image)");
             $req->execute([
                 "name" => $title,
@@ -77,12 +77,16 @@ if (isset($_SESSION['id'])) {
             ]);
             header("location: https://topcook.site/concours.php?message=Concours créé avec succès.&type=success");
             exit();
-        } else {
+        }else{
             header("location: https://topcook.site/contest/createContest.php?message=La date de début doit être antérieure à la date de fin.&type=danger");
             exit();
         }
     }
-} else {
+
+
+
+
+}else{
     header("Location: https://topcook.site");
     exit();
 }

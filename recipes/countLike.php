@@ -10,3 +10,4 @@ $selectLike->execute([
 ]);
 $resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
 echo $resultLike;
+?>

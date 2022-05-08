@@ -1,8 +1,8 @@
 <?php
 include "db.php";
-if(!isset($_SESSION["id"])) {
-    header("Location: https://topcook.site/");
-    exit();
+if (!isset($_SESSION["id"])) {
+  header("Location: https://topcook.site/");
+  exit();
 }
 $req = $db->prepare("SELECT token FROM USER WHERE email = :email");
 $req->execute([

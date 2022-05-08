@@ -17,44 +17,43 @@ if (isset($_SESSION["id"])) {
     fputs($log_visit, $_SESSION["id"]);
     fputs($log_visit, "\n");
     fclose($log_visit);
-
 }
 $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST ORDER BY id DESC LIMIT 1");
 $selectContest->execute();
 $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($resultContest as $contest) {
-$id = $contest["id"];
-$name = $contest["name"];
-$description = $contest["description"];
-$theme = $contest["theme"];
-$image = $contest["image"];
-$date_start = $contest["date_start"];
-$date_end = $contest["date_end"];
+    $id = $contest["id"];
+    $name = $contest["name"];
+    $description = $contest["description"];
+    $theme = $contest["theme"];
+    $image = $contest["image"];
+    $date_start = $contest["date_start"];
+    $date_end = $contest["date_end"];
 ?>
 
-<body>
-    <?php include "includes/header.php"; ?>
-    <main>
-        <div class="container col-md-6">
-            <?php include "includes/message.php"; ?>
-        </div>
-        <h1 class="pb-3 text-center"><strong>Concours</strong></h1>
+    <body>
+        <?php include "includes/header.php"; ?>
+        <main>
+            <div class="container col-md-6">
+                <?php include "includes/message.php"; ?>
+            </div>
+            <h1 class="pb-3 text-center"><strong>Concours</strong></h1>
 
-        <?php
-        if(isset($_SESSION['rights']) && $_SESSION['rights'] == 1){
+            <?php
+            if (isset($_SESSION['rights']) && $_SESSION['rights'] == 1) {
             ?>
                 <div class="contest container d-flex mb-3">
-            <a href="https://topcook.site/admin/stopContest.php" id="stopContest" class="btn btn-ban">Arreter le concours</a>
-            </div>
-        <?php } ?>
+                    <a href="https://topcook.site/admin/stopContest.php" id="stopContest" class="btn btn-ban">Arreter le concours</a>
+                </div>
+            <?php } ?>
 
 
 
-        <?php
+            <?php
 
 
-        ?>
+            ?>
             <div class="timer" id="info_timer">
                 <p class="fs-3 end_contest" id="end-contest">Le concours se termine dans: </p>
                 <div id="timer">
@@ -78,18 +77,18 @@ $date_end = $contest["date_end"];
             $date_end_plus_2 = date("Y/m/d", strtotime($date_end . "+2days"));
             if ($date_end < $date_end_plus_2) {
 
-            $req = $db->query("SELECT id FROM CONTEST ORDER BY id DESC LIMIT 1");
-            $nb_contest = $req->rowCount();
+                $req = $db->query("SELECT id FROM CONTEST ORDER BY id DESC LIMIT 1");
+                $nb_contest = $req->rowCount();
             ?>
-            <div class="btn_ingredients mb-4" id="parent_create_contest">
-                <?php if ($_SESSION["rights"] == 1 && $nb_contest == 0) { ?>
+                <div class="btn_ingredients mb-4" id="parent_create_contest">
+                    <?php if ($_SESSION["rights"] == 1 && $nb_contest == 0) { ?>
 
-                    <a href="contest/createContest.php" class="btn" id="create_contest">
-                        Créer un concours
-                    </a>
+                        <a href="contest/createContest.php" class="btn" id="create_contest">
+                            Créer un concours
+                        </a>
 
-                <?php } ?>
-            </div>
+                    <?php } ?>
+                </div>
             <?php } ?>
             <div class="contest container row d-flex justify-content-center mb-3">
                 <div class="col-md-6">
@@ -125,12 +124,12 @@ $date_end = $contest["date_end"];
                 </div>
         <?php }
         } ?>
-    </main>
+        </main>
 
-    <?php include "includes/footer.php"; ?>
-    <script src="js/timer.js"></script>
-    <script src="js/likeParticipate.js"></script>
-    <?php include "includes/scripts.php"; ?>
-</body>
+        <?php include "includes/footer.php"; ?>
+        <script src="js/timer.js"></script>
+        <script src="js/likeParticipate.js"></script>
+        <?php include "includes/scripts.php"; ?>
+    </body>
 
 </html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../includes/db.php";
-if(!isset($_SESSION["id"])) {
+if (!isset($_SESSION["id"])) {
     header("Location: https://topcook.site/");
     exit();
 }
@@ -10,13 +10,12 @@ $idUser = $_SESSION['id'];
 $type = htmlspecialchars($_GET['type']);
 $type = strtolower($type);
 
-if($type == "----choisir une option de tri----"){
+if ($type == "----choisir une option de tri----") {
     echo "<p class='alert alert-danger'>Choisisez une option</p>";
-}else {
+} else {
     $updateAvatar = $db->prepare("UPDATE AVATAR SET " . $type . "= :type WHERE idUser = :idUser");
     $updateAvatar->execute([
         'type' => $idAccessories,
         'idUser' => $idUser
     ]);
-
 }

@@ -2,16 +2,16 @@
 session_start();
 $search = htmlspecialchars($_GET['search']);
 
-include ("db.php");
+include("db.php");
 
 // Select Recipe
 
 $searchRecipe = $db->prepare("SELECT id,name FROM RECIPE WHERE name LIKE :name LIMIT 10");
 $searchRecipe->execute(array(
-    'name' => '%'. "$search" . '%'
+    'name' => '%' . "$search" . '%'
 ));
 $resultRecipe = $searchRecipe->fetchAll(PDO::FETCH_ASSOC);
-if($resultRecipe){
+if ($resultRecipe) {
     echo "<p class='fs-5 search_link'><em><strong>Recettes</strong></em></p>";
 }
 
@@ -19,18 +19,17 @@ foreach ($resultRecipe as $recipe) {
     $name = $recipe['name'];
     $idRecipe = $recipe['id'];
     echo "<p class='fs-5 search_link'><a href='https://topcook.site/recipes/recipe.php?id=$idRecipe&name=$name' class='text-decoration-none'>$name</a></p>";
-
 }
 
 // Select Topic
 
 $searchTopic = $db->prepare("SELECT id,subject, id_user FROM TOPIC WHERE subject LIKE :subject LIMIT 10");
 $searchTopic->execute(array(
-    'subject' => '%'. "$search" . '%'
+    'subject' => '%' . "$search" . '%'
 ));
 
 $resultTopic = $searchTopic->fetchAll(PDO::FETCH_ASSOC);
-if($resultTopic){
+if ($resultTopic) {
     echo "<hr>";
     echo "<p class='fs-5 search_link'><em><strong>Topics</strong></em></p>";
 }
@@ -50,15 +49,16 @@ foreach ($resultTopic as $topic) {
 
 // Select User
 
-if(
+if (
     isset($_SESSION['rights']) &&
-    $_SESSION['rights'] == 1) {
+    $_SESSION['rights'] == 1
+) {
     $selectUser = $db->prepare("SELECT id,pseudo FROM USER WHERE pseudo LIKE :pseudo LIMIT 10");
     $selectUser->execute(array(
         'pseudo' => '%' . "$search" . '%'
     ));
     $resultUser = $selectUser->fetchAll(PDO::FETCH_ASSOC);
-    if($resultUser){
+    if ($resultUser) {
         echo "<hr>";
         echo "<p class='fs-5 search_link'><em><strong>Utilisateurs</strong></em></p>";
     }
@@ -66,11 +66,8 @@ if(
         $pseudo = $user['pseudo'];
         $idUser = $user['id'];
         echo "<p class='fs-5 search_link'><a href='https://topcook.site/admin/users/read.php?id=$idUser' class='text-decoration-none'>$pseudo</a></p>";
-
     }
-
 }
-if(!$resultTopic && !$resultRecipe || isset($resultUser) && !$resultUser){
+if (!$resultTopic && !$resultRecipe || isset($resultUser) && !$resultUser) {
     echo "<p class='fs-5'>Aucun résultat</p>";
 }
-

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../includes/db.php";
-if(!isset($_SESSION["id"])) {
+if (!isset($_SESSION["id"])) {
     header("Location: https://topcook.site/");
     exit();
 }
@@ -33,32 +33,32 @@ include "../includes/head.php";
             $date_start = $contest["date_start"];
             $date_end = $contest["date_end"];
             $finish = $contest["finish"];
-            if($finish !== '1'){
+            if ($finish !== '1') {
         ?>
-            <div class="container g-1" id="recettes">
-                <div class="timer" id="info_timer">
-                    <p class="fs-3 end_contest" id="end-contest">Les votes se termine dans: </p>
-                    <div id="timer">
+                <div class="container g-1" id="recettes">
+                    <div class="timer" id="info_timer">
+                        <p class="fs-3 end_contest" id="end-contest">Les votes se termine dans: </p>
+                        <div id="timer">
 
-                        <input type="hidden" id="date" value="<?= $date_end ?>">
-                        <div class="days"><span id="days"></span>
-                            <p>Jours</p>
-                        </div>
-                        <div class="hours"><span id="hours"></span>
-                            <p>Heures</p>
-                        </div>
-                        <div class="minutes"><span id="minutes"></span>
-                            <p>Minutes</p>
-                        </div>
-                        <div class="seconds"><span id="seconds"></span>
-                            <p>Secondes</p>
+                            <input type="hidden" id="date" value="<?= $date_end ?>">
+                            <div class="days"><span id="days"></span>
+                                <p>Jours</p>
+                            </div>
+                            <div class="hours"><span id="hours"></span>
+                                <p>Heures</p>
+                            </div>
+                            <div class="minutes"><span id="minutes"></span>
+                                <p>Minutes</p>
+                            </div>
+                            <div class="seconds"><span id="seconds"></span>
+                                <p>Secondes</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php }
-            ?>
-            <h1>Vote du concours</h1>
-                <?php } ?>
+                <?php }
+                ?>
+                <h1>Vote du concours</h1>
+            <?php } ?>
             <div id="end-votes">
                 <?php
 
@@ -80,73 +80,73 @@ include "../includes/head.php";
 
 
             </div>
-                <?php
-                $selectContestIsFinished = $db->query("SELECT finish FROM CONTEST");
-                $resultFinished = $selectContestIsFinished->fetch(PDO::FETCH_ASSOC);
-                $finish = $resultFinished["finish"];
-                if ($finish !== '1') {
+            <?php
+            $selectContestIsFinished = $db->query("SELECT finish FROM CONTEST");
+            $resultFinished = $selectContestIsFinished->fetch(PDO::FETCH_ASSOC);
+            $finish = $resultFinished["finish"];
+            if ($finish !== '1') {
 
-                ?>
-            <div class="pb-4 row" id="img-participate">
-                <?php
-                $selectParticipate = $db->query("SELECT id , idContest, imageContest FROM USER  WHERE imageContest != 'NULL' ORDER BY id ASC");
-                $resultParticipate = $selectParticipate->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($resultParticipate as $participate) {
-                    $idParticipate = $participate['id'];
-                    $idContest = $participate['idContest'];
-                ?>
-                    <div class="col-md-4 m-3 d-flex align-items-center">
-                        <img src="../uploads/uploadsParticipate/<?= $participate["imageContest"] ?>" class="img-fluid allrecipes" alt="">
-                        <div class="d-flex flex-row">
-                            <div id="like">
-                                <?php if (isset($_SESSION["id"])) {
+            ?>
+                <div class="pb-4 row" id="img-participate">
+                    <?php
+                    $selectParticipate = $db->query("SELECT id , idContest, imageContest FROM USER  WHERE imageContest != 'NULL' ORDER BY id ASC");
+                    $resultParticipate = $selectParticipate->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($resultParticipate as $participate) {
+                        $idParticipate = $participate['id'];
+                        $idContest = $participate['idContest'];
+                    ?>
+                        <div class="col-md-4 m-3 d-flex align-items-center">
+                            <img src="../uploads/uploadsParticipate/<?= $participate["imageContest"] ?>" class="img-fluid allrecipes" alt="">
+                            <div class="d-flex flex-row">
+                                <div id="like">
+                                    <?php if (isset($_SESSION["id"])) {
 
-                                    $selectIdUserIfLike = $db->prepare(
-                                        "SELECT id_user FROM LIKES_CONTEST WHERE id_user = :id_user AND id_contest = :id_contest AND id_proposal = :id_proposal"
-                                    );
-                                    $selectIdUserIfLike->execute([
-                                        "id_user" => $_SESSION["id"],
-                                        "id_contest" => $idContest,
-                                        "id_proposal" => $idParticipate
-                                    ]);
-                                    $idUserIfLike = $selectIdUserIfLike->fetch(
-                                        PDO::FETCH_ASSOC
-                                    );
-                                    $idUserIfLike["id_user"] = $idUserIfLike["id_user"] ?? "";
-                                    $idUserIfLike = $idUserIfLike["id_user"];
-                                ?>
-                                    <img src="../images/like.svg" id="<?= $idParticipate ?>" alt="like" width="30" class="ms-3 <?= $idUserIfLike ==
-                                                                                                                                    $_SESSION["id"]
-                                                                                                                                    ? "liked"
-                                                                                                                                    : "" ?>" height="30" onclick="likeContest(this.id)">
+                                        $selectIdUserIfLike = $db->prepare(
+                                            "SELECT id_user FROM LIKES_CONTEST WHERE id_user = :id_user AND id_contest = :id_contest AND id_proposal = :id_proposal"
+                                        );
+                                        $selectIdUserIfLike->execute([
+                                            "id_user" => $_SESSION["id"],
+                                            "id_contest" => $idContest,
+                                            "id_proposal" => $idParticipate
+                                        ]);
+                                        $idUserIfLike = $selectIdUserIfLike->fetch(
+                                            PDO::FETCH_ASSOC
+                                        );
+                                        $idUserIfLike["id_user"] = $idUserIfLike["id_user"] ?? "";
+                                        $idUserIfLike = $idUserIfLike["id_user"];
+                                    ?>
+                                        <img src="../images/like.svg" id="<?= $idParticipate ?>" alt="like" width="30" class="ms-3 <?= $idUserIfLike ==
+                                                                                                                                        $_SESSION["id"]
+                                                                                                                                        ? "liked"
+                                                                                                                                        : "" ?>" height="30" onclick="likeContest(this.id)">
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <img src="../images/like.svg" alt="like" width="30" class="notLiked" height="30" onclick="errorLike()">
+                                    <?php
+                                    } ?>
+                                </div>
                                 <?php
-                                } else {
+                                $selectLike = $db->prepare(
+                                    "SELECT votes as nbVotes FROM LIKES_CONTEST WHERE id_proposal = :id_proposal"
+                                );
+                                $selectLike->execute([
+                                    "id_proposal" => $idParticipate
+                                ]);
+                                $resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
                                 ?>
-                                    <img src="../images/like.svg" alt="like" width="30" class="notLiked" height="30" onclick="errorLike()">
-                                <?php
-                                } ?>
+                                <p class="ps-3 fs-4 result_like" id="<?= $idParticipate . "-like" ?> "><?= $resultLike ?></p>
+
                             </div>
-                            <?php
-                            $selectLike = $db->prepare(
-                                "SELECT votes as nbVotes FROM LIKES_CONTEST WHERE id_proposal = :id_proposal"
-                            );
-                            $selectLike->execute([
-                                "id_proposal" => $idParticipate
-                            ]);
-                            $resultLike = count($selectLike->fetchAll(PDO::FETCH_ASSOC));
-                            ?>
-                            <p class="ps-3 fs-4 result_like" id="<?= $idParticipate . "-like" ?> "><?= $resultLike ?></p>
+                            <div id="error_like"></div>
 
                         </div>
-                        <div id="error_like"></div>
-
-                    </div>
 
 
-                <?php } ?>
-            </div>
-                <?php } ?>
-            </div>
+                    <?php } ?>
+                </div>
+            <?php } ?>
+                </div>
     </main>
     <?php include "../includes/footer.php"; ?>
     <script src="../js/timerParticipate.js"></script>

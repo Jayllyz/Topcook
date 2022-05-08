@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../../includes/db.php";
-if(!isset($_SESSION["id"]) && $_SESSION["rights"] != 1) {
+if (!isset($_SESSION["id"]) && $_SESSION["rights"] != 1) {
     header("Location: https://topcook.site/");
     exit();
 }

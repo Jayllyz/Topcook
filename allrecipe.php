@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "includes/db.php";
-if(isset($_GET["nbSteps"])){
+if (isset($_GET["nbSteps"])) {
     $nbSteps = htmlspecialchars($_GET["nbSteps"]);
 }
 

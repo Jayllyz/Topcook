@@ -8,7 +8,7 @@ $hat = $_POST['hat'];
 $sweet = $_POST['sweet'];
 $beard = $_POST['beard'];
 
-if($body != "start" && $hair != "start" && $eyes != "start" && $hat != "start" && $sweet != "start") {
+if ($body != "start" && $hair != "start" && $eyes != "start" && $hat != "start" && $sweet != "start") {
     $insertAvatar = $db->prepare("INSERT INTO AVATAR (colorBody, colorHair, colorEyes, colorHat, colorSweet, colorMouth,colorBeard, hat, hair, eyes, beard, mouth, sweat, idUser) VALUES (:colorBody, :colorHair, :colorEyes, :colorHat, :colorSweet, :colorMouth, :colorBeard, :hat, :hair, :eyes, :beard, :mouth, :sweat, :idUser)");
     $insertAvatar->execute([
         'colorBody' => $body,
@@ -27,6 +27,6 @@ if($body != "start" && $hair != "start" && $eyes != "start" && $hat != "start" &
         'idUser' => $_SESSION['id']
     ]);
     echo "<p class='alert alert-success mt-3'>Votre avatar a bien été modifié !</p>";
-}else{
+} else {
     echo "<p class='alert alert-danger mt-3'>Veuillez choisir des options</p>";
 }

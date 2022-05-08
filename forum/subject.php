@@ -60,17 +60,6 @@ include "../includes/head.php";
           <span class="d-flex">Description :<p class="ms-3 me-3" id="description"></span>
 
           <strong id="message"><?= $message ?></strong>
-          <?php
-          if (isset($_SESSION['id']) && isset($_SESSION['rights'])) {
-            if (
-              $id_creator == $_SESSION["id"] ||
-              $_SESSION["rights"] == 1
-            ) { ?>
-              <div class="modify">
-                <img src="../images/crayon.png" id="crayon" width="30" height="30" alt="modify" class="modify">
-              </div>
-          <?php }
-          } ?>
           </p>
         </div>
 

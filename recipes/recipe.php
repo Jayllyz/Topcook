@@ -185,7 +185,7 @@ include "../includes/head.php";
               <p class="name_ingredient"><?= $ingredient["name"] ?></p>
               <span>
                 <p class="quantity"><?= $ingredient["quantity"] ?></p>
-                <strong><?= $ingredient["unit"] ?></strong>
+                <strong id="unit"><?= $ingredient["unit"] ?></strong>
               </span>
             </div>
           <?php } ?>
@@ -408,6 +408,10 @@ include "../includes/head.php";
       for (let j = 0; j < table.length; j++) {
         table[j].deleteCell(i);
       }
+    }
+    let unit = document.getElementById("unit");
+    if (unit.innerHTML === "vide") {
+      console.log("vide");
     }
   </script>
   <script src="../js/likes.js"></script>

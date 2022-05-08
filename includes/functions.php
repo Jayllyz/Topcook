@@ -1,12 +1,10 @@
 <?php
 
-// count lines in file
 function readLogs($file)
 {
   $lines = 0;
   $handle = fopen($file, "r");
   while (!feof($handle)) {
-    $line = fgets($handle);
     $lines++;
   }
   fclose($handle);
@@ -128,15 +126,15 @@ function topLikesRecipesMonth()
 
 function banword($banlist, $text, $db, $insert)
 {
-  $banlist = file_get_contents($banlist); //on récupère la liste de mots bannis
+  $banlist = file_get_contents($banlist);
 
-  $tabBan = explode("\n", $banlist); //on la transforme en tableau
+  $tabBan = explode("\n", $banlist);
 
   for ($i = 0; $i < count($tabBan); $i++) {
     $tabBan[$i] = trim($tabBan[$i]);
   }
 
-  $tabBan = array_filter($tabBan); //on supprime les éléments vides
+  $tabBan = array_filter($tabBan);
 
   for ($i = 0; $i < count($tabBan); $i++) {
     $tabBan[$i] = "/" . $tabBan[$i] . "/i";

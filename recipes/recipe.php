@@ -46,6 +46,9 @@ include "../includes/head.php";
           '" class="img-fluid" id="img_recipe" alt="image -' .
           $select["name"] .
           '"></a>' ?>
+        <p class="text-center">
+          <?= readLogs("../log/recipe_logs/" . $select["id"] . ".txt")  . " vue" ?>
+        </p>
         <div class="div-head-recipe">
           <div class="head-recipe">
             <p>Nom : <span><?= "<strong>" .
@@ -401,7 +404,6 @@ include "../includes/head.php";
 
   </main>
   <script>
-
     const reportBtn = document.getElementById("report-btn");
     let table = document.getElementById("com").rows;
     if (typeof reportBtn === 'undefined' || reportBtn === null) {

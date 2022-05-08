@@ -47,7 +47,7 @@ include "../includes/head.php";
           $select["name"] .
           '"></a>' ?>
         <p class="text-center">
-          <?= readLogs("../log/recipe_logs/" . $select["id"] . ".txt")  . " vue" ?>
+          <?= readLogs("../log/recipe_logs/" . $select["id"] . ".txt")  . " vues" ?>
         </p>
         <div class="div-head-recipe">
           <div class="head-recipe">

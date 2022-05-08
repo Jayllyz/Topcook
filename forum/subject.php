@@ -2,9 +2,9 @@
 session_start();
 include "../includes/db.php";
 include "../includes/functions.php";
-if(!isset($_SESSION["id"])) {
-    header("Location: https://topcook.site/");
-    exit();
+if (!isset($_SESSION["id"])) {
+  header("Location: https://topcook.site/");
+  exit();
 }
 
 $id_subject = isset($_GET["id_subject"]) ? htmlspecialchars($_GET["id_subject"]) : null;
@@ -52,7 +52,7 @@ include "../includes/head.php";
           if ($_SESSION["rights"] === '1' || $_SESSION["id"] === $id_creator) {
         ?>
             <div class="btn_ingredients mb-4">
-              <a href="deleteTopic.php?id=<?= $id_subject ?>$creator=<?= $pseudo ?>&id_creator=<?= $id_creator ?>" onclick="return checkConfirm('Voulez vous vraiment supprimer ce sujet?')" class="btn btn-danger">
+              <a href="deleteTopic.php?id=<?= $id_subject ?>&creator=<?= $pseudo ?>&id_creator=<?= $id_creator ?>" onclick="return checkConfirm('Voulez vous vraiment supprimer ce sujet?')" class="btn btn-danger">
                 Supprimer le sujet
               </a>
             </div>

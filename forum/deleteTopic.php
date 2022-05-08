@@ -5,13 +5,11 @@ $pseudo = htmlspecialchars($_GET["pseudo"]);
 $id_creator = htmlspecialchars($_GET["id_creator"]);
 include "../includes/db.php";
 
-var_dump($_SESSION["rights"]);
-
 if (isset($_SESSION["id"]) && ($_SESSION["id"] == $id_creator || $_SESSION["rights"] == 1)) {
-    $selectMsg = $db->query("SELECT id FROM MESSAGE WHERE id_topic = ". $id_topic);
+    $selectMsg = $db->query("SELECT id FROM FORUM_MSG WHERE id_topic = " . $id_topic);
     $selectMsg = $selectMsg->fetchAll(PDO::FETCH_ASSOC);
     foreach ($selectMsg as $msg) {
-        $deleteReport = $db->prepare("DELETE FROM FORUM_MSG_REPORT WHERE id_msg = :id_msg ");
+        $deleteReport = $db->prepare("DELETE FROM FORUM_MSG_REPORT WHERE id_msg = :id_msg");
         $deleteReport->execute([
             "id_msg" => $msg["id"],
         ]);

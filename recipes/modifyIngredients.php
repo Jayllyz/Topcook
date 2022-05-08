@@ -41,10 +41,9 @@ include "../includes/head.php";
                             <option value="cl">cl</option>
                             <option value="vide">Vide</option>
                         </select>
-
             </div>
         <?php } ?>
-        <button type="submit" name="submit" class="btn mt-3" data-bs-dismiss="modal">Valider</button>
+        <button type="submit" name="submit" class="btn mt-3">Valider</button>
         </form>
         </div>
 

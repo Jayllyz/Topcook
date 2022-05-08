@@ -200,7 +200,7 @@ include "../includes/head.php";
             if ($_SESSION["rights"] == 1 || $_SESSION["id"] == $select["id_user"]) {
           ?>
               <div class="btn_ingredients mb-4">
-                <a href="ingredients.php?name=<?= $select["name"] ?>&id=<?= $select["id"] ?>&nbSteps=<?= $nbSteps ?>" class="btn">
+                <a href="modifySteps.php?name=<?= $select["name"] ?>&id=<?= $select["id"] ?>&nbSteps=<?= $nbSteps ?>" class="btn">
                   Modifier les étapes
                 </a>
               </div>

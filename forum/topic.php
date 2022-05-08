@@ -1,10 +1,6 @@
 <?php
 session_start();
 include "../includes/db.php";
-if(!isset($_SESSION["id"])) {
-    header("Location: https://topcook.site/");
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

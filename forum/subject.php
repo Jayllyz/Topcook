@@ -2,10 +2,6 @@
 session_start();
 include "../includes/db.php";
 include "../includes/functions.php";
-if (!isset($_SESSION["id"])) {
-  header("Location: https://topcook.site/");
-  exit();
-}
 
 $id_subject = isset($_GET["id_subject"]) ? htmlspecialchars($_GET["id_subject"]) : null;
 

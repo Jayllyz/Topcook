@@ -1,7 +1,5 @@
 function timer() {
     const date = document.getElementById("date").value;
-    const form_contest = document.getElementById("form_contest");
-    const info_timer = document.getElementById("info_timer");
     const divDays = document.getElementById("days");
     const divHours = document.getElementById("hours");
     const divMinutes = document.getElementById("minutes");
@@ -69,9 +67,7 @@ function timer() {
         divSeconds.classList.remove("animated");
         document.getElementById("end-contest").innerHTML = "<p class='fs-3 end_contest'>Concours terminé !</p>";
         const a = document.createElement("a");
-        //                 <a href="contest/createContest.php" class="btn" id="create_contest">
-        //                     Créer un concours
-        //                 </a>
+
         a.href = "contest/createContest.php";
         a.className = "btn";
         a.id = "create_contest";

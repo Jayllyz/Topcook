@@ -5,12 +5,7 @@ function changeTypeAccessories() {
   let selectedTypeValue =
     selectedType.options[selectedType.selectedIndex].value;
   const btn_delete = document.getElementById("btn_delete");
-  const eyes = document.getElementById("eyes-presentation");
-  const hair = document.getElementById("hair-presentation");
-  const mouth = document.getElementById("mouth-presentation");
-  const beard = document.getElementById("beard-presentation");
-  const hat = document.getElementById("hat-presentation");
-  const sweat = document.getElementById("sweat-presentation");
+
 
   if (selectedTypeValue) {
     const request = new XMLHttpRequest();

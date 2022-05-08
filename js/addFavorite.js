@@ -1,7 +1,6 @@
 
 
 function addFavorite(id){
-    const result_favorite = document.getElementById("result_favorite");
     const favorite = document.getElementById("favorite");
     const request = new XMLHttpRequest();
     request.open('POST', 'https://topcook.site/recipes/addFavorite.php');

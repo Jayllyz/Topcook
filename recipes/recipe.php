@@ -185,7 +185,7 @@ include "../includes/head.php";
               <p class="name_ingredient"><?= $ingredient["name"] ?></p>
               <span>
                 <p class="quantity"><?= $ingredient["quantity"] ?></p>
-                <strong id="unit"><?= $ingredient["unit"] ?></strong>
+                <strong><?= $ingredient["unit"] ?></strong>
               </span>
             </div>
           <?php } ?>
@@ -401,6 +401,7 @@ include "../includes/head.php";
 
   </main>
   <script>
+
     const reportBtn = document.getElementById("report-btn");
     let table = document.getElementById("com").rows;
     if (typeof reportBtn === 'undefined' || reportBtn === null) {
@@ -408,10 +409,6 @@ include "../includes/head.php";
       for (let j = 0; j < table.length; j++) {
         table[j].deleteCell(i);
       }
-    }
-    let unit = document.getElementById("unit");
-    if (unit.innerHTML === "vide") {
-      console.log("vide");
     }
   </script>
   <script src="../js/likes.js"></script>

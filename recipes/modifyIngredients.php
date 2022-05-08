@@ -39,7 +39,7 @@ include "../includes/head.php";
                         <select name="unit[]" class="form-control steps-input unit">
                             <option value="g">g</option>
                             <option value="cl">cl</option>
-                            <option value="vide">Vide</option>
+                            <option value=""></option>
                         </select>
             </div>
         <?php } ?>

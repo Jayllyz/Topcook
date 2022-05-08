@@ -13,11 +13,17 @@ if (isset($_SESSION["id"]) && ($_SESSION["id"] == $id_creator || $_SESSION["righ
         $deleteReport->execute([
             "id_msg" => $msg["id"],
         ]);
-        $deleteCom = $db->prepare("DELETE FROM MESSAGE WHERE id_topic = :id_topic");
+        $deleteCom = $db->prepare("DELETE FROM FORUM_MSG WHERE id_topic = :id_topic AND id = :id_msg");
         $deleteCom->execute([
             "id_topic" => $id_topic,
+            "id_msg" => $msg["id"],
         ]);
     }
+
+    $deleteReportTopic = $db->prepare("DELETE FROM REPORT_TOPIC WHERE id_topic = :id_topic");
+    $deleteReportTopic->execute([
+        "id_topic" => $id_topic,
+    ]);
 
     $req = $db->prepare(
         "DELETE FROM TOPIC WHERE id = :id_topic"

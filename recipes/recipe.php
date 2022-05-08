@@ -172,9 +172,9 @@ include "../includes/head.php";
                 <a href="https://topcook.site/recipes/modifyIngredients.php?name=<?= $select["name"] ?>&id=<?= $select["id"] ?>&nbIngredients=<?= $nbIngredients ?>" class="btn">
                   Modifier les ingrédients
                 </a>
-                  <a href="https://topcook.site/recipes/ingredients.php?name=<?= $select["name"] ?>&id=<?= $select["id"] ?>&nbIngredients=<?= $nbIngredients ?>" class="btn ms-3">
-                    Ajouter un ingrédient
-                    </a>
+                <a href="https://topcook.site/recipes/ingredients.php?name=<?= $select["name"] ?>&id=<?= $select["id"] ?>&nbIngredients=<?= $nbIngredients ?>" class="btn ms-3">
+                  Ajouter un ingrédient
+                </a>
               </div>
           <?php }
           } ?>
@@ -184,7 +184,8 @@ include "../includes/head.php";
 
               <p class="name_ingredient"><?= $ingredient["name"] ?></p>
               <span>
-                <p class="quantity"><?= $ingredient["quantity"] ?></p><strong><?= $ingredient["unit"] ?></strong>
+                <p class="quantity"><?= $ingredient["quantity"] ?></p>
+                <strong><?= $ingredient["unit"] ?></strong>
               </span>
             </div>
           <?php } ?>

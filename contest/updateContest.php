@@ -1,6 +1,6 @@
 <?PHP
 session_start();
-if(!isset($_SESSION["id"])) {
+if (!isset($_SESSION["id"])) {
     header("Location: https://topcook.site/");
     exit();
 }
@@ -13,9 +13,8 @@ $selectFinish = $selectFinish->fetch(PDO::FETCH_ASSOC);
 
 if ($selectFinish["finish"] === '0') {
     $update = $db->query("UPDATE CONTEST SET finish = '1' WHERE id = '$select[id]'");
-    $selectIdWinner = $db->query("SELECT id_proposal,  votes, count(votes) AS OCC FROM LIKES_CONTEST WHERE id_contest = " .$select['id'] ." GROUP BY votes ORDER BY OCC DESC LIMIT 1");
+    $selectIdWinner = $db->query("SELECT id_proposal,  votes, count(votes) AS OCC FROM LIKES_CONTEST WHERE id_contest = " . $select['id'] . " GROUP BY votes ORDER BY OCC DESC LIMIT 1");
     $resultIdWinner = $selectIdWinner->fetch(PDO::FETCH_ASSOC);
     $IdWinner = $resultIdWinner["id_proposal"];
     $updateWinner = $db->query("UPDATE USER SET victory = 1 WHERE id = " . $IdWinner);
-    var_dump($IdWinner);
 }

@@ -5,6 +5,7 @@ $id_comment = htmlspecialchars($_GET["id_comment"]);
 $id_recipe = htmlspecialchars($_GET["id_recipe"]);
 $name_recipe = htmlspecialchars($_GET["name_recipe"]);
 
+
 $selectReportCom = $db->prepare("SELECT COUNT(id) FROM REPORT_COM WHERE id_comment = :id_comment");
 $selectReportCom->execute([
   "id_comment" => $id_comment,

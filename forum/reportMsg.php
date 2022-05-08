@@ -6,7 +6,6 @@ if (!isset($_SESSION["id"])) {
 }
 include "../includes/db.php";
 $id_subject = htmlspecialchars($_GET["id_subject"]);
-$id_topic = htmlspecialchars($_GET["id_topic"]);
 $id = htmlspecialchars($_GET["id_msg"]);
 $creator_name = htmlspecialchars($_GET["creator"]);
 $creator = htmlspecialchars($_GET["id_creator"]);

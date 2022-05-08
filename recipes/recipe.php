@@ -368,7 +368,7 @@ include "../includes/head.php";
                         <td>
                           <a href="../admin/comment/report_comment.php?name_recipe=<?= $select["name"] ?>&id_comment=<?= $message["id"] ?>&id_recipe=<?= htmlspecialchars($_GET["id"]) ?>" class="btn btn-danger" id="report-btn">Signaler</a>
                         </td>
-                        </td>
+
 
                         <?php } else {
                         if (isset($_SESSION['id']) && $_SESSION["id"]) { ?>

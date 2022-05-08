@@ -2,7 +2,9 @@
 session_start();
 include "../includes/db.php";
 include "../includes/functions.php";
-
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+error_reporting(E_ALL);
 $id_subject = isset($_GET["id_subject"]) ? htmlspecialchars($_GET["id_subject"]) : null;
 
 $pseudo = isset($_GET["creator"]) ? htmlspecialchars($_GET["creator"]) : null;
@@ -196,7 +198,7 @@ include "../includes/head.php";
                     ) { ?>
 
                       <td id="th-report">
-                        <a href="reportMsg.php?creator=<?= $pseudo ?>&id_msg=<?= $message["id"] ?>&id_subject=<?= $id_subject ?>&id_topic=<?= $id_topic ?>&id_creator=<?= $id_creator ?>" class="btn btn-danger">Signaler</a>
+                        <a href="reportMsg.php?creator=<?= $pseudo ?>&id_msg=<?= $message["id"] ?>&id_subject=<?= $id_subject ?>&id_creator=<?= $id_creator ?>" class="btn btn-danger">Signaler</a>
 
                       </td>
                       <?php } else {

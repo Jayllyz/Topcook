@@ -1,9 +1,7 @@
 <?php
 session_start();
 include "../../includes/db.php";
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
+
 $id_topic = htmlspecialchars($_GET['id_topic']);
 $id_msg = htmlspecialchars($_GET['id_msg']);
 $id_subject = htmlspecialchars($_GET['id_subject']);

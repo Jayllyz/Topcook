@@ -77,6 +77,7 @@ function timer() {
         a.id = "create_contest";
         a.innerHTML = "Créer un concours";
         document.getElementById("parent_create_contest").innerHTML = a.outerHTML;
+        document.getElementById("stopContest").remove();
     }
 
 }

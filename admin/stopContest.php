@@ -7,7 +7,7 @@ if(!isset($_SESSION["rights"]) || $_SESSION["rights"] != 1){
     exit();
 }
 
-$selectContest = $db->query("UPDATE CONTEST SET finish = 1, date_end = NOW() WHERE finish = 0");
+$selectContest = $db->query("UPDATE CONTEST SET date_end = NOW() WHERE finish = 0");
 header("location: https://topcook.site/concours.php?message=Concours arrêté avec succés !&type=success");
 exit();
 

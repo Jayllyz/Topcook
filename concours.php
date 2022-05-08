@@ -19,7 +19,7 @@ if (isset($_SESSION["id"])) {
     fclose($log_visit);
 
 }
-$selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end, finish FROM CONTEST ORDER BY id DESC LIMIT 1");
+$selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST ORDER BY id DESC LIMIT 1");
 $selectContest->execute();
 $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 
@@ -31,7 +31,6 @@ $theme = $contest["theme"];
 $image = $contest["image"];
 $date_start = $contest["date_start"];
 $date_end = $contest["date_end"];
-$finish = $contest["finish"];
 ?>
 
 <body>
@@ -43,7 +42,7 @@ $finish = $contest["finish"];
         <h1 class="pb-3 text-center"><strong>Concours</strong></h1>
 
         <?php
-        if(isset($_SESSION['rights']) && $_SESSION['rights'] == 1 && $finish == 0){
+        if(isset($_SESSION['rights']) && $_SESSION['rights'] == 1){
             ?>
                 <div class="contest container d-flex mb-3">
             <a href="https://topcook.site/admin/stopContest.php" id="stopContest" class="btn btn-ban">Arreter le concours</a>

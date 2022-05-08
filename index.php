@@ -202,7 +202,7 @@ require "includes/functions.php";
         "SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST WHERE date_end > NOW()"
       );
 
-      $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST");
+      $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST ORDER BY id DESC LIMIT 1");
       $selectContest->execute();
       $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 
@@ -217,7 +217,7 @@ require "includes/functions.php";
         $date_end = $contest["date_end"];
       ?>
         <div class="timer" id="info_timer">
-          <a href="https://topcook.site/concours" class="text-decoration-none">
+          <a href="https://topcook.site/concours" class="text-decoration-none" id="link_contest">
             <h2 class="text-center"><?= $name ?></h2>
             <img src="uploads/img_contest/<?= $image ?>" alt="<?= $name ?>" id="img_contest_index" class="img-fluid">
           </a>

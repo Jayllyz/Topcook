@@ -187,16 +187,15 @@ let text = parseInt(document.getElementById("pers").textContent);
 let nameIngredient = document.querySelectorAll(".name_ingredient");
 
 function addPers() {
-  for (let i = 0; i < quantitys.length; i++) {
-    quantityForOnePeople.push(parseInt(quantitys[i].textContent) / text);
-    let quantityNumber = parseInt(quantitys[i].textContent);
+    for (let i = 0; i < quantitys.length; i++) {
+      quantityForOnePeople.push(parseInt(quantitys[i].innerHTML) / text);
+      let quantityNumber = parseInt(quantitys[i].innerHTML);
+        quantityNumber += quantityForOnePeople[i];
+        quantitys[i].textContent = parseInt(quantityNumber);
+    }
+    text++;
 
-    quantityNumber += quantityForOnePeople[i];
-    quantitys[i].textContent = parseInt(quantityNumber);
-  }
-  text++;
-
-  let text2 = (document.getElementById("pers").textContent = text);
+    let text2 = (document.getElementById("pers").innerHTML = text);
 }
 
 function removePers() {
@@ -204,8 +203,8 @@ function removePers() {
 
   if (text > 1) {
     for (let i = 0; i < quantitys.length; i++) {
-      quantityForOnePeople.push(parseInt(quantitys[i].textContent) / text);
-      let quantityNumber = parseInt(quantitys[i].textContent);
+      quantityForOnePeople.push(parseInt(quantitys[i].innerHTML) / text);
+      let quantityNumber = parseInt(quantitys[i].innerHTML);
       if (quantityNumber > 0) {
         quantityNumber -= quantityForOnePeople[i];
         quantitys[i].textContent = parseInt(quantityNumber);
@@ -213,7 +212,7 @@ function removePers() {
     }
     text--;
     // sauvegarder le nouveau nombre dans le span
-    let text2 = (document.getElementById("pers").textContent = text);
+    let text2 = (document.getElementById("pers").innerHTML = text);
   }
 }
 

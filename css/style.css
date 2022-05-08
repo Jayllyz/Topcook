@@ -790,7 +790,16 @@ footer {
   margin: 0 auto;
   border-radius: 50px;
 }
-
+#link_contest{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#message_comment{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {

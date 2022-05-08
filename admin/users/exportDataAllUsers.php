@@ -10,7 +10,7 @@ $query = $db->query(
     "SELECT id, pseudo, email, date_birth, creation, rights FROM USER ORDER BY id DESC"
 );
 $users = $query->fetchAll(PDO::FETCH_ASSOC);
-
+echo " ";
 $filename = "allUsers-data_" . date("Y-m-d") . ".csv";
 
 $f = fopen("php://memory", "w");

@@ -17,7 +17,21 @@ if (isset($_SESSION["id"])) {
     fputs($log_visit, $_SESSION["id"]);
     fputs($log_visit, "\n");
     fclose($log_visit);
+
 }
+$selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end, finish FROM CONTEST ORDER BY id DESC LIMIT 1");
+$selectContest->execute();
+$resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($resultContest as $contest) {
+$id = $contest["id"];
+$name = $contest["name"];
+$description = $contest["description"];
+$theme = $contest["theme"];
+$image = $contest["image"];
+$date_start = $contest["date_start"];
+$date_end = $contest["date_end"];
+$finish = $contest["finish"];
 ?>
 
 <body>
@@ -28,22 +42,19 @@ if (isset($_SESSION["id"])) {
         </div>
         <h1 class="pb-3 text-center"><strong>Concours</strong></h1>
 
+        <?php
+        if(isset($_SESSION['rights']) && $_SESSION['rights'] == 1 && $finish == 0){
+            ?>
+                <div class="contest container d-flex mb-3">
+            <a href="https://topcook.site/admin/stopContest.php" id="stopContest" class="btn btn-ban">Arreter le concours</a>
+            </div>
+        <?php } ?>
+
 
 
         <?php
 
-        $selectContest = $db->prepare("SELECT id,name,description,theme,image,date_start,date_end FROM CONTEST ORDER BY id DESC LIMIT 1");
-        $selectContest->execute();
-        $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($resultContest as $contest) {
-            $id = $contest["id"];
-            $name = $contest["name"];
-            $description = $contest["description"];
-            $theme = $contest["theme"];
-            $image = $contest["image"];
-            $date_start = $contest["date_start"];
-            $date_end = $contest["date_end"];
         ?>
             <div class="timer" id="info_timer">
                 <p class="fs-3 end_contest" id="end-contest">Le concours se termine dans: </p>

@@ -21,7 +21,7 @@ include "../includes/head.php";
     <main>
         <?php
 
-        $selectContest = $db->query("SELECT id,name,description,theme,image,date_start,date_end, finish FROM CONTEST");
+        $selectContest = $db->query("SELECT id,name,description,theme,image,date_start,date_end, finish FROM CONTEST ORDER BY id DESC LIMIT 1");
         $resultContest = $selectContest->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($resultContest as $contest) {

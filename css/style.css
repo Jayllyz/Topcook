@@ -800,6 +800,9 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
+#stopContest{
+  margin: 0 auto;
+}
 @media screen and (max-width: 800px) {
   .navbar ul li a:after,
   .active:after {

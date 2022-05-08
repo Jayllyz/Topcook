@@ -31,8 +31,8 @@ if (isset($_SESSION["id"])) {
                                                                   ) && $_GET["input"] == "pseudo"
                                                                     ? $_GET["valid"]
                                                                     : "" ?>" value="<?= isset($_COOKIE["pseudo"])
-                                        ? $_COOKIE["pseudo"]
-                                        : "" ?>" required>
+                                                                                      ? $_COOKIE["pseudo"]
+                                                                                      : "" ?>" required>
           <div class="<?= $_GET["valid"] ?>-feedback">
             <?= $_GET["message"] ?>
           </div>
@@ -45,8 +45,8 @@ if (isset($_SESSION["id"])) {
                                                                   ) && $_GET["input"] == "email"
                                                                     ? $_GET["valid"]
                                                                     : "" ?>" value="<?= isset($_COOKIE["email"])
-                                        ? $_COOKIE["email"]
-                                        : "" ?>" required>
+                                                                                      ? $_COOKIE["email"]
+                                                                                      : "" ?>" required>
           <div class="<?= $_GET["valid"] ?>-feedback">
             <?= $_GET["message"] ?>
           </div>

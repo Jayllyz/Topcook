@@ -7,15 +7,14 @@ $name_recipe = htmlspecialchars($_GET["name_recipe"]);
 
 $selectReportCom = $db->prepare("SELECT COUNT(id) FROM REPORT_COM WHERE id_comment = :id_comment");
 $selectReportCom->execute([
-    "id_comment" => $id_comment,
+  "id_comment" => $id_comment,
 ]);
 $countReportCom = $selectReportCom->fetch(PDO::FETCH_ASSOC);
-if($countReportCom["COUNT(id)"] !== 0){
-    $deleteReport = $db->prepare("DELETE FROM REPORT_COM WHERE id_comment = :id_comment");
-    $deleteReport->execute([
-        "id_comment" => $id_comment,
-    ]);
-    
+if ($countReportCom["COUNT(id)"] !== 0) {
+  $deleteReport = $db->prepare("DELETE FROM REPORT_COM WHERE id_comment = :id_comment");
+  $deleteReport->execute([
+    "id_comment" => $id_comment,
+  ]);
 }
 
 $deleteMessage = $db->prepare("DELETE FROM COMMENTAIRE WHERE id = :id_comment");

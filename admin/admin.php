@@ -78,8 +78,8 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
                     <br>
 
                     <button type="button" class="btn-ban btn ms-2 me-2" data-bs-toggle="modal" data-bs-target="#pop-up-del-<?= $select["id"] ?>"><?= $select["rights"] != -1
-                                ? "Bannir"
-                                : "Débannir" ?></button>
+                                                                                                                                                    ? "Bannir"
+                                                                                                                                                    : "Débannir" ?></button>
                     </button>
                     <div class="modal fade" id="pop-up-del-<?= $select["id"] ?>">
                       <div class="modal-dialog">

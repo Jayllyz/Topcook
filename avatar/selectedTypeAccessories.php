@@ -1,9 +1,6 @@
 <?php
 include "../includes/db.php";
-if (!isset($_SESSION["id"])) {
-    header("Location: https://topcook.site/");
-    exit();
-}
+
 
 $type = $_GET['type'];
 

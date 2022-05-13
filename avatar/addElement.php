@@ -10,7 +10,7 @@ $idUser = $_SESSION['id'];
 $type = htmlspecialchars($_GET['type']);
 $type = strtolower($type);
 
-if ($type == "----choisir une option de tri----") {
+if ($type == "Choisir un type d'accessoire") {
     echo "<p class='alert alert-danger'>Choisisez une option</p>";
 } else {
     $updateAvatar = $db->prepare("UPDATE AVATAR SET " . $type . "= :type WHERE idUser = :idUser");

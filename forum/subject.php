@@ -73,7 +73,7 @@ include "../includes/head.php";
           ]);
           $selectReport = $selectReport->fetch(PDO::FETCH_NUM);
 
-          if (isset($_SESSION["id"]) && $selectReport[0] == 0) { ?>
+          if (isset($_SESSION["id"]) && $selectReport[0] == 0 && $_SESSION["id"] !== $id_creator) { ?>
             <div class="btn_ingredients mb-4">
               <a href="reportTopic.php?id_topic=<?= $id_subject ?>&creator_name=<?= $pseudo ?>&id_creator=<?= $id_creator ?>" onclick="return checkConfirm('Voulez vous vraiment signaler ce sujet?')" class="btn btn-danger">
                 Signaler le topic

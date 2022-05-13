@@ -73,7 +73,7 @@ require "includes/functions.php";
         $resultName = $selectName->fetch(PDO::FETCH_ASSOC);
 
         $recipeMonth = $db->prepare(
-          "SELECT id, name, images, description FROM RECIPE WHERE name = :name"
+          "SELECT id, name, images, description, id_user FROM RECIPE WHERE name = :name"
         );
         $recipeMonth->execute([
           "name" => $resultName["name"],
@@ -85,6 +85,7 @@ require "includes/functions.php";
           $recipeNameMonth = $selectMonth["name"];
           $recipeImageMonth = $selectMonth["images"];
           $recipeDescriptionMonth = $selectMonth["description"];
+          $recipeCreator = $selectMonth["id_user"];
       ?>
 
           <div class="col-md-3">

@@ -1,5 +1,8 @@
 <?php
 session_start();
+ini_set("display_errors", 1);
+ini_set("display_start", 1);
+
 include "../includes/db.php";
 if (!isset($_SESSION["id"])) {
     header("Location: https://topcook.site/");
@@ -60,30 +63,29 @@ include "../includes/head.php";
                 <h1>Vote du concours</h1>
             <?php } ?>
             <div id="end-votes">
-                <?php
+                <?php if ($finish === '1') { ?>
 
-                $selectIdWinner = $db->query("SELECT id_proposal,  votes, count(votes) AS OCC FROM LIKES_CONTEST GROUP BY votes ORDER BY OCC DESC LIMIT 1");
-                $resultIdWinner = $selectIdWinner->fetch(PDO::FETCH_ASSOC);
-                $IdWinner = $resultIdWinner["id_proposal"];
-                $likes = $resultIdWinner["OCC"];
-                if ($resultIdWinner != null) {
-                    $selectWinner = $db->query("SELECT pseudo, imageContest FROM USER WHERE id = $IdWinner");
-                    $result = $selectWinner->fetch(PDO::FETCH_ASSOC);
-                    $winnerPseudo = $result["pseudo"];
-                    $winnerImage = $result["imageContest"];
-                ?>
-                    <h2>Le gagnant est : <?= $winnerPseudo ?> avec <?= $likes ?> likes</h2>
-                    <img src="../uploads/uploadsParticipate/<?= $winnerImage ?>" id="img-winner" class="mt-3" alt="<?= $winnerPseudo ?>">
-                <?php } else { ?>
-                    <h2>Aucun gagnant</h2>
+                    <?php
+
+                    $selectIdWinner = $db->query("SELECT id_proposal,  votes, count(votes) AS OCC FROM LIKES_CONTEST GROUP BY votes ORDER BY OCC DESC LIMIT 1");
+                    $resultIdWinner = $selectIdWinner->fetch(PDO::FETCH_ASSOC);
+                    $IdWinner = $resultIdWinner["id_proposal"];
+                    $likes = $resultIdWinner["OCC"];
+                    if ($resultIdWinner != null) {
+                        $selectWinner = $db->query("SELECT pseudo, imageContest FROM USER WHERE id = $IdWinner");
+                        $result = $selectWinner->fetch(PDO::FETCH_ASSOC);
+                        $winnerPseudo = $result["pseudo"];
+                        $winnerImage = $result["imageContest"];
+                    ?>
+                        <h2>Le gagnant est : <?= $winnerPseudo ?> avec <?= $likes ?> likes</h2>
+                        <img src="../uploads/uploadsParticipate/<?= $winnerImage ?>" id="img-winner" class="mt-3" alt="<?= $winnerPseudo ?>">
+                    <?php } else { ?>
+                        <h2>Aucun gagnant</h2>
+                    <?php } ?>
+
                 <?php } ?>
-
-
             </div>
             <?php
-            $selectContestIsFinished = $db->query("SELECT finish FROM CONTEST");
-            $resultFinished = $selectContestIsFinished->fetch(PDO::FETCH_ASSOC);
-            $finish = $resultFinished["finish"];
             if ($finish !== '1') {
 
             ?>
@@ -91,12 +93,14 @@ include "../includes/head.php";
                     <?php
                     $selectParticipate = $db->query("SELECT id , idContest, imageContest FROM USER  WHERE imageContest != 'NULL' ORDER BY id ASC");
                     $resultParticipate = $selectParticipate->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($resultParticipate as $participate) {
+                    $selectInCurrentContest = $db->query("SELECT id, idContest, imageContest FROM USER WHERE idContest =" . $id);
+                    $resultInCurrentContest = $selectInCurrentContest->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($resultInCurrentContest as $participate) {
                         $idParticipate = $participate['id'];
                         $idContest = $participate['idContest'];
                     ?>
                         <div class="col-md-4 m-3 d-flex align-items-center">
-                            <img src="../uploads/uploadsParticipate/<?= $participate["imageContest"] ?>" class="img-fluid allrecipes" alt="">
+                            <img src="../uploads/uploadsParticipate/<?= $participate["imageContest"] ?>" class="img-fluid allrecipes" alt="img-<?= $idParticipate ?>">
                             <div class="d-flex flex-row">
                                 <div id="like">
                                     <?php if (isset($_SESSION["id"])) {

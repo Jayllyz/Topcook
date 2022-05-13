@@ -85,7 +85,9 @@ require "includes/functions.php";
           $recipeNameMonth = $selectMonth["name"];
           $recipeImageMonth = $selectMonth["images"];
           $recipeDescriptionMonth = $selectMonth["description"];
-          $recipeCreator = $selectMonth["id_user"];
+          $selectCreator = $db->query("SELECT pseudo FROM USER WHERE id = " . $selectMonth["id_user"]);
+          $result = $selectCreator->fetch(PDO::FETCH_ASSOC);
+          $recipeCreator = $result["pseudo"];
       ?>
 
           <div class="col-md-3">

@@ -71,7 +71,8 @@ function timer() {
     divHours.classList.remove("animated");
     divMinutes.classList.remove("animated");
     divSeconds.classList.remove("animated");
-    document.getElementById("end-contest").innerHTML = "<p class='fs-3 end_contest'>Vote terminé !</p>";
+    document.getElementById("end-contest").innerHTML =
+      "<p class='fs-3 end_contest'>Votes terminées !</p>";
     updateWinner();
   }
 }

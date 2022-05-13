@@ -53,7 +53,7 @@ if (isset($_SESSION["id"])) {
                     <option value="----Choisir une option de tri----">----Choisir une option de tri----</option>
                     <option value="entree">Entrée</option>
                     <option value="plat">Plat</option>
-                    <option value="dessert">Déssert</option>
+                    <option value="dessert">Dessert</option>
                 </select>
             </div>
         </div>

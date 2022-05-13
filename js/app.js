@@ -187,15 +187,15 @@ let text = parseInt(document.getElementById("pers").textContent);
 let nameIngredient = document.querySelectorAll(".name_ingredient");
 
 function addPers() {
-    for (let i = 0; i < quantitys.length; i++) {
-      quantityForOnePeople.push(parseInt(quantitys[i].innerHTML) / text);
-      let quantityNumber = parseInt(quantitys[i].innerHTML);
-        quantityNumber += quantityForOnePeople[i];
-        quantitys[i].textContent = parseInt(quantityNumber);
-    }
-    text++;
+  for (let i = 0; i < quantitys.length; i++) {
+    quantityForOnePeople.push(parseInt(quantitys[i].innerHTML) / text);
+    let quantityNumber = parseInt(quantitys[i].innerHTML);
+    quantityNumber += quantityForOnePeople[i];
+    quantitys[i].textContent = parseInt(quantityNumber);
+  }
+  text++;
 
-    let text2 = (document.getElementById("pers").innerHTML = text);
+  let text2 = (document.getElementById("pers").innerHTML = text);
 }
 
 function removePers() {
@@ -223,6 +223,3 @@ function checkConfirm(text) {
     return false;
   }
 }
-
-
-

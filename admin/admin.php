@@ -74,7 +74,7 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
                   <div class="button_profil">
                     <a href="users/read.php?id=<?= $select["id"] ?>" class="btn-read btn ms-2 me-2">Consulter</a>
                     <br>
-                    <a href="users/update.php?id=<?= $select["id"] ?>&pseudo=<?= $select["pseudo"] ?>" class="btn-update btn ms-2 me-2">Modifier</a>
+                    <a href="users/update.php?id=<?= $select["id"] ?>&pseudo=<?= $select["pseudo"] ?>&email=<?= $select["email"] ?>&rights=<?= $select["rights"] ?>" class=" btn-update btn ms-2 me-2">Modifier</a>
                     <br>
 
                     <button type="button" class="btn-ban btn ms-2 me-2" data-bs-toggle="modal" data-bs-target="#pop-up-del-<?= $select["id"] ?>"><?= $select["rights"] != -1

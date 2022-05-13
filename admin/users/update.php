@@ -2,7 +2,10 @@
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
-$id_user = $_GET['id'];
+$id_user = htmlspecialchars($_GET['id']);
+$pseudo = htmlspecialchars($_GET["pseudo"]);
+$email = htmlspecialchars($_GET["email"]);
+$rights = htmlspecialchars($_GET["rights"]);
 if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
 
     <!DOCTYPE html>
@@ -26,11 +29,11 @@ if ($_SESSION["rights"] == 1 && isset($_SESSION["id"])) { ?>
                 <div class="container col-md-4" id="form">
                     <div class="mb-3">
                         <label class="form-label"><strong>Email</strong></label>
-                        <input type="email" class="form-control" name="email">
+                        <input type="email" class="form-control" name="email" value="<?= $email ?>">
                         <label class="form-label mt-3"><strong>Pseudo</strong></label>
-                        <input type="text" class="form-control" name="pseudo">
+                        <input type="text" class="form-control" name="pseudo" value="<?= $pseudo ?>">
                         <label class="form-label mt-3"><strong>Droits</strong></label>
-                        <input type="number" class="form-control" name="rights">
+                        <input type="number" class="form-control" name="rights" value="<?= $rights ?>">
                         <button type="submit" name="submit" class="btn mt-3">Envoyer</button>
                     </div>
                 </div>

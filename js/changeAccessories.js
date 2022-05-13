@@ -6,7 +6,6 @@ function changeTypeAccessories() {
     selectedType.options[selectedType.selectedIndex].value;
   const btn_delete = document.getElementById("btn_delete");
 
-
   if (selectedTypeValue) {
     const request = new XMLHttpRequest();
     request.open(
@@ -115,6 +114,10 @@ function addElement(id) {
   const selectedType = document.getElementById("selectedTypeAccessories");
   const selectedTypeValue =
     selectedType.options[selectedType.selectedIndex].value;
+
+  if (selectedTypeValue === "Choisir un type d'accessoire") {
+    alert("Veuillez choisir un type d'accessoire dans le filtre");
+  }
   const request = new XMLHttpRequest();
   request.open(
     "GET",

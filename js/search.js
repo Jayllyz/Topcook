@@ -1,33 +1,26 @@
-const searchbar = document.getElementById("searchbar");
-const div = document.createElement("div");
+const searchbar = document.getElementById('searchbar');
+const div = document.createElement('div');
 
-searchbar.addEventListener("keyup", function () {
-  div.innerHTML = "";
+searchbar.addEventListener('keyup', function () {
+  div.innerHTML = '';
   let search = searchbar.value;
-  if (search !== "") {
+  if (search !== '') {
     const request = new XMLHttpRequest();
-    request.open(
-        "GET",
-        "https://topcook.site/includes/search.php?search=" + search
-    );
+    request.open('GET', 'https://topcook.site/includes/search.php?search=' + search);
     request.onreadystatechange = function () {
       if (request.readyState === 4 && request.status === 200) {
         const res = request.responseText;
-        div.style.display = "block";
-        if (res !== "") {
-          const containerSearch = document.getElementById("container-search");
-          div.setAttribute("id", "result");
+        div.style.display = 'block';
+        if (res !== '') {
+          const containerSearch = document.getElementById('container-search');
+          div.setAttribute('id', 'result');
           containerSearch.appendChild(div);
           div.innerHTML = res;
-
         }
       }
     };
     request.send();
-  }else{
-    div.style.display = "none";
+  } else {
+    div.style.display = 'none';
   }
 });
-
-
-

@@ -1,29 +1,24 @@
 function changeTypeAccessories() {
-  const chooseElement = document.getElementById("chooseElement");
-  const viewSelectedElement = document.getElementById("viewSelectedElement");
-  let selectedType = document.getElementById("selectedTypeAccessories");
-  let selectedTypeValue =
-    selectedType.options[selectedType.selectedIndex].value;
-  const btn_delete = document.getElementById("btn_delete");
+  const chooseElement = document.getElementById('chooseElement');
+  const viewSelectedElement = document.getElementById('viewSelectedElement');
+  let selectedType = document.getElementById('selectedTypeAccessories');
+  let selectedTypeValue = selectedType.options[selectedType.selectedIndex].value;
+  const btn_delete = document.getElementById('btn_delete');
 
   if (selectedTypeValue) {
     const request = new XMLHttpRequest();
-    request.open(
-      "GET",
-      "https://topcook.site/avatar/selectedTypeAccessories.php?type=" +
-        selectedTypeValue
-    );
+    request.open('GET', 'https://topcook.site/avatar/selectedTypeAccessories.php?type=' + selectedTypeValue);
     request.onreadystatechange = function () {
       if (request.readyState === 4) {
         const resType = request.responseText;
         if (selectedTypeValue !== "Choisir un type d'accessoire") {
-          btn_delete.style.display = "block";
-          chooseElement.style.display = "none";
+          btn_delete.style.display = 'block';
+          chooseElement.style.display = 'none';
           viewSelectedElement.innerHTML = resType;
         } else {
-          btn_delete.style.display = "none";
-          chooseElement.style.display = "block";
-          viewSelectedElement.innerHTML = "";
+          btn_delete.style.display = 'none';
+          chooseElement.style.display = 'block';
+          viewSelectedElement.innerHTML = '';
         }
       }
     };
@@ -33,73 +28,73 @@ function changeTypeAccessories() {
 
 function reloadAvatar() {
   const request = new XMLHttpRequest();
-  request.open("GET", "https://topcook.site/avatar/reloadAvatar.php");
+  request.open('GET', 'https://topcook.site/avatar/reloadAvatar.php');
   request.onreadystatechange = function () {
     if (request.readyState === XMLHttpRequest.DONE) {
       const resType = request.responseText;
-      const div = document.getElementById("ajax");
-      div.innerHTML = "";
+      const div = document.getElementById('ajax');
+      div.innerHTML = '';
       div.innerHTML = resType;
 
       const request2 = new XMLHttpRequest();
-      request2.open("GET", "https://topcook.site/avatar/getColor.php");
+      request2.open('GET', 'https://topcook.site/avatar/getColor.php');
       request2.onreadystatechange = function () {
         if (request2.readyState === XMLHttpRequest.DONE) {
           const res = request2.responseText;
-          let array = res.split(",");
+          let array = res.split(',');
 
-          let hair = document.getElementById("hair-path");
+          let hair = document.getElementById('hair-path');
           if (hair !== null) {
-            hair.setAttribute("fill", "#" + array[0]);
-            let hairInput = document.getElementById("colorHair");
+            hair.setAttribute('fill', '#' + array[0]);
+            let hairInput = document.getElementById('colorHair');
             if (hairInput !== null) {
-              hairInput.value = "#" + array[0];
+              hairInput.value = '#' + array[0];
             }
           }
 
-          let hat = document.getElementById("hat-path");
+          let hat = document.getElementById('hat-path');
           if (hat !== null) {
-            hat.setAttribute("fill", "#" + array[1]);
-            let hatInput = document.getElementById("colorHat");
+            hat.setAttribute('fill', '#' + array[1]);
+            let hatInput = document.getElementById('colorHat');
             if (hatInput !== null) {
-              hatInput.value = "#" + array[1];
+              hatInput.value = '#' + array[1];
             }
           }
 
-          let sweet = document.getElementById("sweet-path");
+          let sweet = document.getElementById('sweet-path');
           if (sweet !== null) {
-            sweet.setAttribute("fill", "#" + array[2]);
-            let sweetInput = document.getElementById("colorSweat");
+            sweet.setAttribute('fill', '#' + array[2]);
+            let sweetInput = document.getElementById('colorSweat');
             if (sweetInput !== null) {
-              sweetInput.value = "#" + array[2];
+              sweetInput.value = '#' + array[2];
             }
           }
 
-          let eyes = document.getElementById("eyes-path");
+          let eyes = document.getElementById('eyes-path');
 
           if (eyes !== null) {
-            eyes.setAttribute("fill", "#" + array[3]);
-            let eyesInput = document.getElementById("colorEyes");
+            eyes.setAttribute('fill', '#' + array[3]);
+            let eyesInput = document.getElementById('colorEyes');
             if (eyesInput !== null) {
-              eyesInput.value = "#" + array[3];
+              eyesInput.value = '#' + array[3];
             }
           }
 
-          let beard = document.getElementById("beard-path");
+          let beard = document.getElementById('beard-path');
           if (beard !== null) {
-            beard.setAttribute("fill", "#" + array[4]);
-            let beardInput = document.getElementById("colorBeard");
+            beard.setAttribute('fill', '#' + array[4]);
+            let beardInput = document.getElementById('colorBeard');
             if (beardInput !== null) {
-              beardInput.value = "#" + array[4];
+              beardInput.value = '#' + array[4];
             }
           }
-          let body = document.getElementById("body");
+          let body = document.getElementById('body');
 
           if (body !== null) {
-            body.setAttribute("fill", "#" + array[5]);
-            let bodyInput = document.getElementById("colorBody");
+            body.setAttribute('fill', '#' + array[5]);
+            let bodyInput = document.getElementById('colorBody');
             if (bodyInput !== null) {
-              bodyInput.value = "#" + array[5];
+              bodyInput.value = '#' + array[5];
             }
           }
         }
@@ -111,21 +106,14 @@ function reloadAvatar() {
 }
 
 function addElement(id) {
-  const selectedType = document.getElementById("selectedTypeAccessories");
-  const selectedTypeValue =
-    selectedType.options[selectedType.selectedIndex].value;
+  const selectedType = document.getElementById('selectedTypeAccessories');
+  const selectedTypeValue = selectedType.options[selectedType.selectedIndex].value;
 
   if (selectedTypeValue === "Choisir un type d'accessoire") {
     alert("Veuillez choisir un type d'accessoire dans le filtre");
   }
   const request = new XMLHttpRequest();
-  request.open(
-    "GET",
-    "https://topcook.site/avatar/addElement.php?id=" +
-      id +
-      "&type=" +
-      selectedTypeValue
-  );
+  request.open('GET', 'https://topcook.site/avatar/addElement.php?id=' + id + '&type=' + selectedTypeValue);
   request.onreadystatechange = function () {
     if (request.readyState === 4) {
       const resType = request.responseText;
@@ -136,15 +124,10 @@ function addElement(id) {
 }
 
 function deleteAccessories() {
-  let selectedType = document.getElementById("selectedTypeAccessories");
-  const selectedTypeValue =
-    selectedType.options[selectedType.selectedIndex].value;
+  let selectedType = document.getElementById('selectedTypeAccessories');
+  const selectedTypeValue = selectedType.options[selectedType.selectedIndex].value;
   const request = new XMLHttpRequest();
-  request.open(
-    "GET",
-    "https://topcook.site/avatar/deleteAccessories.php?type=" +
-      selectedTypeValue
-  );
+  request.open('GET', 'https://topcook.site/avatar/deleteAccessories.php?type=' + selectedTypeValue);
   request.onreadystatechange = function () {};
   request.send();
   reloadAvatar();

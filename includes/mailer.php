@@ -8,7 +8,7 @@ $mail->SMTPSecure = "tls";
 $mail->SMTPAuth = true;
 $mail->Username = "topcook2022@gmail.com";
 $mail->Password = "TopCook.2022#ESGI";
-$mail->setFrom("topcook2022@gmail.com", "No-Reply");
+$mail->setFrom("topcook2022@gmail.com"); // Adresse mail du site
 $mail->addAddress($email);
 $mail->Subject = $subject;
 $mail->Message = $mailMsg;

@@ -1,7 +1,1 @@
-connard
-salope
-nazi
-soutenance
-putain
-pute
-nique
+badwords
